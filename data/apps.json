@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-25T12:41:38.493Z",
+  "updatedAt": "2026-08-25T13:03:24.428Z",
   "apps": [
+    {
+      "id": "mt8oe9rr",
+      "name": "Karakter Tulisan",
+      "url": "./apps/ttd.html",
+      "description": "Pembaca Karakter Tulisan dan TTD orang",
+      "category": "Produktivitas",
+      "icon": "✅",
+      "color": "#f59e0b",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1787663003895
+    },
     {
       "id": "1",
       "name": "Hisab Kalender Hijriyah",
@@ -55,9 +68,9 @@
     },
     {
       "id": "5",
-      "name": "Markdown Studio",
-      "url": "./apps/md.html",
-      "description": "Editor markdown live preview",
+      "name": "Absen dan Nilai Siswa",
+      "url": "./apps/absensi.html",
+      "description": "Aplikasi Absen dan Nilai Siswa",
       "category": "Dev",
       "icon": "📝",
       "color": "#f59e0b",
