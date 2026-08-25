@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-25T13:03:24.428Z",
+  "updatedAt": "2026-08-25T13:04:53.415Z",
   "apps": [
+    {
+      "id": "mt8og6eu",
+      "name": "Sistem Periodik Unsur",
+      "url": "./apps/spu.html",
+      "description": "Tabel interaktif Sistem Periodik Unsur Kimia",
+      "category": "Produktivitas",
+      "icon": "🧮",
+      "color": "#0af51a",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1787663092854
+    },
     {
       "id": "mt8oe9rr",
       "name": "Karakter Tulisan",
