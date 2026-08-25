@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-25T12:37:32.859Z",
+  "updatedAt": "2026-08-25T12:38:36.345Z",
   "apps": [
     {
       "id": "1",
@@ -16,9 +16,9 @@
     },
     {
       "id": "2",
-      "name": "TodoFlow",
+      "name": "Korektor AI",
       "url": "./apps/todo.html",
-      "description": "Todo list drag & drop minimalis",
+      "description": "Korektor ujian essay berbasis AI",
       "category": "Produktivitas",
       "icon": "✅",
       "color": "#06b6d4",
