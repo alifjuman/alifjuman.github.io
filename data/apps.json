@@ -1,1 +1,83 @@
-
+{
+  "updatedAt": "2026-05-13T00:00:00Z",
+  "apps": [
+    {
+      "id": "1",
+      "name": "Kalkulator Pro",
+      "url": "./apps/calc.html",
+      "description": "Kalkulator scientific + history",
+      "category": "Tools",
+      "icon": "🧮",
+      "color": "#8b5cf6",
+      "pinned": true,
+      "favorite": true,
+      "clicks": 12,
+      "createdAt": 1715550000000
+    },
+    {
+      "id": "2",
+      "name": "TodoFlow",
+      "url": "./apps/todo.html",
+      "description": "Todo list drag & drop minimalis",
+      "category": "Produktivitas",
+      "icon": "✅",
+      "color": "#06b6d4",
+      "pinned": false,
+      "favorite": true,
+      "clicks": 32,
+      "createdAt": 1715636400000
+    },
+    {
+      "id": "3",
+      "name": "Pomodoro Timer",
+      "url": "./apps/pomo.html",
+      "description": "Focus timer 25/5 dengan sound",
+      "category": "Produktivitas",
+      "icon": "🍅",
+      "color": "#ef4444",
+      "pinned": true,
+      "favorite": false,
+      "clicks": 8,
+      "createdAt": 1715463600000
+    },
+    {
+      "id": "4",
+      "name": "QR Generator",
+      "url": "./apps/qr.html",
+      "description": "Buat QR code offline",
+      "category": "Tools",
+      "icon": "🔳",
+      "color": "#10b981",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 5,
+      "createdAt": 1715722800000
+    },
+    {
+      "id": "5",
+      "name": "Markdown Studio",
+      "url": "./apps/md.html",
+      "description": "Editor markdown live preview",
+      "category": "Dev",
+      "icon": "📝",
+      "color": "#f59e0b",
+      "pinned": false,
+      "favorite": true,
+      "clicks": 20,
+      "createdAt": 1715290800000
+    },
+    {
+      "id": "6",
+      "name": "Color Palette",
+      "url": "./apps/color.html",
+      "description": "Picker & gradient generator",
+      "category": "Desain",
+      "icon": "🎨",
+      "color": "#ec4899",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 11,
+      "createdAt": 1715377200000
+    }
+  ]
+}
