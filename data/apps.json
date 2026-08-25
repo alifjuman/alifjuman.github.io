@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-08-25T11:02:55.757Z",
+  "updatedAt": "2026-08-25T12:36:15.918Z",
   "apps": [
     {
       "id": "1",
-      "name": "Kalkulator Pro",
-      "url": "./apps/calc.html",
-      "description": "Kalkulator scientific + history",
+      "name": "Hisab Kalender Hijriyah",
+      "url": "./apps/hisab.html",
+      "description": "Hisab Kalender Hijriyah",
       "category": "Tools",
       "icon": "🧮",
       "color": "#8b5cf6",
