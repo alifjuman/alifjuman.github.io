@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KARAKTERA HRD PRO v5 - Groq + OpenRouter</title>
+<style>
+*{box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
+body{margin:0;background:#f8fafc;color:#0f172a}
+header{background:#0f172a;color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.badge{background:#1e293b;border:1px solid #334155;padding:4px 10px;border-radius:999px;font-size:11px}
+.wrap{max-width:1260px;margin:22px auto;padding:0 16px;display:grid;grid-template-columns:400px 1fr;gap:20px}
+@media(max-width:1000px){.wrap{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+h3{margin:0 0 12px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:#334155}
+input,select{width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:10px;margin:6px 0 10px;font-size:14px}
+.btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600;font-size:13px}
+.btn-primary{background:#3b82f6;color:#fff;width:100%}
+.btn-dark{background:#0f172a;color:#fff}
+.btn-ghost{border:1px solid #cbd5e1;background:#fff}
+.drop{border:2px dashed #94a3b8;border-radius:12px;padding:14px;text-align:center;cursor:pointer;background:#f8fafc}
+.drop img{max-width:100%;max-height:150px;margin-top:8px;border-radius:8px}
+canvas.draw{width:100%;height:170px;border:1px solid #cbd5e1;border-radius:12px;background:#fff;touch-action:none}
+.tabs{display:flex;gap:8px;margin-bottom:10px}
+.tab{padding:6px 12px;border-radius:999px;border:1px solid #e2e8f0;cursor:pointer;font-size:12px}
+.tab.active{background:#0f172a;color:#fff}
+.loading{position:fixed;inset:0;background:rgba(15,23,42,.9);color:#fff;display:none;align-items:center;justify-content:center;z-index:50;flex-direction:column}
+.bar{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden}
+.fill{height:100%;background:#3b82f6;width:0%;transition:.4s}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi{padding:10px;border:1px solid #e2e8f0;border-radius:12px;background:#fff}
+.badge-ai{background:#dbeafe;color:#1d4ed8;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700}
+#radar{width:100%;height:320px}
+.provider{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.prov{border:2px solid #e2e8f0;border-radius:12px;padding:10px;cursor:pointer;text-align:center}
+.prov.active{border-color:#3b82f6;background:#eff6ff}
+.prov b{display:block;font-size:13px}
+.prov span{font-size:11px;color:#64748b}
+.input-wrap{position:relative}
+.eye{position:absolute;right:10px;top:50%;transform:translateY(-50%);cursor:pointer}
+</style>
+</head>
+<body>
+<header><div><b>KARAKTERA HRD PRO</b> <span style="opacity:.7">v5 • GROQ + OPENROUTER</span></div><div class="badge">🤖 Dual Provider • Auto Fallback</div></header>
+<div class="loading" id="loading"><div style="font-size:22px">🔍 AI Vision Menganalisis...</div><div id="loadText" style="margin-top:8px;opacity:.8;font-size:13px">Mengirim...</div><div style="width:320px;margin-top:14px" class="bar"><div class="fill" id="loadFill"></div></div></div>
+<div class="wrap">
+<div>
+<div class="card"><h3>👤 Data Kandidat</h3><input id="nama" placeholder="Nama Lengkap"><input id="posisi" placeholder="Posisi Dilamar"><input id="pend" placeholder="Pendidikan"></div>
+
+<div class="card" style="margin-top:14px">
+<h3>🔑 AI PROVIDER & API KEY</h3>
+<div class="provider">
+<div class="prov active" id="provGroq" onclick="setProvider('groq')"><b>⚡ Groq</b><span>Gratis, Cepat<br>gsk_...</span></div>
+<div class="prov" id="provOpenRouter" onclick="setProvider('openrouter')"><b>🌐 OpenRouter</b><span>Banyak Model<br>sk-or-v1-...</span></div>
+</div>
+
+<div id="boxGroq">
+<div class="input-wrap"><input id="groqKey" type="password" placeholder="gsk_... dari console.groq.com"><span class="eye" onclick="toggleEye('groqKey')">👁️</span></div>
+</div>
+<div id="boxOpenRouter" style="display:none">
+<div class="input-wrap"><input id="openRouterKey" type="password" placeholder="sk-or-v1-... dari openrouter.ai"><span class="eye" onclick="toggleEye('openRouterKey')">👁️</span></div>
+<div style="font-size:11px;color:#64748b;margin-bottom:8px">Dapatkan di <b>openrouter.ai/keys</b> - gratis $1 credit awal, banyak model vision gratis</div>
+</div>
+
+<div style="display:flex;gap:8px">
+<button class="btn btn-dark" style="flex:1" onclick="saveKeys()">💾 Simpan Key</button>
+<button class="btn btn-ghost" style="flex:1" onclick="testKey()">🔌 Test Koneksi</button>
+</div>
+
+<select id="model"></select>
+<div id="connStatus" style="font-size:12px;margin-top:8px;color:#64748b">Pilih provider, paste key, Simpan, Test</div>
+<div id="modelListInfo" style="font-size:11px;color:#94a3b8;margin-top:6px"></div>
+</div>
+
+<div class="card" style="margin-top:14px"><h3>📤 Tulisan & TTD</h3>
+<div class="tabs"><div class="tab active" id="tUpload" onclick="setTab('upload')">Upload</div><div class="tab" id="tDraw" onclick="setTab('draw')">Gambar</div></div>
+<div id="panelUpload"><div class="drop" onclick="document.getElementById('f1').click()"><b>📄 Tulisan Tangan</b><input type="file" id="f1" hidden accept="image/*"><img id="p1"></div><div class="drop" style="margin-top:10px" onclick="document.getElementById('f2').click()"><b>✒️ TTD</b><input type="file" id="f2" hidden accept="image/*"><img id="p2"></div></div>
+<div id="panelDraw" style="display:none"><canvas class="draw" id="c1" width="800" height="380"></canvas><button class="btn btn-ghost" onclick="clearCanvas('c1')" style="margin:6px 0;width:100%">Clear Tulisan</button><canvas class="draw" id="c2" width="800" height="320"></canvas><button class="btn btn-ghost" onclick="clearCanvas('c2')" style="margin:6px 0;width:100%">Clear TTD</button></div>
+</div>
+<button class="btn btn-primary" style="margin-top:14px;padding:14px;font-size:15px" onclick="analyzeAI()">🔍 ANALISIS OTOMATIS (Groq / OpenRouter)</button>
+<div id="err" style="color:#ef4444;font-size:12px;margin-top:8px;white-space:pre-wrap"></div>
+</div>
+
+<div>
+<div class="card" id="aiResult" style="display:none"><h3>🤖 Hasil AI <span class="badge-ai" id="confBadge"></span> <span id="modelUsedBadge" style="font-size:11px;background:#f1f5f9;padding:3px 8px;border-radius:6px"></span> <span id="provBadge" style="font-size:11px;background:#fef9c3;padding:3px 8px;border-radius:6px"></span></h3><div id="aiGrid"></div><div id="forensik" style="margin-top:12px;padding:12px;background:#f1f5f9;border-radius:10px;font-size:13px"></div></div>
+<div class="card" id="result" style="display:none;margin-top:14px"><h3>📊 Dashboard HRD</h3><div style="display:flex;gap:14px;align-items:center"><div id="scoreBig" style="font-size:44px;font-weight:800">-</div><div><div id="statusRec" style="font-weight:800;padding:5px 12px;border-radius:999px"></div><div id="namaPos" style="font-size:12px;color:#64748b"></div></div></div><canvas id="radar" width="500" height="500"></canvas><div class="grid2" id="traits" style="margin-top:12px"></div><div id="discBars" style="margin-top:12px"></div><div class="grid2" id="insight" style="margin-top:12px"></div><ul id="interview" style="font-size:13px"></ul><div style="display:flex;gap:8px;margin-top:12px"><button class="btn btn-dark" onclick="saveHistory()">💾 Simpan</button><button class="btn btn-ghost" onclick="exportJSON()">Export JSON</button><button class="btn btn-ghost" onclick="location.reload()">Baru</button></div></div>
+<div class="card" id="empty" style="text-align:center;padding:40px;color:#94a3b8"><div style="font-size:42px">📝</div><div style="font-weight:600;color:#0f172a">Siap Analisis</div><div style="font-size:12px;margin-top:6px">Pilih Groq atau OpenRouter, paste key, upload tulisan & TTD, lalu Analisis</div></div>
+</div>
+</div>
+
+<script>
+let tab='upload',img1='',img2='',provider='groq';
+const $=id=>document.getElementById(id);
+$('f1').onchange=e=>{const fr=new FileReader(); fr.onload=()=>{img1=fr.result; $('p1').src=img1; $('p1').style.display='block';}; fr.readAsDataURL(e.target.files[0]);};
+$('f2').onchange=e=>{const fr=new FileReader(); fr.onload=()=>{img2=fr.result; $('p2').src=img2; $('p2').style.display='block';}; fr.readAsDataURL(e.target.files[0]);};
+function setTab(t){tab=t; $('panelUpload').style.display=t==='upload'?'block':'none'; $('panelDraw').style.display=t==='draw'?'block':'none'; $('tUpload').classList.toggle('active',t==='upload'); $('tDraw').classList.toggle('active',t==='draw');}
+function setupCanvas(id){const c=$(id),ctx=c.getContext('2d');let d=false,last=null;function pos(e){const r=c.getBoundingClientRect();const t=e.touches?e.touches[0]:e;return{x:(t.clientX-r.left)*(c.width/r.width),y:(t.clientY-r.top)*(c.height/r.height)}}c.addEventListener('mousedown',e=>{d=true;last=pos(e)});c.addEventListener('mousemove',e=>{if(!d)return;const p=pos(e);ctx.strokeStyle='#0f172a';ctx.lineWidth=2.2;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;});window.addEventListener('mouseup',()=>d=false);c.addEventListener('touchstart',e=>{d=true;last=pos(e);e.preventDefault();},{passive:false});c.addEventListener('touchmove',e=>{if(!d)return;const p=pos(e);ctx.strokeStyle='#0f172a';ctx.lineWidth=2.2;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;e.preventDefault();},{passive:false});c.addEventListener('touchend',()=>d=false);}
+setupCanvas('c1');setupCanvas('c2');function clearCanvas(id){$(id).getContext('2d').clearRect(0,0,$(id).width,$(id).height);}
+function toggleEye(id){const i=$(id); i.type=i.type==='password'?'text':'password';}
+
+const GROQ_MODELS=["meta-llama/llama-4-maverick-17b-128e-instruct","meta-llama/llama-4-scout-17b-16e-instruct","llama-3.2-90b-vision-preview","llama-3.2-11b-vision-preview"];
+const OR_MODELS=["google/gemini-2.0-flash-001","google/gemini-2.0-flash-lite-001","anthropic/claude-3.5-sonnet","openai/gpt-4o","openai/gpt-4o-mini","meta-llama/llama-3.2-90b-vision-instruct:free","meta-llama/llama-3.2-11b-vision-instruct:free","qwen/qwen2.5-vl-72b-instruct:free"];
+
+function setProvider(p){
+ provider=p;
+ $('provGroq').classList.toggle('active',p==='groq');
+ $('provOpenRouter').classList.toggle('active',p==='openrouter');
+ $('boxGroq').style.display=p==='groq'?'block':'none';
+ $('boxOpenRouter').style.display=p==='openrouter'?'block':'none';
+ localStorage.setItem('hrd_provider',p);
+ refreshModelList();
+}
+function refreshModelList(){
+ const sel=$('model'); sel.innerHTML='';
+ const list = provider==='groq'? GROQ_MODELS : OR_MODELS;
+ list.forEach(id=>{const o=document.createElement('option'); o.value=id; o.textContent=id; sel.appendChild(o);});
+}
+(function(){
+ const savedProv=localStorage.getItem('hrd_provider')||'groq';
+ provider=savedProv;
+ $('provGroq').classList.toggle('active',savedProv==='groq');
+ $('provOpenRouter').classList.toggle('active',savedProv==='openrouter');
+ $('boxGroq').style.display=savedProv==='groq'?'block':'none';
+ $('boxOpenRouter').style.display=savedProv==='openrouter'?'block':'none';
+ const gk=localStorage.getItem('groq_key'); if(gk) $('groqKey').value=gk;
+ const ok=localStorage.getItem('openrouter_key'); if(ok) $('openRouterKey').value=ok;
+ refreshModelList();
+ const savedModel=localStorage.getItem('hrd_model_'+savedProv);
+ if(savedModel) $('model').value=savedModel;
+ if(gk||ok) {$('connStatus').textContent='✅ Key ditemukan, klik Test Koneksi'; $('connStatus').style.color='#16a34a';}
+})();
+
+function saveKeys(){
+ const gk=$('groqKey').value.trim();
+ const ok=$('openRouterKey').value.trim();
+ if(gk) localStorage.setItem('groq_key',gk);
+ if(ok) localStorage.setItem('openrouter_key',ok);
+ if(!gk && !ok) return alert('Isi salah satu key dulu');
+ localStorage.setItem('hrd_provider',provider);
+ localStorage.setItem('hrd_model_'+provider, $('model').value);
+ $('connStatus').textContent='✅ Key disimpan! Provider: '+provider.toUpperCase();
+ $('connStatus').style.color='#16a34a';
+ alert('✅ Key disimpan - Provider: '+provider);
+}
+function updateStatus(t,c){$('connStatus').textContent=t; $('connStatus').style.color=c||'#64748b';}
+
+async function testKey(){
+ const gk=$('groqKey').value.trim()||localStorage.getItem('groq_key')||'';
+ const ok=$('openRouterKey').value.trim()||localStorage.getItem('openrouter_key')||'';
+ const key = provider==='groq'? gk : ok;
+ if(!key) return alert('Isi API Key dulu untuk provider '+provider);
+ updateStatus('⏳ Testing '+provider+'...','#64748b');
+ try{
+  if(provider==='groq'){
+    const r=await fetch('https://api.groq.com/openai/v1/models',{headers:{Authorization:'Bearer '+key}});
+    const txt=await r.text();
+    if(txt.trim().startsWith('<')){ updateStatus('⚠️ Groq balikin HTML (CORS) tapi key mungkin valid, coba Analisis langsung','#f59e0b'); return; }
+    if(!r.ok){ updateStatus('❌ Groq gagal '+r.status,'#ef4444'); $('modelListInfo').textContent=txt.slice(0,400); return; }
+    let data; try{ data=JSON.parse(txt);}catch(e){ updateStatus('⚠️ Response bukan JSON tapi konek','#f59e0b'); return; }
+    const models=data.data||[];
+    const sel=$('model'); sel.innerHTML='';
+    models.filter(m=> m.id.includes('vision')||m.id.includes('maverick')||m.id.includes('scout')||m.id.includes('llama-4')).slice(0,15).forEach(m=>{const o=document.createElement('option'); o.value=m.id; o.textContent=m.id; sel.appendChild(o);});
+    if(sel.options.length===0) refreshModelList();
+    updateStatus('✅ Groq Connected! '+models.length+' model','#16a34a');
+  } else {
+    const r=await fetch('https://openrouter.ai/api/v1/models',{headers:{Authorization:'Bearer '+key}});
+    const txt=await r.text();
+    if(!r.ok){ updateStatus('❌ OpenRouter gagal '+r.status,'#ef4444'); $('modelListInfo').textContent=txt.slice(0,400); return; }
+    let data; try{ data=JSON.parse(txt);}catch(e){ updateStatus('❌ JSON error','#ef4444'); return; }
+    const models=data.data||[];
+    const sel=$('model'); sel.innerHTML='';
+    // filter vision capable
+    const vision = models.filter(m=> (m.architecture?.modality?.includes('image')|| (m.id||'').toLowerCase().includes('vision')|| (m.id||'').includes('gpt-4o')|| (m.id||'').includes('claude')|| (m.id||'').includes('gemini') )).slice(0,25);
+    (vision.length?vision:models.slice(0,25)).forEach(m=>{const o=document.createElement('option'); o.value=m.id; o.textContent=m.id; sel.appendChild(o);});
+    updateStatus('✅ OpenRouter Connected! '+models.length+' model','#16a34a');
+    $('modelListInfo').textContent='Vision models siap. Rekomendasi: gpt-4o-mini (murah), gemini-2.0-flash (cepat & gratis), claude-3.5-sonnet (akurat)';
+  }
+ }catch(e){ updateStatus('⚠️ Error: '+e.message+' - Coba langsung Analisis','#f59e0b'); }
+}
+
+function getImages(){ if(tab==='upload') return {i1:img1,i2:img2}; else return {i1:$('c1').toDataURL('image/png'), i2:$('c2').toDataURL('image/png')}; }
+function showLoad(s,t,f){$('loading').style.display=s?'flex':'none'; if(t) $('loadText').textContent=t; if(f!==undefined) $('loadFill').style.width=f+'%';}
+function cleanJsonText(txt){ txt=txt.replace(/<think>[\s\S]*?<\/think>/gi,'').replace(/<think>[\s\S]*/gi,'').replace(/```json|```/g,'').trim(); const m=txt.match(/\{[\s\S]*\}/); if(m) return m[0]; return txt; }
+
+async function callProvider(key, images, model, prov){
+  const prompt=`Analisis 2 gambar. G1 tulisan tangan, G2 tanda tangan. Kembalikan JSON: {"tulisan":{"kemiringan":"Sangat Miring Kiri/Miring Kiri/Tegak/Miring Kanan/Sangat Miring Kanan","ukuran_huruf":"Sangat Kecil/Kecil/Sedang/Besar/Sangat Besar","tekanan":"Sangat Ringan/Ringan/Sedang/Kuat/Sangat Kuat","spasi_kata":"Rapat/Sedang/Renggang/Sangat Renggang","baseline":"Naik/Lurus Stabil/Turun/Bergelombang","sambungan":"Semua Terpisah/Sebagian Tersambung/Semua Tersambung","keterangan_visual":"..."},"tanda_tangan":{"ukuran_vs_tulisan":"Lebih Kecil/Sama/Lebih Besar/Jauh Lebih Besar","gaya":"Sederhana/Rumit Berliku/Ada Coretan Tebal/Ada Garis Bawah/Ada Lingkaran","keterbacaan":"Jelas Terbaca Nama/Inisial/Tidak Terbaca Sama Sekali","keterangan_visual":"..."},"confidence":85,"catatan_forensik":"1 kalimat"}`;
+  let url, headers, body;
+  if(prov==='groq'){
+    url='https://api.groq.com/openai/v1/chat/completions';
+    headers={'Authorization':'Bearer '+key,'Content-Type':'application/json'};
+    body={model:model, temperature:0.15, max_tokens:1500, messages:[{role:'system',content:'Kamu pakar graphology HRD. Kembalikan HANYA JSON valid.'},{role:'user',content:[{type:'text',text:prompt},{type:'image_url',image_url:{url:images.i1}},{type:'image_url',image_url:{url:images.i2}}]}]};
+  } else {
+    url='https://openrouter.ai/api/v1/chat/completions';
+    headers={'Authorization':'Bearer '+key,'Content-Type':'application/json','HTTP-Referer':'https://karaktera-hrd.local','X-Title':'Karaktera HRD'};
+    body={model:model, temperature:0.15, max_tokens:1500, messages:[{role:'system',content:'Kamu pakar graphology HRD. Kembalikan HANYA JSON valid.'},{role:'user',content:[{type:'text',text:prompt},{type:'image_url',image_url:{url:images.i1}},{type:'image_url',image_url:{url:images.i2}}]}]};
+  }
+  const res=await fetch(url,{method:'POST',headers:headers,body:JSON.stringify(body)});
+  const txt=await res.text();
+  if(txt.trim().startsWith('<')) throw new Error('HTML response: '+txt.slice(0,200));
+  if(!res.ok) throw new Error(txt.slice(0,600));
+  let j; try{ j=JSON.parse(txt);}catch(e){ const m=txt.match(/\{[\s\S]*\}/); if(m) j=JSON.parse(m[0]); else throw e; }
+  return j;
+}
+
+async function analyzeAI(){
+ const gk=$('groqKey').value.trim()||localStorage.getItem('groq_key')||'';
+ const ok=$('openRouterKey').value.trim()||localStorage.getItem('openrouter_key')||'';
+ const key = provider==='groq'? gk : ok;
+ if(!key) return $('err').textContent='❌ Masukkan API Key untuk '+provider;
+ const {i1,i2}=getImages(); if(!i1||!i2||i1.length<500||i2.length<500) return $('err').textContent='❌ Upload kedua gambar';
+ $('err').textContent=''; showLoad(true,'Mengirim ke '+provider+'...',20);
+ const model=$('model').value;
+ const allModels=Array.from($('model').options).map(o=>o.value);
+ const tryList=[model, ...allModels.filter(m=>m!==model)];
+ try{
+  let lastErr='';
+  for(let i=0;i<tryList.length;i++){
+    const m=tryList[i];
+    showLoad(true,`[${provider}] Mencoba ${m} (${i+1}/${tryList.length})`,15+i*15);
+    try{
+      const j=await callProvider(key,{i1,i2},m,provider);
+      let content=j.choices?.[0]?.message?.content||'';
+      content=cleanJsonText(content);
+      const ai=JSON.parse(content);
+      ai._modelUsed=m; ai._provider=provider;
+      showLoad(true,'Selesai!',100);
+      setTimeout(()=>{showLoad(false);renderAI(ai);renderResult(ai);},300);
+      return;
+    }catch(e){
+      lastErr=e.message;
+      if(lastErr.includes('model_not_found')||lastErr.includes('does not exist')||lastErr.includes('not found')) continue;
+      if(lastErr.includes('invalid_api_key')||lastErr.includes('Unauthorized')||lastErr.includes('authentication')) throw e;
+      if(i===tryList.length-1) throw e;
+    }
+  }
+  throw new Error(lastErr);
+ }catch(e){ showLoad(false); $('err').textContent='Gagal '+provider+': '+e.message.slice(0,800)+'\n\nCoba ganti provider/model atau cek key.'; }
+}
+
+function renderAI(ai){$('aiResult').style.display='block'; $('confBadge').textContent=(ai.confidence||0)+'%'; $('modelUsedBadge').textContent=ai._modelUsed||''; $('provBadge').textContent=(ai._provider||'').toUpperCase(); $('forensik').textContent=ai.catatan_forensik||''; let h='<div class="grid2">'; for(const k in ai.tulisan){h+=`<div class="kpi"><div style="font-size:10px;color:#64748b">${k}</div><div style="font-weight:700;font-size:13px">${ai.tulisan[k]}</div></div>`;} h+='</div><div style="margin-top:10px" class="grid2">'; for(const k in ai.tanda_tangan){h+=`<div class="kpi"><div style="font-size:10px;color:#64748b">TTD ${k}</div><div style="font-weight:700">${ai.tanda_tangan[k]}</div></div>`;} h+='</div>'; $('aiGrid').innerHTML=h; window._lastAI=ai;}
+function calcTraits(ai){const s={integritas:70,leadership:70,stabilitas:70,kerjasama:70,detail:70,ambisi:70,kreativitas:70,kejujuran:70};const t=ai.tulisan||{},tt=ai.tanda_tangan||{}; if((t.kemiringan||'').includes('Kanan')){s.kerjasama+=12;} if((t.kemiringan||'').includes('Tegak')){s.stabilitas+=12;s.detail+=6;} if((t.ukuran_huruf||'').includes('Besar')){s.leadership+=12;s.ambisi+=8;} if((t.ukuran_huruf||'').includes('Kecil')){s.detail+=14;} if((t.tekanan||'').includes('Kuat')){s.ambisi+=10;} if(t.baseline==='Naik') s.ambisi+=12; if(t.baseline==='Turun') s.stabilitas-=12; if(t.baseline==='Lurus Stabil'){s.stabilitas+=14;} if((tt.gaya||'').includes('Garis Bawah')){s.leadership+=10;} if((tt.gaya||'').includes('Coretan')){s.kejujuran-=12;} for(const k in s) s[k]=Math.max(10,Math.min(98,s[k])); const disc={D:Math.round((s.ambisi+s.leadership)/2),I:Math.round((s.kerjasama+s.kreativitas)/2),S:Math.round((s.stabilitas+s.kerjasama)/2),C:Math.round((s.detail+s.integritas)/2)}; return {s,disc};}
+function renderResult(ai){const {s,disc}=calcTraits(ai);const avg=Math.round(Object.values(s).reduce((a,b)=>a+b,0)/8); $('result').style.display='block';$('empty').style.display='none';$('scoreBig').textContent=(avg/10).toFixed(1);$('namaPos').textContent=($('nama').value||'Kandidat')+' • '+($('posisi').value||'');const st=$('statusRec');if(avg>=75){st.textContent='DIREKOMENDASIKAN';st.style.background='#dcfce7';st.style.color='#166534';}else if(avg>=60){st.textContent='DIPERTIMBANGKAN';st.style.background='#fef9c3';st.style.color='#854d0e';}else{st.textContent='TIDAK DIREKOMENDASIKAN';st.style.background='#fee2e2';st.style.color='#991b1b';}$('traits').innerHTML=Object.entries(s).map(([k,v])=>`<div class="kpi"><div style="display:flex;justify-content:space-between"><span style="font-size:12px">${k}</span><b>${v}</b></div><div class="bar"><div class="fill" style="width:${v}%"></div></div></div>`).join('');$('discBars').innerHTML=Object.entries(disc).map(([k,v])=>`<div style="margin:7px 0"><div style="display:flex;justify-content:space-between;font-size:12px"><span>${k}</span><b>${v}%</b></div><div class="bar"><div class="fill" style="width:${v}%"></div></div></div>`).join('');$('insight').innerHTML=`<div class="kpi"><b>Kekuatan</b><br><span style="font-size:13px">${ai.catatan_forensik||''}</span></div>`;$('interview').innerHTML=`<li>Baseline ${ai.tulisan.baseline} - Ceritakan saat deadline?</li><li>TTD ${ai.tanda_tangan.gaya} - Arti TTD?</li>`;drawRadar(s);window.lastData={ai,s,disc,nama:$('nama').value,time:new Date().toISOString(),provider:ai._provider};}
+function drawRadar(scores){const c=$('radar'),ctx=c.getContext('2d'),W=c.width,H=c.height,cx=W/2,cy=H/2,R=130;const keys=Object.keys(scores),N=keys.length;ctx.clearRect(0,0,W,H);for(let r=1;r<=4;r++){ctx.beginPath();for(let i=0;i<N;i++){const a=-Math.PI/2+i*2*Math.PI/N,rr=R*r/4,x=cx+rr*Math.cos(a),y=cy+rr*Math.sin(a);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.closePath();ctx.strokeStyle='#e2e8f0';ctx.stroke();}for(let i=0;i<N;i++){const a=-Math.PI/2+i*2*Math.PI/N;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+R*Math.cos(a),cy+R*Math.sin(a));ctx.strokeStyle='#e2e8f0';ctx.stroke();}ctx.beginPath();for(let i=0;i<N;i++){const a=-Math.PI/2+i*2*Math.PI/N,v=scores[keys[i]]/100,x=cx+R*v*Math.cos(a),y=cy+R*v*Math.sin(a);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.closePath();ctx.fillStyle='rgba(59,130,246,.22)';ctx.fill();ctx.strokeStyle='#3b82f6';ctx.lineWidth=2.5;ctx.stroke();}
+function saveHistory(){if(!window.lastData) return alert('Belum ada hasil');const h=JSON.parse(localStorage.getItem('hrd_hist_groq')||'[]');h.unshift(window.lastData);localStorage.setItem('hrd_hist_groq',JSON.stringify(h.slice(0,100)));alert('Disimpan');}
+function exportJSON(){if(!window.lastData) return alert('Belum ada hasil');const blob=new Blob([JSON.stringify(window.lastData,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='karaktera_'+(window.lastData.nama||'kandidat')+'.json';a.click();}
+</script>
+</body>
+</html>
