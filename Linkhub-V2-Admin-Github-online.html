@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkHub - alifjuman.github.io</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['Inter'],mono:['JetBrains Mono']}}}}</script>
+<style>*{font-family:Inter,sans-serif}.glass{backdrop-filter:blur(20px)} .card-hover{transition:all .2s}.card-hover:hover{transform:translateY(-3px)} ::-webkit-scrollbar{width:6px} ::-webkit-scrollbar-thumb{background:#fff2;border-radius:10px} .line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}</style>
+</head>
+<body class="bg-[#0a0a0b] text-zinc-100 min-h-screen">
+<!-- FIXED JSON URL -->
+<script>
+const FIXED_GITHUB_JSON_URL = "https://raw.githubusercontent.com/alifjuman/alifjuman.github.io/refs/heads/main/data/apps.json";
+const FIXED_API_URL = "https://api.github.com/repos/alifjuman/alifjuman.github.io/contents/data/apps.json";
+</script>
+
+<!-- LOGIN MODAL -->
+<div id="loginScreen" class="fixed inset-0 z-[100] bg-black/70 backdrop-blur-md hidden items-center justify-center p-4" onclick="if(event.target===this) closeLogin()">
+  <div class="w-full max-w-[400px] bg-zinc-900 border border-zinc-800 rounded-[24px] p-8">
+    <div class="flex items-center gap-3 mb-6"><div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center font-bold">L</div><b>Admin Login</b></div>
+    <div class="space-y-3">
+      <input id="loginUser" value="admin" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm outline-none" placeholder="Username">
+      <div class="relative"><input id="loginPass" type="password" value="admin123" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm outline-none" placeholder="Password"><button onclick="togglePass()" class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500">👁</button></div>
+      <button onclick="doLogin()" class="w-full bg-white text-black font-semibold rounded-xl py-3 text-sm">Masuk →</button>
+      <div id="loginError" class="hidden text-[12px] text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg p-3"></div>
+      <button onclick="closeLogin()" class="w-full text-xs text-zinc-500">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<div id="app">
+<header class="sticky top-0 z-40 bg-[#0a0a0b]/90 backdrop-blur-xl border-b border-zinc-800">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-6 h-[64px] flex items-center gap-3">
+    <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center font-bold">L</div><b>LinkHub</b><span id="roleBadge" class="ml-2 px-2 py-0.5 rounded-full text-[10px] font-mono border bg-zinc-800 border-zinc-700">VIEWER</span></div>
+    <div class="flex-1 max-w-[480px] hidden md:block relative"><input id="searchInput" oninput="render()" placeholder="Cari aplikasi..." class="w-full bg-zinc-900 border border-zinc-800 rounded-full pl-10 pr-4 py-2.5 text-[13px] outline-none"><span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500">⌕</span></div>
+    <div class="ml-auto flex items-center gap-2">
+      <div id="sourceBadge" class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-[10px] font-mono"><span id="syncDot" class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span><span id="sourceText">CONNECTING...</span></div>
+      <button onclick="forceReload()" class="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800" title="Reload dari GitHub">↻</button>
+      <button onclick="openSettings()" class="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800">⚙</button>
+      <button id="addBtn" onclick="openModal()" class="hidden bg-white text-black px-4 py-2 rounded-full text-[13px] font-semibold">+ Tambah</button>
+      <button id="authBtn" onclick="handleAuthClick()" class="px-4 py-2 rounded-full bg-white text-black text-[12px] font-semibold"><span id="logoutLabel">Login Admin</span></button>
+    </div>
+  </div>
+</header>
+
+<div id="loadingBar" class="h-0.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 w-0 transition-all"></div>
+<main class="max-w-[1400px] mx-auto px-4 md:px-6 py-6">
+  <div id="statusMsg" class="mb-4 p-3 rounded-xl text-[12px] font-mono hidden"></div>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+    <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4"><div class="text-[10px] font-mono text-zinc-500">TOTAL APP</div><div id="statTotal" class="text-2xl font-bold mt-1">0</div></div>
+    <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4"><div class="text-[10px] font-mono text-zinc-500">KATEGORI</div><div id="statCat" class="text-2xl font-bold mt-1">0</div></div>
+    <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4"><div class="text-[10px] font-mono text-zinc-500">SOURCE</div><div id="statSync" class="text-[10px] font-mono mt-1">Memuat...</div></div>
+    <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4"><div class="text-[10px] font-mono text-zinc-500">JSON URL</div><div class="text-[9px] font-mono mt-1 break-all leading-tight text-zinc-400">raw.githubusercontent.com/alifjuman/alifjuman.github.io/.../data/apps.json</div></div>
+  </div>
+  <div class="flex flex-wrap gap-2 mb-4" id="filterChips"></div>
+  <div class="flex items-center gap-2 mb-4 text-[12px]"><select id="sortSel" onchange="render()" class="bg-zinc-900 border border-zinc-800 rounded-full px-3 py-1.5"><option value="newest">Terbaru</option><option value="az">A-Z</option><option value="popular">Populer</option><option value="pinned">Pin dulu</option></select><label class="flex items-center gap-1.5"><input type="checkbox" id="favOnly" onchange="render()"> Favorit</label></div>
+  <div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+  <div id="empty" class="hidden py-24 text-center"><div class="text-5xl">📦</div><div class="font-bold mt-4">Belum ada data di GitHub</div><p class="text-zinc-500 text-sm mt-2">Login admin dan tambah aplikasi, lalu Save ke GitHub</p></div>
+</main>
+</div>
+
+<!-- MODALS -->
+<div id="modal" class="fixed inset-0 z-50 hidden"><div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div><div class="relative max-w-[520px] mx-auto mt-12 bg-zinc-900 border border-zinc-800 rounded-[20px] p-6 m-4"><h3 id="modalTitle" class="font-bold text-lg mb-4">Tambah Aplikasi</h3><div class="grid gap-3"><input id="fName" placeholder="Nama aplikasi" class="bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm"><input id="fUrl" placeholder="URL .html" class="bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm"><input id="fDesc" placeholder="Deskripsi singkat" class="bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm"><div class="grid grid-cols-2 gap-3"><input id="fCat" list="catList" placeholder="Kategori" class="bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm"><input id="fIcon" placeholder="Emoji 🚀" class="bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm"></div><input id="fColor" type="color" value="#8b5cf6" class="w-12 h-10 rounded-xl"><datalist id="catList"></datalist></div><div class="flex gap-2 mt-6"><button onclick="closeModal()" class="flex-1 bg-zinc-800 border border-zinc-700 rounded-xl py-3 text-sm">Batal</button><button onclick="saveApp()" class="flex-1 bg-white text-black rounded-xl py-3 text-sm font-semibold">Simpan</button></div></div></div>
+<div id="preview" class="fixed inset-0 z-[60] hidden"><div class="absolute inset-0 bg-black/80" onclick="closePreview()"></div><div class="relative h-[90vh] m-4 md:m-8 bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden flex flex-col"><div class="h-12 border-b border-zinc-800 flex items-center justify-between px-4"><div id="prevTitle" class="font-semibold text-sm"></div><div class="flex gap-2"><a id="prevOpen" target="_blank" class="px-3 py-1.5 rounded-full bg-white text-black text-xs font-semibold">Buka Tab</a><button onclick="closePreview()" class="w-8 h-8 rounded-full bg-zinc-800">✕</button></div></div><iframe id="prevFrame" class="flex-1 w-full bg-white"></iframe></div></div>
+<div id="settings" class="fixed inset-0 z-[70] hidden"><div class="absolute inset-0 bg-black/70" onclick="closeSettings()"></div><div class="relative max-w-[720px] mx-auto mt-6 bg-zinc-900 border border-zinc-800 rounded-[20px] m-4 max-h-[90vh] overflow-auto"><div class="sticky top-0 bg-zinc-900 p-6 border-b border-zinc-800 flex justify-between items-center"><h3 class="font-bold">Settings</h3><button onclick="closeSettings()" class="w-8 h-8 rounded-full bg-zinc-800">✕</button></div><div class="p-6 space-y-6">
+<div class="flex gap-2"><button onclick="switchTab('github')" id="tabGithub" class="px-4 py-2 rounded-full bg-white text-black text-sm font-semibold">GitHub</button><button onclick="switchTab('account')" id="tabAccount" class="px-4 py-2 rounded-full bg-zinc-800 text-sm">Akun</button><button onclick="switchTab('data')" id="tabData" class="px-4 py-2 rounded-full bg-zinc-800 text-sm">Data</button></div>
+<div id="panelGithub" class="space-y-4">
+<div class="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-[12px] leading-relaxed">✅ <b>FIXED URL:</b><br><code>https://raw.githubusercontent.com/alifjuman/alifjuman.github.io/refs/heads/main/data/apps.json</code><br><br>Viewer sekarang <b>selalu</b> load dari URL ini dulu. Jika kamu buka di device lain, otomatis dapat data terbaru tanpa setting apapun.<br><br>Untuk Save, masukkan PAT token di bawah. Repo sudah terkunci ke <code>alifjuman/alifjuman.github.io</code></div>
+<div class="grid grid-cols-1 gap-3">
+<div><label class="text-[11px] font-mono text-zinc-500">GITHUB TOKEN (PAT) - hanya untuk Save</label><input id="ghToken" type="password" class="mt-1 w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm" placeholder="ghp_xxxxxxxx"><div class="text-[10px] text-zinc-500 mt-1">Token disimpan di localStorage. Viewer tidak butuh token untuk load.</div></div>
+</div>
+<div class="flex flex-wrap gap-2"><button onclick="testFixedUrl()" class="px-4 py-2 rounded-full bg-zinc-800 border border-zinc-700 text-sm">Test Load URL</button><button onclick="forceReload()" class="px-4 py-2 rounded-full bg-violet-600 text-white text-sm">↻ Reload Sekarang</button><button onclick="saveToGithubFixed()" class="px-4 py-2 rounded-full bg-white text-black text-sm font-semibold">⬆ Save ke GitHub</button></div>
+<div id="ghLog" class="bg-black/60 border border-zinc-800 rounded-xl p-3 text-[11px] font-mono min-h-[120px] whitespace-pre-wrap">Menunggu...</div>
+</div>
+<div id="panelAccount" class="hidden space-y-4"><input id="newUser" placeholder="Username baru" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm"><input id="newPass" type="password" placeholder="Password baru" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 text-sm"><button onclick="updateAccount()" class="px-4 py-2 rounded-full bg-white text-black text-sm font-semibold">Update Admin</button></div>
+<div id="panelData" class="hidden space-y-3"><div class="flex flex-wrap gap-2"><button onclick="exportJSON()" class="px-4 py-2 rounded-full bg-zinc-800 border border-zinc-700 text-sm">Export</button><button onclick="downloadJSONFile()" class="px-4 py-2 rounded-full bg-zinc-800 border border-zinc-700 text-sm">Download apps.json</button><label class="px-4 py-2 rounded-full bg-white text-black text-sm font-semibold cursor-pointer"><input type="file" id="importFile" accept=".json" class="hidden" onchange="importJSON(event)">Import</label></div><button onclick="resetAll()" class="px-4 py-2 rounded-full bg-red-500/20 border border-red-500/30 text-red-300 text-sm">Reset Lokal</button></div>
+</div></div></div>
+
+<script>
+let apps=[]; let editingId=null; let currentFilter='Semua'; let isAdmin=false; let role='viewer';
+const DEFAULT_APPS=[];
+
+function setBar(p){document.getElementById('loadingBar').style.width=p+'%';}
+function showStatus(msg,type='info'){
+  const el=document.getElementById('statusMsg'); el.classList.remove('hidden'); el.innerText=msg;
+  el.className = type==='success' ? 'mb-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-[12px] font-mono' : type==='error' ? 'mb-4 p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-[12px] font-mono' : 'mb-4 p-3 rounded-xl bg-violet-500/10 border border-violet-500/20 text-[12px] font-mono';
+  setTimeout(()=>el.classList.add('hidden'),6000);
+}
+
+// CORE FIX: Auto load from FIXED URL
+async function autoLoadFixed(){
+  const dot=document.getElementById('syncDot'); const srcText=document.getElementById('sourceText'); const statSync=document.getElementById('statSync');
+  setBar(10); srcText.innerText='LOADING GITHUB...'; dot.className='w-2 h-2 rounded-full bg-amber-400 animate-pulse';
+  
+  const urls = [
+    FIXED_GITHUB_JSON_URL + '?t=' + Date.now(),
+    'https://raw.githubusercontent.com/alifjuman/alifjuman.github.io/main/data/apps.json?t='+Date.now(),
+    './data/apps.json?t='+Date.now(),
+    'data/apps.json?t='+Date.now()
+  ];
+
+  for(let url of urls){
+    try{
+      console.log('Trying', url);
+      const r = await fetch(url, {cache:'no-store'});
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      const data = await r.json();
+      const incoming = data.apps || data;
+      if(!Array.isArray(incoming)) throw new Error('Format salah');
+      if(incoming.length===0 && data.apps) { /* allow empty but show */ }
+      
+      apps = incoming;
+      localStorage.setItem('linkhub_apps_v1', JSON.stringify({updatedAt:new Date().toISOString(), apps}));
+      localStorage.setItem('linkhub_last_sync', new Date().toISOString());
+      srcText.innerText = 'GITHUB LIVE';
+      dot.className='w-2 h-2 rounded-full bg-emerald-400';
+      statSync.innerText = `${apps.length} apps • ${new Date().toLocaleTimeString('id-ID')} • github`;
+      document.getElementById('ghLog').textContent = `✅ SUCCESS load dari:\n${url}\n\nJumlah apps: ${apps.length}\nWaktu: ${new Date().toISOString()}\n\nIsi preview:\n${JSON.stringify(incoming.slice(0,2), null, 2)}`;
+      setBar(100);
+      showStatus(`✅ Loaded ${apps.length} apps dari GitHub`, 'success');
+      render();
+      setTimeout(()=>setBar(0),1000);
+      return true;
+    }catch(e){
+      console.log('fail', url, e.message);
+      document.getElementById('ghLog').textContent += `\n❌ Gagal ${url}: ${e.message}`;
+      continue;
+    }
+  }
+  
+  // All failed
+  setBar(100);
+  srcText.innerText='LOCAL FALLBACK';
+  dot.className='w-2 h-2 rounded-full bg-red-400';
+  statSync.innerText='Gagal load GitHub, pakai local';
+  showStatus('❌ Gagal load dari GitHub. Pastikan file data/apps.json ada di repo alifjuman.github.io', 'error');
+  const local = localStorage.getItem('linkhub_apps_v1');
+  if(local){
+    try{ const p=JSON.parse(local); apps=p.apps||p||[]; }catch{}
+  }
+  render();
+  setTimeout(()=>setBar(0),1000);
+  return false;
+}
+
+function load(){const s=localStorage.getItem('linkhub_apps_v1'); try{const p=s?JSON.parse(s):null; const arr=p?.apps||p; if(Array.isArray(arr)) apps=arr; }catch{} const token=localStorage.getItem('linkhub_gh_token'); if(token) ghToken.value=token; const acc=JSON.parse(localStorage.getItem('linkhub_admin_account')||'{"u":"admin","p":"YWRtaW4xMjM="}'); newUser.value=acc.u; render();}
+function saveLocal(){localStorage.setItem('linkhub_apps_v1',JSON.stringify({updatedAt:new Date().toISOString(),apps}));}
+function checkAuth(){const ses=localStorage.getItem('linkhub_auth'); if(ses){const s=JSON.parse(ses); if(s.role==='admin'){isAdmin=true; role='admin';}} showApp();}
+function doLogin(){const u=loginUser.value.trim(); const p=loginPass.value; const acc=JSON.parse(localStorage.getItem('linkhub_admin_account')||'{"u":"admin","p":"YWRtaW4xMjM="}'); if(u===acc.u && btoa(p)===acc.p){isAdmin=true; role='admin'; localStorage.setItem('linkhub_auth',JSON.stringify({role:'admin',u,time:Date.now()})); closeLogin(); showApp();} else {loginError.classList.remove('hidden'); loginError.innerText='Salah';}}
+function showApp(){roleBadge.innerText=role.toUpperCase(); roleBadge.className='ml-2 px-2 py-0.5 rounded-full text-[10px] font-mono border '+(isAdmin?'bg-violet-500/20 border-violet-500/30 text-violet-300':'bg-zinc-800 border-zinc-700'); addBtn.classList.toggle('hidden',!isAdmin); authBtn.className=isAdmin?'px-4 py-2 rounded-full bg-zinc-800 border border-zinc-700 text-[12px]':'px-4 py-2 rounded-full bg-white text-black text-[12px] font-semibold'; logoutLabel.innerText=isAdmin?'Logout':'Login Admin'; render();}
+function openLogin(){loginScreen.classList.remove('hidden'); loginScreen.classList.add('flex');}
+function closeLogin(){loginScreen.classList.add('hidden'); loginScreen.classList.remove('flex');}
+function handleAuthClick(){if(isAdmin) logout(); else openLogin();}
+function logout(){localStorage.removeItem('linkhub_auth'); isAdmin=false; role='viewer'; closeLogin(); showApp();}
+function togglePass(){loginPass.type=loginPass.type==='password'?'text':'password';}
+function render(){const q=(searchInput.value||'').toLowerCase(); const sort=sortSel.value; const favOnly=document.getElementById('favOnly').checked; let list=[...apps]; if(currentFilter!=='Semua') list=list.filter(a=>a.category===currentFilter); if(favOnly) list=list.filter(a=>a.favorite); if(q) list=list.filter(a=>(a.name+a.description+a.category+a.url).toLowerCase().includes(q)); if(sort==='az') list.sort((a,b)=>a.name.localeCompare(b.name)); else if(sort==='popular') list.sort((a,b)=>b.clicks-a.clicks); else list.sort((a,b)=>b.createdAt-a.createdAt); list.sort((a,b)=>Number(b.pinned)-Number(a.pinned));
+statTotal.innerText=apps.length; statCat.innerText=new Set(apps.map(a=>a.category)).size;
+const chips=['Semua',...new Set(apps.map(a=>a.category))]; filterChips.innerHTML=chips.map(c=>`<button onclick="setFilter('${c}')" class="px-4 py-2 rounded-full text-[12px] border ${currentFilter===c?'bg-white text-black border-white':'bg-zinc-900 border-zinc-800 text-zinc-400'}">${c}</button>`).join(''); catList.innerHTML=[...new Set(apps.map(a=>a.category))].map(c=>`<option value="${c}">`).join('');
+if(!list.length){grid.innerHTML=''; empty.classList.remove('hidden'); return;} empty.classList.add('hidden');
+grid.innerHTML=list.map(a=>`<div class="bg-zinc-900 border ${a.pinned?'border-violet-500/40':'border-zinc-800'} rounded-[20px] p-4 card-hover"><div class="flex justify-between"><div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style="background:${a.color||'#8b5cf6'}20;border:1px solid ${a.color||'#8b5cf6'}40">${a.icon||'🔗'}</div><div class="flex gap-1"><button onclick="toggleFav('${a.id}')" class="w-7 h-7 rounded-full bg-zinc-800 text-xs">${a.favorite?'★':'☆'}</button>${isAdmin?`<button onclick="togglePin('${a.id}')" class="w-7 h-7 rounded-full bg-zinc-800 text-xs">📌</button>`:''}</div></div><div class="mt-3 font-semibold text-[14px] truncate">${a.name}</div><div class="text-[11px] font-mono text-zinc-500 truncate">${a.url}</div><div class="text-[12px] text-zinc-400 mt-2 line-clamp-2">${a.description||''}</div><div class="mt-3 flex gap-2"><span class="px-2.5 py-1 rounded-full bg-zinc-800 border border-zinc-700 text-[10px] font-mono">${a.category||'Umum'}</span><span class="text-[10px] font-mono text-zinc-500">${a.clicks||0} klik</span></div><div class="mt-4 grid grid-cols-3 gap-2"><button onclick="openApp('${a.id}')" class="col-span-2 bg-white text-black rounded-full py-2 text-[12px] font-semibold">Buka ↗</button><button onclick="previewApp('${a.id}')" class="bg-zinc-800 border border-zinc-700 rounded-full py-2 text-[12px]">Preview</button></div>${isAdmin?`<div class="mt-2 grid grid-cols-3 gap-2"><button onclick="editApp('${a.id}')" class="bg-zinc-800 border border-zinc-700 rounded-full py-1.5 text-[11px]">Edit</button><button onclick="dupApp('${a.id}')" class="bg-zinc-800 border border-zinc-700 rounded-full py-1.5 text-[11px]">Duplikat</button><button onclick="delApp('${a.id}')" class="bg-red-500/10 border border-red-500/20 text-red-300 rounded-full py-1.5 text-[11px]">Hapus</button></div>`:''}</div>`).join('');}
+function setFilter(c){currentFilter=c; render();}
+function openApp(id){const a=apps.find(x=>x.id===id); if(!a) return; a.clicks=(a.clicks||0)+1; saveLocal(); window.open(a.url,'_blank'); render();}
+function previewApp(id){const a=apps.find(x=>x.id===id); prevTitle.innerText=a.name; prevOpen.href=a.url; prevFrame.src=a.url; preview.classList.remove('hidden');}
+function closePreview(){preview.classList.add('hidden'); prevFrame.src='about:blank';}
+function openModal(){if(!isAdmin) return openLogin(); editingId=null; modalTitle.innerText='Tambah Aplikasi'; fName.value=''; fUrl.value=''; fDesc.value=''; fCat.value=''; fIcon.value=''; modal.classList.remove('hidden');}
+function editApp(id){if(!isAdmin) return; const a=apps.find(x=>x.id===id); editingId=id; modalTitle.innerText='Edit'; fName.value=a.name; fUrl.value=a.url; fDesc.value=a.description; fCat.value=a.category; fIcon.value=a.icon; fColor.value=a.color||'#8b5cf6'; modal.classList.remove('hidden');}
+function closeModal(){modal.classList.add('hidden');}
+function saveApp(){const name=fName.value.trim(); const url=fUrl.value.trim(); if(!name||!url) return alert('Nama & URL wajib'); const obj={id:editingId||Date.now().toString(36),name,url,description:fDesc.value.trim(),category:fCat.value.trim()||'Umum',icon:fIcon.value.trim()||'🔗',color:fColor.value,pinned:false,favorite:false,clicks:0,createdAt:Date.now()}; if(editingId){const i=apps.findIndex(a=>a.id===editingId); const old=apps[i]; obj.pinned=old.pinned; obj.favorite=old.favorite; obj.clicks=old.clicks; obj.createdAt=old.createdAt; apps[i]=obj;} else apps.unshift(obj); saveLocal(); closeModal(); render(); showStatus('Disimpan lokal. Klik Save ke GitHub untuk publish ke semua device.', 'info');}
+function delApp(id){if(!isAdmin||!confirm('Hapus?')) return; apps=apps.filter(a=>a.id!==id); saveLocal(); render();}
+function dupApp(id){const a=apps.find(x=>x.id===id); apps.unshift({...a,id:Date.now().toString(36),name:a.name+' Copy',clicks:0,createdAt:Date.now()}); saveLocal(); render();}
+function toggleFav(id){if(!isAdmin) return openLogin(); const a=apps.find(x=>x.id===id); a.favorite=!a.favorite; saveLocal(); render();}
+function togglePin(id){if(!isAdmin) return; const a=apps.find(x=>x.id===id); a.pinned=!a.pinned; saveLocal(); render();}
+function openSettings(){settings.classList.remove('hidden');} function closeSettings(){settings.classList.add('hidden');}
+function switchTab(t){panelGithub.classList.toggle('hidden',t!=='github'); panelAccount.classList.toggle('hidden',t!=='account'); panelData.classList.toggle('hidden',t!=='data');}
+function testFixedUrl(){autoLoadFixed();}
+function forceReload(){autoLoadFixed();}
+async function saveToGithubFixed(){
+  const token=ghToken.value.trim();
+  if(!token){ghLog.textContent='❌ Masukkan PAT token dulu di input'; return;}
+  localStorage.setItem('linkhub_gh_token', token);
+  ghLog.textContent='Saving ke alifjuman.github.io...\n';
+  try{
+    let sha=null;
+    const getRes=await fetch(FIXED_API_URL+'?ref=main', {headers:{Authorization:'Bearer '+token}});
+    if(getRes.ok){const d=await getRes.json(); sha=d.sha; ghLog.textContent+=`Found SHA ${sha.slice(0,7)}\n`;}
+    else {ghLog.textContent+=`File belum ada atau error GET: ${getRes.status}\n`;}
+    const contentObj={updatedAt:new Date().toISOString(), apps};
+    const b64=btoa(unescape(encodeURIComponent(JSON.stringify(contentObj,null,2))));
+    const putRes=await fetch(FIXED_API_URL, {method:'PUT', headers:{Authorization:'Bearer '+token, 'Content-Type':'application/json'}, body:JSON.stringify({message:`Update apps.json via LinkHub ${new Date().toISOString()}`, content:b64, sha, branch:'main'})});
+    const putData=await putRes.json();
+    if(!putRes.ok) throw new Error(putData.message||`PUT ${putRes.status}`);
+    ghLog.textContent+=`✅ Saved! Commit ${putData.commit.sha.slice(0,7)}\n\nViewer URL:\n${FIXED_GITHUB_JSON_URL}\n\nTunggu 15-30 detik untuk GitHub Pages update cache.`;
+    showStatus('✅ Berhasil save ke GitHub! Device lain akan auto-load.', 'success');
+  }catch(e){ghLog.textContent+=`\n❌ ${e.message}`; showStatus('❌ Gagal save: '+e.message, 'error');}
+}
+function exportJSON(){const blob=new Blob([JSON.stringify({updatedAt:new Date().toISOString(),apps},null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='apps.json'; a.click();}
+function downloadJSONFile(){exportJSON();}
+function importJSON(e){const file=e.target.files[0]; if(!file) return; const r=new FileReader(); r.onload=()=>{try{const j=JSON.parse(r.result); apps=j.apps||j; saveLocal(); render(); alert(`Imported ${apps.length}`);}catch{alert('JSON invalid');}}; r.readAsText(file);}
+function resetAll(){if(!confirm('Reset lokal?')) return; localStorage.removeItem('linkhub_apps_v1'); apps=[]; saveLocal(); render();}
+function updateAccount(){const u=newUser.value.trim(); const p=newPass.value; if(!u||!p) return alert('Isi user & pass'); localStorage.setItem('linkhub_admin_account',JSON.stringify({u,p:btoa(p)})); alert('Updated');}
+
+load(); checkAuth();
+// AUTO LOAD FROM FIXED URL - KUNCI FIX
+setTimeout(()=>{autoLoadFixed();},300);
+</script>
+</body>
+</html>
