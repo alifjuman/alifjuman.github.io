@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-25T12:39:36.919Z",
+  "updatedAt": "2026-08-25T12:41:38.493Z",
   "apps": [
     {
       "id": "1",
@@ -29,9 +29,9 @@
     },
     {
       "id": "3",
-      "name": "Pomodoro Timer",
-      "url": "./apps/pomo.html",
-      "description": "Focus timer 25/5 dengan sound",
+      "name": "Kalkulator Zakat",
+      "url": "./apps/zakat.html",
+      "description": "Hitung zakat menurut syariat islam",
       "category": "Produktivitas",
       "icon": "🍅",
       "color": "#ef4444",
@@ -68,9 +68,9 @@
     },
     {
       "id": "6",
-      "name": "Color Palette",
-      "url": "./apps/color.html",
-      "description": "Picker & gradient generator",
+      "name": "Kalkulator Waris",
+      "url": "./apps/waris.html",
+      "description": "Menghitung bagian ahli waris",
       "category": "Desain",
       "icon": "🎨",
       "color": "#ec4899",
