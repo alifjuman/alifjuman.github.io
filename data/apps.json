@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-25T12:36:15.918Z",
+  "updatedAt": "2026-08-25T12:37:32.859Z",
   "apps": [
     {
       "id": "1",
@@ -42,9 +42,9 @@
     },
     {
       "id": "4",
-      "name": "QR Generator",
-      "url": "./apps/qr.html",
-      "description": "Buat QR code offline",
+      "name": "Kalender Masehi Pasaran",
+      "url": "./apps/pasaran.html",
+      "description": "Kalender masehi pasaran",
       "category": "Tools",
       "icon": "🔳",
       "color": "#10b981",
