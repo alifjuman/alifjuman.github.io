@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-25T12:38:36.345Z",
+  "updatedAt": "2026-08-25T12:39:36.919Z",
   "apps": [
     {
       "id": "1",
@@ -11,20 +11,20 @@
       "color": "#8b5cf6",
       "pinned": true,
       "favorite": true,
-      "clicks": 12,
+      "clicks": 13,
       "createdAt": 1715550000000
     },
     {
       "id": "2",
       "name": "Korektor AI",
-      "url": "./apps/todo.html",
+      "url": "./apps/korektor-ai.html",
       "description": "Korektor ujian essay berbasis AI",
       "category": "Produktivitas",
       "icon": "✅",
       "color": "#06b6d4",
       "pinned": false,
       "favorite": true,
-      "clicks": 32,
+      "clicks": 34,
       "createdAt": 1715636400000
     },
     {
@@ -50,7 +50,7 @@
       "color": "#10b981",
       "pinned": false,
       "favorite": false,
-      "clicks": 5,
+      "clicks": 6,
       "createdAt": 1715722800000
     },
     {
