@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-25T13:04:53.415Z",
+  "updatedAt": "2026-08-25T13:11:09.326Z",
   "apps": [
+    {
+      "id": "mt8oo8gc",
+      "name": "Sistem Bimbingan Konseling",
+      "url": "./apps/bk.html",
+      "description": "Sistem Bimbingan Konseling Siswa",
+      "category": "Produktivitas",
+      "icon": "📝",
+      "color": "#f50a87",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1787663468748
+    },
     {
       "id": "mt8og6eu",
       "name": "Sistem Periodik Unsur",
