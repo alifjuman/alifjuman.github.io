@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-25T13:12:38.306Z",
+  "updatedAt": "2026-08-26T12:22:02.997Z",
   "apps": [
+    {
+      "id": "mta2ampy",
+      "name": "Simulasi Konfigurasi Elektron",
+      "url": "./apps/elektron.html",
+      "description": "Simulasi Konfigurasi Elektron 118 Unsur Kimia",
+      "category": "Produktivitas",
+      "icon": "🔗",
+      "color": "#8b5cf6",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1787746814854
+    },
     {
       "id": "mt8oo8gc",
       "name": "Sistem Bimbingan Konseling",
