@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QR Studio Pro - Clean</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:"Plus Jakarta Sans",sans-serif;background:#fdfbf8;color:#111;min-height:100vh}
+.dark body{background:#0a0a0a;color:#f5f5f5}.mono{font-family:"JetBrains Mono",monospace}
+.header{position:sticky;top:0;z-index:10;backdrop-filter:blur(16px);background:rgba(253,251,248,.9);border-bottom:1px solid #ece8e2;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.dark .header{background:rgba(10,10,10,.9);border-color:#232323}
+.tabs{display:flex;gap:6px;background:#ece8e2;padding:5px;border-radius:999px}
+.dark .tabs{background:#232323}.tab{padding:8px 14px;border-radius:999px;border:0;background:transparent;font-weight:700;font-size:13px;cursor:pointer;color:#7a7570}
+.tab.active{background:#111;color:#fff}.dark .tab.active{background:#fff;color:#111}
+.main{max-width:1200px;margin:0 auto;padding:20px;display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+@media(max-width:900px){.main{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid #ece8e2;border-radius:24px;padding:20px;box-shadow:0 10px 40px -20px rgba(0,0,0,.15)}
+.dark .card{background:#161616;border-color:#232323}
+.label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.6;margin-bottom:8px;display:block}
+.input,textarea,select{width:100%;border:1px solid #ece8e2;border-radius:12px;padding:11px 13px;font-size:14px;background:#fff;color:#111;outline:none}
+.dark .input,.dark textarea,.dark select{background:#0a0a0a;border-color:#232323;color:#f5f5f5}
+.btn{height:42px;padding:0 16px;border-radius:12px;border:1px solid #ece8e2;background:#fff;font-weight:700;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.dark .btn{background:#161616;border-color:#232323;color:#f5f5f5}
+.btn-primary{background:#111;color:#fff;border-color:#111}.dark .btn-primary{background:#fff;color:#111}
+.drop{border:2px dashed #ece8e2;border-radius:16px;padding:20px;text-align:center;cursor:pointer;transition:.2s}
+.dark .drop{border-color:#232323}.drop:hover{border-color:#111}
+.preview{background:#f8f5f2;border-radius:18px;min-height:380px;display:grid;place-items:center;padding:20px}
+.dark .preview{background:#111}
+#qr-holder{display:none}
+.result{padding:12px;border-radius:12px;border:1px solid #ece8e2;background:#fcfaf8;margin-top:12px;word-break:break-all;font-size:13px}
+.dark .result{background:#0a0a0a;border-color:#232323}
+.badge{font-size:10px;font-weight:800;padding:4px 8px;border-radius:999px;background:#111;color:#fff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.range{width:100%}
+#qr-reader{border-radius:16px;overflow:hidden}
+#qr-reader video{border-radius:16px!important}
+</style>
+</head>
+<body>
+<div class="header">
+<div style="font-weight:800;display:flex;align-items:center;gap:8px"><div style="width:28px;height:28px;background:#111;color:#fff;border-radius:8px;display:grid;place-items:center">QR</div> STUDIO PRO</div>
+<div style="display:flex;gap:8px;align-items:center">
+<div class="tabs">
+<button class="tab active" data-mode="url">URL</button>
+<button class="tab" data-mode="text">Text</button>
+<button class="tab" data-mode="gambar">Gambar</button>
+<button class="tab" data-mode="scan">📷 Scan</button>
+</div>
+<button id="theme" class="btn" style="width:42px">◐</button>
+</div>
+</div>
+<div class="main">
+<div>
+<div class="card" id="panel-url">
+<span class="label">Link URL</span>
+<input id="urlInput" class="input" value="https://example.com" placeholder="https://...">
+<div class="grid2" style="margin-top:12px">
+<div><span class="label">Ukuran <span id="sizeVal">512</span>px</span><input id="size" type="range" min="128" max="1024" value="512" class="range"></div>
+<div><span class="label">Error Correction</span><select id="ec" class="input"><option value="L">L - 7%</option><option value="M" selected>M - 15%</option><option value="Q">Q - 25%</option><option value="H">H - 30%</option></select></div>
+</div>
+<div class="grid2" style="margin-top:12px">
+<div><span class="label">Warna QR</span><input id="fg" type="color" value="#0a0a0a"><input id="fgT" class="input mono" value="#0a0a0a" style="margin-top:6px"></div>
+<div><span class="label">Background</span><input id="bg" type="color" value="#ffffff"><input id="bgT" class="input mono" value="#ffffff" style="margin-top:6px"></div>
+</div>
+<div style="margin-top:12px"><span class="label">Logo Tengah (opsional)</span><div class="drop" id="logoDrop"><input id="logoFile" type="file" accept="image/*" hidden>🖼️ Klik upload logo PNG transparan<img id="logoPrev" style="max-width:60px;display:none;margin:8px auto;border-radius:8px"></div><span class="label" style="margin-top:8px">Ukuran Logo <span id="logoSizeVal">22</span>%</span><input id="logoSize" type="range" min="10" max="35" value="22" class="range"></div>
+</div>
+<div class="card" id="panel-text" style="display:none">
+<span class="label">Teks Bebas</span>
+<textarea id="textInput" style="min-height:120px">Halo! Ini QR Code premium.</textarea>
+<div class="mono" style="font-size:11px;opacity:.6;margin-top:6px"><span id="textLen">0</span> / 4296 karakter</div>
+</div>
+<div class="card" id="panel-gambar" style="display:none">
+<div class="tabs" style="width:fit-content;margin-bottom:12px"><button class="tab active" data-img="data">QR Data Gambar</button><button class="tab" data-img="logo">QR + Logo Gambar</button></div>
+<div id="imgData">
+<div class="drop" id="imgDrop"><input id="imgFile" type="file" accept="image/*" hidden>📤 Klik / drag & drop gambar<img id="imgPrev" style="max-width:100%;display:none;margin-top:10px;border-radius:12px"></div>
+<div class="grid2" style="margin-top:10px"><div><span class="label">Resize <span id="rVal">400</span>px</span><input id="resize" type="range" min="100" max="800" value="400" class="range"></div><div><span class="label">Quality <span id="qVal">60</span>%</span><input id="quality" type="range" min="10" max="90" value="60" class="range"></div></div>
+<div class="result mono" style="font-size:11px">Size: <span id="dSize">0 KB</span> | Len: <span id="qLen">0</span> <b id="warn" style="color:#e67e22"></b></div>
+</div>
+<div id="imgLogo" style="display:none"><span class="label">URL / Text untuk QR (gambar jadi logo)</span><input id="imgLogoContent" class="input" value="https://example.com"></div>
+</div>
+<div class="card" id="panel-scan" style="display:none">
+<span class="label">Scanner Kamera</span>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+<button id="camBack" class="btn btn-primary">📷 Belakang</button>
+<button id="camFront" class="btn">🤳 Depan</button>
+<button id="camStop" class="btn" style="display:none">⏹️ Stop</button>
+</div>
+<div id="qr-reader" style="border:1px solid #ece8e2;min-height:300px;background:#000"></div>
+<div style="margin-top:12px"><span class="label">Scan dari Galeri</span><div class="drop" id="scanDrop"><input id="scanFile" type="file" accept="image/*" hidden>📁 Upload foto QR dari galeri</div></div>
+<div id="scanResult" class="result" style="display:none"><div style="display:flex;justify-content:space-between;align-items:center"><b>✅ Hasil Scan</b><span class="badge" id="scanType">TEXT</span></div><div id="scanText" class="mono" style="margin-top:8px;white-space:pre-wrap"></div><img id="scanImg" style="max-width:100%;display:none;margin-top:8px;border-radius:12px"><div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap"><button id="sOpen" class="btn btn-primary" style="display:none">🔗 Buka Link</button><button id="sCopy" class="btn">📋 Copy</button><button id="sDl" class="btn" style="display:none">💾 Download</button></div></div>
+</div>
+</div>
+<div>
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center"><span class="label" style="margin:0">Preview QR</span><span id="status" class="mono" style="font-size:11px;opacity:.6">Memuat...</span></div>
+<div class="preview" style="margin-top:12px"><canvas id="qrCanvas" width="512" height="512" style="max-width:100%;border-radius:12px;background:#fff;box-shadow:0 10px 30px -15px rgba(0,0,0,.3)"></canvas><div id="qr-holder"></div></div>
+<div class="grid2" style="margin-top:12px"><button id="dlPng" class="btn btn-primary">⬇️ PNG HD</button><button id="dlSvg" class="btn">⬇️ SVG</button></div>
+<div class="grid2" style="margin-top:8px"><button id="copyImg" class="btn">📋 Salin Gambar</button><button id="shareBtn" class="btn">🔗 Bagikan</button></div>
+<div class="grid2" style="margin-top:12px"><div class="result" style="margin:0"><div style="font-size:10px;opacity:.6">KARAKTER</div><div id="statChar" style="font-weight:700">0</div></div><div class="result" style="margin:0"><div style="font-size:10px;opacity:.6">STATUS</div><div style="font-weight:700;color:#27ae60">● Ready</div></div></div>
+</div>
+<div class="card" style="margin-top:14px">
+<span class="label">Info</span>
+<p class="mono" style="font-size:11px;line-height:1.6;opacity:.7">Untuk QR berisi data gambar, jaga di bawah 1500 karakter agar mudah di-scan. Gunakan mode QR + Logo untuk hasil terbaik.</p>
+</div>
+</div>
+</div>
+
+<script>
+function loadScript(src){return new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s);});}
+async function loadLibs(){
+  const qrUrls=[
+    "https://alifjuman.github.io/apps/qrcode.js",
+    "https://cdn.jsdelivr.net/gh/alifjuman/alifjuman.github.io@main/apps/qrcode.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+  ];
+  for(let u of qrUrls){
+    try{await loadScript(u); if(window.QRCode){break;}}catch(e){}
+  }
+  const scanUrls=[
+    "https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js",
+    "https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"
+  ];
+  for(let u of scanUrls){
+    try{await loadScript(u); if(window.Html5Qrcode){break;}}catch(e){}
+  }
+  if(window.QRCode){document.getElementById('status').textContent='Ready'; generate();}
+  else{document.getElementById('status').textContent='Gagal memuat library, refresh halaman';}
+}
+let mode='url', imgSub='data', html5Qr=null;
+const $=s=>document.querySelector(s);
+const canvas=$('#qrCanvas'), ctx=canvas.getContext('2d');
+const holder=$('#qr-holder');
+
+function getPayload(){
+  if(mode==='url'){let v=$('#urlInput').value.trim(); if(!v) return ''; if(!/^https?:\/\//i.test(v) && !v.startsWith('mailto:') && !v.startsWith('tel:')) v='https://'+v; return v;}
+  if(mode==='text'){return $('#textInput').value;}
+  if(mode==='gambar'){if(imgSub==='data') return window._imgData||''; else {let v=$('#imgLogoContent').value.trim(); if(!v) return ''; if(!/^https?:\/\//i.test(v)) v='https://'+v; return v;}}
+  return '';
+}
+async function generate(){
+  const payload=getPayload();
+  const statEl=$('#statChar'); if(statEl) statEl.textContent=payload.length;
+  if(!payload || !window.QRCode){return;}
+  const size=parseInt($('#size').value), fg=$('#fg').value, bg=$('#bg').value;
+  const ecStr=$('#ec').value;
+  let correctLevel = 0;
+  if(window.QRCode.CorrectLevel){
+    const map={L:window.QRCode.CorrectLevel.L, M:window.QRCode.CorrectLevel.M, Q:window.QRCode.CorrectLevel.Q, H:window.QRCode.CorrectLevel.H};
+    correctLevel=map[ecStr]||map.M;
+  }
+  holder.innerHTML='';
+  try{
+    new QRCode(holder, {text: payload, width: size, height: size, colorDark: fg, colorLight: bg, correctLevel: correctLevel});
+    setTimeout(()=>{
+      const srcCanvas=holder.querySelector('canvas');
+      const srcImg=holder.querySelector('img');
+      canvas.width=size; canvas.height=size;
+      ctx.fillStyle=bg; ctx.fillRect(0,0,size,size);
+      if(srcCanvas){ctx.drawImage(srcCanvas,0,0,size,size);}
+      else if(srcImg){ctx.drawImage(srcImg,0,0,size,size);}
+      const logoSrc = (mode==='gambar' && imgSub==='logo') ? $('#imgPrev').src : ($('#logoPrev').src||'');
+      if(logoSrc){
+        const src = (mode==='gambar' && imgSub==='logo') ? $('#imgPrev').src : $('#logoPrev').src;
+        if(src && src.length>20){
+          const img=new Image(); img.onload=()=>{
+            const pct=parseInt($('#logoSize').value)/100;
+            const lw=size*pct, lh=size*pct, x=(size-lw)/2, y=(size-lh)/2;
+            ctx.fillStyle=bg; ctx.fillRect(x-5,y-5,lw+10,lh+10);
+            ctx.drawImage(img,x,y,lw,lh);
+          }; img.src=src;
+        }
+      }
+    },150);
+  }catch(e){$('#status').textContent='Error: '+e.message;}
+}
+document.querySelectorAll('.tab[data-mode]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tab[data-mode]').forEach(x=>x.classList.remove('active')); b.classList.add('active'); mode=b.dataset.mode;
+  document.querySelectorAll('[id^="panel-"]').forEach(p=>p.style.display='none'); $('#panel-'+mode).style.display='block';
+  if(mode!=='scan' && html5Qr){try{html5Qr.stop();}catch{} html5Qr=null; $('#camBack').style.display='inline-flex'; $('#camFront').style.display='inline-flex'; $('#camStop').style.display='none';}
+  if(mode!=='scan') generate();
+});
+document.querySelectorAll('.tab[data-img]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.tab[data-img]').forEach(x=>x.classList.remove('active')); b.classList.add('active'); imgSub=b.dataset.img;
+  $('#imgData').style.display=imgSub==='data'?'block':'none'; $('#imgLogo').style.display=imgSub==='logo'?'block':'none'; generate();
+});
+$('#urlInput').addEventListener('input',generate);
+$('#textInput').addEventListener('input',()=>{$('#textLen').textContent=$('#textInput').value.length; generate();});
+$('#size').addEventListener('input',()=>{$('#sizeVal').textContent=$('#size').value; generate();});
+$('#ec').addEventListener('change',generate);
+$('#fg').addEventListener('input',()=>{$('#fgT').value=$('#fg').value; generate();});
+$('#bg').addEventListener('input',()=>{$('#bgT').value=$('#bg').value; generate();});
+$('#fgT').addEventListener('input',()=>{$('#fg').value=$('#fgT').value; generate();});
+$('#bgT').addEventListener('input',()=>{$('#bg').value=$('#bgT').value; generate();});
+$('#logoSize').addEventListener('input',()=>{$('#logoSizeVal').textContent=$('#logoSize').value; generate();});
+$('#imgLogoContent').addEventListener('input',generate);
+$('#resize').addEventListener('input',()=>{$('#rVal').textContent=$('#resize').value});
+$('#quality').addEventListener('input',()=>{$('#qVal').textContent=$('#quality').value});
+$('#theme').onclick=()=>{document.documentElement.classList.toggle('dark'); document.body.classList.toggle('dark');};
+$('#logoDrop').onclick=()=>$('#logoFile').click();
+$('#logoFile').onchange=e=>{const f=e.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{$('#logoPrev').src=r.result; $('#logoPrev').style.display='block'; generate();}; r.readAsDataURL(f);};
+$('#imgDrop').onclick=()=>$('#imgFile').click();
+$('#imgFile').onchange=e=>{const f=e.target.files[0]; if(f) handleImg(f);};
+$('#imgDrop').ondragover=e=>{e.preventDefault();};
+$('#imgDrop').ondrop=e=>{e.preventDefault(); const f=e.dataTransfer.files[0]; if(f) handleImg(f);};
+function compress(file,max,q){return new Promise(res=>{const img=new Image(); const url=URL.createObjectURL(file); img.onload=()=>{let {width,height}=img; if(width>max||height>max){const r=Math.min(max/width,max/height); width=Math.round(width*r); height=Math.round(height*r);} const c=document.createElement('canvas'); c.width=width; c.height=height; c.getContext('2d').drawImage(img,0,0,width,height); res(c.toDataURL('image/jpeg',q)); URL.revokeObjectURL(url);}; img.src=url;});}
+async function handleImg(file){
+  $('#imgPrev').src=URL.createObjectURL(file); $('#imgPrev').style.display='block';
+  const max=parseInt($('#resize').value), q=parseInt($('#quality').value)/100;
+  const dataUrl=await compress(file,max,q); window._imgData=dataUrl;
+  $('#dSize').textContent=(dataUrl.length/1024).toFixed(1)+' KB'; $('#qLen').textContent=dataUrl.length;
+  const w=$('#warn'); if(dataUrl.length>2000) w.textContent='Terlalu besar!'; else if(dataUrl.length>1000) w.textContent='Padat - uji scan'; else w.textContent='Aman';
+  generate();
+}
+$('#dlPng').onclick=()=>{const a=document.createElement('a'); a.download='qr-'+Date.now()+'.png'; a.href=canvas.toDataURL('image/png'); a.click();};
+$('#dlSvg').onclick=()=>{
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}"><image href="${canvas.toDataURL()}" width="100%" height="100%"/></svg>`;
+  const blob=new Blob([svg],{type:'image/svg+xml'}); const a=document.createElement('a'); a.download='qr-'+Date.now()+'.svg'; a.href=URL.createObjectURL(blob); a.click();
+};
+$('#copyImg').onclick=()=>{canvas.toBlob(async b=>{try{await navigator.clipboard.write([new ClipboardItem({'image/png':b})]); const st=$('#status'); st.textContent='Tersalin!'; setTimeout(()=>st.textContent='Ready',1200);}catch{alert('Copy tidak didukung, pakai Download');}});};
+$('#shareBtn').onclick=()=>{canvas.toBlob(async b=>{const f=new File([b],'qr.png',{type:'image/png'}); if(navigator.canShare && navigator.canShare({files:[f]})){await navigator.share({files:[f], title:'QR Code'});} else alert('Share tidak didukung');});};
+async function startCam(facing){
+  if(!window.Html5Qrcode){alert('Scanner belum siap, refresh halaman'); return;}
+  if(html5Qr){try{await html5Qr.stop(); html5Qr.clear();}catch{}}
+  html5Qr=new Html5Qrcode('qr-reader');
+  $('#camBack').style.display='none'; $('#camFront').style.display='none'; $('#camStop').style.display='inline-flex';
+  try{await html5Qr.start({facingMode:facing}, {fps:10, qrbox:{width:250,height:250}}, onScan, ()=>{});}catch(e){alert('Gagal buka kamera: '+e+' - Pastikan pakai HTTPS dan izinkan kamera'); $('#camBack').style.display='inline-flex'; $('#camFront').style.display='inline-flex'; $('#camStop').style.display='none';}
+}
+function onScan(text){
+  if(navigator.vibrate) navigator.vibrate(200);
+  try{const ac=new (window.AudioContext||window.webkitAudioContext)(); const o=ac.createOscillator(), g=ac.createGain(); o.frequency.value=880; o.connect(g); g.connect(ac.destination); g.gain.setValueAtTime(0.3,ac.currentTime); o.start(); o.stop(ac.currentTime+0.3);}catch{}
+  showScan(text); if(html5Qr){html5Qr.stop().then(()=>{html5Qr.clear(); html5Qr=null; $('#camBack').style.display='inline-flex'; $('#camFront').style.display='inline-flex'; $('#camStop').style.display='none';}).catch(()=>{});}
+}
+$('#camBack').onclick=()=>startCam('environment');
+$('#camFront').onclick=()=>startCam('user');
+$('#camStop').onclick=async()=>{if(html5Qr){await html5Qr.stop(); html5Qr.clear(); html5Qr=null;} $('#camBack').style.display='inline-flex'; $('#camFront').style.display='inline-flex'; $('#camStop').style.display='none';};
+$('#scanDrop').onclick=()=>$('#scanFile').click();
+$('#scanFile').onchange=e=>{const f=e.target.files[0]; if(f) scanFile(f);};
+$('#scanDrop').ondragover=e=>e.preventDefault();
+$('#scanDrop').ondrop=e=>{e.preventDefault(); const f=e.dataTransfer.files[0]; if(f) scanFile(f);};
+async function scanFile(file){
+  if(!window.Html5Qrcode){alert('Scanner belum siap'); return;}
+  const tmp=new Html5Qrcode('qr-reader');
+  try{const res=await tmp.scanFile(file,true); showScan(res);}catch(e){alert('Gagal scan file: '+e);}
+}
+function showScan(text){
+  $('#scanResult').style.display='block'; $('#scanText').textContent=text;
+  const isUrl=/^https?:\/\//i.test(text), isImg=text.startsWith('data:image/');
+  $('#scanType').textContent=isUrl?'URL':isImg?'IMAGE':'TEXT';
+  $('#sOpen').style.display=isUrl?'inline-flex':'none'; $('#scanImg').style.display=isImg?'block':'none'; $('#sDl').style.display=isImg?'inline-flex':'none';
+  if(isUrl) $('#sOpen').onclick=()=>window.open(text,'_blank');
+  if(isImg) $('#scanImg').src=text;
+  $('#sCopy').onclick=()=>{navigator.clipboard.writeText(text); $('#sCopy').textContent='✅ Tersalin'; setTimeout(()=>$('#sCopy').textContent='📋 Copy',1200);};
+  $('#sDl').onclick=()=>{const a=document.createElement('a'); a.href=text; a.download='scan-'+Date.now()+'.png'; a.click();};
+  $('#scanResult').scrollIntoView({behavior:'smooth'});
+}
+loadLibs();
+</script>
+</body>
+</html>
