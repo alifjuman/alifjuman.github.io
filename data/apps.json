@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-26T12:22:02.997Z",
+  "updatedAt": "2026-08-27T00:08:29.119Z",
   "apps": [
+    {
+      "id": "mtarlacx",
+      "name": "QR Code Generator",
+      "url": "./apps/qrcode/index.html",
+      "description": "Membuat QR Code dengan mudah",
+      "category": "Tools",
+      "icon": "🧮",
+      "color": "#f7695f",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1787789302449
+    },
     {
       "id": "mta2ampy",
       "name": "Simulasi Konfigurasi Elektron",
