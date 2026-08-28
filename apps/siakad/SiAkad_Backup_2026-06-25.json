@@ -1,0 +1,1051 @@
+{
+  "version": "1.0",
+  "date": "2026-06-25T01:21:43.391Z",
+  "settings": [
+    {
+      "key": "bobotTugas",
+      "value": 20
+    },
+    {
+      "key": "bobotUAS",
+      "value": 30
+    },
+    {
+      "key": "bobotUH",
+      "value": 20
+    },
+    {
+      "key": "bobotUTS",
+      "value": 30
+    },
+    {
+      "key": "kkm",
+      "value": 75
+    },
+    {
+      "key": "semester",
+      "value": "Ganjil"
+    },
+    {
+      "key": "ta",
+      "value": "2026"
+    }
+  ],
+  "kelas": [
+    {
+      "nama": "Imrithi",
+      "tingkat": "2",
+      "id": 1
+    }
+  ],
+  "mapel": [
+    {
+      "nama": "Tauhid",
+      "kode": "THD",
+      "kelasId": 1,
+      "id": 1
+    }
+  ],
+  "siswa": [
+    {
+      "nis": "0001",
+      "nama": "Anti Maulidah",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 1
+    },
+    {
+      "nis": "0002",
+      "nama": "Asna Subuli",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 2
+    },
+    {
+      "nis": "0003",
+      "nama": "Amania M.",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 3
+    },
+    {
+      "nis": "0004",
+      "nama": "Hidayatul M.",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 4
+    },
+    {
+      "nis": "0005",
+      "nama": "Istofani Nabila",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 5
+    },
+    {
+      "nis": "0006",
+      "nama": "Lia Purwati",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 6
+    },
+    {
+      "nis": "0007",
+      "nama": "Rokhimatun N.",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 7
+    },
+    {
+      "nis": "0008",
+      "nama": "Syifa Rahmawati",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 8
+    },
+    {
+      "nis": "0009",
+      "nama": "Zulfatun Ni'mah",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 9
+    },
+    {
+      "nis": "0010",
+      "nama": "Naila Sa'adah",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 10
+    },
+    {
+      "nis": "0011",
+      "nama": "Nur Winda",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 11
+    },
+    {
+      "nis": "0012",
+      "nama": "Amelia Afidatu S.",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 12
+    },
+    {
+      "nis": "0013",
+      "nama": "Affanin Zulfa",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 13
+    },
+    {
+      "nis": "0014",
+      "nama": "Elfa Fina S.",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 14
+    },
+    {
+      "nis": "0015",
+      "nama": "Istifa Izatus S.",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 15
+    },
+    {
+      "nis": "0016",
+      "nama": "Keyla Calysta",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 16
+    },
+    {
+      "nis": "0017",
+      "nama": "Lafia Kumala S.",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 17
+    },
+    {
+      "nis": "0018",
+      "nama": "Nandhia Kayla",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 18
+    },
+    {
+      "nis": "0019",
+      "nama": "Olivia Saputri",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 19
+    },
+    {
+      "nis": "0020",
+      "nama": "Regin Zalfaa M.",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 20
+    },
+    {
+      "nis": "0021",
+      "nama": "Sabrina Dwita A.",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 21
+    },
+    {
+      "nis": "0022",
+      "nama": "Vanessa Ajeng M.",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 22
+    },
+    {
+      "nis": "0023",
+      "nama": "Alifia Chusninnaja",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 23
+    },
+    {
+      "nis": "0024",
+      "nama": "Aqiila Chusni K.",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 24
+    },
+    {
+      "nis": "0025",
+      "nama": "Silfi Rukhana",
+      "kelasId": 1,
+      "jk": "P",
+      "id": 25
+    },
+    {
+      "nis": "0026",
+      "nama": "Azka Atho'",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 26
+    },
+    {
+      "nis": "0027",
+      "nama": "Khoirul Mukarrom",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 27
+    },
+    {
+      "nis": "0028",
+      "nama": "Ahmad Rifa'i",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 28
+    },
+    {
+      "nis": "0029",
+      "nama": "Sacti Fadillah",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 29
+    },
+    {
+      "nis": "0030",
+      "nama": "Fadillah Rizki",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 30
+    },
+    {
+      "nis": "0031",
+      "nama": "Rahmad Ilyasin F",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 31
+    },
+    {
+      "nis": "0032",
+      "nama": "Ahnaf Rabbani",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 32
+    },
+    {
+      "nis": "0033",
+      "nama": "M. Ikhwan Yunus",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 33
+    },
+    {
+      "nis": "0034",
+      "nama": "Sahril Amir",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 34
+    },
+    {
+      "nis": "0035",
+      "nama": "Khoiruddin",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 35
+    },
+    {
+      "nis": "0036",
+      "nama": "Ahmad Faza M",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 36
+    },
+    {
+      "nis": "0037",
+      "nama": "Rizki Irawan",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 37
+    },
+    {
+      "nis": "0038",
+      "nama": "Alim Miki",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 38
+    },
+    {
+      "nis": "0039",
+      "nama": "Afif Almer Dzaky",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 39
+    },
+    {
+      "nis": "0040",
+      "nama": "Ahmad Nur Sahid",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 40
+    },
+    {
+      "nis": "0041",
+      "nama": "Ammar K. Himam",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 41
+    },
+    {
+      "nis": "0042",
+      "nama": "Ardhan Zakka W",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 42
+    },
+    {
+      "nis": "0043",
+      "nama": "Fahmi Ramadhani",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 43
+    },
+    {
+      "nis": "0044",
+      "nama": "M. Dannis Aniq A.",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 44
+    },
+    {
+      "nis": "0045",
+      "nama": "M. Nur Muallim",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 45
+    },
+    {
+      "nis": "0046",
+      "nama": "Nayandra S. Bara Putra",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 46
+    },
+    {
+      "nis": "0047",
+      "nama": "Raihan Wijaya K.",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 47
+    },
+    {
+      "nis": "0048",
+      "nama": "Wahyu Hasan",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 48
+    },
+    {
+      "nis": "0049",
+      "nama": "Arfan Cahya P.",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 49
+    },
+    {
+      "nis": "0050",
+      "nama": "Arfan Yahya N.",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 50
+    },
+    {
+      "nis": "0051",
+      "nama": "M. Azka Kunaifa",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 51
+    },
+    {
+      "nis": "0052",
+      "nama": "M. Faiz Fadli",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 52
+    },
+    {
+      "nis": "0053",
+      "nama": "M. Furqon",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 53
+    },
+    {
+      "nis": "0054",
+      "nama": "Raditya P.W.",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 54
+    },
+    {
+      "nis": "0055",
+      "nama": "Yulianto Fajar M.",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 55
+    },
+    {
+      "nis": "0056",
+      "nama": "M. Imamul Hanif",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 56
+    },
+    {
+      "nis": "0057",
+      "nama": "Ahmad F. Azzaky",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 57
+    },
+    {
+      "nis": "0058",
+      "nama": "Rian Santoso",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 58
+    },
+    {
+      "nis": "0059",
+      "nama": "Makkin",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 59
+    },
+    {
+      "nis": "0061",
+      "nama": "M. Akifan Naroya",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 61
+    },
+    {
+      "nis": "0062",
+      "nama": "M. Septian Hadi",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 62
+    },
+    {
+      "nis": "0063",
+      "nama": "Ima Soir",
+      "kelasId": 1,
+      "jk": "L",
+      "id": 63
+    }
+  ],
+  "absensi": [
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 1,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 1
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 2,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 2
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 3,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 3
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 4,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 4
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 5,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 5
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 6,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 6
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 7,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 7
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 8,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 8
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 9,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 9
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 10,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 10
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 11,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 11
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 12,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 12
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 13,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 13
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 14,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 14
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 15,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 15
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 16,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 16
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 17,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 17
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 18,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 18
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 19,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "I",
+      "id": 19
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 20,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 20
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 21,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 21
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 22,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 22
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 23,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 23
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 24,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 24
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 25,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 25
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 26,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 26
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 27,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 27
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 28,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 28
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 29,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 29
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 30,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 30
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 31,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 31
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 32,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 32
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 33,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 33
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 34,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 34
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 35,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 35
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 36,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 36
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 37,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 37
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 38,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 38
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 39,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 39
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 40,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 40
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 41,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 41
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 42,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 42
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 43,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 43
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 44,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 44
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 45,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 45
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 46,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 46
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 47,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 47
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 48,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 48
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 49,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 49
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 50,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "I",
+      "id": 50
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 51,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 51
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 52,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 52
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 53,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 53
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 54,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 54
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 55,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 55
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 56,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "I",
+      "id": 56
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 57,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 57
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 58,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 58
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 59,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 59
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 61,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "A",
+      "id": 61
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 62,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "I",
+      "id": 62
+    },
+    {
+      "tanggal": "2026-06-25",
+      "siswaId": 63,
+      "kelasId": 1,
+      "mapelId": 1,
+      "status": "H",
+      "id": 63
+    }
+  ],
+  "nilai": [
+    {
+      "siswaId": 1,
+      "mapelId": 1,
+      "ta": "2024/2025",
+      "semester": "Ganjil",
+      "tugas": 85,
+      "uh": 0,
+      "uts": 0,
+      "uas": 0,
+      "id": 1
+    },
+    {
+      "siswaId": 2,
+      "mapelId": 1,
+      "ta": "2024/2025",
+      "semester": "Ganjil",
+      "tugas": 80,
+      "uh": 0,
+      "uts": 0,
+      "uas": 0,
+      "id": 2
+    },
+    {
+      "siswaId": 4,
+      "mapelId": 1,
+      "ta": "2024/2025",
+      "semester": "Ganjil",
+      "tugas": 85,
+      "uh": 0,
+      "uts": 0,
+      "uas": 0,
+      "id": 3
+    },
+    {
+      "siswaId": 6,
+      "mapelId": 1,
+      "ta": "2024/2025",
+      "semester": "Ganjil",
+      "tugas": 78,
+      "uh": 0,
+      "uts": 0,
+      "uas": 0,
+      "id": 4
+    },
+    {
+      "siswaId": 9,
+      "mapelId": 1,
+      "ta": "2024/2025",
+      "semester": "Ganjil",
+      "tugas": 80,
+      "uh": 0,
+      "uts": 0,
+      "uas": 0,
+      "id": 5
+    },
+    {
+      "siswaId": 47,
+      "mapelId": 1,
+      "ta": "2024/2025",
+      "semester": "Ganjil",
+      "tugas": 80,
+      "uh": 0,
+      "uts": 0,
+      "uas": 0,
+      "id": 6
+    }
+  ]
+}
