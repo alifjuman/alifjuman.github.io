@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-08-28T03:26:38.955Z",
+  "updatedAt": "2026-08-28T03:28:17.570Z",
   "apps": [
     {
-      "id": "mtce2hgw",
+      "id": "mtce61us",
       "name": "Sistem Penilaian Kinerja Guru",
       "url": "./apps/spkg.html",
       "description": "Sistem Penilaian Kinerja Guru",
@@ -12,7 +12,7 @@
       "pinned": false,
       "favorite": false,
       "clicks": 0,
-      "createdAt": 1787887522544
+      "createdAt": 1787887688932
     },
     {
       "id": "mtarlacx",
