@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-28T03:36:03.712Z",
+  "updatedAt": "2026-08-28T03:47:23.734Z",
   "apps": [
+    {
+      "id": "mtceuil3",
+      "name": "Mini Siakad Sekolah",
+      "url": "./apps/siakad/index.html",
+      "description": "Mini Sistem Administrasi Sekolah",
+      "category": "Produktivitas",
+      "icon": "📝",
+      "color": "#f59e0b",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 1,
+      "createdAt": 1787888830359
+    },
     {
       "id": "mtcefhxc",
       "name": "Nebula Chat",
@@ -146,9 +159,9 @@
     },
     {
       "id": "5",
-      "name": "Absen dan Nilai Siswa",
+      "name": "Absensi Sekolah",
       "url": "./apps/absensi.html",
-      "description": "Aplikasi Absen dan Nilai Siswa",
+      "description": "Aplikasi Absen Siswa dan Guru",
       "category": "Dev",
       "icon": "📝",
       "color": "#f59e0b",
