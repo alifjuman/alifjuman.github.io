@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-28T03:28:17.570Z",
+  "updatedAt": "2026-08-28T03:36:03.712Z",
   "apps": [
+    {
+      "id": "mtcefhxc",
+      "name": "Nebula Chat",
+      "url": "./apps/nebulachat.html",
+      "description": "Nebula Chat AI dengan api Groq",
+      "category": "Produktivitas",
+      "icon": "📝",
+      "color": "#5f71f7",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 1,
+      "createdAt": 1787888129664
+    },
     {
       "id": "mtce61us",
       "name": "Sistem Penilaian Kinerja Guru",
@@ -11,7 +24,7 @@
       "color": "#f75f7d",
       "pinned": false,
       "favorite": false,
-      "clicks": 0,
+      "clicks": 1,
       "createdAt": 1787887688932
     },
     {
