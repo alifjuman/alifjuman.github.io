@@ -1,6 +1,4 @@
 {
-  "version": "final-1.0",
-  "exportedAt": "2026-08-29T04:52:49.214Z",
   "siswa": [
     {
       "nis": "20241001",
@@ -1061,9 +1059,75 @@
       ]
     }
   ],
-  "hasil": [],
+  "mapel": [
+    {
+      "id": "m1",
+      "kode": "MTK",
+      "nama": "Matematika",
+      "warna": "#3B82F6",
+      "ikon": "📐",
+      "kkm": 75,
+      "deskripsi": "Aljabar, Geometri, Statistika"
+    },
+    {
+      "id": "m2",
+      "kode": "BIN",
+      "nama": "Bahasa Indonesia",
+      "warna": "#10B981",
+      "ikon": "📚",
+      "kkm": 75,
+      "deskripsi": "Teks, Sastra, Tata Bahasa"
+    },
+    {
+      "id": "m3",
+      "kode": "INF",
+      "nama": "Informatika",
+      "warna": "#8B5CF6",
+      "ikon": "💻",
+      "kkm": 75,
+      "deskripsi": "Algoritma, Pemrograman, Jaringan"
+    },
+    {
+      "id": "m4",
+      "kode": "IPA",
+      "nama": "IPA",
+      "warna": "#EF4444",
+      "ikon": "🔬",
+      "kkm": 75,
+      "deskripsi": "Fisika, Kimia, Biologi"
+    },
+    {
+      "id": "m5",
+      "kode": "IPS",
+      "nama": "IPS",
+      "warna": "#F59E0B",
+      "ikon": "🌍",
+      "kkm": 75,
+      "deskripsi": "Sejarah, Geografi, Ekonomi"
+    },
+    {
+      "id": "m6",
+      "kode": "BIG",
+      "nama": "Bahasa Inggris",
+      "warna": "#06B6D4",
+      "ikon": "🔤",
+      "kkm": 75,
+      "deskripsi": "Grammar, Reading, Writing"
+    },
+    {
+      "id": "m7",
+      "kode": "PPKN",
+      "nama": "PPKN",
+      "warna": "#EC4899",
+      "ikon": "⚖️",
+      "kkm": 75,
+      "deskripsi": "Pancasila, UUD, Kewarganegaraan"
+    }
+  ],
   "settings": {
-    "groq_model": "openai/gpt-oss-120b",
-    "kkmDefault": 75
-  }
+    "sheets_url": "https://script.google.com/macros/s/AKfycbwwVLZ2Tiq17rFZBQIUCl7ercVmWCF8PWe0F_T7VnvI50uG6YQmMZsq3lAWiOXrd3k/exec",
+    "sheets_active": true
+  },
+  "updatedAt": "2026-08-29T11:39:20.485Z",
+  "note": "Master data only - no secret groq key"
 }
