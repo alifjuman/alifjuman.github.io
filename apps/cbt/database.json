@@ -1,854 +1,1069 @@
 {
   "version": "final-1.0",
-  "exportedAt": "2026-08-28T21:31:50.125941",
+  "exportedAt": "2026-08-29T04:52:49.214Z",
   "siswa": [
     {
       "nis": "20241001",
       "nama": "Ahmad Fauzi",
       "kelas": "XII IPA 1",
-      "jurusan": "IPA",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241002",
       "nama": "Siti Nurhaliza",
-      "kelas": "XII IPA 1",
-      "jurusan": "IPA",
+      "kelas": "XII IPA 2",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241003",
       "nama": "Budi Santoso",
-      "kelas": "XII IPA 1",
-      "jurusan": "IPA",
+      "kelas": "XII IPS 1",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241004",
       "nama": "Dewi Lestari",
       "kelas": "XII IPA 1",
-      "jurusan": "IPA",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241005",
-      "nama": "Rizki Maulana",
-      "kelas": "XII IPA 1",
-      "jurusan": "IPA",
+      "nama": "Rizki Pratama",
+      "kelas": "XII IPA 2",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241006",
-      "nama": "Anisa Rahma",
-      "kelas": "XII IPA 1",
-      "jurusan": "IPA",
+      "nama": "Putri Ayu",
+      "kelas": "XII IPS 1",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241007",
-      "nama": "Fajar Pratama",
+      "nama": "Fajar Maulana",
       "kelas": "XII IPA 1",
-      "jurusan": "IPA",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241008",
-      "nama": "Lina Marlina",
-      "kelas": "XII IPA 1",
-      "jurusan": "IPA",
+      "nama": "Intan Permata",
+      "kelas": "XII IPA 2",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241009",
-      "nama": "Dimas Saputra",
-      "kelas": "XII IPA 1",
-      "jurusan": "IPA",
+      "nama": "Eko Wijaya",
+      "kelas": "XII IPS 1",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241010",
-      "nama": "Putri Ayu",
-      "kelas": "XII IPA 2",
-      "jurusan": "IPA",
+      "nama": "Lestari Wulandari",
+      "kelas": "XII IPA 1",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241011",
-      "nama": "Eko Wijaya",
+      "nama": "Bayu Saputra",
       "kelas": "XII IPA 2",
-      "jurusan": "IPA",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241012",
       "nama": "Maya Sari",
-      "kelas": "XII IPA 2",
-      "jurusan": "IPA",
+      "kelas": "XII IPS 1",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241013",
-      "nama": "Andi Hermawan",
-      "kelas": "XII IPA 2",
-      "jurusan": "IPA",
+      "nama": "Rian Hidayat",
+      "kelas": "XII IPA 1",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241014",
-      "nama": "Rina Wati",
+      "nama": "Nurul Azizah",
       "kelas": "XII IPA 2",
-      "jurusan": "IPA",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241015",
-      "nama": "Joko Susilo",
-      "kelas": "XII IPA 2",
-      "jurusan": "IPA",
+      "nama": "Agus Prasetyo",
+      "kelas": "XII IPS 1",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241016",
-      "nama": "Intan Permata",
-      "kelas": "XII IPA 2",
-      "jurusan": "IPA",
+      "nama": "Fitri Handayani",
+      "kelas": "XII IPA 1",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241017",
-      "nama": "Hendra Gunawan",
+      "nama": "Dimas Anggara",
       "kelas": "XII IPA 2",
-      "jurusan": "IPA",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241018",
-      "nama": "Yuni Astuti",
-      "kelas": "XII IPA 2",
-      "jurusan": "IPA",
+      "nama": "Citra Kirana",
+      "kelas": "XII IPS 1",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241019",
-      "nama": "Bagas Adi",
-      "kelas": "XII IPS 1",
-      "jurusan": "IPS",
+      "nama": "Hendra Gunawan",
+      "kelas": "XII IPA 1",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241020",
-      "nama": "Citra Kirana",
-      "kelas": "XII IPS 1",
-      "jurusan": "IPS",
+      "nama": "Anisa Rahmawati",
+      "kelas": "XII IPA 2",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241021",
-      "nama": "Reza Pahlevi",
+      "nama": "Galih Permana",
       "kelas": "XII IPS 1",
-      "jurusan": "IPS",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241022",
-      "nama": "Nurul Huda",
-      "kelas": "XII IPS 1",
-      "jurusan": "IPS",
+      "nama": "Yuni Astuti",
+      "kelas": "XII IPA 1",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241023",
-      "nama": "Agus Prasetyo",
-      "kelas": "XII IPS 1",
-      "jurusan": "IPS",
+      "nama": "Arif Rahman",
+      "kelas": "XII IPA 2",
+      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241024",
-      "nama": "Fitri Handayani",
+      "nama": "Siska Amelia",
       "kelas": "XII IPS 1",
-      "jurusan": "IPS",
+      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241025",
-      "nama": "Alif Jum'an",
-      "kelas": "XII IPS 1",
-      "jurusan": "IPS",
+      "nama": "Joko Widodo",
+      "kelas": "XII IPA 1",
+      "jk": "L",
       "password": "siswa123"
     }
   ],
   "bankSoal": [
     {
-      "id": "soal-1",
-      "tipe": "pg",
-      "mapel": "Matematika",
-      "kelas": "XII",
+      "id": "S57LBFVZ",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
       "kesulitan": "sedang",
-      "pertanyaan": "Jika f(x)=2x+3, maka f(5) = ...",
-      "opsi": {
-        "A": "10",
-        "B": "13",
-        "C": "15",
-        "D": "18",
-        "E": "20"
-      },
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Tag HTML apa yang digunakan untuk menampilkan paragraf?",
+      "opsi": [
+        "<div>",
+        "<p>",
+        "<span>",
+        "<section>",
+        "<header>"
+      ],
       "kunci": [
         "B"
       ],
-      "pembahasan": "f(5)=2*5+3=13",
-      "skor": 10
+      "pembahasan": "Tag <p> adalah tag standar untuk membuat paragraf dalam HTML.",
+      "gambar": ""
     },
     {
-      "id": "soal-2",
-      "tipe": "pg_multi",
+      "id": "S5EVN7HU",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Manakah atribut berikut yang digunakan untuk memberikan judul pada tabel?",
+      "opsi": [
+        "caption",
+        "title",
+        "header",
+        "summary",
+        "label"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Elemen <caption> diletakkan di dalam <table> untuk memberikan judul pada tabel.",
+      "gambar": ""
+    },
+    {
+      "id": "S5G428OW",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Untuk menambahkan gambar pada halaman web, tag HTML yang tepat adalah:",
+      "opsi": [
+        "<img>",
+        "<picture>",
+        "<image>",
+        "<src>",
+        "<media>"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Tag <img> dipakai untuk menampilkan gambar, dengan atribut src untuk sumber gambar.",
+      "gambar": ""
+    },
+    {
+      "id": "SR3TX8YY",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Atribut apa yang diperlukan pada tag <a> untuk membuat tautan ke halaman lain?",
+      "opsi": [
+        "href",
+        "src",
+        "link",
+        "target",
+        "ref"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Atribut href (hypertext reference) menentukan URL tujuan tautan.",
+      "gambar": ""
+    },
+    {
+      "id": "S7DSJADY",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Elemen HTML manakah yang secara semantik menandakan bahwa isinya merupakan navigasi situs?",
+      "opsi": [
+        "<nav>",
+        "<menu>",
+        "<section>",
+        "<aside>",
+        "<header>"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Elemen <nav> digunakan khusus untuk kumpulan tautan navigasi.",
+      "gambar": ""
+    },
+    {
+      "id": "SP158PNG",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Tag HTML apa yang digunakan untuk menandai teks yang penting atau penting secara semantik?",
+      "opsi": [
+        "<strong>",
+        "<b>",
+        "<em>",
+        "<i>",
+        "<mark>"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "<strong> menandai teks penting secara semantik, biasanya ditampilkan tebal.",
+      "gambar": ""
+    },
+    {
+      "id": "SMPQV19J",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Manakah nilai atribut 'type' yang tepat untuk membuat input berupa email pada form?",
+      "opsi": [
+        "email",
+        "text",
+        "mail",
+        "url",
+        "string"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Atribut type=\"email\" pada <input> memberi validasi email otomatis.",
+      "gambar": ""
+    },
+    {
+      "id": "S9PCB49S",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Jika ingin menambahkan komentar dalam kode HTML yang tidak akan ditampilkan di browser, sintaks yang benar adalah:",
+      "opsi": [
+        "<!-- komentar -->",
+        "// komentar",
+        "/* komentar */",
+        "<!--- komentar --->",
+        "# komentar"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Komentar HTML menggunakan <!-- dan -->.",
+      "gambar": ""
+    },
+    {
+      "id": "S2ROJ19O",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Elemen mana yang biasanya ditempatkan di dalam <head> untuk menghubungkan file CSS eksternal?",
+      "opsi": [
+        "<link>",
+        "<style>",
+        "<script>",
+        "<meta>",
+        "<title>"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "<link rel=\"stylesheet\" href=\"...\"> menghubungkan stylesheet eksternal.",
+      "gambar": ""
+    },
+    {
+      "id": "S6IHS7LU",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Tag HTML berikut mana yang bersifat inline (tidak memulai baris baru)?",
+      "opsi": [
+        "<span>",
+        "<div>",
+        "<section>",
+        "<header>",
+        "<footer>"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "<span> adalah elemen inline, sementara <div>, <section>, <header>, <footer> bersifat block.",
+      "gambar": ""
+    },
+    {
+      "id": "S001",
       "mapel": "Matematika",
-      "kelas": "XII",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Turunan pertama dari f(x) = 3x² + 5x - 2 adalah ...",
+      "opsi": [
+        "6x+5",
+        "3x+5",
+        "6x-2",
+        "3x²+5",
+        "6x+5x"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "f'(x)=6x+5 menggunakan aturan pangkat."
+    },
+    {
+      "id": "S002",
+      "mapel": "Matematika",
+      "kelas": "XII IPA 1",
       "kesulitan": "sulit",
+      "bobot": 15,
+      "tipe": "pg_multi",
       "pertanyaan": "Manakah yang termasuk bilangan prima? (pilih semua yang benar)",
-      "opsi": {
-        "A": "2",
-        "B": "4",
-        "C": "7",
-        "D": "9",
-        "E": "11"
-      },
+      "opsi": [
+        "2",
+        "4",
+        "5",
+        "9",
+        "13"
+      ],
       "kunci": [
         "A",
         "C",
         "E"
       ],
-      "pembahasan": "Prima: 2,7,11",
-      "skor": 15
+      "pembahasan": "Prima hanya habis dibagi 1 dan dirinya sendiri."
     },
     {
-      "id": "soal-3",
-      "tipe": "bs",
-      "mapel": "Informatika",
-      "kelas": "XII",
+      "id": "S003",
+      "mapel": "Matematika",
+      "kelas": "XII IPA 2",
       "kesulitan": "mudah",
-      "pertanyaan": "HTML adalah bahasa pemrograman untuk membuat logika server.",
-      "opsi": {
-        "Benar": "Benar",
-        "Salah": "Salah"
-      },
-      "kunci": [
+      "bobot": 10,
+      "tipe": "bs",
+      "pertanyaan": "Nilai determinan matriks identitas 2x2 adalah 1 (Benar/Salah)",
+      "opsi": [
+        "Benar",
         "Salah"
       ],
-      "pembahasan": "HTML adalah markup, bukan untuk logika server",
-      "skor": 10
+      "kunci": [
+        true
+      ],
+      "pembahasan": "det(I)=1"
     },
     {
-      "id": "soal-4",
+      "id": "S004",
+      "mapel": "Bahasa Indonesia",
+      "kelas": "XII IPA 1",
+      "kesulitan": "mudah",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Ide pokok paragraf disebut juga ...",
+      "opsi": [
+        "Gagasan utama",
+        "Kalimat penjelas",
+        "Kesimpulan",
+        "Tema",
+        "Judul"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Ide pokok = gagasan utama."
+    },
+    {
+      "id": "S005",
+      "mapel": "Bahasa Indonesia",
+      "kelas": "XII IPS 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Majas yang melebih-lebihkan adalah ...",
+      "opsi": [
+        "Metafora",
+        "Hiperbola",
+        "Personifikasi",
+        "Metonimia",
+        "Litotes"
+      ],
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Hiperbola melebih-lebihkan."
+    },
+    {
+      "id": "S006",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Struktur data LIFO diterapkan pada ...",
+      "opsi": [
+        "Queue",
+        "Stack",
+        "Array",
+        "Linked List",
+        "Tree"
+      ],
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Stack Last In First Out."
+    },
+    {
+      "id": "S007",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 2",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Protokol untuk transfer hypertext adalah ...",
+      "opsi": [
+        "FTP",
+        "SMTP",
+        "HTTP",
+        "TCP",
+        "UDP"
+      ],
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "HTTP = Hypertext Transfer Protocol."
+    },
+    {
+      "id": "S008",
+      "mapel": "Matematika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "∫ 2x dx = ...",
+      "opsi": [
+        "x²+C",
+        "2x²+C",
+        "x+C",
+        "2+C",
+        "x²"
+      ],
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Integral 2x = x²+C"
+    },
+    {
+      "id": "S009",
+      "mapel": "Bahasa Indonesia",
+      "kelas": "XII IPA 2",
+      "kesulitan": "sulit",
+      "bobot": 15,
       "tipe": "essay",
-      "mapel": "Bahasa Indonesia",
-      "kelas": "XII",
-      "kesulitan": "sedang",
-      "pertanyaan": "Jelaskan struktur teks eksposisi dan berikan contohnya!",
-      "opsi": {},
+      "pertanyaan": "Jelaskan perbedaan teks eksposisi dan argumentasi dengan contoh kalimat!",
+      "opsi": [],
       "kunci": [
-        "Tesis, Rangkaian Argumen, Penegasan Ulang. Contoh: Pentingnya Literasi Digital..."
+        "Eksposisi menjelaskan informasi faktual, argumentasi mengajak dengan bukti."
       ],
-      "pembahasan": "Nilai berdasarkan kelengkapan struktur dan contoh",
-      "skor": 20
+      "pembahasan": "Eksposisi informatif, argumentasi persuasif dengan data."
     },
     {
-      "id": "soal-5",
-      "tipe": "pg",
-      "mapel": "Bahasa Indonesia",
-      "kelas": "XII",
-      "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 5 - Materi 5?",
-      "opsi": {
-        "A": "Opsi A 5",
-        "B": "Opsi B 5",
-        "C": "Opsi C 5",
-        "D": "Opsi D 5",
-        "E": "Opsi E 5"
-      },
-      "kunci": [
-        "A"
-      ],
-      "pembahasan": "Pembahasan soal 5",
-      "skor": 10
-    },
-    {
-      "id": "soal-6",
-      "tipe": "pg",
+      "id": "S010",
       "mapel": "Informatika",
-      "kelas": "XII",
+      "kelas": "XII IPS 1",
       "kesulitan": "mudah",
-      "pertanyaan": "Contoh soal 6 - Materi 6?",
-      "opsi": {
-        "A": "Opsi A 6",
-        "B": "Opsi B 6",
-        "C": "Opsi C 6",
-        "D": "Opsi D 6",
-        "E": "Opsi E 6"
-      },
-      "kunci": [
-        "A"
+      "bobot": 10,
+      "tipe": "bs",
+      "pertanyaan": "HTML adalah bahasa pemrograman (Benar/Salah)",
+      "opsi": [
+        "Benar",
+        "Salah"
       ],
-      "pembahasan": "Pembahasan soal 6",
-      "skor": 10
+      "kunci": [
+        false
+      ],
+      "pembahasan": "HTML adalah markup."
     },
     {
-      "id": "soal-7",
-      "tipe": "pg",
+      "id": "S011",
       "mapel": "Matematika",
-      "kelas": "XII",
-      "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 7 - Materi 7?",
-      "opsi": {
-        "A": "Opsi A 7",
-        "B": "Opsi B 7",
-        "C": "Opsi C 7",
-        "D": "Opsi D 7",
-        "E": "Opsi E 7"
-      },
-      "kunci": [
-        "A"
-      ],
-      "pembahasan": "Pembahasan soal 7",
-      "skor": 10
-    },
-    {
-      "id": "soal-8",
-      "tipe": "pg",
-      "mapel": "Bahasa Indonesia",
-      "kelas": "XII",
-      "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 8 - Materi 8?",
-      "opsi": {
-        "A": "Opsi A 8",
-        "B": "Opsi B 8",
-        "C": "Opsi C 8",
-        "D": "Opsi D 8",
-        "E": "Opsi E 8"
-      },
-      "kunci": [
-        "A"
-      ],
-      "pembahasan": "Pembahasan soal 8",
-      "skor": 10
-    },
-    {
-      "id": "soal-9",
-      "tipe": "pg",
-      "mapel": "Informatika",
-      "kelas": "XII",
+      "kelas": "XII IPA 1",
       "kesulitan": "mudah",
-      "pertanyaan": "Contoh soal 9 - Materi 9?",
-      "opsi": {
-        "A": "Opsi A 9",
-        "B": "Opsi B 9",
-        "C": "Opsi C 9",
-        "D": "Opsi D 9",
-        "E": "Opsi E 9"
-      },
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Jika sin 30° = 0.5, maka cos 60° = ?",
+      "opsi": [
+        "0.5",
+        "0",
+        "1",
+        "0.866",
+        "-0.5"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 9",
-      "skor": 10
+      "pembahasan": "Pembahasan otomatis sesuai kunci."
     },
     {
-      "id": "soal-10",
-      "tipe": "pg",
+      "id": "S012",
       "mapel": "Matematika",
-      "kelas": "XII",
+      "kelas": "XII IPA 2",
       "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 10 - Materi 10?",
-      "opsi": {
-        "A": "Opsi A 10",
-        "B": "Opsi B 10",
-        "C": "Opsi C 10",
-        "D": "Opsi D 10",
-        "E": "Opsi E 10"
-      },
-      "kunci": [
-        "A"
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Limit lim x→0 sin x / x = ?",
+      "opsi": [
+        "0",
+        "1",
+        "∞",
+        "Tidak ada",
+        "2"
       ],
-      "pembahasan": "Pembahasan soal 10",
-      "skor": 10
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Pembahasan otomatis sesuai kunci."
     },
     {
-      "id": "soal-11",
-      "tipe": "pg",
-      "mapel": "Bahasa Indonesia",
-      "kelas": "XII",
-      "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 11 - Materi 11?",
-      "opsi": {
-        "A": "Opsi A 11",
-        "B": "Opsi B 11",
-        "C": "Opsi C 11",
-        "D": "Opsi D 11",
-        "E": "Opsi E 11"
-      },
-      "kunci": [
-        "A"
-      ],
-      "pembahasan": "Pembahasan soal 11",
-      "skor": 10
-    },
-    {
-      "id": "soal-12",
-      "tipe": "pg",
-      "mapel": "Informatika",
-      "kelas": "XII",
-      "kesulitan": "mudah",
-      "pertanyaan": "Contoh soal 12 - Materi 12?",
-      "opsi": {
-        "A": "Opsi A 12",
-        "B": "Opsi B 12",
-        "C": "Opsi C 12",
-        "D": "Opsi D 12",
-        "E": "Opsi E 12"
-      },
-      "kunci": [
-        "A"
-      ],
-      "pembahasan": "Pembahasan soal 12",
-      "skor": 10
-    },
-    {
-      "id": "soal-13",
-      "tipe": "pg",
+      "id": "S013",
       "mapel": "Matematika",
-      "kelas": "XII",
-      "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 13 - Materi 13?",
-      "opsi": {
-        "A": "Opsi A 13",
-        "B": "Opsi B 13",
-        "C": "Opsi C 13",
-        "D": "Opsi D 13",
-        "E": "Opsi E 13"
-      },
+      "kelas": "XII IPS 1",
+      "kesulitan": "sulit",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Persamaan garis melalui (1,2) dan (3,4) adalah ...",
+      "opsi": [
+        "y=x+1",
+        "y=x+2",
+        "y=2x",
+        "y=x",
+        "y=2x+1"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 13",
-      "skor": 10
+      "pembahasan": "Pembahasan otomatis sesuai kunci."
     },
     {
-      "id": "soal-14",
-      "tipe": "pg",
+      "id": "S014",
       "mapel": "Bahasa Indonesia",
-      "kelas": "XII",
-      "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 14 - Materi 14?",
-      "opsi": {
-        "A": "Opsi A 14",
-        "B": "Opsi B 14",
-        "C": "Opsi C 14",
-        "D": "Opsi D 14",
-        "E": "Opsi E 14"
-      },
-      "kunci": [
-        "A"
-      ],
-      "pembahasan": "Pembahasan soal 14",
-      "skor": 10
-    },
-    {
-      "id": "soal-15",
-      "tipe": "pg",
-      "mapel": "Informatika",
-      "kelas": "XII",
+      "kelas": "XII IPA 1",
       "kesulitan": "mudah",
-      "pertanyaan": "Contoh soal 15 - Materi 15?",
-      "opsi": {
-        "A": "Opsi A 15",
-        "B": "Opsi B 15",
-        "C": "Opsi C 15",
-        "D": "Opsi D 15",
-        "E": "Opsi E 15"
-      },
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Kata baku dari 'apalagi' yang tidak baku adalah?",
+      "opsi": [
+        "Apa lagi",
+        "Apalagi",
+        "Apa Lagi",
+        "Apalagih",
+        "Apalagi"
+      ],
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Pembahasan otomatis sesuai kunci."
+    },
+    {
+      "id": "S015",
+      "mapel": "Bahasa Indonesia",
+      "kelas": "XII IPA 2",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Konjungsi yang menyatakan pertentangan?",
+      "opsi": [
+        "Dan",
+        "Tetapi",
+        "Karena",
+        "Jika",
+        "Agar"
+      ],
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Pembahasan otomatis sesuai kunci."
+    },
+    {
+      "id": "S016",
+      "mapel": "Informatika",
+      "kelas": "XII IPS 1",
+      "kesulitan": "sulit",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Big O dari binary search?",
+      "opsi": [
+        "O(n)",
+        "O(log n)",
+        "O(n log n)",
+        "O(1)",
+        "O(n²)"
+      ],
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Pembahasan otomatis sesuai kunci."
+    },
+    {
+      "id": "S017",
+      "mapel": "Informatika",
+      "kelas": "XII IPA 1",
+      "kesulitan": "mudah",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "SQL untuk mengambil semua data?",
+      "opsi": [
+        "SELECT * FROM",
+        "GET * FROM",
+        "FETCH ALL",
+        "SHOW *",
+        "PULL *"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 15",
-      "skor": 10
+      "pembahasan": "Pembahasan otomatis sesuai kunci."
     },
     {
-      "id": "soal-16",
-      "tipe": "pg",
+      "id": "S018",
       "mapel": "Matematika",
-      "kelas": "XII",
+      "kelas": "XII IPA 2",
       "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 16 - Materi 16?",
-      "opsi": {
-        "A": "Opsi A 16",
-        "B": "Opsi B 16",
-        "C": "Opsi C 16",
-        "D": "Opsi D 16",
-        "E": "Opsi E 16"
-      },
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Peluang muncul angka genap dadu 6 sisi?",
+      "opsi": [
+        "1/2",
+        "1/3",
+        "1/6",
+        "2/3",
+        "1/4"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 16",
-      "skor": 10
+      "pembahasan": "Pembahasan otomatis sesuai kunci."
     },
     {
-      "id": "soal-17",
-      "tipe": "pg",
+      "id": "S019",
       "mapel": "Bahasa Indonesia",
-      "kelas": "XII",
-      "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 17 - Materi 17?",
-      "opsi": {
-        "A": "Opsi A 17",
-        "B": "Opsi B 17",
-        "C": "Opsi C 17",
-        "D": "Opsi D 17",
-        "E": "Opsi E 17"
-      },
-      "kunci": [
-        "A"
+      "kelas": "XII IPS 1",
+      "kesulitan": "sulit",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Unsur intrinsik cerpen KECUALI ...",
+      "opsi": [
+        "Tema",
+        "Alur",
+        "Latar",
+        "Penerbit",
+        "Tokoh"
       ],
-      "pembahasan": "Pembahasan soal 17",
-      "skor": 10
+      "kunci": [
+        "D"
+      ],
+      "pembahasan": "Pembahasan otomatis sesuai kunci."
     },
     {
-      "id": "soal-18",
-      "tipe": "pg",
+      "id": "S020",
       "mapel": "Informatika",
-      "kelas": "XII",
+      "kelas": "XII IPA 1",
       "kesulitan": "mudah",
-      "pertanyaan": "Contoh soal 18 - Materi 18?",
-      "opsi": {
-        "A": "Opsi A 18",
-        "B": "Opsi B 18",
-        "C": "Opsi C 18",
-        "D": "Opsi D 18",
-        "E": "Opsi E 18"
-      },
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "IP versi 4 terdiri dari berapa bit?",
+      "opsi": [
+        "32 bit",
+        "64 bit",
+        "128 bit",
+        "16 bit",
+        "8 bit"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 18",
-      "skor": 10
+      "pembahasan": "Pembahasan otomatis sesuai kunci."
     },
     {
-      "id": "soal-19",
-      "tipe": "pg",
+      "id": "S021",
       "mapel": "Matematika",
-      "kelas": "XII",
+      "kelas": "XII IPA 1",
       "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 19 - Materi 19?",
-      "opsi": {
-        "A": "Opsi A 19",
-        "B": "Opsi B 19",
-        "C": "Opsi C 19",
-        "D": "Opsi D 19",
-        "E": "Opsi E 19"
-      },
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Soal tambahan 21: Jelaskan konsep dasar limit secara singkat!",
+      "opsi": [
+        "Opsi A",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D",
+        "Opsi E"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 19",
-      "skor": 10
+      "pembahasan": "Pembahasan untuk soal tambahan."
     },
     {
-      "id": "soal-20",
-      "tipe": "pg",
+      "id": "S022",
       "mapel": "Bahasa Indonesia",
-      "kelas": "XII",
+      "kelas": "XII IPA 2",
       "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 20 - Materi 20?",
-      "opsi": {
-        "A": "Opsi A 20",
-        "B": "Opsi B 20",
-        "C": "Opsi C 20",
-        "D": "Opsi D 20",
-        "E": "Opsi E 20"
-      },
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Soal tambahan 22: Jelaskan konsep dasar paragraf argumentasi secara singkat!",
+      "opsi": [
+        "Opsi A",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D",
+        "Opsi E"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 20",
-      "skor": 10
+      "pembahasan": "Pembahasan untuk soal tambahan."
     },
     {
-      "id": "soal-21",
-      "tipe": "pg",
+      "id": "S023",
       "mapel": "Informatika",
-      "kelas": "XII",
-      "kesulitan": "mudah",
-      "pertanyaan": "Contoh soal 21 - Materi 21?",
-      "opsi": {
-        "A": "Opsi A 21",
-        "B": "Opsi B 21",
-        "C": "Opsi C 21",
-        "D": "Opsi D 21",
-        "E": "Opsi E 21"
-      },
+      "kelas": "XII IPS 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Soal tambahan 23: Jelaskan konsep dasar algoritma sorting secara singkat!",
+      "opsi": [
+        "Opsi A",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D",
+        "Opsi E"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 21",
-      "skor": 10
+      "pembahasan": "Pembahasan untuk soal tambahan."
     },
     {
-      "id": "soal-22",
-      "tipe": "pg",
+      "id": "S024",
       "mapel": "Matematika",
-      "kelas": "XII",
+      "kelas": "XII IPA 1",
       "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 22 - Materi 22?",
-      "opsi": {
-        "A": "Opsi A 22",
-        "B": "Opsi B 22",
-        "C": "Opsi C 22",
-        "D": "Opsi D 22",
-        "E": "Opsi E 22"
-      },
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Soal tambahan 24: Jelaskan konsep dasar limit secara singkat!",
+      "opsi": [
+        "Opsi A",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D",
+        "Opsi E"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 22",
-      "skor": 10
+      "pembahasan": "Pembahasan untuk soal tambahan."
     },
     {
-      "id": "soal-23",
-      "tipe": "pg",
+      "id": "S025",
       "mapel": "Bahasa Indonesia",
-      "kelas": "XII",
+      "kelas": "XII IPA 2",
       "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 23 - Materi 23?",
-      "opsi": {
-        "A": "Opsi A 23",
-        "B": "Opsi B 23",
-        "C": "Opsi C 23",
-        "D": "Opsi D 23",
-        "E": "Opsi E 23"
-      },
+      "bobot": 10,
+      "tipe": "essay",
+      "pertanyaan": "Soal tambahan 25: Jelaskan konsep dasar paragraf argumentasi secara singkat!",
+      "opsi": [],
       "kunci": [
-        "A"
+        "Jawaban essay harus menjelaskan definisi dan contoh."
       ],
-      "pembahasan": "Pembahasan soal 23",
-      "skor": 10
+      "pembahasan": "Pembahasan untuk soal tambahan."
     },
     {
-      "id": "soal-24",
-      "tipe": "pg",
+      "id": "S026",
       "mapel": "Informatika",
-      "kelas": "XII",
-      "kesulitan": "mudah",
-      "pertanyaan": "Contoh soal 24 - Materi 24?",
-      "opsi": {
-        "A": "Opsi A 24",
-        "B": "Opsi B 24",
-        "C": "Opsi C 24",
-        "D": "Opsi D 24",
-        "E": "Opsi E 24"
-      },
+      "kelas": "XII IPS 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Soal tambahan 26: Jelaskan konsep dasar algoritma sorting secara singkat!",
+      "opsi": [
+        "Opsi A",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D",
+        "Opsi E"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 24",
-      "skor": 10
+      "pembahasan": "Pembahasan untuk soal tambahan."
     },
     {
-      "id": "soal-25",
-      "tipe": "pg",
+      "id": "S027",
       "mapel": "Matematika",
-      "kelas": "XII",
+      "kelas": "XII IPA 1",
       "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 25 - Materi 25?",
-      "opsi": {
-        "A": "Opsi A 25",
-        "B": "Opsi B 25",
-        "C": "Opsi C 25",
-        "D": "Opsi D 25",
-        "E": "Opsi E 25"
-      },
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Soal tambahan 27: Jelaskan konsep dasar limit secara singkat!",
+      "opsi": [
+        "Opsi A",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D",
+        "Opsi E"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 25",
-      "skor": 10
+      "pembahasan": "Pembahasan untuk soal tambahan."
     },
     {
-      "id": "soal-26",
-      "tipe": "pg",
+      "id": "S028",
       "mapel": "Bahasa Indonesia",
-      "kelas": "XII",
+      "kelas": "XII IPA 2",
       "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 26 - Materi 26?",
-      "opsi": {
-        "A": "Opsi A 26",
-        "B": "Opsi B 26",
-        "C": "Opsi C 26",
-        "D": "Opsi D 26",
-        "E": "Opsi E 26"
-      },
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Soal tambahan 28: Jelaskan konsep dasar paragraf argumentasi secara singkat!",
+      "opsi": [
+        "Opsi A",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D",
+        "Opsi E"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 26",
-      "skor": 10
+      "pembahasan": "Pembahasan untuk soal tambahan."
     },
     {
-      "id": "soal-27",
-      "tipe": "pg",
+      "id": "S029",
       "mapel": "Informatika",
-      "kelas": "XII",
-      "kesulitan": "mudah",
-      "pertanyaan": "Contoh soal 27 - Materi 27?",
-      "opsi": {
-        "A": "Opsi A 27",
-        "B": "Opsi B 27",
-        "C": "Opsi C 27",
-        "D": "Opsi D 27",
-        "E": "Opsi E 27"
-      },
+      "kelas": "XII IPS 1",
+      "kesulitan": "sedang",
+      "bobot": 10,
+      "tipe": "pg",
+      "pertanyaan": "Soal tambahan 29: Jelaskan konsep dasar algoritma sorting secara singkat!",
+      "opsi": [
+        "Opsi A",
+        "Opsi B",
+        "Opsi C",
+        "Opsi D",
+        "Opsi E"
+      ],
       "kunci": [
         "A"
       ],
-      "pembahasan": "Pembahasan soal 27",
-      "skor": 10
+      "pembahasan": "Pembahasan untuk soal tambahan."
     },
     {
-      "id": "soal-28",
-      "tipe": "pg",
+      "id": "S030",
       "mapel": "Matematika",
-      "kelas": "XII",
+      "kelas": "XII IPA 1",
       "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 28 - Materi 28?",
-      "opsi": {
-        "A": "Opsi A 28",
-        "B": "Opsi B 28",
-        "C": "Opsi C 28",
-        "D": "Opsi D 28",
-        "E": "Opsi E 28"
-      },
+      "bobot": 10,
+      "tipe": "essay",
+      "pertanyaan": "Soal tambahan 30: Jelaskan konsep dasar limit secara singkat!",
+      "opsi": [],
       "kunci": [
-        "A"
+        "Jawaban essay harus menjelaskan definisi dan contoh."
       ],
-      "pembahasan": "Pembahasan soal 28",
-      "skor": 10
-    },
-    {
-      "id": "soal-29",
-      "tipe": "pg",
-      "mapel": "Bahasa Indonesia",
-      "kelas": "XII",
-      "kesulitan": "sedang",
-      "pertanyaan": "Contoh soal 29 - Materi 29?",
-      "opsi": {
-        "A": "Opsi A 29",
-        "B": "Opsi B 29",
-        "C": "Opsi C 29",
-        "D": "Opsi D 29",
-        "E": "Opsi E 29"
-      },
-      "kunci": [
-        "A"
-      ],
-      "pembahasan": "Pembahasan soal 29",
-      "skor": 10
-    },
-    {
-      "id": "soal-30",
-      "tipe": "pg",
-      "mapel": "Informatika",
-      "kelas": "XII",
-      "kesulitan": "mudah",
-      "pertanyaan": "Contoh soal 30 - Materi 30?",
-      "opsi": {
-        "A": "Opsi A 30",
-        "B": "Opsi B 30",
-        "C": "Opsi C 30",
-        "D": "Opsi D 30",
-        "E": "Opsi E 30"
-      },
-      "kunci": [
-        "A"
-      ],
-      "pembahasan": "Pembahasan soal 30",
-      "skor": 10
+      "pembahasan": "Pembahasan untuk soal tambahan."
     }
   ],
   "ujian": [
     {
-      "id": "ujian-1",
-      "nama": "UTS Matematika Ganjil",
+      "id": "U001",
+      "nama": "UTS Matematika XII IPA",
       "mapel": "Matematika",
-      "kelas": [
+      "kelasTarget": [
         "XII IPA 1",
         "XII IPA 2"
       ],
-      "durasi": 60,
+      "durasi": 90,
       "kkm": 75,
       "token": "MATH25",
-      "soalIds": [
-        "soal-1",
-        "soal-2",
-        "soal-5",
-        "soal-6",
-        "soal-7",
-        "soal-8"
-      ],
+      "tglMulai": "2026-08-29",
+      "tglSelesai": "2026-09-05",
       "acakSoal": true,
       "acakOpsi": true,
-      "tglMulai": "2026-08-20",
-      "tglSelesai": "2026-09-30"
+      "tampilHasil": true,
+      "batasPercobaan": 1,
+      "soalIds": [
+        "S001",
+        "S004",
+        "S007",
+        "S010",
+        "S013",
+        "S016",
+        "S019",
+        "S022",
+        "S025",
+        "S028"
+      ]
     },
     {
-      "id": "ujian-2",
-      "nama": "UAS Informatika",
+      "id": "U002",
+      "nama": "UAS Bahasa Indonesia XII",
+      "mapel": "Bahasa Indonesia",
+      "kelasTarget": [
+        "XII IPA 1",
+        "XII IPS 1"
+      ],
+      "durasi": 60,
+      "kkm": 70,
+      "token": "BINDO25",
+      "tglMulai": "2026-08-29",
+      "tglSelesai": "2026-09-05",
+      "acakSoal": true,
+      "acakOpsi": false,
+      "tampilHasil": true,
+      "batasPercobaan": 2,
+      "soalIds": [
+        "S002",
+        "S005",
+        "S008",
+        "S011",
+        "S014",
+        "S017",
+        "S020",
+        "S023",
+        "S026",
+        "S029"
+      ]
+    },
+    {
+      "id": "U003",
+      "nama": "Tryout Informatika Nasional",
       "mapel": "Informatika",
-      "kelas": [
+      "kelasTarget": [
         "XII IPA 1",
         "XII IPA 2",
         "XII IPS 1"
       ],
-      "durasi": 90,
-      "kkm": 70,
-      "token": "TIK2024",
-      "soalIds": [
-        "soal-3",
-        "soal-9",
-        "soal-10",
-        "soal-11",
-        "soal-12"
-      ],
-      "acakSoal": true,
-      "acakOpsi": false,
-      "tglMulai": "2026-08-20",
-      "tglSelesai": "2026-09-30"
-    },
-    {
-      "id": "ujian-3",
-      "nama": "Tryout Bahasa Indonesia",
-      "mapel": "Bahasa Indonesia",
-      "kelas": [
-        "XII IPA 1",
-        "XII IPS 1"
-      ],
-      "durasi": 45,
+      "durasi": 120,
       "kkm": 75,
-      "token": "BINDO25",
+      "token": "TIK2024",
+      "tglMulai": "2026-08-29",
+      "tglSelesai": "2026-09-05",
+      "acakSoal": true,
+      "acakOpsi": true,
+      "tampilHasil": false,
+      "batasPercobaan": 1,
       "soalIds": [
-        "soal-4",
-        "soal-13",
-        "soal-14",
-        "soal-15"
-      ],
-      "acakSoal": false,
-      "acakOpsi": false,
-      "tglMulai": "2026-08-20",
-      "tglSelesai": "2026-09-30"
+        "S003",
+        "S006",
+        "S009",
+        "S012",
+        "S015",
+        "S018",
+        "S021",
+        "S024",
+        "S027",
+        "S030"
+      ]
     }
   ],
   "hasil": [],
   "settings": {
-    "groq_model": "llama-3.3-70b-versatile",
-    "kkmDefault": 75,
-    "sekolah": "SMAN 1 Sumedang"
+    "groq_model": "openai/gpt-oss-120b",
+    "kkmDefault": 75
   }
 }
