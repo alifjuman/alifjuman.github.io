@@ -1,0 +1,1455 @@
+{
+  "version": "3.0",
+  "exportedAt": "2026-08-29T04:05:34.426Z",
+  "siswa": [
+    {
+      "nis": "11223344",
+      "nama": "Ahmad Zidan",
+      "kelas": "XII",
+      "jurusan": "IPA",
+      "password": "siswa123"
+    },
+    {
+      "nis": "20241001",
+      "nama": "Ahmad Fauzi",
+      "kelas": "XII",
+      "jurusan": "IPA",
+      "password": "siswa123"
+    },
+    {
+      "nis": "20241002",
+      "nama": "Siti Nurhaliza",
+      "kelas": "XII",
+      "jurusan": "IPA",
+      "password": "siswa123"
+    },
+    {
+      "nis": "20241003",
+      "nama": "Budi Santoso",
+      "kelas": "XII",
+      "jurusan": "IPS",
+      "password": "siswa123"
+    },
+    {
+      "nis": "20241004",
+      "nama": "Dewi Lestari",
+      "kelas": "XI",
+      "jurusan": "IPA",
+      "password": "siswa123"
+    },
+    {
+      "nis": "20241005",
+      "nama": "Rizky Pratama",
+      "kelas": "XI",
+      "jurusan": "IPS",
+      "password": "siswa123"
+    },
+    {
+      "nis": "20241006",
+      "nama": "Putri Ayu",
+      "kelas": "XII",
+      "jurusan": "IPA",
+      "password": "siswa123"
+    },
+    {
+      "nis": "20241007",
+      "nama": "Andi Wijaya",
+      "kelas": "XI",
+      "jurusan": "TKJ",
+      "password": "siswa123"
+    },
+    {
+      "nis": "20241008",
+      "nama": "Lina Marlina",
+      "kelas": "XII",
+      "jurusan": "TKJ",
+      "password": "siswa123"
+    },
+    {
+      "nis": "20241009",
+      "nama": "Fajar Nugroho",
+      "kelas": "XI",
+      "jurusan": "IPA",
+      "password": "siswa123"
+    },
+    {
+      "nis": "20241010",
+      "nama": "Maya Sari",
+      "kelas": "XII",
+      "jurusan": "IPS",
+      "password": "siswa123"
+    }
+  ],
+  "bankSoal": [
+    {
+      "id": "s1",
+      "tipe": "pg",
+      "pertanyaan": "Apa ibukota Indonesia?",
+      "opsi": {
+        "A": "Jakarta",
+        "B": "Surabaya",
+        "C": "Bandung",
+        "D": "Medan",
+        "E": "Makassar"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Jakarta adalah ibukota Indonesia sejak 1945.",
+      "mapel": "Geografi",
+      "kesulitan": "mudah",
+      "createdAt": "2026-08-29T03:31:12.390Z"
+    },
+    {
+      "id": "s2",
+      "tipe": "pg",
+      "pertanyaan": "Hasil dari 2x + 3 = 11 adalah x = ?",
+      "opsi": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "5",
+        "E": "6"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "2x = 8, x=4",
+      "mapel": "Matematika",
+      "kesulitan": "mudah",
+      "createdAt": "2026-08-29T03:31:12.390Z"
+    },
+    {
+      "id": "s3",
+      "tipe": "pg_multi",
+      "pertanyaan": "Manakah yang termasuk bahasa pemrograman? (pilih 2)",
+      "opsi": {
+        "A": "Python",
+        "B": "Photoshop",
+        "C": "JavaScript",
+        "D": "Excel",
+        "E": "Word"
+      },
+      "kunci": [
+        "A",
+        "C"
+      ],
+      "pembahasan": "Python dan JS adalah bahasa pemrograman.",
+      "mapel": "Informatika",
+      "kesulitan": "sedang",
+      "createdAt": "2026-08-29T03:31:12.390Z"
+    },
+    {
+      "id": "s4",
+      "tipe": "bs",
+      "pertanyaan": "Air mendidih pada suhu 100°C pada tekanan 1 atm.",
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Benar, titik didih air 100C.",
+      "mapel": "Fisika",
+      "kesulitan": "mudah",
+      "createdAt": "2026-08-29T03:31:12.390Z"
+    },
+    {
+      "id": "s5",
+      "tipe": "essay",
+      "pertanyaan": "Jelaskan pentingnya fotosintesis bagi kehidupan di bumi dalam 3 paragraf.",
+      "kunci": [],
+      "pembahasan": "Jawaban bervariasi",
+      "mapel": "Biologi",
+      "kesulitan": "sedang",
+      "createdAt": "2026-08-29T03:31:12.390Z"
+    },
+    {
+      "id": "s6",
+      "tipe": "pg",
+      "pertanyaan": "Siapa penemu bola lampu?",
+      "opsi": {
+        "A": "Edison",
+        "B": "Newton",
+        "C": "Einstein",
+        "D": "Tesla",
+        "E": "Galileo"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Thomas Alva Edison.",
+      "mapel": "Sejarah",
+      "kesulitan": "mudah",
+      "createdAt": "2026-08-29T03:31:12.390Z"
+    },
+    {
+      "id": "s7",
+      "tipe": "pg",
+      "pertanyaan": "Apa kepanjangan dari CPU?",
+      "opsi": {
+        "A": "Central Processing Unit",
+        "B": "Computer Personal Unit",
+        "C": "Central Program Unit",
+        "D": "Control Processing Unit",
+        "E": "Core Processing Unit"
+      },
+      "kunci": [
+        "A"
+      ],
+      "mapel": "Informatika",
+      "kesulitan": "mudah",
+      "createdAt": "2026-08-29T03:31:12.390Z"
+    },
+    {
+      "id": "s8",
+      "tipe": "bs",
+      "pertanyaan": "Bumi berbentuk datar.",
+      "kunci": [
+        "S"
+      ],
+      "pembahasan": "Salah, bumi bulat pepat.",
+      "mapel": "Geografi",
+      "kesulitan": "mudah",
+      "createdAt": "2026-08-29T03:31:12.390Z"
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-0",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 1: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-1",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 2: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-2",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 3: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-3",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 4: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-4",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 5: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-5",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 6: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-6",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 7: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-7",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 8: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-8",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 9: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-9",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 10: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-10",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 11: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-11",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 12: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-12",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 13: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-13",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 14: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975158596-14",
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Konfigurasi Elektron nomor 15: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Konfigurasi Elektron"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-0",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 1: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-1",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 2: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-2",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 3: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-3",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 4: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-4",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 5: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-5",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 6: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-6",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 7: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-7",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 8: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-8",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 9: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-9",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 10: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-10",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 11: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-11",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 12: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-12",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 13: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-13",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 14: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "id": "SOAL-GEN-1787975700657-14",
+      "mapel": "Kimia",
+      "materi": "Model Atom",
+      "tipe": "pg_single",
+      "kesulitan": "sedang",
+      "pertanyaan": "[sedang] Soal Kimia - Model Atom nomor 15: Manakah pernyataan yang benar?",
+      "opsi": [
+        {
+          "id": "A",
+          "text": "Opsi A untuk Model Atom"
+        },
+        {
+          "id": "B",
+          "text": "Opsi B - jawaban benar"
+        },
+        {
+          "id": "C",
+          "text": "Opsi C"
+        },
+        {
+          "id": "D",
+          "text": "Opsi D"
+        },
+        {
+          "id": "E",
+          "text": "Opsi E"
+        }
+      ],
+      "kunci": "B",
+      "pembahasan": "Mock generated",
+      "poin": 10
+    },
+    {
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "essay",
+      "kesulitan": "sedang",
+      "pertanyaan": "Tuliskan konfigurasi elektron dan diagram orbital untuk unsur Mangan (Mn) dengan nomor atom 25, serta tentukan jumlah elektron valensinya.",
+      "opsi": [],
+      "kunci": "Konfigurasi elektron: 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁵ 4s². Diagram orbital: 1s(↑↓) 2s(↑↓) 2p(↑↓ ↑↓ ↑↓) 3s(↑↓) 3p(↑↓ ↑↓ ↑↓) 3d(↑ ↑ ↑ ↑ ↑) 4s(↑↓). Elektron valensi: 7 (5 di subkulit d + 2 di subkulit s).",
+      "pembahasan": "Nomor atom Mn adalah 25. Urutan pengisian orbital adalah 1s, 2s, 2p, 3s, 3p, 4s, lalu 3d. Jadi 22 elektron pertama mengisi sampai 3p⁶, kemudian 2 elektron masuk ke 4s, dan sisa 5 elektron mengisi 3d secara tunggal (sesuai aturan Hund) karena orbital setengah penuh lebih stabil. Elektron valensi dihitung dari kulit terluar (4s) dan subkulit d (3d) karena elektron d dapat berpartisipasi dalam ikatan.",
+      "poin": 20,
+      "id": "SOAL-GEN-1787975793863-0"
+    },
+    {
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "essay",
+      "kesulitan": "sedang",
+      "pertanyaan": "Unsur X memiliki konfigurasi elektron 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶ 4s². Tentukan nomor atom, golongan, dan periode unsur X tersebut.",
+      "opsi": [],
+      "kunci": "Nomor atom: 26. Golongan: VIII B (Golongan 8). Periode: 4.",
+      "pembahasan": "Jumlah total elektron adalah 2+2+6+2+6+6+2 = 26, sehingga nomor atom = 26 (Besi/Fe). Periode ditentukan oleh bilangan kuantum utama maksimum, yaitu n=4 (dari 4s²), sehingga periode 4. Golongan untuk unsur transisi blok d ditentukan oleh jumlah elektron di subkulit (n-1)d dan ns. Di sini ada 6 elektron di 3d dan 2 di 4s, total 8. Karena jumlah elektron valensi adalah 8, unsur masuk ke Golongan VIII B (atau Golongan 8 pada sistem IUPAC 18 golongan).",
+      "poin": 20,
+      "id": "SOAL-GEN-1787975793863-1"
+    },
+    {
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "essay",
+      "kesulitan": "sedang",
+      "pertanyaan": "Jelaskan mengapa konfigurasi elektron tembaga (Cu, Z=29) adalah [Ar] 3d¹⁰ 4s¹ dan bukan [Ar] 3d⁹ 4s², serta jelaskan mengapa kromium (Cr, Z=24) adalah [Ar] 3d⁵ 4s¹.",
+      "opsi": [],
+      "kunci": "Karena orbital d yang setengah penuh (d⁵) atau penuh (d¹⁰) memiliki energi yang lebih stabil (simetri dan energi pertukaran). Cu menggeser satu elektron dari 4s ke 3d untuk mencapai kestabilan d¹⁰. Cr menggeser satu elektron dari 4s ke 3d untuk mencapai kestabilan d⁵.",
+      "pembahasan": "Secara teori Aufbau, Cu seharusnya [Ar] 3d⁹ 4s² dan Cr [Ar] 3d⁴ 4s². Namun, pada kenyataannya, konfigurasi dengan subkulit d setengah penuh (5 elektron) atau penuh (10 elektron) lebih stabil secara energi akibat simetri distribusi elektron dan energi pertukaran (exchange energy) yang lebih besar. Oleh karena itu, satu elektron dari orbital 4s berpindah ke orbital 3d untuk mencapai konfigurasi stabil 3d¹⁰ pada Cu dan 3d⁵ pada Cr.",
+      "poin": 20,
+      "id": "SOAL-GEN-1787975793863-2"
+    },
+    {
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "essay",
+      "kesulitan": "sedang",
+      "pertanyaan": "Tentukan konfigurasi elektron ion Fe³⁺ (Z=26) dan jelaskan mengapa elektron yang pertama kali dilepaskan berasal dari orbital 4s, bukan 3d, meskipun 3d diisi setelah 4s.",
+      "opsi": [],
+      "kunci": "Konfigurasi Fe³⁺: [Ar] 3d⁵. Elektron dilepaskan dari 4s terlebih dahulu karena pada ion, urutan energi orbital berubah; orbital 3d menjadi lebih rendah energinya daripada 4s, sehingga elektron di 4s lebih mudah terionisasi.",
+      "pembahasan": "Fe netral memiliki konfigurasi [Ar] 3d⁶ 4s². Saat membentuk ion, elektron dilepaskan dari orbital dengan energi tertinggi terlebih dahulu. Meskipun 4s terisi sebelum 3d pada atom netral (karena penetrasi yang lebih baik ke inti), setelah atom menjadi ion (kehilangan kulit terluar), pengaruh shielding berubah dan orbital 3d turun energinya di bawah 4s. Oleh karena itu, 2 elektron dari 4s dilepaskan dulu membentuk Fe²⁺ ([Ar] 3d⁶), lalu 1 elektron dari 3d dilepaskan membentuk Fe³⁺ ([Ar] 3d⁵).",
+      "poin": 20,
+      "id": "SOAL-GEN-1787975793863-3"
+    },
+    {
+      "mapel": "Kimia",
+      "materi": "Konfigurasi Elektron",
+      "tipe": "essay",
+      "kesulitan": "sedang",
+      "pertanyaan": "Suatu unsur Y memiliki konfigurasi elektron ionnya Y⁻ adalah 1s² 2s² 2p⁶. Tentukan konfigurasi elektron atom netral Y dan letak unsur Y dalam tabel periodik.",
+      "opsi": [],
+      "kunci": "Konfigurasi atom netral: 1s² 2s² 2p⁵. Letak: Periode 2, Golongan VII A (Halogen).",
+      "pembahasan": "Ion Y⁻ bermuatan -1, artinya atom netral Y telah menerima 1 elektron. Jumlah elektron pada ion Y⁻ adalah 2+2+6 = 10. Maka, jumlah elektron atom netral Y adalah 10 - 1 = 9. Konfigurasi elektron atom netral Y (Z=9) adalah 1s² 2s² 2p⁵. Karena bilangan kuantum utama maksimum (n) adalah 2, maka unsur berada di Periode 2. Jumlah elektron valensi adalah 5 (dari 2p⁵) + 2 (dari 2s²) = 7, sehingga unsur berada di Golongan VII A (atau Golongan 17).",
+      "poin": 20,
+      "id": "SOAL-GEN-1787975793863-4"
+    }
+  ],
+  "ujian": [
+    {
+      "id": "U1787972697605",
+      "nama": "UTS",
+      "mapel": "Kimia",
+      "durasi": 60,
+      "kkm": 75,
+      "acak": true,
+      "token": "ABC",
+      "soalIds": [
+        "S005",
+        "S012",
+        "SOAL-GEN-1787975158596-0",
+        "SOAL-GEN-1787975158596-1",
+        "SOAL-GEN-1787975158596-2",
+        "SOAL-GEN-1787975158596-3",
+        "SOAL-GEN-1787975158596-4",
+        "SOAL-GEN-1787975158596-5",
+        "SOAL-GEN-1787975158596-6",
+        "SOAL-GEN-1787975158596-7",
+        "SOAL-GEN-1787975158596-8"
+      ],
+      "kelasTarget": "XII",
+      "aktif": true,
+      "acakSoal": true
+    },
+    {
+      "id": "U001",
+      "nama": "UTS Matematika Ganjil",
+      "mapel": "Matematika",
+      "durasi": 60,
+      "kkm": 75,
+      "acak": true,
+      "token": "MATH2024",
+      "soalIds": [
+        "S001",
+        "S002",
+        "S008",
+        "S014"
+      ],
+      "kelasTarget": "XII",
+      "aktif": true
+    },
+    {
+      "id": "U002",
+      "nama": "Ujian Biologi - Sel",
+      "mapel": "Biologi",
+      "durasi": 45,
+      "kkm": 70,
+      "acak": false,
+      "token": "BIO123",
+      "soalIds": [
+        "S004",
+        "S011"
+      ],
+      "kelasTarget": "XII",
+      "aktif": true
+    },
+    {
+      "id": "U003",
+      "nama": "Tryout Campur Umum",
+      "mapel": "Campur",
+      "durasi": 90,
+      "kkm": 75,
+      "acak": true,
+      "token": "TRYOUT99",
+      "soalIds": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008"
+      ],
+      "kelasTarget": "XI",
+      "aktif": true
+    },
+    {
+      "id": "UJIAN-1787975889414",
+      "nama": "UTS Kimia",
+      "mapel": "Kimia",
+      "kelas": "XII IPA 1",
+      "durasi": 60,
+      "kkm": 75,
+      "token": "ABCDE",
+      "acakSoal": true,
+      "soalIds": [
+        "SOAL-GEN-1787975158596-5",
+        "SOAL-GEN-1787975158596-6",
+        "SOAL-GEN-1787975158596-7",
+        "SOAL-GEN-1787975158596-8",
+        "SOAL-GEN-1787975158596-9",
+        "SOAL-GEN-1787975158596-10",
+        "SOAL-GEN-1787975158596-11",
+        "SOAL-GEN-1787975158596-12",
+        "SOAL-GEN-1787975700657-0",
+        "SOAL-GEN-1787975700657-1",
+        "SOAL-GEN-1787975700657-2",
+        "SOAL-GEN-1787975700657-3",
+        "SOAL-GEN-1787975700657-7",
+        "SOAL-GEN-1787975700657-10",
+        "SOAL-GEN-1787975700657-13",
+        "SOAL-GEN-1787975793863-2",
+        "SOAL-GEN-1787975793863-3"
+      ],
+      "aktif": true
+    }
+  ],
+  "hasil": [
+    {
+      "id": "H1787973024312",
+      "siswaNis": "20241001",
+      "ujianId": "U1787972697605",
+      "jawaban": {
+        "S012": "ikatan yang terbentuk oleh 2 atau lebih atom dengan menggunakan elektron yang dipakai secara bersama",
+        "S005": "B"
+      },
+      "nilai": 33,
+      "startedAt": "2026-08-29T03:10:24.312Z",
+      "finishedAt": "2026-08-29T03:11:47.413Z",
+      "status": "selesai",
+      "ragu": [],
+      "detailNilai": [
+        {
+          "soalId": "S012",
+          "skor": 0,
+          "max": 20
+        },
+        {
+          "soalId": "S005",
+          "skor": 10,
+          "max": 10
+        }
+      ]
+    },
+    {
+      "id": "H001",
+      "siswaNis": "20241001",
+      "ujianId": "U001",
+      "jawaban": {
+        "S001": "A",
+        "S002": [
+          "A",
+          "C",
+          "E"
+        ],
+        "S008": "Benar",
+        "S014": "A"
+      },
+      "nilai": 85,
+      "startedAt": "2026-08-29T01:51:35.130Z",
+      "finishedAt": "2026-08-29T02:51:35.131Z",
+      "status": "selesai",
+      "ragu": []
+    },
+    {
+      "id": "H002",
+      "siswaNis": "20241002",
+      "ujianId": "U001",
+      "jawaban": {
+        "S001": "A",
+        "S002": [
+          "A"
+        ],
+        "S008": "Benar",
+        "S014": "B"
+      },
+      "nilai": 45,
+      "startedAt": "2026-08-29T02:51:35.131Z",
+      "finishedAt": null,
+      "status": "mengerjakan",
+      "ragu": [
+        "S002"
+      ]
+    }
+  ],
+  "settings": {
+    "groq_api_key": "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",
+    "groq_model": "qwen/qwen3.8-27b",
+    "groq_connected": true,
+    "github_config": {
+      "pat": "",
+      "owner": "",
+      "repo": "",
+      "branch": "main",
+      "path": "database.json",
+      "autoLoad": false
+    }
+  }
+}
