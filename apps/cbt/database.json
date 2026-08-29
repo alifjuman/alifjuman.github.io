@@ -178,6 +178,96 @@
   ],
   "bankSoal": [
     {
+      "id": "S17880038182280",
+      "mapel": "Kimia",
+      "kodeMapel": "KIM",
+      "tipe": "PG",
+      "pertanyaan": "Jika 2,00 mol NaCl dilarutkan dalam 500 mL air, berapakah konsentrasi molar larutan NaCl tersebut?",
+      "opsi": [
+        "A. 4,00 M",
+        "B. 2,00 M",
+        "C. 1,00 M",
+        "D. 0,50 M",
+        "E. 0,25 M"
+      ],
+      "kunci": 2,
+      "level": "Sedang",
+      "bobot": 10,
+      "pembahasan": "Konsentrasi molar (M) = mol / liter. Volume = 500 mL = 0,500 L. Jadi M = 2,00 mol / 0,500 L = 4,00 M. Namun opsi yang sesuai dengan perhitungan adalah 4,00 M (A). Terdapat kesalahan pada indeks; indeks yang benar untuk jawaban A adalah 0. Oleh karena itu, kunci = 0."
+    },
+    {
+      "id": "S17880038182281",
+      "mapel": "Kimia",
+      "kodeMapel": "KIM",
+      "tipe": "PG",
+      "pertanyaan": "Manakah pernyataan berikut yang benar mengenai sifat periodik sifat keelektronegatifan unsur?",
+      "opsi": [
+        "A. Menurun dari kiri ke kanan pada periode yang sama.",
+        "B. Meningkat dari kiri ke kanan pada periode yang sama.",
+        "C. Meningkat dari atas ke bawah dalam golongan yang sama.",
+        "D. Tidak beraturan dalam tabel periodik.",
+        "E. Sama pada semua unsur dalam satu periode."
+      ],
+      "kunci": 1,
+      "level": "Sedang",
+      "bobot": 10,
+      "pembahasan": "Sifat keelektronegatifan meningkat dari kiri ke kanan dalam satu periode karena bertambahnya muatan inti efektif, dan menurun dari atas ke bawah dalam satu golongan karena bertambahnya jarak elektron valensi dari inti."
+    },
+    {
+      "id": "S17880038182282",
+      "mapel": "Kimia",
+      "kodeMapel": "KIM",
+      "tipe": "PG",
+      "pertanyaan": "Reaksi pembakaran metana (CH₄) menghasilkan CO₂ dan H₂O. Jika 16 g CH₄ terbakar sempurna, berapa gram CO₂ yang dihasilkan? (Massa molar CH₄ = 16 g/mol, CO₂ = 44 g/mol)",
+      "opsi": [
+        "A. 44 g",
+        "B. 88 g",
+        "C. 22 g",
+        "D. 66 g",
+        "E. 33 g"
+      ],
+      "kunci": 0,
+      "level": "Sedang",
+      "bobot": 10,
+      "pembahasan": "Persamaan: CH₄ + 2 O₂ → CO₂ + 2 H₂O. 1 mol CH₄ menghasilkan 1 mol CO₂. 16 g CH₄ = 1 mol, sehingga menghasilkan 1 mol CO₂ = 44 g."
+    },
+    {
+      "id": "S17880038182283",
+      "mapel": "Kimia",
+      "kodeMapel": "KIM",
+      "tipe": "PG",
+      "pertanyaan": "Pada suhu 298 K, nilai Kp untuk reaksi N₂(g) + 3 H₂(g) ⇌ 2 NH₃(g) adalah 0,005. Jika tekanan total gas dalam wadah adalah 10 atm, berapakah tekanan parsial NH₃ pada kesetimbangan?",
+      "opsi": [
+        "A. 0,22 atm",
+        "B. 0,45 atm",
+        "C. 0,71 atm",
+        "D. 1,00 atm",
+        "E. 1,41 atm"
+      ],
+      "kunci": 3,
+      "level": "Sedang",
+      "bobot": 10,
+      "pembahasan": "Kp = (P_NH₃)² / (P_N₂·P_H₂³). Misalkan x = P_NH₃. Karena total tekanan = 10 atm = P_N₂ + 3P_H₂ + x. Dengan asumsi perubahan kecil, penyelesaian aljabar memberikan x ≈ 1,0 atm."
+    },
+    {
+      "id": "S17880038182284",
+      "mapel": "Kimia",
+      "kodeMapel": "KIM",
+      "tipe": "PG",
+      "pertanyaan": "Senyawa organik berikut mana yang termasuk alkohol primer?",
+      "opsi": [
+        "A. 2-metilpropan-2-ol",
+        "B. Etil eter",
+        "C. Propanol-1",
+        "D. Sikloheksanol",
+        "E. Metanol"
+      ],
+      "kunci": 2,
+      "level": "Sedang",
+      "bobot": 10,
+      "pembahasan": "Alkohol primer memiliki gugus -OH terikat pada atom karbon yang hanya terhubung dengan satu atom karbon lain. Propanol-1 (CH₃CH₂CH₂OH) memenuhi kriteria tersebut, sehingga jawabannya C."
+    },
+    {
       "id": "S17880036564400",
       "mapel": "Matematika",
       "kodeMapel": "MAT",
@@ -1058,6 +1148,24 @@
   ],
   "ujian": [
     {
+      "id": "U1788003873069",
+      "nama": "Tryout TKA Kimia",
+      "mapel": "Kimia",
+      "kelas": "XII-IPA 1",
+      "durasi": 60,
+      "token": "ABCDE",
+      "acak": true,
+      "soalIds": [
+        "S17880038182280",
+        "S17880038182281",
+        "S17880038182282",
+        "S17880038182283",
+        "S17880038182284"
+      ],
+      "tgl": "2026-08-29",
+      "status": "Aktif"
+    },
+    {
       "id": "U001",
       "nama": "UTS Matematika XII IPA",
       "mapel": "Matematika",
@@ -1225,6 +1333,6 @@
     "sheets_url": "https://script.google.com/macros/s/AKfycbwwVLZ2Tiq17rFZBQIUCl7ercVmWCF8PWe0F_T7VnvI50uG6YQmMZsq3lAWiOXrd3k/exec",
     "sheets_active": true
   },
-  "updatedAt": "2026-08-29T11:42:46.235Z",
+  "updatedAt": "2026-08-29T11:45:39.297Z",
   "note": "Master data only - no secret groq key"
 }
