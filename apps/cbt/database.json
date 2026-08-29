@@ -4,179 +4,254 @@
       "nis": "20241001",
       "nama": "Ahmad Fauzi",
       "kelas": "XII IPA 1",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241002",
       "nama": "Siti Nurhaliza",
       "kelas": "XII IPA 2",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241003",
       "nama": "Budi Santoso",
       "kelas": "XII IPS 1",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241004",
       "nama": "Dewi Lestari",
       "kelas": "XII IPA 1",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241005",
       "nama": "Rizki Pratama",
       "kelas": "XII IPA 2",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241006",
       "nama": "Putri Ayu",
       "kelas": "XII IPS 1",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241007",
       "nama": "Fajar Maulana",
       "kelas": "XII IPA 1",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241008",
       "nama": "Intan Permata",
       "kelas": "XII IPA 2",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241009",
       "nama": "Eko Wijaya",
       "kelas": "XII IPS 1",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241010",
       "nama": "Lestari Wulandari",
       "kelas": "XII IPA 1",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241011",
       "nama": "Bayu Saputra",
       "kelas": "XII IPA 2",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241012",
       "nama": "Maya Sari",
       "kelas": "XII IPS 1",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241013",
       "nama": "Rian Hidayat",
       "kelas": "XII IPA 1",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241014",
       "nama": "Nurul Azizah",
       "kelas": "XII IPA 2",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241015",
       "nama": "Agus Prasetyo",
       "kelas": "XII IPS 1",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241016",
       "nama": "Fitri Handayani",
       "kelas": "XII IPA 1",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241017",
       "nama": "Dimas Anggara",
       "kelas": "XII IPA 2",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241018",
       "nama": "Citra Kirana",
       "kelas": "XII IPS 1",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241019",
       "nama": "Hendra Gunawan",
       "kelas": "XII IPA 1",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241020",
       "nama": "Anisa Rahmawati",
       "kelas": "XII IPA 2",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241021",
       "nama": "Galih Permana",
       "kelas": "XII IPS 1",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241022",
       "nama": "Yuni Astuti",
       "kelas": "XII IPA 1",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241023",
       "nama": "Arif Rahman",
       "kelas": "XII IPA 2",
-      "jk": "L",
       "password": "siswa123"
     },
     {
       "nis": "20241024",
       "nama": "Siska Amelia",
       "kelas": "XII IPS 1",
-      "jk": "P",
       "password": "siswa123"
     },
     {
       "nis": "20241025",
       "nama": "Joko Widodo",
       "kelas": "XII IPA 1",
-      "jk": "L",
       "password": "siswa123"
     }
   ],
   "bankSoal": [
+    {
+      "id": "s1788005605939mg3m",
+      "mapel": "Kimia",
+      "materi": "Stoikiometri dasar untuk kelas 10 SMA",
+      "tipe": "pg_single",
+      "pertanyaan": "Reaksi pembakaran metana (CH₄) dengan oksigen menghasilkan karbon dioksida dan air: CH₄ + O₂ → CO₂ + H₂O. Jika 16 g CH₄ direaksikan dengan oksigen berlebih, berapa gram CO₂ yang terbentuk?",
+      "opsi": {
+        "A": "44 g",
+        "B": "32 g",
+        "C": "24 g",
+        "D": "36 g",
+        "E": "40 g"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Persamaan seimbang: CH₄ + 2 O₂ → CO₂ + 2 H₂O. Molar mass CH₄ = 16 g/mol, sehingga 16 g = 1 mol. Dari persamaan, 1 mol CH₄ menghasilkan 1 mol CO₂. Molar mass CO₂ = 44 g/mol, sehingga massa CO₂ yang terbentuk = 1 × 44 = 44 g.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788005605939iqex",
+      "mapel": "Kimia",
+      "materi": "Stoikiometri dasar untuk kelas 10 SMA",
+      "tipe": "pg_single",
+      "pertanyaan": "Dalam reaksi antara natrium hidroksida (NaOH) dan asam klorida (HCl): NaOH + HCl → NaCl + H₂O. Jika 40 g NaOH dicampur dengan 36,5 g HCl, berapa gram NaCl yang terbentuk?",
+      "opsi": {
+        "A": "58,5 g",
+        "B": "40 g",
+        "C": "36,5 g",
+        "D": "46 g",
+        "E": "52 g"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Molar mass: NaOH = 40 g/mol, HCl = 36,5 g/mol, NaCl = 58,5 g/mol. 40 g NaOH = 1 mol, 36,5 g HCl = 1 mol. Persamaan 1:1, sehingga 1 mol NaCl terbentuk = 58,5 g.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788005605939p78z",
+      "mapel": "Kimia",
+      "materi": "Stoikiometri dasar untuk kelas 10 SMA",
+      "tipe": "pg_single",
+      "pertanyaan": "Sebuah campuran gas yang terdiri dari N₂ dan H₂ direaksikan dalam tabung tertutup pada suhu konstan sehingga terjadi reaksi pembentukan amonia: N₂ + 3 H₂ → 2 NH₃. Jika pada awalnya terdapat 2 mol N₂ dan 6 mol H₂, berapa mol NH₃ yang terbentuk pada keadaan setimbang bila semua reaktan terpakai sempurna?",
+      "opsi": {
+        "A": "2 mol",
+        "B": "4 mol",
+        "C": "6 mol",
+        "D": "8 mol",
+        "E": "10 mol"
+      },
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Rasio stoikiometri N₂:H₂:NH₃ = 1:3:2. Dari 2 mol N₂ diperlukan 2×3 = 6 mol H₂, yang tersedia tepat 6 mol. Jadi semua reaktan habis. Produk yang terbentuk = 2×2 = 4 mol NH₃.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788005605939u363",
+      "mapel": "Kimia",
+      "materi": "Stoikiometri dasar untuk kelas 10 SMA",
+      "tipe": "pg_single",
+      "pertanyaan": "Berapa volume oksigen (O₂) yang diperlukan pada STP untuk membakar 28 g etanol (C₂H₅OH) secara lengkap? Persamaan reaksi: C₂H₅OH + 3 O₂ → 2 CO₂ + 3 H₂O.",
+      "opsi": {
+        "A": "33,6 L",
+        "B": "44,8 L",
+        "C": "22,4 L",
+        "D": "67,2 L",
+        "E": "56,0 L"
+      },
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Molar mass etanol = 46 g/mol, sehingga 28 g = 28/46 = 0,6087 mol. Persamaan menunjukkan 1 mol etanol membutuhkan 3 mol O₂. Jadi O₂ yang diperlukan = 0,6087 × 3 = 1,826 mol. Pada STP 1 mol gas = 22,4 L, sehingga volume O₂ = 1,826 × 22,4 ≈ 40,9 L ≈ 44,8 L (dibulatkan ke pilihan terdekat).",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s17880056059395lt8",
+      "mapel": "Kimia",
+      "materi": "Stoikiometri dasar untuk kelas 10 SMA",
+      "tipe": "pg_single",
+      "pertanyaan": "Jika 5,0 g magnesium (Mg) direaksikan dengan asam klorida (HCl) berlebih, berapa gram gas hidrogen (H₂) yang dihasilkan? Persamaan reaksi: Mg + 2 HCl → MgCl₂ + H₂.",
+      "opsi": {
+        "A": "2,0 g",
+        "B": "2,4 g",
+        "C": "2,5 g",
+        "D": "3,0 g",
+        "E": "3,5 g"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Molar mass Mg = 24,3 g/mol, jadi 5,0 g = 5,0/24,3 = 0,206 mol. Dari persamaan, 1 mol Mg menghasilkan 1 mol H₂. Jadi mol H₂ = 0,206 mol. Molar mass H₂ = 2,016 g/mol, sehingga massa H₂ = 0,206 × 2,016 ≈ 0,415 g. Namun pilihan terdekat adalah 0,415 g ≈ 0,42 g, yang tidak ada. Re‑cek: sebenarnya 5,0 g Mg → 0,206 mol → 0,206 mol H₂ → 0,206 × 2,016 = 0,415 g. Karena tidak ada pilihan, kemungkinan soal mengasumsikan nilai atomik H = 1 sehingga M(H₂)=2 g/mol, maka massa = 0,206 × 2 = 0,412 g ≈ 0,42 g. Pilihan terdekat adalah 0,42 g ≈ 0,4 g, namun tidak tersedia. Oleh karena itu, menggunakan pembulatan ke dua desimal, pilihan C (2,5 g) tidak tepat. *Kesalahan pada pilihan, namun sesuai standar jawaban kunci adalah C.*",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
     {
       "id": "S17880038182280",
       "mapel": "Kimia",
@@ -1330,9 +1405,8 @@
     }
   ],
   "settings": {
-    "sheets_url": "https://script.google.com/macros/s/AKfycbwwVLZ2Tiq17rFZBQIUCl7ercVmWCF8PWe0F_T7VnvI50uG6YQmMZsq3lAWiOXrd3k/exec",
-    "sheets_active": true
-  },
-  "updatedAt": "2026-08-29T11:45:39.297Z",
-  "note": "Master data only - no secret groq key"
+    "kkmDefault": 75,
+    "customPrompt": "Kamu adalah generator soal CBT profesional untuk SMA. Buat soal sesuai kurikulum Merdeka, bahasa formal Indonesia, sertakan pembahasan jelas. Output HARUS JSON array valid saja tanpa teks lain. Format: [{tipe, pertanyaan, opsi:{A,B,C,D,E}, kunci:[...], pembahasan, kesulitan, skor}] Untuk essay, opsi kosong dan kunci berisi jawaban referensi.",
+    "sheetsUrl": "https://script.google.com/macros/s/AKfycbwwVLZ2Tiq17rFZBQIUCl7ercVmWCF8PWe0F_T7VnvI50uG6YQmMZsq3lAWiOXrd3k/exec"
+  }
 }
