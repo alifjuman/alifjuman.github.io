@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-28T03:47:23.734Z",
+  "updatedAt": "2026-08-29T12:18:48.600Z",
   "apps": [
+    {
+      "id": "mteck2rt",
+      "name": "CBT Online",
+      "url": "./apps/cbt/index.html",
+      "description": "CBT Online Siswa (Github + Sheets)",
+      "category": "Produktivitas",
+      "icon": "✅",
+      "color": "#f75f67",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1788005916425
+    },
     {
       "id": "mtceuil3",
       "name": "Mini Siakad Sekolah",
