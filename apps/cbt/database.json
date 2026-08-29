@@ -178,6 +178,96 @@
   ],
   "bankSoal": [
     {
+      "id": "S17880036564400",
+      "mapel": "Matematika",
+      "kodeMapel": "MAT",
+      "tipe": "PG",
+      "pertanyaan": "Jika 3x − 7 = 2, nilai x adalah …",
+      "opsi": [
+        "A. 3",
+        "B. 2",
+        "C. 5",
+        "D. 4",
+        "E. 1"
+      ],
+      "kunci": 0,
+      "level": "Mudah",
+      "bobot": 10,
+      "pembahasan": "3x − 7 = 2 → 3x = 9 → x = 9/3 = 3. Jadi jawaban A."
+    },
+    {
+      "id": "S17880036564401",
+      "mapel": "Matematika",
+      "kodeMapel": "MAT",
+      "tipe": "PG",
+      "pertanyaan": "Sebuah segitiga siku‑siku memiliki panjang sisi siku‑siku 6 cm dan 8 cm. Berapa luas segitiga tersebut?",
+      "opsi": [
+        "A. 24 cm²",
+        "B. 48 cm²",
+        "C. 14 cm²",
+        "D. 36 cm²",
+        "E. 12 cm²"
+      ],
+      "kunci": 0,
+      "level": "Mudah",
+      "bobot": 10,
+      "pembahasan": "Luas segitiga siku‑siku = ½ × alas × tinggi = ½ × 6 × 8 = 24 cm². Jawaban A."
+    },
+    {
+      "id": "S17880036564402",
+      "mapel": "Matematika",
+      "kodeMapel": "MAT",
+      "tipe": "PG",
+      "pertanyaan": "Faktorkan persamaan kuadrat x² − 5x + 6 = 0.",
+      "opsi": [
+        "A. (x − 2)(x − 3)",
+        "B. (x + 2)(x + 3)",
+        "C. (x − 1)(x − 6)",
+        "D. (x + 1)(x + 6)",
+        "E. (x − 4)(x − 1)"
+      ],
+      "kunci": 0,
+      "level": "Mudah",
+      "bobot": 10,
+      "pembahasan": "Mencari dua bilangan yang hasil kali 6 dan jumlah -5, yaitu -2 dan -3. Jadi x² − 5x + 6 = (x − 2)(x − 3). Jawaban A."
+    },
+    {
+      "id": "S17880036564403",
+      "mapel": "Matematika",
+      "kodeMapel": "MAT",
+      "tipe": "PG",
+      "pertanyaan": "Suatu barisan aritmetika memiliki suku pertama a₁ = 4 dan beda d = 3. Berapakah suku ke‑7?",
+      "opsi": [
+        "A. 22",
+        "B. 19",
+        "C. 25",
+        "D. 21",
+        "E. 24"
+      ],
+      "kunci": 0,
+      "level": "Mudah",
+      "bobot": 10,
+      "pembahasan": "Rumus suku ke‑n: aₙ = a₁ + (n‑1)d. Jadi a₇ = 4 + (7‑1)·3 = 4 + 18 = 22. Jawaban A."
+    },
+    {
+      "id": "S17880036564404",
+      "mapel": "Matematika",
+      "kodeMapel": "MAT",
+      "tipe": "PG",
+      "pertanyaan": "Dari 5 bola merah dan 4 bola biru yang di dalam sebuah kotak, diambil satu bola secara acak. Probabilitas terambil bola biru adalah …",
+      "opsi": [
+        "A. 4/9",
+        "B. 5/9",
+        "C. 1/2",
+        "D. 3/8",
+        "E. 2/5"
+      ],
+      "kunci": 0,
+      "level": "Mudah",
+      "bobot": 10,
+      "pembahasan": "Total bola = 5 + 4 = 9. Bola biru = 4. Probabilitas = 4/9. Jawaban A."
+    },
+    {
       "id": "S57LBFVZ",
       "mapel": "Informatika",
       "kelas": "XII IPA 1",
@@ -1122,12 +1212,19 @@
       "ikon": "⚖️",
       "kkm": 75,
       "deskripsi": "Pancasila, UUD, Kewarganegaraan"
+    },
+    {
+      "id": "kim",
+      "nama": "Kimia",
+      "kode": "KIM",
+      "warna": "#f7b23b",
+      "kkm": 75
     }
   ],
   "settings": {
     "sheets_url": "https://script.google.com/macros/s/AKfycbwwVLZ2Tiq17rFZBQIUCl7ercVmWCF8PWe0F_T7VnvI50uG6YQmMZsq3lAWiOXrd3k/exec",
     "sheets_active": true
   },
-  "updatedAt": "2026-08-29T11:39:20.485Z",
+  "updatedAt": "2026-08-29T11:42:46.235Z",
   "note": "Master data only - no secret groq key"
 }
