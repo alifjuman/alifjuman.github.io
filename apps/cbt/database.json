@@ -1337,7 +1337,7 @@
       "mapelId": "kim",
       "durasi": 60,
       "kkm": 75,
-      "token": "J2LL6",
+      "token": "ABCDE",
       "soalIds": [
         "s1788005605939mg3m",
         "s1788005605939iqex",
@@ -1426,6 +1426,13 @@
       "nama": "Kimia",
       "kode": "KIM",
       "warna": "#f7b23b",
+      "kkm": 75
+    },
+    {
+      "id": "m1788041606754",
+      "nama": "Sosiologi",
+      "kode": "SOS",
+      "warna": "#9a97d8",
       "kkm": 75
     }
   ],
