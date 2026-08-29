@@ -1355,6 +1355,36 @@
       "tglMulai": "2026-08-29T12:19",
       "tglSelesai": "2026-08-30T12:19",
       "kelasTarget": "Semua"
+    },
+    {
+      "id": "u1788041766573",
+      "nama": "UKK",
+      "mapelId": "m3",
+      "durasi": 60,
+      "kkm": 75,
+      "token": "ABCDE",
+      "soalIds": [
+        "S57LBFVZ",
+        "S5EVN7HU",
+        "S5G428OW",
+        "SR3TX8YY",
+        "S7DSJADY",
+        "SP158PNG",
+        "SMPQV19J",
+        "S9PCB49S",
+        "S2ROJ19O",
+        "S6IHS7LU",
+        "S006",
+        "S007",
+        "S010",
+        "S016",
+        "S017"
+      ],
+      "acakSoal": true,
+      "acakOpsi": true,
+      "tglMulai": "2026-08-29T22:16",
+      "tglSelesai": "2026-08-30T22:16",
+      "kelasTarget": "XII IPS 1"
     }
   ],
   "mapel": [
