@@ -1727,9 +1727,9 @@
       "tglSelesai": "2026-08-30T19:41:00.000Z",
       "mapel": "Kimia",
       "kelas": [
-        "X IPS 1"
+        "XII IPS 1"
       ],
-      "kelasTarget": "X IPS 1"
+      "kelasTarget": "XII IPS 1"
     }
   ],
   "mapel": [
@@ -1814,6 +1814,6 @@
   "settings": {
     "kkmDefault": 75,
     "customPrompt": "Kamu adalah generator soal CBT profesional untuk SMA. Buat soal sesuai kurikulum Merdeka, bahasa formal Indonesia, sertakan pembahasan jelas. Output HARUS JSON array valid saja tanpa teks lain. Format: [{tipe, pertanyaan, opsi:{A,B,C,D,E}, kunci:[...], pembahasan, kesulitan, skor}] Untuk essay, opsi kosong dan kunci berisi jawaban referensi.",
-    "sheetsUrl": "https://script.google.com/macros/s/AKfycbwwVLZ2Tiq17rFZBQIUCl7ercVmWCF8PWe0F_T7VnvI50uG6YQmMZsq3lAWiOXrd3k/exec"
+    "sheetsUrl": "https://script.google.com/macros/s/AKfycbw4mRDQKTh-wx3efd6k0ca8B6Lzh97JsE3HYnP0fUpFGAX-PEvVw15IQ5NyPgIoPC8/exec"
   }
 }
