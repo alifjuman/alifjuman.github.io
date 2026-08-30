@@ -1814,6 +1814,6 @@
   "settings": {
     "kkmDefault": 75,
     "customPrompt": "Kamu adalah generator soal CBT profesional untuk SMA. Buat soal sesuai kurikulum Merdeka, bahasa formal Indonesia, sertakan pembahasan jelas. Output HARUS JSON array valid saja tanpa teks lain. Format: [{tipe, pertanyaan, opsi:{A,B,C,D,E}, kunci:[...], pembahasan, kesulitan, skor}] Untuk essay, opsi kosong dan kunci berisi jawaban referensi.",
-    "sheetsUrl": "https://script.google.com/macros/s/AKfycbw4mRDQKTh-wx3efd6k0ca8B6Lzh97JsE3HYnP0fUpFGAX-PEvVw15IQ5NyPgIoPC8/exec"
+    "sheetsUrl": "https://script.google.com/macros/s/AKfycbxVP1dBagFXOg0biL2SHGzoNSFv0pHH3pEn_u8ERdaStpblfUptHnyZRstkovl_ejJV/exec"
   }
 }
