@@ -153,6 +153,306 @@
   ],
   "bankSoal": [
     {
+      "id": "s1788055999487c5ue",
+      "mapel": "Kimia",
+      "materi": "Ikatan Kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Senyawa NaCl terbentuk karena perbedaan elektronegativitas antara Na dan Cl yang sangat besar. Jenis ikatan yang terbentuk pada NaCl adalah...",
+      "opsi": {
+        "A": "Ikatan kovalen nonpolar",
+        "B": "Ikatan kovalen polar",
+        "C": "Ikatan ionik",
+        "D": "Ikatan logam",
+        "E": "Ikatan koordinasi"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Perbedaan elektronegativitas Na (0,93) dan Cl (3,16) lebih dari 1,7, sehingga Na kehilangan elektron dan Cl menerima elektron, membentuk ion Na⁺ dan Cl⁻ serta ikatan ionik.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s17880559994877met",
+      "mapel": "Kimia",
+      "materi": "Ikatan Kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Molekul CO₂ memiliki bentuk geometri molekul yang paling tepat menurut VSEPR, yaitu...",
+      "opsi": {
+        "A": "Tetrahedral",
+        "B": "Trigonal planar",
+        "C": "Lurus (linear)",
+        "D": "Bent (bengkok)",
+        "E": "Trigonal bipiramidal"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "CO₂ memiliki dua ikatan rangkap C=O dan tidak ada pasangan elektron bebas pada atom pusat C, sehingga total daerah elektron = 2, menghasilkan geometri linear (180°).",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s178805599948747np",
+      "mapel": "Kimia",
+      "materi": "Ikatan Kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Berikut ini merupakan contoh ikatan koordinasi (dative bond) adalah...",
+      "opsi": {
+        "A": "H–H dalam H₂",
+        "B": "O–H dalam H₂O",
+        "C": "NH₃ → BF₃",
+        "D": "Na⁺ – Cl⁻",
+        "E": "C≡C dalam C₂H₂"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Ikatan koordinasi terbentuk ketika satu atom menyediakan kedua elektron yang dibutuhkan untuk ikatan, seperti pada interaksi NH₃ (penyumbang pasangan elektron) dengan BF₃ (penerima).",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s17880559994877xxh",
+      "mapel": "Kimia",
+      "materi": "Ikatan Kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Pernyataan yang paling tepat mengenai ikatan sigma (σ) adalah...",
+      "opsi": {
+        "A": "Hanya terbentuk dari tumpang tindih orbital p‑p paralel",
+        "B": "Selalu berada di atas atau di bawah bidang molekul",
+        "C": "Merupakan ikatan pertama yang terbentuk antara dua atom",
+        "D": "Hanya dapat terbentuk pada ikatan ganda",
+        "E": "Tidak dapat berputar bebas"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Ikatan sigma terbentuk dari tumpang tindih orbital s‑s, s‑p, atau p‑p end‑to‑end dan selalu merupakan ikatan pertama yang terbentuk; ikatan pi (π) terbentuk setelahnya pada ikatan ganda atau tiga.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788055999487bqes",
+      "mapel": "Kimia",
+      "materi": "Ikatan Kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Jika nilai perbedaan elektronegativitas (ΔEN) antara dua atom adalah 0,4, ikatan yang terbentuk dapat dikategorikan sebagai...",
+      "opsi": {
+        "A": "Ikatan ionik kuat",
+        "B": "Ikatan ionik lemah",
+        "C": "Ikatan kovalen nonpolar",
+        "D": "Ikatan kovalen polar",
+        "E": "Ikatan logam"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "ΔEN < 0,5 biasanya menunjukkan distribusi elektron hampir merata, sehingga ikatan dikategorikan sebagai kovalen nonpolar.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788055999487g8s1",
+      "mapel": "Kimia",
+      "materi": "Ikatan Kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Hidrogen klorida (HCl) berada dalam fase gas pada suhu ruang. Gaya antar‑molekul yang dominan pada HCl adalah...",
+      "opsi": {
+        "A": "Gaya dipol‑dipol",
+        "B": "Gaya ion‑dipol",
+        "C": "Gaya London (dispersi)",
+        "D": "Gaya ikatan hidrogen",
+        "E": "Gaya logam"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "HCl merupakan molekul polar dengan μ ≈ 1,08 D, sehingga gaya tarik dipol‑dipol (plus gaya dispersi) menjadi gaya utama antar‑molekulnya.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788055999487r74n",
+      "mapel": "Kimia",
+      "materi": "Ikatan Kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Berikut ini yang merupakan contoh ikatan logam adalah...",
+      "opsi": {
+        "A": "K⁺ – O²⁻ dalam K₂O",
+        "B": "C–C dalam etena",
+        "C": "Fe⁰ dalam besi murni",
+        "D": "Na – Cl dalam NaCl",
+        "E": "N≡N dalam N₂"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Ikatan logam terjadi pada atom logam yang membagi elektron valensi secara kolektif (sea of electrons). Besi (Fe) dalam bentuk logam murni memiliki ikatan logam.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s17880559994875qbv",
+      "mapel": "Kimia",
+      "materi": "Ikatan Kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Dua atom karbon dalam ikatan rangkap tiga (C≡C) memiliki hybridisasi orbital yang...",
+      "opsi": {
+        "A": "sp³",
+        "B": "sp²",
+        "C": "sp",
+        "D": "dsp³",
+        "E": "sp³d"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Ikatan rangkap tiga terdiri dari satu ikatan sigma dan dua ikatan pi. Atom karbon harus memiliki satu orbital s dan satu p untuk sigma, sehingga hybridisasi sp (45° antar‑sumbu).",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788055999487u5hw",
+      "mapel": "Kimia",
+      "materi": "Ikatan Kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Energi ikatan (bond dissociation energy) paling besar di antara senyawa berikut adalah...",
+      "opsi": {
+        "A": "H–H",
+        "B": "C–C",
+        "C": "C=O",
+        "D": "N≡N",
+        "E": "O–O"
+      },
+      "kunci": [
+        "D"
+      ],
+      "pembahasan": "Energi ikatan N≡N (≈ 945 kJ/mol) lebih besar daripada ikatan ganda C=O (≈ 745 kJ/mol), ikatan tunggal H–H (≈ 436 kJ/mol), C–C (≈ 348 kJ/mol), dan O–O (≈ 498 kJ/mol).",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s17880559994871sa0",
+      "mapel": "Kimia",
+      "materi": "Ikatan Kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Molekul NH₃ memiliki sudut ikatan H‑N‑H yang mendekati 107°. Penyebab penyimpangan sudut tersebut dari nilai ideal tetrahedral (109,5°) adalah...",
+      "opsi": {
+        "A": "Adanya ikatan ganda pada N",
+        "B": "Adanya pasangan elektron bebas pada atom N",
+        "C": "Adanya ikatan ionik pada molekul",
+        "D": "Pengaruh resonansi",
+        "E": "Pengikatan logam"
+      },
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "N pada NH₃ memiliki tiga ikatan sigma dan satu pasangan elektron bebas. Pasangan bebas menolak lebih kuat daripada ikatan, sehingga sudut H‑N‑H diperkecil menjadi ~107°.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788042539283i8v0",
+      "mapel": "Kimia",
+      "materi": "sifat periodik unsur",
+      "tipe": "pg_single",
+      "pertanyaan": "Unsur X berada pada periode ke‑3 dan golongan 1A pada tabel periodik. Manakah pernyataan yang benar mengenai jari‑jari atom X dibandingkan dengan unsur pada golongan yang sama di periode ke‑2?",
+      "opsi": {
+        "A": "Jari‑jari atom X lebih kecil karena penambahan kulit elektron meningkatkan tarikan inti.",
+        "B": "Jari‑jari atom X sama dengan unsur periode ke‑2 karena keduanya berada pada golongan yang sama.",
+        "C": "Jari‑jari atom X lebih besar karena adanya kulit elektron tambahan.",
+        "D": "Jari‑jari atom X lebih kecil karena efek shield yang lebih kuat pada periode ke‑2.",
+        "E": "Jari‑jari atom X tidak dapat dibandingkan karena perbedaan energi ionisasi."
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Unsur golongan 1A memiliki konfigurasi elektron s¹. Ketika berpindah ke periode berikutnya, satu kulit elektron tambahan ditambahkan, sehingga jarak antara elektron terluar dengan inti bertambah. Oleh karena itu, jari‑jari atom unsur pada periode ke‑3 lebih besar dibandingkan unsur yang berada pada periode ke‑2 dalam golongan yang sama.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788042539283h44x",
+      "mapel": "Kimia",
+      "materi": "sifat periodik unsur",
+      "tipe": "pg_single",
+      "pertanyaan": "Jika energi ionisasi pertama (I₁) unsur A lebih besar daripada unsur B, maka manakah pernyataan yang paling tepat mengenai sifat kimia keduanya?",
+      "opsi": {
+        "A": "Unsur A lebih mudah membentuk ion positif daripada unsur B.",
+        "B": "Unsur B memiliki jari‑jari atom lebih kecil dibandingkan unsur A.",
+        "C": "Unsur A cenderung lebih reaktif sebagai logam dibandingkan unsur B.",
+        "D": "Unsur B lebih mudah kehilangan elektron dibandingkan unsur A.",
+        "E": "Unsur A memiliki keelektronegatifan lebih rendah daripada unsur B."
+      },
+      "kunci": [
+        "D"
+      ],
+      "pembahasan": "Energi ionisasi pertama yang lebih tinggi berarti elektron terluar lebih sulit dilepaskan. Jadi unsur A membutuhkan energi lebih besar untuk membentuk ion positif, sementara unsur B dengan I₁ lebih rendah lebih mudah kehilangan elektron dan lebih reaktif sebagai logam. Oleh karena itu pernyataan D adalah yang paling tepat.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788042539283d6m2",
+      "mapel": "Kimia",
+      "materi": "sifat periodik unsur",
+      "tipe": "pg_single",
+      "pertanyaan": "Manakah pernyataan berikut yang menjelaskan tren penurunan energi ionisasi pertama (I₁) ketika bergerak dari kiri ke kanan dalam satu periode?",
+      "opsi": {
+        "A": "Penambahan proton meningkatkan tarikan inti pada elektron terluar sehingga I₁ menurun.",
+        "B": "Penambahan elektron pada subkulit yang sama meningkatkan efek shield sehingga I₁ menurun.",
+        "C": "Penurunan jari‑jari atom mengurangi energi yang diperlukan untuk mengeluarkan elektron.",
+        "D": "Penambahan elektron pada subkulit s meningkatkan kepadatan muatan di inti sehingga I₁ menurun.",
+        "E": "Tidak ada penurunan I₁; nilai I₁ justru meningkat dari kiri ke kanan."
+      },
+      "kunci": [
+        "E"
+      ],
+      "pembahasan": "Sebenarnya, energi ionisasi pertama cenderung meningkat ketika bergerak dari kiri ke kanan dalam satu periode karena tarikan inti yang semakin kuat pada elektron terluar seiring bertambahnya muatan inti dan tidak ada penambahan signifikan efek shield. Jadi pernyataan yang benar adalah E, yang menyatakan bahwa tidak ada penurunan I₁ melainkan peningkatan.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788042539283jk1t",
+      "mapel": "Kimia",
+      "materi": "sifat periodik unsur",
+      "tipe": "pg_single",
+      "pertanyaan": "Unsur Z berada pada blok d, periode ke‑4, dan golongan 10. Berdasarkan sifat periodik, manakah sifat fisik yang paling mungkin dimiliki oleh unsur Z?",
+      "opsi": {
+        "A": "Meleleh pada suhu rendah dan bersifat gas pada STP.",
+        "B": "Mempunyai titik leleh dan titik didih yang sangat tinggi serta konduktivitas listrik yang baik.",
+        "C": "Tidak konduktor listrik dan bersifat non‑logam.",
+        "D": "Mudah teroksidasi dan memiliki energi ionisasi yang sangat rendah.",
+        "E": "Berbentuk molekul dioksida dengan struktur linear."
+      },
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Unsur pada blok d (logam transisi) biasanya memiliki titik leleh dan titik didih tinggi, serta konduktivitas listrik yang baik karena adanya elektron d yang dapat bergerak bebas. Oleh karena itu, pernyataan B paling tepat menggambarkan sifat fisik unsur Z.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788042539283cuu5",
+      "mapel": "Kimia",
+      "materi": "sifat periodik unsur",
+      "tipe": "pg_single",
+      "pertanyaan": "Jika nilai keelektronegatifan (EN) unsur M lebih tinggi daripada unsur N, maka manakah pernyataan yang benar mengenai ikatan kimia yang terbentuk antara M dan N?",
+      "opsi": {
+        "A": "Ikatan akan bersifat ionik karena perbedaan EN yang besar.",
+        "B": "Ikatan akan bersifat kovalen non‑polar karena perbedaan EN kecil.",
+        "C": "Ikatan akan bersifat kovalen polar dengan atom M menarik elektron lebih kuat.",
+        "D": "Ikatan akan bersifat logam karena kedua unsur berada di golongan logam.",
+        "E": "Tidak dapat ditentukan tanpa mengetahui jari‑jari atom masing‑masing."
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Perbedaan keelektronegatifan menentukan polaritas ikatan. Ketika satu unsur (M) memiliki EN lebih tinggi, ia akan menarik pasangan elektron bersama lebih kuat, menghasilkan ikatan kovalen polar dengan muatan parsial negatif pada M. Jadi pernyataan C adalah yang benar.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
       "id": "s1788005605939mg3m",
       "mapel": "Kimia",
       "materi": "Stoikiometri dasar untuk kelas 10 SMA",
@@ -1385,6 +1685,26 @@
       "tglMulai": "2026-08-29T22:16",
       "tglSelesai": "2026-08-30T22:16",
       "kelasTarget": "XII IPS 1"
+    },
+    {
+      "id": "u1788042641692",
+      "nama": "UKK KIMIA",
+      "mapelId": "kim",
+      "durasi": 60,
+      "kkm": 75,
+      "token": "OBAH",
+      "soalIds": [
+        "s1788042539283i8v0",
+        "s1788042539283h44x",
+        "s1788042539283d6m2",
+        "s1788042539283jk1t",
+        "s1788042539283cuu5"
+      ],
+      "acakSoal": true,
+      "acakOpsi": true,
+      "tglMulai": "2026-08-29T22:30",
+      "tglSelesai": "2026-08-30T22:30",
+      "kelasTarget": "Semua"
     }
   ],
   "mapel": [
