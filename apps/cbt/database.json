@@ -1705,6 +1705,31 @@
       "tglMulai": "2026-08-29T22:30",
       "tglSelesai": "2026-08-30T22:30",
       "kelasTarget": "Semua"
+    },
+    {
+      "id": "u1788057718240",
+      "nama": "UKK Susulan",
+      "mapelId": "kim",
+      "durasi": 60,
+      "kkm": 75,
+      "token": "ABCDE",
+      "soalIds": [
+        "s17880559994877xxh",
+        "s1788055999487bqes",
+        "s1788055999487g8s1",
+        "s1788055999487r74n",
+        "s17880559994875qbv",
+        "s1788055999487u5hw"
+      ],
+      "acakSoal": true,
+      "acakOpsi": true,
+      "tglMulai": "2026-08-29T19:41:00.000Z",
+      "tglSelesai": "2026-08-30T19:41:00.000Z",
+      "mapel": "Kimia",
+      "kelas": [
+        "X IPS 1"
+      ],
+      "kelasTarget": "X IPS 1"
     }
   ],
   "mapel": [
