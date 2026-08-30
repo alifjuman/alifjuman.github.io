@@ -153,6 +153,106 @@
   ],
   "bankSoal": [
     {
+      "id": "s1788065231594gnji",
+      "mapel": "Kimia",
+      "materi": "Persamaan kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Manakah dari persamaan reaksi kimia berikut yang TIDAK seimbang?",
+      "opsi": {
+        "A": "2H₂ + O₂ → 2H₂O",
+        "B": "N₂ + 3H₂ → 2NH₃",
+        "C": "2Mg + O₂ → 2MgO",
+        "D": "CH₄ + 2O₂ → CO₂ + 2H₂O",
+        "E": "Na + Cl₂ → NaCl"
+      },
+      "kunci": [
+        "E"
+      ],
+      "pembahasan": "Pada opsi E, terdapat 2 atom Natrium (Na) dan 2 atom Klorin (Cl) di ruas kiri, tetapi hanya 1 atom Na dan 1 atom Cl di ruas kanan. Persamaan yang benar seharusnya 2Na + Cl₂ → 2NaCl. Opsi lain sudah memenuhi hukum kekekalan massa.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788065231594th3z",
+      "mapel": "Kimia",
+      "materi": "Persamaan kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Tentukan koefisien yang tepat untuk melengkapi persamaan reaksi berikut: __ C₃H₈ + __ O₂ → __ CO₂ + __ H₂O",
+      "opsi": {
+        "A": "1, 5, 3, 4",
+        "B": "2, 10, 6, 8",
+        "C": "1, 4, 3, 4",
+        "D": "2, 5, 3, 4",
+        "E": "1, 6, 3, 4"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Langkah penyeimbangan: 1) Arang (C): 3 C di kiri, maka 3 CO₂ di kanan. 2) Hidrogen (H): 8 H di kiri, maka 4 H₂O di kanan. 3) Oksigen (O): Di kanan ada (3×2) + (4×1) = 10 atom O. Maka di kiri harus 5 O₂. Koefisien akhir: 1, 5, 3, 4.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788065231594qgfc",
+      "mapel": "Kimia",
+      "materi": "Persamaan kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Dari persamaan reaksi 2Al + 3CuSO₄ → Al₂(SO₄)₃ + 3Cu, berapa mol tembaga (Cu) yang dihasilkan jika 2 mol aluminium (Al) bereaksi sempurna?",
+      "opsi": {
+        "A": "1 mol",
+        "B": "2 mol",
+        "C": "3 mol",
+        "D": "6 mol",
+        "E": "4,5 mol"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Berdasarkan koefisien reaksi, perbandingan mol Al dan Cu adalah 2 : 3. Jika 2 mol Al bereaksi, maka mol Cu yang dihasilkan adalah (3/2) × 2 mol = 3 mol.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s1788065231594sve5",
+      "mapel": "Kimia",
+      "materi": "Persamaan kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Persamaan reaksi dekomposi batu kapur (CaCO₃) menghasilkan kalsium oksida (CaO) dan karbon dioksida (CO₂). Persamaan yang seimbang adalah...",
+      "opsi": {
+        "A": "CaCO₃ → CaO + CO₂",
+        "B": "2CaCO₃ → 2CaO + CO₂",
+        "C": "CaCO₃ → CaO + 2CO₂",
+        "D": "CaCO₃ → 2CaO + CO₂",
+        "E": "2CaCO₃ → CaO + 2CO₂"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Reaksi dekomposisi kalsium karbonat: CaCO₃ → CaO + CO₂. Periksa atom: Ca (1=1), C (1=1), O (3 = 1+2). Persamaan ini sudah seimbang dengan koefisien 1:1:1.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
+      "id": "s17880652315943wc0",
+      "mapel": "Kimia",
+      "materi": "Persamaan kimia",
+      "tipe": "pg_single",
+      "pertanyaan": "Jika persamaan reaksi aH₂ + bN₂ → cNH₃ telah seimbang dengan koefisien bulat terkecil, maka nilai a + b + c adalah...",
+      "opsi": {
+        "A": "4",
+        "B": "6",
+        "C": "7",
+        "D": "8",
+        "E": "10"
+      },
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Persamaan seimbang untuk sintesis amonia adalah 3H₂ + N₂ → 2NH₃. Maka a=3, b=1, c=2. Jumlah koefisien = 3 + 1 + 2 = 6.",
+      "kesulitan": "sedang",
+      "skor": 10
+    },
+    {
       "id": "s1788055999487c5ue",
       "mapel": "Kimia",
       "materi": "Ikatan Kimia",
