@@ -153,6 +153,121 @@
   ],
   "bankSoal": [
     {
+      "id": "soal-ai-1788067941960-0-rij",
+      "mapel": "PPKN",
+      "materi": "Demokrasi Pancasila",
+      "tipe": "pg_single",
+      "pertanyaan": "Salah satu karakteristik demokrasi Pancasila yang menekankan proses musyawarah untuk mufakat adalah...",
+      "opsi": {
+        "A": "Pemilihan umum secara langsung",
+        "B": "Partisipasi politik melalui partai",
+        "C": "Pemerintahan otoriter",
+        "D": "Musyawarah untuk mufakat",
+        "E": "Representasi proporsional"
+      },
+      "kunci": [
+        "D"
+      ],
+      "pembahasan": "Demokrasi Pancasila menekankan nilai musyawarah untuk mufakat sebagai cara utama pengambilan keputusan, berbeda dengan demokrasi liberal yang lebih mengutamakan voting mayoritas.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-08-30T05:32:21.960Z"
+    },
+    {
+      "id": "soal-ai-1788067941960-1-g9k",
+      "mapel": "PPKN",
+      "materi": "Demokrasi Pancasila",
+      "tipe": "pg_single",
+      "pertanyaan": "Menurut Pembukaan UUD 1945, dasar negara Indonesia yang menjadi landasan demokrasi Pancasila adalah...",
+      "opsi": {
+        "A": "Undang-Undang Dasar 1945",
+        "B": "Negara Kesatuan Republik Indonesia (NKRI)",
+        "C": "Pancasila",
+        "D": "Bhinneka Tunggal Ika",
+        "E": "Demokrasi"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Pembukaan UUD 1945 menegaskan bahwa dasar negara Indonesia adalah Pancasila (Pasal 1 ayat (3)). Pancasila menjadi falsafah hidup dan dasar bagi seluruh sistem demokrasi di Indonesia.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-08-30T05:32:21.960Z"
+    },
+    {
+      "id": "soal-ai-1788067941960-2-k8r",
+      "mapel": "PPKN",
+      "materi": "Demokrasi Pancasila",
+      "tipe": "pg_single",
+      "pertanyaan": "Dalam demokrasi Pancasila, nilai kebhinekaan diimplementasikan melalui...",
+      "opsi": {
+        "A": "Diskriminasi terhadap kelompok minoritas",
+        "B": "Asimilasi budaya secara paksa",
+        "C": "Penghargaan terhadap perbedaan budaya, agama, dan suku",
+        "D": "Penindasan terhadap perbedaan pendapat",
+        "E": "Uniformitas dalam semua aspek kehidupan"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Demokrasi Pancasila menghormati dan melindungi keberagaman budaya, agama, suku, dan bahasa, sesuai dengan semangat Bhinneka Tunggal Ika, sehingga perbedaan dipandang sebagai kekayaan bangsa.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-08-30T05:32:21.960Z"
+    },
+    {
+      "id": "soal-ai-1788067941960-3-0bt",
+      "mapel": "PPKN",
+      "materi": "Demokrasi Pancasila",
+      "tipe": "pg_single",
+      "pertanyaan": "Salah satu mekanisme partisipasi warga dalam demokrasi Pancasila adalah...",
+      "opsi": {
+        "A": "Pemilihan umum secara bebas, rahasia, dan langsung",
+        "B": "Penunjukan pejabat tanpa melalui proses pemilihan",
+        "C": "Pemberian hadiah kepada pemilih",
+        "D": "Pembatasan kebebasan berpendapat",
+        "E": "Penghilangan hak suara bagi kelompok tertentu"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Pemilihan umum (Pemilu) yang bebas, rahasia, jujur, dan adil merupakan sarana utama partisipasi warga dalam demokrasi Pancasila, memungkinkan rakyat memilih wakilnya secara langsung.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-08-30T05:32:21.960Z"
+    },
+    {
+      "id": "soal-ai-1788067941960-4-kn2",
+      "mapel": "PPKN",
+      "materi": "Demokrasi Pancasila",
+      "tipe": "pg_single",
+      "pertanyaan": "Prinsip keadilan sosial bagi seluruh rakyat Indonesia dalam Pancasila tercermin dalam kebijakan...",
+      "opsi": {
+        "A": "Kebijakan proteksi sosial seperti bantuan langsung tunai dan program kesejahteraan",
+        "B": "Kebijakan isolasionis yang menutup diri dari perdagangan internasional",
+        "C": "Kebijakan militeristik yang menekankan pertahanan semata",
+        "D": "Kebijakan eksklusif yang hanya menguntungkan segelintir elite",
+        "E": "Kebijakan laissez‑faire tanpa intervensi pemerintah"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Keadilan sosial, sila kelima Pancasila, diwujudkan melalui kebijakan proteksi sosial yang menurunkan kesenjangan, memberikan jaminan sosial, dan meningkatkan kesejahteraan seluruh rakyat.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-08-30T05:32:21.960Z"
+    },
+    {
       "id": "s1788065231594gnji",
       "mapel": "Kimia",
       "materi": "Persamaan kimia",
