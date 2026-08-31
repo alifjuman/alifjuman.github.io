@@ -1,1 +1,56 @@
-
+{
+  "siswa": [
+    {
+      "nis": "1001",
+      "nisn": "0010010010",
+      "nama": "Alif Jum'an",
+      "kelas": "XII IPA 1",
+      "mapel": "B.Indonesia"
+    },
+    {
+      "nis": "1002",
+      "nisn": "0010010011",
+      "nama": "Budi Santoso",
+      "kelas": "XII IPA 1",
+      "mapel": "B.Indonesia"
+    },
+    {
+      "nis": "1003",
+      "nisn": "0010010012",
+      "nama": "Siti Aminah",
+      "kelas": "XII IPA 2",
+      "mapel": "B.Indonesia"
+    },
+    {
+      "nis": "1004",
+      "nisn": "0010010013",
+      "nama": "Rizki Pratama",
+      "kelas": "XII IPA 2",
+      "mapel": "B.Indonesia"
+    }
+  ],
+  "soal": [
+    {
+      "id": 1,
+      "soal": "Jelaskan pentingnya literasi digital di era Society 5.0 dan berikan 3 contoh implementasinya di sekolah.",
+      "kunci": "Definisi literasi digital, relevansi Society 5.0, 3 contoh konkret",
+      "rubrik": "Relevansi 30%, Argumentasi 30%, Contoh 20%, Bahasa 20%"
+    },
+    {
+      "id": 2,
+      "soal": "Analisis penyebab dan dampak perubahan iklim terhadap sektor pertanian di Indonesia. Berikan solusi yang bisa dilakukan siswa.",
+      "kunci": "Penyebab, dampak pertanian, solusi siswa",
+      "rubrik": "Penyebab 25%, Dampak 25%, Solusi 30%, Kritis 20%"
+    },
+    {
+      "id": 3,
+      "soal": "Buatlah argumen pro/kontra penggunaan AI dalam pendidikan. Mana yang kamu pilih dan mengapa?",
+      "kunci": "Pro kontra AI, pendirian jelas, argumen logis",
+      "rubrik": "Kelengkapan 30%, Argumen 40%, Persuasif 30%"
+    }
+  ],
+  "config": {
+    "gsUrl": "https://script.google.com/macros/s/AKfycbzkUdNiyBIDSZykbvFgopLv6nLQd1Oy5e2mxNpn6YaRppDBZRptfPZy1gjNQpP3OAnb7g/exec",
+    "groqModel": "openai/gpt-oss-120b"
+  }
+}
