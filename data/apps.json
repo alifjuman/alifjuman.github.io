@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-08-29T12:18:48.600Z",
+  "updatedAt": "2026-09-01T03:53:57.592Z",
   "apps": [
+    {
+      "id": "mti4uij7",
+      "name": "CBT Essay AI",
+      "url": "./apps/cbt-essay/index.html",
+      "description": "CBT Essay dengan generator soal dan korektor AI",
+      "category": "Produktivitas",
+      "icon": "📝",
+      "color": "#ea1067",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1788234831187
+    },
     {
       "id": "mteck2rt",
       "name": "CBT Online",
