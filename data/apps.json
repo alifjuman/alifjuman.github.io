@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-01T03:58:53.499Z",
+  "updatedAt": "2026-09-01T05:31:19.431Z",
   "apps": [
+    {
+      "id": "mti8a2pg",
+      "name": "Barcode Generator",
+      "url": "apps/barcode.html",
+      "description": "Membuat Barcode dengan mudah",
+      "category": "Produktivitas",
+      "icon": "🔗",
+      "color": "#ff0000",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1788240596020
+    },
     {
       "id": "mti4ys2b",
       "name": "CBT Essay AI",
