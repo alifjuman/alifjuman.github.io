@@ -31,24 +31,6 @@
   ],
   "soal": [
     {
-      "id": 1,
-      "soal": "Jelaskan pentingnya literasi digital di era Society 5.0 dan berikan 3 contoh implementasinya di sekolah.",
-      "kunci": "Definisi literasi digital, relevansi Society 5.0, 3 contoh konkret",
-      "rubrik": "Relevansi 30%, Argumentasi 30%, Contoh 20%, Bahasa 20%"
-    },
-    {
-      "id": 2,
-      "soal": "Analisis penyebab dan dampak perubahan iklim terhadap sektor pertanian di Indonesia. Berikan solusi yang bisa dilakukan siswa.",
-      "kunci": "Penyebab, dampak pertanian, solusi siswa",
-      "rubrik": "Penyebab 25%, Dampak 25%, Solusi 30%, Kritis 20%"
-    },
-    {
-      "id": 3,
-      "soal": "Buatlah argumen pro/kontra penggunaan AI dalam pendidikan. Mana yang kamu pilih dan mengapa?",
-      "kunci": "Pro kontra AI, pendirian jelas, argumen logis",
-      "rubrik": "Kelengkapan 30%, Argumen 40%, Persuasif 30%"
-    },
-    {
       "id": "hrcjwgk",
       "mapel": "Kimia",
       "kelas": "",
@@ -83,20 +65,6 @@
     }
   ],
   "paket": [
-    {
-      "id": "pkt1",
-      "nama": "UTS Bahasa Indonesia",
-      "mapel": "Bahasa Indonesia",
-      "kelas": "XII IPA 1",
-      "soalIds": [
-        "soal1"
-      ],
-      "durasi": 60,
-      "token": "AB12CD",
-      "jadwalMulai": "2026-09-01T01:54",
-      "jadwalSelesai": "2026-09-02T02:54",
-      "status": "Aktif"
-    },
     {
       "id": "tk9iqb1",
       "nama": "UTS Gasal",
@@ -148,7 +116,8 @@
     }
   ],
   "config": {
-    "gsUrl": "https://script.google.com/macros/s/AKfycbzQsZ658vuwssHJK--9LZEFSNIZiQfDrLcK560HKtH5WQioFvfeIz6o6fzQBqoFgCTwig/exec",
-    "groqModel": "qwen/qwen3.8-27b"
-  }
+    "gsUrl": "https://script.google.com/macros/s/AKfycbxvKDpkPqB_xALcv3o51W0mnXk7bXMTPFFDsgo-jCvi1ai0jaB-mscqR7qL_XCzW8D-dg/exec",
+    "groqModel": "openai/gpt-oss-120b"
+  },
+  "admin": {}
 }
