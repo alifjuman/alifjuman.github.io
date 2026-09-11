@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-01T05:31:19.431Z",
+  "updatedAt": "2026-09-11T12:26:26.222Z",
   "apps": [
+    {
+      "id": "mtwxidw5",
+      "name": "Notula : Notulen Rapat AI",
+      "url": "apps/notula.html",
+      "description": "Membuat Notulen Rapat dengan mudah",
+      "category": "Tools",
+      "icon": "🔗",
+      "color": "#8b5cf6",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789129500629
+    },
     {
       "id": "mti8a2pg",
       "name": "Barcode Generator",
