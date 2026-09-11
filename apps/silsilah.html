@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>🌳 Silsilah Keluarga — Family Tree</title>
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#0b1220;--panel:#111a2e;--card:#1e293b;--line:#26334d;--txt:#e2e8f0;--mut:#94a3b8;--acc:#38bdf8}
+html,body{height:100%}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--txt);overflow:hidden;display:flex;flex-direction:column}
+header{display:flex;gap:8px;align-items:center;padding:9px 12px;background:linear-gradient(90deg,#0ea5e91f,#8b5cf61f);border-bottom:1px solid var(--line);flex-wrap:wrap;z-index:30}
+.logo{font-weight:800;font-size:16px;background:linear-gradient(90deg,#38bdf8,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:6px;white-space:nowrap}
+.spacer{flex:1}
+main{flex:1;display:flex;min-height:0;position:relative}
+#sidebar{width:300px;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0;z-index:25}
+.tabs{display:flex;border-bottom:1px solid var(--line)}
+.tab{flex:1;padding:10px 4px;text-align:center;cursor:pointer;color:var(--mut);border-bottom:2px solid transparent;font-size:12.5px;user-select:none}
+.tab.active{color:var(--acc);border-color:var(--acc)}
+.tabBody{flex:1;overflow:auto;padding:10px;display:none}
+.tabBody.active{display:block}
+#canvasWrap{flex:1;position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 60% 20%,#12203a 0%,var(--bg) 70%)}
+#cv{position:absolute;inset:0;touch-action:none;cursor:grab}
+.btn{background:#1e293b;color:var(--txt);border:1px solid var(--line);padding:8px 12px;border-radius:9px;cursor:pointer;font-size:13px;white-space:nowrap}
+.btn:hover{border-color:var(--acc)}
+.btn.primary{background:#0284c7;border-color:#0284c7;font-weight:600}
+.btn.danger{background:#7f1d1d;border-color:#7f1d1d}
+.btn.sm{padding:4px 9px;font-size:12px}
+input,select,textarea{width:100%;background:#0d1628;border:1px solid var(--line);color:var(--txt);padding:8px;border-radius:8px;font-size:13px;font-family:inherit}
+textarea{resize:vertical}
+label{font-size:12px;color:var(--mut);display:block;margin:7px 0 2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+.row{display:flex;gap:8px;justify-content:flex-end;margin-top:14px;flex-wrap:wrap}
+.modal{position:fixed;inset:0;background:rgba(2,6,23,.75);backdrop-filter:blur(3px);display:none;align-items:flex-start;justify-content:center;z-index:60;padding:16px;overflow:auto}
+.modal.show{display:flex}
+.modalBox{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;width:580px;max-width:100%;margin:auto;box-shadow:0 20px 60px #000a}
+.modalBox h3{margin-bottom:10px}
+#drawer{position:fixed;top:0;right:0;bottom:0;width:370px;max-width:94vw;background:var(--panel);border-left:1px solid var(--line);overflow:auto;transform:translateX(110%);transition:transform .25s ease;z-index:40;box-shadow:-12px 0 40px #0006}
+#drawer.open{transform:none}
+.dHead{padding:22px 16px 12px;text-align:center;background:linear-gradient(180deg,#0ea5e91a,transparent);position:relative}
+.dHead h3{font-size:18px;margin-top:6px}
+#drawer h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);margin:18px 0 8px}
+.chip{display:inline-block;background:#0d1628;border:1px solid var(--line);border-radius:20px;padding:4px 11px;font-size:12px;margin:2px;cursor:pointer}
+.chip:hover{border-color:var(--acc)}
+.mediaGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.mItem{position:relative;border-radius:9px;overflow:hidden;cursor:pointer;border:1px solid var(--line)}
+.mItem img,.mItem video{width:100%;height:72px;object-fit:cover;display:block}
+.mdel{position:absolute;top:3px;right:3px;background:#0009;border:none;color:#fca5a5;border-radius:6px;cursor:pointer;font-size:11px;padding:2px 5px}
+.personItem{display:flex;gap:9px;align-items:center;padding:8px;border-radius:9px;cursor:pointer}
+.personItem:hover{background:#1a2740}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.evItem{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:10px;margin-bottom:8px}
+#toasts{position:fixed;left:14px;bottom:14px;z-index:99;display:flex;flex-direction:column;gap:8px;max-width:80vw}
+.toast{background:#0f2a1d;border:1px solid #166534;color:#bbf7d0;padding:10px 14px;border-radius:11px;font-size:13px;box-shadow:0 6px 20px #0008;animation:tin .25s}
+.toast.info{background:#0c2233;border-color:#0e7490;color:#a5f3fc}
+@keyframes tin{from{opacity:0;transform:translateY(8px)}}
+#zoomCtl{position:absolute;right:14px;bottom:14px;display:flex;flex-direction:column;gap:6px;z-index:5}
+#zoomCtl button{width:42px;height:42px;border-radius:11px;background:#1e293bcc;border:1px solid var(--line);color:var(--txt);font-size:18px;cursor:pointer;backdrop-filter:blur(4px)}
+.menu{position:absolute;top:54px;right:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;display:none;z-index:70;min-width:230px;overflow:hidden;box-shadow:0 12px 40px #000a}
+.menu.show{display:block}
+.menu button{display:block;width:100%;text-align:left;background:none;border:none;color:var(--txt);padding:12px 15px;cursor:pointer;font-size:13px}
+.menu button:hover{background:#1a2740}
+#btnMenu{display:none}
+.wizStep .hint{color:var(--mut);font-size:12px;margin-top:6px}
+@media(max-width:860px){
+ #sidebar{position:absolute;top:0;bottom:0;left:0;transform:translateX(-105%);transition:.25s;box-shadow:12px 0 40px #0008}
+ #sidebar.open{transform:none}
+ #btnMenu{display:inline-block}
+ .logo span.t{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+ <button class="btn" id="btnMenu">☰</button>
+ <div class="logo">🌳 Silsilah<span class="t">Keluarga</span></div>
+ <div class="spacer"></div>
+ <button class="btn primary" onclick="openPersonModal()">➕ Tambah</button>
+ <button class="btn" onclick="shareTree()">🤝 Bagikan</button>
+ <button class="btn" onclick="$('#fileInput').click()">📥 Impor</button>
+ <button class="btn" onclick="$('#expMenu').classList.toggle('show')">📤 Ekspor ▾</button>
+ <button class="btn" onclick="startWizard()">🧭 Panduan</button>
+ <div class="menu" id="expMenu">
+  <button onclick="doExport('ged')">📜 File GEDCOM (.ged)</button>
+  <button onclick="doExport('png')">🖼 Gambar resolusi tinggi (.png)</button>
+  <button onclick="doExport('pdf')">📄 PDF (.pdf)</button>
+  <button onclick="doExport('json')">💾 Cadangan lengkap (.familytree)</button>
+ </div>
+ <input type="file" id="fileInput" accept=".ged,.gedcom,.json,.familytree,.txt" style="display:none">
+</header>
+<main>
+ <aside id="sidebar">
+  <div class="tabs">
+   <div class="tab active" data-t="tabPeople">👥 Orang</div>
+   <div class="tab" data-t="tabEvents">📅 Acara</div>
+   <div class="tab" data-t="tabInfo">ℹ️ Info</div>
+  </div>
+  <div style="padding:10px;border-bottom:1px solid var(--line)">
+   <input id="search" placeholder="🔍 Cari nama...">
+  </div>
+  <div class="tabBody active" id="tabPeople"></div>
+  <div class="tabBody" id="tabEvents" style="padding:10px"></div>
+  <div class="tabBody" id="tabInfo" style="padding:14px"></div>
+ </aside>
+ <div id="canvasWrap">
+  <canvas id="cv"></canvas>
+  <div id="zoomCtl">
+   <button onclick="zoomBtn(1.25)">＋</button>
+   <button onclick="zoomBtn(0.8)">－</button>
+   <button onclick="fitView()" title="Sesuaikan">⛶</button>
+  </div>
+ </div>
+ <aside id="drawer"></aside>
+</main>
+
+<!-- MODAL: FORM ORANG -->
+<div class="modal" id="mPerson"><div class="modalBox">
+ <h3 id="mpTitle">Tambah Orang</h3>
+ <input type="hidden" id="fId">
+ <div class="grid2">
+  <div><label>Nama Depan *</label><input id="fFirst" placeholder="contoh: Budi"></div>
+  <div><label>Nama Belakang / Marga</label><input id="fLast" placeholder="contoh: Wijaya"></div>
+  <div><label>Jenis Kelamin</label><select id="fSex"><option value="M">Laki-laki</option><option value="F">Perempuan</option></select></div>
+  <div><label>Avatar Budaya</label><select id="fCulture"></select></div>
+  <div><label>Tanggal Lahir</label><input id="fBirth" placeholder="1950-08-17"></div>
+  <div><label>Tanggal Meninggal (kosong = hidup)</label><input id="fDeath" placeholder="2020-01-01"></div>
+  <div><label>Ayah</label><select id="fFather"></select></div>
+  <div><label>Ibu</label><select id="fMother"></select></div>
+ </div>
+ <label>Pasangan (tahan Ctrl / sentuh lama untuk memilih lebih dari satu)</label>
+ <select id="fSpouses" multiple size="4"></select>
+ <label>Biografi — kisah hidup, peristiwa sejarah, pencapaian…</label>
+ <textarea id="fBio" rows="4" placeholder="Lahir di Yogyakarta pada masa penjajahan Belanda. Bekerja sebagai guru…"></textarea>
+ <div class="row"><button class="btn" onclick="closeModal('mPerson')">Batal</button><button class="btn primary" onclick="savePerson()">💾 Simpan</button></div>
+</div></div>
+
+<!-- MODAL: ACARA -->
+<div class="modal" id="mEvent"><div class="modalBox">
+ <h3 id="meTitle">📅 Tambah Acara Keluarga</h3>
+ <input type="hidden" id="eId">
+ <label>Judul</label><input id="eTitle" placeholder="Ulang tahun Nenek ke-80 / Reuni akbar">
+ <div class="grid2">
+  <div><label>Tanggal</label><input id="eDate" type="date"></div>
+  <div><label>Waktu</label><input id="eTime" type="time"></div>
+ </div>
+ <label>Catatan</label><textarea id="eNote" rows="2"></textarea>
+ <label>Anggota yang diberi peringatan</label>
+ <div id="eMembers" style="max-height:150px;overflow:auto;background:#0d1628;border:1px solid var(--line);border-radius:8px;padding:8px"></div>
+ <div class="row"><button class="btn" onclick="closeModal('mEvent')">Batal</button><button class="btn primary" onclick="saveEvent()">💾 Simpan</button></div>
+</div></div>
+
+<!-- MODAL: MEDIA VIEWER -->
+<div class="modal" id="mMedia" onclick="if(event.target===this)closeModal('mMedia')"><div class="modalBox" style="width:auto;max-width:92vw;text-align:center" id="mMediaBody"></div></div>
+
+<!-- MODAL: WIZARD PENGATURAN CEPAT -->
+<div class="modal" id="mWizard"><div class="modalBox">
+ <h3>🌳 Pengaturan Cepat</h3>
+ <p id="wizSub" style="color:var(--mut);font-size:13px;margin-bottom:12px"></p>
+ <div class="wizStep" data-s="0">
+  <p style="font-size:14px;margin-bottom:6px"><b>Langkah 1/4</b> — Mulai dari diri Anda:</p>
+  <div class="grid2">
+   <div><label>Nama Depan *</label><input id="wFirst" placeholder="Budi"></div>
+   <div><label>Nama Belakang</label><input id="wLast" placeholder="Wijaya"></div>
+   <div><label>Jenis Kelamin</label><select id="wSex"><option value="M">Laki-laki</option><option value="F">Perempuan</option></select></div>
+   <div><label>Tanggal Lahir</label><input id="wBirth" placeholder="1990-01-01"></div>
+  </div>
+  <label>Gaya Avatar</label><select id="wCulture"></select>
+ </div>
+ <div class="wizStep" data-s="1" style="display:none">
+  <p style="font-size:14px;margin-bottom:6px"><b>Langkah 2/4</b> — Pasangan (opsional):</p>
+  <label style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--txt)"><input type="checkbox" id="wHasPartner" style="width:auto"> Ya, tambahkan pasangan saya</label>
+  <div id="wPartnerBox" style="display:none">
+   <div class="grid2">
+    <div><label>Nama Depan</label><input id="wpFirst"></div>
+    <div><label>Nama Belakang</label><input id="wpLast"></div>
+   </div>
+   <label>Gaya Avatar</label><select id="wpCulture"></select>
+  </div>
+ </div>
+ <div class="wizStep" data-s="2" style="display:none">
+  <p style="font-size:14px;margin-bottom:6px"><b>Langkah 3/4</b> — Orang tua (opsional):</p>
+  <div class="grid2">
+   <div><label>Nama Ayah</label><input id="wFather"></div>
+   <div><label>Nama Ibu</label><input id="wMother"></div>
+  </div>
+  <p class="hint">Semua data bisa ditambah & diedit kapan saja nanti.</p>
+ </div>
+ <div class="wizStep" data-s="3" style="display:none">
+  <p style="font-size:14px;margin-bottom:6px"><b>Langkah 4/4</b> — Selesai! 🎉</p>
+  <p style="font-size:13px;color:var(--mut)">Pohon Anda siap ditumbuhkan. Mau sekalian melihat contoh keluarga 3 generasi?</p>
+  <label style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--txt);margin-top:10px"><input type="checkbox" id="wSample" style="width:auto"> Muat keluarga contoh (demo)</label>
+ </div>
+ <div class="row">
+  <button class="btn" id="wizSkip">Lewati</button>
+  <button class="btn" id="wizBack" style="display:none">← Mundur</button>
+  <button class="btn primary" id="wizNext">Lanjut ➜</button>
+ </div>
+</div></div>
+
+<div id="toasts"></div>
+
+<script>
+/* ================= UTIL ================= */
+const $=s=>document.querySelector(s);
+const uid=()=> 'p'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const esc=s=>(s==null?'':String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const fullName=p=>((p.first||'')+(p.last?' '+p.last:'')).trim()||'(tanpa nama)';
+function lifeStr(p){ if(p.birth&&p.death)return p.birth+' — '+p.death; if(p.birth)return 'l. '+p.birth; if(p.death)return 'w. '+p.death; return ''; }
+function toast(msg,info){ const d=document.createElement('div'); d.className='toast'+(info?' info':''); d.textContent=msg; $('#toasts').appendChild(d); setTimeout(()=>d.remove(),4800); }
+function downloadBlob(b,name){ const u=URL.createObjectURL(b); const a=document.createElement('a'); a.href=u; a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(u),4000); }
+if(!CanvasRenderingContext2D.prototype.roundRect){CanvasRenderingContext2D.prototype.roundRect=function(x,y,w,h,r){r=Math.min(r,w/2,h/2);this.moveTo(x+r,y);this.arcTo(x+w,y,x+w,y+h,r);this.arcTo(x+w,y+h,x,y+h,r);this.arcTo(x,y+h,x,y,r);this.arcTo(x,y,x+w,y,r);this.closePath();return this;};}
+
+/* ================= INDEXEDDB (kapasitas besar) ================= */
+let db=null;
+function openDB(){return new Promise((res,rej)=>{const r=indexedDB.open('familyTreeDB',1);
+ r.onupgradeneeded=e=>{const d=e.target.result;
+  ['persons','events','media'].forEach(n=>{if(!d.objectStoreNames.contains(n))d.createObjectStore(n,{keyPath:'id'});});};
+ r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error);});}
+function dbGetAll(n){return new Promise((res,rej)=>{const t=db.transaction(n).objectStore(n).getAll();t.onsuccess=()=>res(t.result||[]);t.onerror=()=>rej(t.error);});}
+function dbPut(n,v){return new Promise((res,rej)=>{const t=db.transaction(n,'readwrite').objectStore(n).put(v);t.onsuccess=res;t.onerror=()=>rej(t.error);});}
+function dbDel(n,k){return new Promise((res,rej)=>{const t=db.transaction(n,'readwrite').objectStore(n).delete(k);t.onsuccess=res;t.onerror=()=>rej(t.error);});}
+function dbClearAll(){return new Promise(res=>{const tx=db.transaction(['persons','events','media'],'readwrite');['persons','events','media'].forEach(n=>tx.objectStore(n).clear());tx.oncomplete=res;});}
+
+/* ================= STATE ================= */
+let P=new Map();       // persons
+let EV=[];             // events
+let layoutData=null, layoutDirty=true;
+let view={scale:1,x:0,y:0};
+let selectedId=null;
+let persistT=null;
+function persist(){clearTimeout(persistT);persistT=setTimeout(async()=>{ if(!db)return;
+ try{ const tx=db.transaction(['persons','events'],'readwrite');
+  tx.objectStore('persons').clear(); P.forEach(p=>tx.objectStore('persons').put(p));
+  tx.objectStore('events').clear(); EV.forEach(e=>tx.objectStore('events').put(e));
+ }catch(err){console.warn(err);}
+},250);}
+function changed(){layoutDirty=true;persist();render();renderSidebar();}
+
+/* ================= AVATAR BUDAYA ================= */
+const CULTURES={
+ modern:{label:'Modern',bg:'#475569',skin:'#e8b88a',cloth:'#334155',hair:'#3f3a34',hat:null},
+ jawa:{label:'Jawa · Blangkon',bg:'#7c5c3e',skin:'#d9a066',cloth:'#6b4f3a',hair:'#241a12',hat:'blangkon',hatC:'#5b3a1e',hatC2:'#3e2a14'},
+ sunda:{label:'Sunda · Iket',bg:'#3f6d54',skin:'#d9a066',cloth:'#4d7c5f',hair:'#20160f',hat:'songkok'},
+ batak:{label:'Batak · Ulos',bg:'#7f1d1d',skin:'#c68642',cloth:'#991b1b',hair:'#1c1917',hat:'headband',hatC:'#b91c1c'},
+ minang:{label:'Minang · Tengkuluk',bg:'#92400e',skin:'#d9a066',cloth:'#b91c1c',hair:'#241a12',hat:'tengkuluk',hatC:'#ca8a04',hatC2:'#7f1d1d'},
+ melayu:{label:'Melayu · Songkok',bg:'#155e75',skin:'#d9a066',cloth:'#0e7490',hair:'#1c1917',hat:'songkok',hijab:'#0891b2'},
+ bali:{label:'Bali · Udeng',bg:'#0f766e',skin:'#d9a066',cloth:'#115e59',hair:'#1c1917',hat:'udeng'},
+ papua:{label:'Papua',bg:'#365314',skin:'#7c4a1e',cloth:'#3f6212',hair:'#1c1917',hat:'afro'},
+ chinese:{label:'Tionghoa',bg:'#991b1b',skin:'#e0b088',cloth:'#b91c1c',hair:'#171310',hat:'bun'},
+ jepang:{label:'Jepang · Kimono',bg:'#9f1239',skin:'#edd0b0',cloth:'#be123c',hair:'#1c1917',hat:'chonmage'},
+ korea:{label:'Korea · Hanbok',bg:'#155e75',skin:'#edd0b0',cloth:'#0e7490',hair:'#1c1917',hat:'gat'},
+ india:{label:'India · Serban',bg:'#9a3412',skin:'#b5793a',cloth:'#c2410c',hair:'#1c1917',hat:'turban',hatC:'#ea580c',hijab:'#f59e0b'},
+ arab:{label:'Arab · Keffiyeh',bg:'#52525b',skin:'#c68642',cloth:'#e5e7eb',hair:'#27272a',hat:'keffiyeh',hijab:'#a78bfa'},
+ eropa:{label:'Eropa · Bangsawan',bg:'#3730a3',skin:'#f0c8a0',cloth:'#4338ca',hair:'#8b6f47',hat:'crown'},
+ viking:{label:'Viking',bg:'#3f3f46',skin:'#e8b88a',cloth:'#52525b',hair:'#b45309',hat:'horned'},
+ mesir:{label:'Mesir Kuno',bg:'#a16207',skin:'#a9713d',cloth:'#facc15',hair:'#1c1917',hat:'nemes'},
+ yunani:{label:'Yunani Kuno',bg:'#1e40af',skin:'#e8c39e',cloth:'#f1f5f9',hair:'#57534e',hat:'laurel'},
+ afrika:{label:'Afrika · Headwrap',bg:'#166534',skin:'#7c4a1e',cloth:'#15803d',hair:'#1c1917',hat:'headwrap',hatC:'#dc2626',hatC2:'#f59e0b'},
+};
+function drawAvatar(ctx,cx,cy,r,p){
+ const c=CULTURES[p.culture]||CULTURES.modern, F=p.sex==='F';
+ ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,r,0,7); ctx.fillStyle=c.bg; ctx.fill();
+ ctx.save(); ctx.clip();
+ ctx.fillStyle=c.cloth; ctx.beginPath(); ctx.ellipse(cx,cy+r*1.5,r*0.85,r*0.85,0,Math.PI,0); ctx.fill();
+ const hx=cx, hy=cy-r*0.08, hr=r*0.55;
+ if(c.hat==='afro'){ctx.fillStyle=c.hair;ctx.beginPath();ctx.arc(hx,hy-hr*0.3,hr*1.3,0,7);ctx.fill();}
+ if(F&&c.hair&&c.hat!=='hijab'&&c.hat!=='afro'){ctx.fillStyle=c.hair;ctx.beginPath();ctx.ellipse(hx,hy+hr*0.35,hr*1.18,hr*1.4,0,0,7);ctx.fill();}
+ ctx.fillStyle=c.skin; ctx.beginPath(); ctx.arc(hx,hy,hr,0,7); ctx.fill();
+ if(c.hair&&c.hat!=='hijab'&&c.hat!=='afro'){ctx.fillStyle=c.hair;ctx.beginPath();ctx.arc(hx,hy-hr*0.28,hr*0.98,Math.PI,0);ctx.fill();}
+ if(F&&c.hijab){
+  ctx.fillStyle=c.hijab; ctx.beginPath(); ctx.arc(hx,hy-hr*0.05,hr*1.3,0,7); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(hx,hy+hr*1.15,hr*1.15,hr*0.95,0,0,Math.PI); ctx.fill();
+  ctx.fillStyle=c.skin; ctx.beginPath(); ctx.ellipse(hx,hy+hr*0.12,hr*0.76,hr*0.88,0,0,7); ctx.fill();
+ } else switch(c.hat){
+  case 'blangkon':
+   ctx.fillStyle=c.hatC;ctx.beginPath();ctx.arc(hx,hy-hr*0.1,hr*1.02,Math.PI*1.02,Math.PI*1.98);ctx.fill();
+   ctx.fillStyle=c.hatC2;ctx.beginPath();ctx.arc(hx+hr*0.95,hy-hr*0.45,hr*0.28,0,7);ctx.fill();
+   ctx.strokeStyle='#c9a227';ctx.lineWidth=hr*0.1;ctx.beginPath();ctx.moveTo(hx-hr,hy-hr*0.42);ctx.lineTo(hx+hr*0.8,hy-hr*0.58);ctx.stroke();break;
+  case 'headband':
+   ctx.fillStyle=c.hatC;ctx.fillRect(hx-hr*1.02,hy-hr*0.88,hr*2.04,hr*0.36);
+   ctx.fillStyle='#f8fafc';ctx.fillRect(hx-hr*1.02,hy-hr*0.76,hr*2.04,hr*0.07);break;
+  case 'tengkuluk':
+   ctx.fillStyle=c.hatC;ctx.beginPath();ctx.moveTo(hx-hr*1.15,hy-hr*0.55);ctx.lineTo(hx-hr*0.1,hy-hr*1.95);ctx.lineTo(hx+hr*0.35,hy-hr*1);ctx.lineTo(hx+hr*1.15,hy-hr*0.55);ctx.closePath();ctx.fill();
+   ctx.fillStyle=c.hatC2;ctx.fillRect(hx-hr*1.1,hy-hr*0.64,hr*2.2,hr*0.2);break;
+  case 'songkok':
+   ctx.fillStyle='#151922';ctx.beginPath();ctx.roundRect(hx-hr*0.85,hy-hr*1.65,hr*1.7,hr*0.98,hr*0.2);ctx.fill();break;
+  case 'udeng':
+   ctx.fillStyle='#f8fafc';ctx.beginPath();ctx.arc(hx,hy-hr*0.3,hr*1,Math.PI,0);ctx.fill();
+   ctx.beginPath();ctx.moveTo(hx+hr*0.5,hy-hr*1);ctx.lineTo(hx+hr*1.35,hy-hr*1.65);ctx.lineTo(hx+hr*1,hy-hr*0.65);ctx.closePath();ctx.fill();break;
+  case 'keffiyeh':
+   ctx.fillStyle='#f1f5f9';ctx.beginPath();ctx.arc(hx,hy-hr*0.15,hr*1.12,Math.PI,0);ctx.fill();
+   ctx.fillRect(hx-hr*1.12,hy-hr*0.15,hr*0.35,hr*1.55);ctx.fillRect(hx+hr*0.77,hy-hr*0.15,hr*0.35,hr*1.55);
+   ctx.strokeStyle='#0f172a';ctx.lineWidth=hr*0.16;ctx.beginPath();ctx.arc(hx,hy-hr*0.55,hr*0.82,Math.PI*1.1,Math.PI*1.9);ctx.stroke();break;
+  case 'turban':
+   ctx.fillStyle=c.hatC;ctx.beginPath();ctx.arc(hx,hy-hr*0.75,hr*0.95,Math.PI,0);ctx.fill();
+   ctx.beginPath();ctx.arc(hx-hr*0.45,hy-hr*0.98,hr*0.4,0,7);ctx.arc(hx+hr*0.45,hy-hr*0.98,hr*0.4,0,7);ctx.fill();
+   ctx.strokeStyle=c.hatC;ctx.lineWidth=hr*0.2;ctx.beginPath();ctx.moveTo(hx+hr*0.7,hy-hr*1.3);ctx.quadraticCurveTo(hx+hr*1.5,hy-hr*1.75,hx+hr*1.05,hy-hr*0.9);ctx.stroke();break;
+  case 'bun':
+   ctx.fillStyle=c.hair;
+   if(F){ctx.beginPath();ctx.arc(hx-hr*1.02,hy-hr*0.75,hr*0.35,0,7);ctx.arc(hx+hr*1.02,hy-hr*0.75,hr*0.35,0,7);ctx.fill();}
+   else{ctx.beginPath();ctx.arc(hx,hy-hr*1.18,hr*0.25,0,7);ctx.fill();ctx.fillRect(hx-hr*0.08,hy-hr*1.2,hr*0.16,hr*0.35);}break;
+  case 'chonmage':
+   ctx.fillStyle=c.skin;ctx.beginPath();ctx.arc(hx,hy-hr*0.35,hr*0.85,Math.PI*1.15,Math.PI*1.85);ctx.fill();
+   ctx.fillStyle=c.hair;ctx.fillRect(hx-hr*0.1,hy-hr*1.5,hr*0.55,hr*0.18);
+   ctx.beginPath();ctx.arc(hx+hr*0.45,hy-hr*1.42,hr*0.16,0,7);ctx.fill();break;
+  case 'gat':
+   ctx.fillStyle='rgba(15,18,25,.92)';ctx.beginPath();ctx.ellipse(hx,hy-hr*0.75,hr*1.45,hr*0.3,0,0,7);ctx.fill();
+   ctx.beginPath();ctx.roundRect(hx-hr*0.62,hy-hr*1.9,hr*1.24,hr*1.15,hr*0.12);ctx.fill();break;
+  case 'crown':
+   ctx.fillStyle='#eab308';ctx.beginPath();ctx.moveTo(hx-hr*0.9,hy-hr*0.7);ctx.lineTo(hx-hr*0.9,hy-hr*1.35);ctx.lineTo(hx-hr*0.45,hy-hr*0.95);ctx.lineTo(hx,hy-hr*1.6);ctx.lineTo(hx+hr*0.45,hy-hr*0.95);ctx.lineTo(hx+hr*0.9,hy-hr*1.35);ctx.lineTo(hx+hr*0.9,hy-hr*0.7);ctx.closePath();ctx.fill();
+   ctx.fillStyle='#dc2626';ctx.beginPath();ctx.arc(hx,hy-hr*0.92,hr*0.11,0,7);ctx.fill();break;
+  case 'horned':
+   ctx.fillStyle='#71717a';ctx.beginPath();ctx.arc(hx,hy-hr*0.2,hr*1.05,Math.PI,0);ctx.fill();
+   ctx.fillRect(hx-hr*0.1,hy-hr*1.05,hr*0.2,hr*0.95);
+   ctx.strokeStyle='#e4e4e7';ctx.lineWidth=hr*0.22;ctx.lineCap='round';
+   ctx.beginPath();ctx.moveTo(hx-hr*0.95,hy-hr*0.8);ctx.quadraticCurveTo(hx-hr*1.7,hy-hr*1.5,hx-hr*1.05,hy-hr*1.95);ctx.stroke();
+   ctx.beginPath();ctx.moveTo(hx+hr*0.95,hy-hr*0.8);ctx.quadraticCurveTo(hx+hr*1.7,hy-hr*1.5,hx+hr*1.05,hy-hr*1.95);ctx.stroke();break;
+  case 'nemes':
+   ctx.fillStyle='#eab308';ctx.beginPath();ctx.arc(hx,hy-hr*0.25,hr*1.25,Math.PI,0);ctx.fill();
+   ctx.beginPath();ctx.moveTo(hx-hr*1.25,hy-hr*0.25);ctx.lineTo(hx-hr*1.05,hy+hr*1.15);ctx.lineTo(hx-hr*0.5,hy+hr*0.75);ctx.closePath();ctx.fill();
+   ctx.beginPath();ctx.moveTo(hx+hr*1.25,hy-hr*0.25);ctx.lineTo(hx+hr*1.05,hy+hr*1.15);ctx.lineTo(hx+hr*0.5,hy+hr*0.75);ctx.closePath();ctx.fill();
+   ctx.strokeStyle='#1d4ed8';ctx.lineWidth=hr*0.12;
+   for(let i=0;i<3;i++){ctx.beginPath();ctx.arc(hx,hy-hr*0.25,hr*(0.62+i*0.29),Math.PI*1.12,Math.PI*1.88);ctx.stroke();}break;
+  case 'laurel':
+   ctx.strokeStyle='#4d7c0f';ctx.lineWidth=hr*0.1;ctx.beginPath();ctx.arc(hx,hy-hr*0.25,hr*0.98,Math.PI*1.1,Math.PI*1.9);ctx.stroke();
+   ctx.fillStyle='#65a30d';
+   for(let i=0;i<5;i++){const a=Math.PI*1.15+i*(Math.PI*0.7/4);ctx.beginPath();ctx.ellipse(hx+Math.cos(a)*hr*0.98,hy-hr*0.25+Math.sin(a)*hr*0.98,hr*0.2,hr*0.09,a,0,7);ctx.fill();}break;
+  case 'headwrap':
+   ctx.fillStyle=c.hatC;ctx.beginPath();ctx.arc(hx,hy-hr*0.55,hr*1.08,Math.PI,0);ctx.fill();
+   ctx.fillStyle=c.hatC2;ctx.beginPath();ctx.arc(hx-hr*0.35,hy-hr*0.95,hr*0.5,0,7);ctx.fill();
+   ctx.fillStyle='#facc15';ctx.beginPath();ctx.arc(hx+hr*0.55,hy-hr,hr*0.38,0,7);ctx.fill();break;
+ }
+ ctx.fillStyle='#111827';
+ ctx.beginPath();ctx.arc(hx-hr*0.34,hy+hr*0.05,Math.max(1,hr*0.09),0,7);ctx.arc(hx+hr*0.34,hy+hr*0.05,Math.max(1,hr*0.09),0,7);ctx.fill();
+ ctx.strokeStyle='rgba(17,24,39,.65)';ctx.lineWidth=Math.max(1,hr*0.08);ctx.beginPath();ctx.arc(hx,hy+hr*0.25,hr*0.32,0.35,Math.PI-0.35);ctx.stroke();
+ ctx.restore(); ctx.restore();
+}
+
+/* ================= LAYOUT CERDAS ================= */
+const GX=212, GY=172, CW=178, CH=98;
+function hasPar(p){return (p.parents||[]).some(x=>P.has(x));}
+function computeLayout(){
+ const gen={}, pos={}, kids={};
+ const calcGen=(id,st)=>{ if(gen[id]!==undefined)return gen[id]; if(st.has(id))return 0; st.add(id);
+  const p=P.get(id); let g=0;
+  (p.parents||[]).forEach(pid=>{ if(P.has(pid)) g=Math.max(g,calcGen(pid,st)+1); });
+  st.delete(id); gen[id]=g; return g; };
+ P.forEach((_,id)=>calcGen(id,new Set()));
+ // pasangan yg "menikah masuk" mengikuti generasi pasangannya
+ for(let it=0;it<8;it++){
+  P.forEach((p,id)=>{
+   if(hasPar(p))return; let g=-1;
+   (p.spouses||[]).forEach(s=>{ if(P.has(s)&&hasPar(P.get(s))) g=Math.max(g,gen[s]); });
+   if(g<0)(p.spouses||[]).forEach(s=>{ if(P.has(s)&&gen[s]>0) g=Math.max(g,gen[s]); });
+   if(g>=0&&gen[id]!==g)gen[id]=g;
+  });
+ }
+ P.forEach((p,id)=>(p.parents||[]).forEach(par=>{ if(P.has(par))(kids[par]=kids[par]||[]).push(id); }));
+ const placed=new Set(); let cursor=0;
+ const byBirth=(a,b)=>(P.get(a).birth||'').localeCompare(P.get(b).birth||'');
+ function place(id){
+  if(placed.has(id))return pos[id]!==undefined?pos[id]:(pos[id]=cursor++);
+  placed.add(id);
+  const p=P.get(id);
+  let sp=(p.spouses||[]).find(s=>P.has(s)&&!placed.has(s));
+  if(sp!==undefined)placed.add(sp);
+  const set=new Set();
+  (kids[id]||[]).forEach(c=>{if(!placed.has(c))set.add(c);});
+  if(sp!==undefined)(kids[sp]||[]).forEach(c=>{if(!placed.has(c))set.add(c);});
+  const ch=[...set].sort(byBirth);
+  if(ch.length){
+   const xs=ch.map(place);
+   const ctr=(Math.min(...xs)+Math.max(...xs))/2;
+   if(sp!==undefined){pos[id]=ctr-0.55;pos[sp]=ctr+0.55;}else pos[id]=ctr;
+  }else{
+   pos[id]=cursor++;
+   if(sp!==undefined)pos[sp]=cursor++;
+  }
+  return pos[id];
+ }
+ const roots=[...P.keys()].filter(id=>!hasPar(P.get(id)) && !(P.get(id).spouses||[]).some(s=>P.has(s)&&hasPar(P.get(s))));
+ roots.sort((a,b)=>((kids[b]||[]).length)-((kids[a]||[]).length));
+ roots.forEach(place);
+ [...P.keys()].forEach(id=>{ if(!placed.has(id))place(id); });
+ // rapikan tumpang tindih per generasi
+ const byGen={};
+ P.forEach((_,id)=>{ if(pos[id]===undefined)pos[id]=cursor++; (byGen[gen[id]]=byGen[gen[id]]||[]).push(id); });
+ Object.values(byGen).forEach(list=>{ list.sort((a,b)=>pos[a]-pos[b]);
+  for(let i=1;i<list.length;i++) if(pos[list[i]]-pos[list[i-1]]<1.06) pos[list[i]]=pos[list[i-1]]+1.06; });
+ layoutData={gen,pos}; layoutDirty=false;
+}
+function layoutBBox(){
+ if(layoutDirty||!layoutData)computeLayout();
+ if(!P.size)return null;
+ let x0=Infinity,y0=Infinity,x1=-Infinity,y1=-Infinity;
+ P.forEach((_,id)=>{ const L=layoutData; if(L.pos[id]===undefined)return;
+  const x=L.pos[id]*GX, y=L.gen[id]*GY;
+  x0=Math.min(x0,x-CW/2);x1=Math.max(x1,x+CW/2);y0=Math.min(y0,y);y1=Math.max(y1,y+CH); });
+ return {x0,y0,w:x1-x0,h:y1-y0};
+}
+
+/* ================= RENDER CANVAS ================= */
+const cv=$('#cv'), ctx=cv.getContext('2d');
+function render(){
+ const wrap=$('#canvasWrap'), dpr=window.devicePixelRatio||1;
+ const vw=wrap.clientWidth, vh=wrap.clientHeight;
+ cv.width=vw*dpr; cv.height=vh*dpr; cv.style.width=vw+'px'; cv.style.height=vh+'px';
+ ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,vw,vh);
+ if(!P.size){ ctx.fillStyle='#475569'; ctx.font='15px system-ui'; ctx.textAlign='center';
+  ctx.fillText('Pohon masih kosong — klik "➕ Tambah" atau "🧭 Panduan" untuk memulai', vw/2, vh/2); return; }
+ drawScene(ctx,{s:view.scale,tx:view.x,ty:view.y},vw,vh);
+}
+function trunc(t,max){ if(ctx.measureText(t).width<=max)return t; while(t.length&&ctx.measureText(t+'…').width>max)t=t.slice(0,-1); return t+'…'; }
+function drawScene(c,t,vw,vh){
+ if(layoutDirty||!layoutData)computeLayout();
+ const {gen,pos}=layoutData;
+ c.save(); c.translate(t.tx,t.ty); c.scale(t.s,t.s);
+ const wx0=-t.tx/t.s, wy0=-t.ty/t.s, wx1=(vw-t.tx)/t.s, wy1=(vh-t.ty)/t.s;
+ // garis orang tua → anak
+ c.lineWidth=2; c.strokeStyle='#475569';
+ P.forEach((p,id)=>{
+  const par=(p.parents||[]).filter(x=>P.has(x)&&pos[x]!==undefined);
+  if(!par.length||pos[id]===undefined)return;
+  const cy=gen[id]*GY, cx=pos[id]*GX;
+  const py=(gen[par[0]]||0)*GY+CH;
+  const px=par.length===2?(pos[par[0]]+pos[par[1]])/2*GX:pos[par[0]]*GX;
+  if(Math.max(px,cx)+100<wx0||Math.min(px,cx)-100>wx1)return;
+  const mid=(py+cy)/2;
+  c.beginPath(); c.moveTo(px,py); c.lineTo(px,mid); c.lineTo(cx,mid); c.lineTo(cx,cy); c.stroke();
+ });
+ // garis pernikahan
+ P.forEach((p,id)=>(p.spouses||[]).forEach(s=>{
+  if(id<s&&P.has(s)&&pos[id]!==undefined&&pos[s]!==undefined&&gen[id]===gen[s]){
+   const y=gen[id]*GY+32, x1=pos[id]*GX, x2=pos[s]*GX, a=Math.min(x1,x2)+CW/2, b=Math.max(x1,x2)-CW/2;
+   c.strokeStyle='#ec4899'; c.lineWidth=2; c.beginPath(); c.moveTo(a,y); c.lineTo(b,y); c.stroke();
+   c.fillStyle='#ec4899'; c.font='13px sans-serif'; c.textAlign='center'; c.fillText('❤',(a+b)/2,y+5);
+  }}));
+ // kartu节点
+ P.forEach((p,id)=>{
+  if(pos[id]===undefined)return;
+  const x=pos[id]*GX, y=(gen[id]||0)*GY;
+  if(x+CW/2<wx0||x-CW/2>wx1||y+CH<wy0||y>wy1)return;
+  drawCard(c,p,x,y,id===selectedId);
+ });
+ c.restore();
+}
+function drawCard(c,p,x,y,sel){
+ c.save();
+ c.shadowColor='rgba(0,0,0,.4)'; c.shadowBlur=10; c.shadowOffsetY=3;
+ c.beginPath(); c.roundRect(x-CW/2,y,CW,CH,13);
+ c.fillStyle=p.death?'#232e42':'#1e293b'; c.fill();
+ c.shadowColor='transparent';
+ c.lineWidth=sel?3:1.5; c.strokeStyle=sel?'#38bdf8':(p.sex==='F'?'#ec4899':'#3b82f6'); c.stroke();
+ drawAvatar(c,x-CW/2+36,y+38,26,p);
+ c.textAlign='left';
+ c.fillStyle='#f1f5f9'; c.font='600 13px system-ui,sans-serif';
+ c.fillText(trunc(fullName(p),CW-92),x-CW/2+70,y+32);
+ c.fillStyle='#94a3b8'; c.font='11px system-ui,sans-serif';
+ c.fillText(trunc(lifeStr(p)||'—',CW-92),x-CW/2+70,y+50);
+ c.fillStyle='#64748b'; c.font='10px system-ui,sans-serif';
+ c.fillText(trunc((CULTURES[p.culture]||CULTURES.modern).label,CW-92),x-CW/2+70,y+68);
+ if(p.death){c.fillStyle='#475569';c.font='12px sans-serif';c.textAlign='right';c.fillText('✝',x+CW/2-10,y+18);}
+ c.restore();
+}
+function renderHighRes(maxPx){
+ const bb=layoutBBox(); if(!bb)return null;
+ const pad=50;
+ let s=Math.min(3, maxPx/Math.max(bb.w+pad*2, bb.h+pad*2));
+ s=Math.max(s,0.4);
+ const c=document.createElement('canvas');
+ c.width=Math.ceil((bb.w+pad*2)*s); c.height=Math.ceil((bb.h+pad*2)*s);
+ const x=c.getContext('2d');
+ x.fillStyle='#ffffff'; x.fillRect(0,0,c.width,c.height);
+ x.fillStyle='#0f172a'; x.font='bold 20px system-ui'; x.textAlign='left';
+ x.fillText('🌳 Pohon Keluarga — '+new Date().toLocaleDateString('id-ID'), pad*s*0.5, pad*s*0.6);
+ drawScene(x,{s,tx:(pad-bb.x0)*s,ty:(pad*1.6-bb.y0)*s},c.width/s,c.height/s);
+ return c;
+}
+
+/* ================= NAVIGASI (pan / zoom / pinch) ================= */
+let pointers=new Map(), panning=false, moved=0, lastPt=null, pinch=0;
+function zoomAt(sx,sy,f){
+ const ns=clamp(view.scale*f,0.12,4);
+ view.x=sx-(sx-view.x)*(ns/view.scale); view.y=sy-(sy-view.y)*(ns/view.scale);
+ view.scale=ns; render();
+}
+function zoomBtn(f){const w=$('#canvasWrap');zoomAt(w.clientWidth/2,w.clientHeight/2,f);}
+cv.addEventListener('pointerdown',e=>{ cv.setPointerCapture(e.pointerId);
+ pointers.set(e.pointerId,{x:e.offsetX,y:e.offsetY});
+ if(pointers.size===1){panning=true;moved=0;lastPt={x:e.offsetX,y:e.offsetY};cv.style.cursor='grabbing';}
+ else if(pointers.size===2){const[a,b]=[...pointers.values()];pinch=Math.hypot(a.x-b.x,a.y-b.y);} });
+cv.addEventListener('pointermove',e=>{ if(!pointers.has(e.pointerId))return;
+ pointers.set(e.pointerId,{x:e.offsetX,y:e.offsetY});
+ if(pointers.size===1&&panning){ const dx=e.offsetX-lastPt.x, dy=e.offsetY-lastPt.y;
+  moved+=Math.abs(dx)+Math.abs(dy); view.x+=dx; view.y+=dy; lastPt={x:e.offsetX,y:e.offsetY}; render(); }
+ else if(pointers.size===2){ const[a,b]=[...pointers.values()]; const d=Math.hypot(a.x-b.x,a.y-b.y);
+  if(pinch)zoomAt((a.x+b.x)/2,(a.y+b.y)/2,d/pinch); pinch=d; } });
+function endPtr(e){ pointers.delete(e.pointerId); if(pointers.size<2)pinch=0;
+ if(panning&&pointers.size===0){ panning=false; cv.style.cursor='grab';
+  if(moved<7)handleClick(e.offsetX,e.offsetY); } }
+cv.addEventListener('pointerup',endPtr); cv.addEventListener('pointercancel',endPtr);
+cv.addEventListener('wheel',e=>{e.preventDefault();zoomAt(e.offsetX,e.offsetY,e.deltaY<0?1.12:0.9);},{passive:false});
+function handleClick(sx,sy){
+ if(layoutDirty||!layoutData)computeLayout();
+ const wx=(sx-view.x)/view.scale, wy=(sy-view.y)/view.scale;
+ let hit=null;
+ P.forEach((p,id)=>{ const L=layoutData; if(L.pos[id]===undefined)return;
+  const x=L.pos[id]*GX, y=L.gen[id]*GY;
+  if(wx>=x-CW/2&&wx<=x+CW/2&&wy>=y&&wy<=y+CH)hit=id; });
+ if(hit){selectAndCenter(hit,false);} else {selectedId=null;closeDrawer();render();}
+}
+function fitView(){
+ const bb=layoutBBox(); if(!bb)return;
+ const w=$('#canvasWrap');
+ const s=clamp(Math.min((w.clientWidth-70)/bb.w,(w.clientHeight-70)/bb.h),0.12,1.6);
+ view.scale=s; view.x=(w.clientWidth-bb.w*s)/2-bb.x0*s; view.y=(w.clientHeight-bb.h*s)/2-bb.y0*s;
+ render();
+}
+function selectAndCenter(id,recenter=true){
+ selectedId=id;
+ if(layoutDirty||!layoutData)computeLayout();
+ if(recenter&&layoutData.pos[id]!==undefined){
+  const w=$('#canvasWrap');
+  view.x=w.clientWidth/2-layoutData.pos[id]*GX*view.scale;
+  view.y=w.clientHeight/2-layoutData.gen[id]*GY*view.scale;
+ }
+ render(); openDetail(id);
+ if(window.innerWidth<=860)$('#sidebar').classList.remove('open');
+}
+
+/* ================= FORM ORANG ================= */
+function fillCulture(sel,v){ sel.innerHTML=Object.entries(CULTURES).map(([k,c])=>`<option value="${k}"${k===v?' selected':''}>${c.label}</option>`).join(''); }
+function personOptions(excludeId,sex){
+ return `<option value="">(tidak diketahui)</option>`+[...P.values()]
+  .filter(p=>p.id!==excludeId&&(!sex||p.sex===sex))
+  .sort((a,b)=>fullName(a).localeCompare(fullName(b)))
+  .map(p=>`<option value="${p.id}">${esc(fullName(p))}${p.birth?' ('+p.birth+')':''}</option>`).join('');
+}
+function openPersonModal(id,preset={}){
+ $('#fId').value=id||'';
+ $('#mpTitle').textContent=id?'✏️ Edit Orang':'➕ Tambah Orang';
+ const p=id?P.get(id):null;
+ $('#fFirst').value=p?p.first:(preset.first||''); $('#fLast').value=p?p.last:(preset.last||'');
+ $('#fSex').value=p?p.sex:(preset.sex||'M');
+ $('#fBirth').value=p?p.birth:''; $('#fDeath').value=p?p.death:''; $('#fBio').value=p?p.bio||'':'';
+ fillCulture($('#fCulture'),p?p.culture:'modern');
+ $('#fFather').innerHTML=personOptions(id,'M'); $('#fMother').innerHTML=personOptions(id,'F');
+ const par=preset.parents||(p?p.parents:[])||[];
+ par.forEach(pid=>{const q=P.get(pid); if(!q)return; if(q.sex==='M')$('#fFather').value=pid; else $('#fMother').value=pid;});
+ $('#fSpouses').innerHTML=[...P.values()].filter(x=>x.id!==id).sort((a,b)=>fullName(a).localeCompare(fullName(b)))
+  .map(x=>`<option value="${x.id}"${p&&(p.spouses||[]).includes(x.id)?' selected':''}>${esc(fullName(x))}</option>`).join('');
+ showModal('mPerson');
+}
+function savePerson(){
+ const first=$('#fFirst').value.trim();
+ if(!first){toast('Nama depan wajib diisi');return;}
+ const id=$('#fId').value||uid();
+ const spouses=[...$('#fSpouses').selectedOptions].map(o=>o.value).filter(v=>v&&v!==id);
+ const parents=[$('#fFather').value,$('#fMother').value].filter(Boolean);
+ const old=P.get(id);
+ if(old)(old.spouses||[]).forEach(s=>{ if(!spouses.includes(s)&&P.has(s)) P.get(s).spouses=P.get(s).spouses.filter(x=>x!==id); });
+ const p={id,first,last:$('#fLast').value.trim(),sex:$('#fSex').value,birth:$('#fBirth').value.trim(),
+  death:$('#fDeath').value.trim(),bio:$('#fBio').value,culture:$('#fCulture').value,parents,spouses};
+ spouses.forEach(s=>{ if(P.has(s)){const q=P.get(s); q.spouses=q.spouses||[]; if(!q.spouses.includes(id))q.spouses.push(id);} });
+ P.set(id,p); closeModal('mPerson'); changed();
+ if(selectedId===id)openDetail(id);
+ toast((old?'Data diperbarui: ':'Orang ditambahkan: ')+fullName(p),'info');
+}
+function deletePerson(id){
+ const p=P.get(id); if(!p)return;
+ if(!confirm('Hapus '+fullName(p)+' dari pohon? (data pasangan/anak tetap ada)'))return;
+ P.delete(id);
+ P.forEach(q=>{ q.parents=(q.parents||[]).filter(x=>x!==id); q.spouses=(q.spouses||[]).filter(x=>x!==id); });
+ EV.forEach(e=>e.personIds=(e.personIds||[]).filter(x=>x!==id));
+ (async()=>{ const all=await dbGetAll('media'); all.filter(m=>m.personId===id).forEach(m=>dbDel('media',m.id)); })();
+ if(selectedId===id){selectedId=null;closeDrawer();}
+ changed(); toast('Orang dihapus');
+}
+function saveBio(id){ const p=P.get(id); if(!p)return; p.bio=$('#dBio').value; persist(); toast('Biografi tersimpan ✓','info'); }
+
+/* ================= DRAWER DETAIL ================= */
+function closeDrawer(){$('#drawer').classList.remove('open');}
+function chips(ids){ return ids.filter(x=>P.has(x)).map(x=>`<span class="chip" onclick="selectAndCenter('${x}')">${esc(fullName(P.get(x)))}</span>`).join('')||'<span style="color:var(--mut);font-size:12px">—</span>'; }
+async function openDetail(id){
+ const p=P.get(id); if(!p)return; selectedId=id; render();
+ const c=CULTURES[p.culture]||CULTURES.modern;
+ const children=[...P.values()].filter(x=>(x.parents||[]).includes(id)).map(x=>x.id);
+ $('#drawer').innerHTML=`
+ <div class="dHead">
+  <button class="btn sm" style="position:absolute;top:10px;right:10px" onclick="closeDrawer();selectedId=null;render()">✕</button>
+  <canvas id="dAva" width="116" height="116" style="border-radius:50%"></canvas>
+  <h3>${esc(fullName(p))}</h3>
+  <div style="color:var(--mut);font-size:13px">${esc(lifeStr(p)||'—')}</div>
+  <div style="color:var(--acc);font-size:12px;margin-top:2px">${c.label}</div>
+ </div>
+ <div style="padding:0 14px 24px">
+  <div class="row" style="justify-content:flex-start;margin-top:4px">
+   <button class="btn primary sm" onclick="openPersonModal('${id}')">✏️ Edit</button>
+   <button class="btn sm" onclick="openPersonModal(null,{parents:['${id}']})">➕ Anak</button>
+   <button class="btn sm danger" onclick="deletePerson('${id}')">🗑</button>
+  </div>
+  <h4>📖 Biografi</h4>
+  <textarea id="dBio" rows="5" placeholder="Kisah hidup, peristiwa sejarah, pencapaian leluhur…">${esc(p.bio||'')}</textarea>
+  <button class="btn sm" style="margin-top:6px" onclick="saveBio('${id}')">💾 Simpan biografi</button>
+  <h4>🔗 Hubungan</h4>
+  <div style="font-size:13px"><b>Orang tua:</b> ${chips(p.parents||[])}</div>
+  <div style="font-size:13px;margin-top:4px"><b>Pasangan:</b> ${chips(p.spouses||[])}</div>
+  <div style="font-size:13px;margin-top:4px"><b>Anak:</b> ${chips(children)}</div>
+  <h4>📸 Foto & Video <button class="btn sm" style="float:right" onclick="$('#mediaInput').click()">➕ Tambah</button></h4>
+  <input type="file" id="mediaInput" accept="image/*,video/*" multiple style="display:none">
+  <div class="mediaGrid" id="dMedia" style="clear:both"></div>
+  <h4>📅 Acara <button class="btn sm" style="float:right" onclick="openEventModal(null,'${id}')">➕</button></h4>
+  <div id="dEvents" style="clear:both"></div>
+ </div>`;
+ drawAvatar($('#dAva').getContext('2d'),58,58,52,p);
+ $('#mediaInput').onchange=e=>addMedia(id,e.target.files);
+ await loadMediaFor(id); drawerEvents(id);
+ $('#drawer').classList.add('open');
+}
+async function loadMediaFor(pid){
+ const items=(await dbGetAll('media')).filter(m=>m.personId===pid);
+ $('#dMedia').innerHTML=items.map(m=>`<div class="mItem" onclick="viewMedia('${m.id}')">
+  ${m.type&&m.type.startsWith('video')?`<video src="${m.data}" muted></video>`:`<img src="${m.data}" alt="">`}
+  <button class="mdel" onclick="event.stopPropagation();deleteMedia('${m.id}','${pid}')">✕</button></div>`).join('')
+  ||'<span style="color:var(--mut);font-size:12px">Belum ada media. Simpan foto/video keluarga di sini (tersimpan aman di perangkat).</span>';
+}
+function addMedia(pid,files){
+ [...files].forEach(f=>{
+  if(f.size>10*1024*1024){toast('File >10MB dilewati: '+f.name);return;}
+  const r=new FileReader();
+  r.onload=async()=>{ await dbPut('media',{id:uid(),personId:pid,type:f.type,data:r.result}); loadMediaFor(pid); toast('Media tersimpan ✓','info'); };
+  r.readAsDataURL(f);
+ });
+}
+async function deleteMedia(mid,pid){ await dbDel('media',mid); loadMediaFor(pid); }
+async function viewMedia(mid){
+ const m=(await dbGetAll('media')).find(x=>x.id===mid); if(!m)return;
+ $('#mMediaBody').innerHTML=m.type.startsWith('video')
+  ?`<video src="${m.data}" controls autoplay style="max-width:86vw;max-height:80vh;border-radius:10px"></video>`
+  :`<img src="${m.data}" style="max-width:86vw;max-height:80vh;border-radius:10px">`;
+ showModal('mMedia');
+}
+function drawerEvents(id){
+ const list=EV.filter(e=>(e.personIds||[]).includes(id));
+ $('#dEvents').innerHTML=list.map(e=>`<div class="evItem"><b>${esc(e.title)}</b>
+  <div style="font-size:12px;color:var(--mut)">${e.date||''} ${e.time||''}</div>
+  <button class="btn sm" style="margin-top:6px" onclick="notifyEvent('${e.id}')">🔔 Ingatkan</button></div>`).join('')
+  ||'<span style="color:var(--mut);font-size:12px">Tidak ada acara terkait.</span>';
+}
+
+/* ================= ACARA & NOTIFIKASI ================= */
+function openEventModal(id,preselect){
+ $('#eId').value=id||''; $('#meTitle').textContent=id?'✏️ Edit Acara':'📅 Tambah Acara Keluarga';
+ const e=id?EV.find(x=>x.id===id):null;
+ $('#eTitle').value=e?e.title:''; $('#eDate').value=e?e.date:''; $('#eTime').value=e?e.time:''; $('#eNote').value=e?e.note:'';
+ $('#eMembers').innerHTML=[...P.values()].sort((a,b)=>fullName(a).localeCompare(fullName(b)))
+  .map(p=>`<label style="display:flex;gap:8px;align-items:center;font-size:13px;color:var(--txt);margin:3px 0">
+   <input type="checkbox" value="${p.id}" style="width:auto" ${(e&&e.personIds.includes(p.id))||p.id===preselect?'checked':''}> ${esc(fullName(p))}</label>`).join('')
+  ||'<span style="color:var(--mut);font-size:12px">Belum ada anggota.</span>';
+ showModal('mEvent');
+}
+function saveEvent(){
+ const id=$('#eId').value||('e'+Date.now().toString(36));
+ const e={id,title:$('#eTitle').value.trim()||'Acara keluarga',date:$('#eDate').value,time:$('#eTime').value,
+  note:$('#eNote').value,personIds:[...document.querySelectorAll('#eMembers input:checked')].map(i=>i.value)};
+ const i=EV.findIndex(x=>x.id===id); if(i>=0)EV[i]=e; else EV.push(e);
+ persist(); renderSidebar(); closeModal('mEvent'); toast('Acara disimpan ✓','info');
+ if(selectedId)drawerEvents(selectedId);
+}
+function deleteEvent(id){ EV=EV.filter(e=>e.id!==id); persist(); renderSidebar(); if(selectedId)drawerEvents(selectedId); }
+async function notifyEvent(id){
+ const e=EV.find(x=>x.id===id); if(!e)return;
+ const members=(e.personIds||[]).filter(x=>P.has(x)).map(x=>fullName(P.get(x)));
+ const body=`${e.date||''} ${e.time||''}${e.note?'\n'+e.note:''}${members.length?'\nUntuk: '+members.join(', '):''}`;
+ let done=false;
+ if('Notification'in window){
+  const perm=Notification.permission==='granted'?Notification.permission:await Notification.requestPermission();
+  if(perm==='granted'){ new Notification('📅 '+e.title,{body}); done=true; }
+ }
+ if(navigator.share){ try{ await navigator.share({title:'📅 '+e.title,text:e.title+'\n'+body}); done=true; }catch(_){} }
+ toast((done?'🔔 Notifikasi dikirim: ':'🔔 ')+e.title, 'info');
+ if(!done&&navigator.clipboard){ navigator.clipboard.writeText(e.title+'\n'+body).catch(()=>{}); toast('Teks acara disalin — tempel ke WhatsApp/email untuk mengirim','info'); }
+}
+function checkUpcoming(){
+ const now=new Date();
+ EV.forEach(e=>{ if(!e.date)return;
+  const d=new Date(e.date+'T'+(e.time||'09:00')); if(isNaN(d))return;
+  const diff=(d-now)/864e5;
+  if(diff>-0.5&&diff<7)toast(`📅 Acara mendatang: ${e.title} — ${e.date}${e.time?' '+e.time:''}`);
+ });
+}
+
+/* ================= SIDEBAR ================= */
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+ document.querySelectorAll('.tabBody').forEach(x=>x.classList.remove('active'));
+ t.classList.add('active'); $('#'+t.dataset.t).classList.add('active');
+});
+$('#search').addEventListener('input',renderSidebar);
+function renderSidebar(){ renderPeople(); renderEvents(); renderInfo(); }
+function renderPeople(){
+ const q=($('#search').value||'').toLowerCase();
+ const list=[...P.values()].filter(p=>fullName(p).toLowerCase().includes(q)).sort((a,b)=>fullName(a).localeCompare(fullName(b)));
+ $('#tabPeople').innerHTML=list.map(p=>`<div class="personItem" onclick="selectAndCenter('${p.id}')">
+  <span class="dot" style="background:${p.sex==='F'?'#ec4899':'#3b82f6'}"></span>
+  <div style="flex:1;min-width:0"><div style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(fullName(p))}</div>
+  <div style="font-size:11px;color:var(--mut)">${esc(lifeStr(p))}</div></div></div>`).join('')
+  ||'<p style="color:var(--mut);font-size:13px;padding:8px">Belum ada orang. Klik "➕ Tambah" di atas.</p>';
+}
+function renderEvents(){
+ const sorted=[...EV].sort((a,b)=>(a.date||'9').localeCompare(b.date||'9'));
+ $('#tabEvents').innerHTML=`<button class="btn primary" style="width:100%;margin-bottom:10px" onclick="openEventModal()">📅 Buat Acara / Peringatan</button>`+
+  (sorted.map(e=>`<div class="evItem">
+   <div style="display:flex;justify-content:space-between;gap:6px"><b style="font-size:13px">${esc(e.title)}</b>
+   <span style="font-size:11px;color:var(--acc);white-space:nowrap">${e.date||''} ${e.time||''}</span></div>
+   ${e.note?`<div style="font-size:12px;color:var(--mut);margin-top:3px">${esc(e.note)}</div>`:''}
+   <div style="font-size:11px;color:var(--mut);margin-top:3px">👥 ${(e.personIds||[]).length} anggota</div>
+   <div class="row" style="margin-top:7px;justify-content:flex-start">
+    <button class="btn sm" onclick="notifyEvent('${e.id}')">🔔 Kirim</button>
+    <button class="btn sm" onclick="openEventModal('${e.id}')">✏️</button>
+    <button class="btn sm danger" onclick="deleteEvent('${e.id}')">🗑</button>
+   </div></div>`).join('')||'<p style="color:var(--mut);font-size:13px">Belum ada acara keluarga.</p>');
+}
+async function renderInfo(){
+ let gens=0, mediaN=0;
+ if(P.size){ if(layoutDirty)computeLayout(); gens=Math.max(0,...Object.values(layoutData.gen))+1; }
+ try{ mediaN=(await dbGetAll('media')).length; }catch(_){}
+ $('#tabInfo').innerHTML=`
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+  <div class="evItem" style="text-align:center"><div style="font-size:22px;font-weight:800;color:var(--acc)">${P.size}</div><div style="font-size:11px;color:var(--mut)">Orang</div></div>
+  <div class="evItem" style="text-align:center"><div style="font-size:22px;font-weight:800;color:var(--acc)">${gens}</div><div style="font-size:11px;color:var(--mut)">Generasi</div></div>
+  <div class="evItem" style="text-align:center"><div style="font-size:22px;font-weight:800;color:var(--acc)">${EV.length}</div><div style="font-size:11px;color:var(--mut)">Acara</div></div>
+  <div class="evItem" style="text-align:center"><div style="font-size:22px;font-weight:800;color:var(--acc)">${mediaN}</div><div style="font-size:11px;color:var(--mut)">Media</div></div>
+ </div>
+ <button class="btn" style="width:100%;margin-bottom:8px" onclick="startWizard()">🧭 Jalankan Panduan Cepat</button>
+ <button class="btn" style="width:100%;margin-bottom:8px" onclick="if(confirm('Tambahkan keluarga contoh 3 generasi?')){loadSample();changed();fitView();}">✨ Muat Data Contoh</button>
+ <button class="btn danger" style="width:100%" onclick="clearAll()">🗑 Hapus Semua Data</button>
+ <h4 style="margin-top:18px">🤝 Berbagi Kolaboratif</h4>
+ <p style="font-size:12.5px;color:var(--mut);line-height:1.55">Gunakan <b>🤝 Bagikan</b> untuk mengirim file pohon (.familytree) ke anggota keluarga lewat WhatsApp/email. Mereka cukup membuka aplikasi ini dan <b>📥 Impor</b> file tersebut untuk menggabungkan pembaruan. Data tersimpan lokal di perangkat (IndexedDB) — privat dan tanpa server.</p>
+ <h4 style="margin-top:14px">ℹ️ Tentang</h4>
+ <p style="font-size:12.5px;color:var(--mut);line-height:1.55">SilsilahKeluarga v1.0 — HTML5 standalone. Mendukung ribuan catatan, GEDCOM 5.5.1, ekspor PNG/PDF, avatar 18 budaya, multimedia & notifikasi acara. 100% offline.</p>`;
+}
+async function clearAll(){ if(!confirm('Hapus SEMUA data pohon keluarga? Tindakan ini permanen.'))return;
+ P.clear(); EV=[]; selectedId=null; await dbClearAll(); closeDrawer(); changed(); fitView(); toast('Semua data dihapus'); }
+
+/* ================= MODAL HELPERS ================= */
+function showModal(id){$('#'+id).classList.add('show');}
+function closeModal(id){$('#'+id).classList.remove('show');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal.show').forEach(m=>m.classList.remove('show'));closeDrawer();selectedId=null;render();}});
+$('#btnMenu').onclick=()=>$('#sidebar').classList.toggle('open');
+
+/* ================= GEDCOM ================= */
+function parseGEDCOM(text){
+ const indis={},fams={}; let cur=null,curFam=null,sub=null;
+ text.split(/\r?\n/).forEach(line=>{
+  const m=line.match(/^\s*(\d+)\s+(?:@([^@]+)@\s+)?([A-Za-z_0-9]+)\s*(.*)$/);
+  if(!m)return; const lvl=+m[1], xref=m[2], tag=m[3], val=(m[4]||'').trim();
+  if(lvl===0){ cur=null;curFam=null;sub=null;
+   if(tag==='INDI'&&xref){cur={first:'',last:'',sex:'',birth:'',death:'',bio:'',famc:null,fams:[]};indis[xref]=cur;}
+   else if(tag==='FAM'&&xref){curFam={husb:null,wife:null,children:[]};fams[xref]=curFam;}
+  } else if(cur){
+   if(lvl===1){ sub=tag;
+    if(tag==='NAME'){const mm=val.match(/^(.*?)\s*\/\s*(.*?)\s*\/?\s*$/); if(mm){cur.first=mm[1].trim();cur.last=mm[2].trim();}else cur.first=val;}
+    else if(tag==='SEX')cur.sex=val.charAt(0).toUpperCase()==='F'?'F':'M';
+    else if(tag==='FAMC')cur.famc=val.replace(/@/g,'');
+    else if(tag==='FAMS')cur.fams.push(val.replace(/@/g,''));
+    else if(tag==='NOTE')cur.bio=val;
+   } else if(lvl===2){
+    if(tag==='DATE'){if(sub==='BIRT')cur.birth=val;else if(sub==='DEAT')cur.death=val;}
+    else if(tag==='CONT'&&sub==='NOTE')cur.bio+='\n'+val;
+   }
+  } else if(curFam&&lvl===1){
+   if(tag==='HUSB')curFam.husb=val.replace(/@/g,'');
+   else if(tag==='WIFE')curFam.wife=val.replace(/@/g,'');
+   else if(tag==='CHIL')curFam.children.push(val.replace(/@/g,''));
+  }
+ });
+ return {indis,fams};
+}
+function importGEDCOM(text){
+ const {indis,fams}=parseGEDCOM(text);
+ const ids=Object.keys(indis); if(!ids.length){toast('File GEDCOM tidak berisi individu (INDI)');return;}
+ const map={}; ids.forEach(k=>map[k]=uid());
+ ids.forEach(k=>{
+  const v=indis[k]; const fam=v.famc?fams[v.famc]:null;
+  const parents=[]; if(fam){ if(fam.husb&&map[fam.husb])parents.push(map[fam.husb]); if(fam.wife&&map[fam.wife])parents.push(map[fam.wife]); }
+  const spouses=[]; v.fams.forEach(fk=>{const f=fams[fk];if(!f)return;const o=f.husb===k?f.wife:f.husb;if(o&&map[o]&&!spouses.includes(map[o]))spouses.push(map[o]);});
+  P.set(map[k],{id:map[k],first:v.first,last:v.last,sex:v.sex||'M',birth:v.birth,death:v.death,bio:v.bio,culture:'modern',parents,spouses});
+ });
+ Object.values(fams).forEach(f=>{ if(f.husb&&f.wife&&map[f.husb]&&map[f.wife]){
+  const a=P.get(map[f.husb]),b=P.get(map[f.wife]);
+  if(a&&!a.spouses.includes(b.id))a.spouses.push(b.id);
+  if(b&&!b.spouses.includes(a.id))b.spouses.push(a.id);} });
+ changed(); fitView(); toast(`✓ ${ids.length} orang diimpor dari GEDCOM`,'info');
+}
+function buildGEDCOM(){
+ const L=[], persons=[...P.values()], fams=[], byKey=new Map();
+ const kf=(a,b)=>a<b?a+'|'+b:b+'|'+a;
+ function couple(a,b){const k=kf(a,b);let f=byKey.get(k);if(!f){f={id:'F'+(fams.length+1),husb:null,wife:null,children:[]};byKey.set(k,f);fams.push(f);
+  if(P.get(a).sex==='F'){f.wife=a;f.husb=b;}else{f.husb=a;f.wife=b;}}return f;}
+ function single(a){let f=fams.find(x=>(x.husb===a&&!x.wife)||(x.wife===a&&!x.husb));
+  if(!f){f={id:'F'+(fams.length+1),husb:null,wife:null,children:[]};if(P.get(a).sex==='F')f.wife=a;else f.husb=a;fams.push(f);}return f;}
+ persons.forEach(p=>(p.spouses||[]).forEach(s=>{if(P.has(s))couple(p.id,s);}));
+ persons.forEach(p=>{const par=(p.parents||[]).filter(x=>P.has(x));if(!par.length)return;
+  let f=par.length===2?byKey.get(kf(par[0],par[1])):null; if(!f)f=single(par[0]);
+  if(!f.children.includes(p.id))f.children.push(p.id);});
+ L.push('0 HEAD','1 SOUR SILSILAH-KELUARGA','2 NAME Silsilah Keluarga HTML5','2 VERS 1.0','1 CHAR UTF-8','1 GEDC','2 VERS 5.5.1','2 FORM LINEAGE-LINKED');
+ persons.forEach(p=>{
+  L.push(`0 @${p.id}@ INDI`,`1 NAME ${p.first||''} /${p.last||''}/`,`1 SEX ${p.sex==='F'?'F':'M'}`);
+  if(p.birth)L.push('1 BIRT','2 DATE '+p.birth);
+  if(p.death)L.push('1 DEAT','2 DATE '+p.death);
+  if(p.bio)L.push('1 NOTE '+String(p.bio).replace(/\r?\n/g,'\n2 CONT '));
+  const fc=fams.find(f=>f.children.includes(p.id)); if(fc)L.push('1 FAMC @'+fc.id+'@');
+  (p.spouses||[]).forEach(s=>{if(P.has(s)){const f=byKey.get(kf(p.id,s));if(f)L.push('1 FAMS @'+f.id+'@');}});
+ });
+ fams.forEach(f=>{L.push(`0 @${f.id}@ FAM`);if(f.husb)L.push('1 HUSB @'+f.husb+'@');if(f.wife)L.push('1 WIFE @'+f.wife+'@');f.children.forEach(c=>L.push('1 CHIL @'+c+'@'));});
+ L.push('0 TRLR');
+ return L.join('\r\n');
+}
+
+/* ================= EKSPOR PNG / PDF / JSON ================= */
+function doExport(kind){ $('#expMenu').classList.remove('show');
+ if(!P.size){toast('Pohon masih kosong — tidak ada yang diekspor');return;}
+ if(kind==='ged') downloadBlob(new Blob([buildGEDCOM()],{type:'text/plain;charset=utf-8'}),'silsilah-keluarga.ged');
+ else if(kind==='png'){ const c=renderHighRes(4200); c.toBlob(b=>{downloadBlob(b,'pohon-keluarga-HD.png');toast('✓ PNG resolusi tinggi diekspor ('+c.width+'×'+c.height+' px)','info');},'image/png'); }
+ else if(kind==='pdf'){ exportPDF(); }
+ else if(kind==='json'){ buildJSON().then(s=>downloadBlob(new Blob([s],{type:'application/json'}),'pohon-keluarga.familytree')); }
+}
+function exportPDF(){
+ const c=renderHighRes(5000); if(!c)return;
+ const url=c.toDataURL('image/jpeg',0.9);
+ const bin=atob(url.split(',')[1]); const jpg=new Uint8Array(bin.length);
+ for(let i=0;i<bin.length;i++)jpg[i]=bin.charCodeAt(i);
+ const pw=(c.width*0.5).toFixed(2), ph=(c.height*0.5).toFixed(2);
+ const content=`q ${pw} 0 0 ${ph} 0 0 cm /Im0 Do Q`;
+ const enc=new TextEncoder(); const chunks=[]; const offs=[]; let off=0;
+ const push=s=>{const b=enc.encode(s);chunks.push(b);const o=off;off+=b.length;return o;};
+ push('%PDF-1.4\n');
+ offs[1]=push('1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n');
+ offs[2]=push('2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n');
+ offs[3]=push(`3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw} ${ph}] /Resources << /XObject << /Im0 5 0 R >> /ProcSet [/PDF /ImageC] >> /Contents 4 0 R >>\nendobj\n`);
+ offs[4]=push(`4 0 obj\n<< /Length ${content.length} >>\nstream\n${content}\nendstream\nendobj\n`);
+ offs[5]=push(`5 0 obj\n<< /Type /XObject /Subtype /Image /Width ${c.width} /Height ${c.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpg.length} >>\nstream\n`);
+ chunks.push(jpg); off+=jpg.length;
+ push('\nendstream\nendobj\n');
+ const xoff=off;
+ let xref='xref\n0 6\n0000000000 65535 f \n';
+ for(let i=1;i<=5;i++)xref+=String(offs[i]).padStart(10,'0')+' 00000 n \n';
+ push(xref+`trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xoff}\n%%EOF`);
+ downloadBlob(new Blob(chunks,{type:'application/pdf'}),'pohon-keluarga.pdf');
+ toast('✓ PDF diekspor','info');
+}
+async function buildJSON(){
+ const media=await dbGetAll('media');
+ return JSON.stringify({app:'silsilah-keluarga',version:1,exported:new Date().toISOString(),
+  persons:[...P.values()],events:EV,media});
+}
+async function importJSON(obj){
+ if(!obj||!Array.isArray(obj.persons)){toast('File cadangan tidak valid');return;}
+ const map={}; obj.persons.forEach(p=>map[p.id]=P.has(p.id)?uid():p.id);
+ obj.persons.forEach(o=>{ const p={...o,id:map[o.id],
+  parents:(o.parents||[]).filter(x=>map[x]).map(x=>map[x]),
+  spouses:(o.spouses||[]).filter(x=>map[x]).map(x=>map[x])};
+  P.set(p.id,p); });
+ (obj.events||[]).forEach(e=>{ e.id=uid(); e.personIds=(e.personIds||[]).map(x=>map[x]).filter(Boolean); EV.push(e); });
+ if(Array.isArray(obj.media)) for(const m of obj.media) await dbPut('media',{...m,id:uid(),personId:map[m.personId]||m.personId});
+ changed(); fitView(); toast(`✓ Cadangan dipulihkan: ${obj.persons.length} orang`,'info');
+}
+async function shareTree(){
+ if(!P.size){toast('Pohon masih kosong');return;}
+ const s=await buildJSON(); const blob=new Blob([s],{type:'application/json'});
+ const file=new File([blob],'pohon-keluarga.familytree',{type:'application/json'});
+ if(navigator.canShare&&navigator.canShare({files:[file]})){
+  try{ await navigator.share({files:[file],title:'Pohon Keluarga Kita',text:'Ayo perbarui pohon keluarga kita bersama! 🌳'}); toast('File dibagikan ✓','info'); return; }catch(_){}
+ }
+ downloadBlob(blob,'pohon-keluarga.familytree');
+ toast('File dibagikan diunduh — kirim ke anggota keluarga (mereka pakai tombol 📥 Impor)','info');
+}
+$('#fileInput').addEventListener('change',e=>{
+ const f=e.target.files[0]; if(!f)return; const r=new FileReader();
+ r.onload=()=>{ const s=r.result;
+  if(/\.(ged|gedcom)$/i.test(f.name)||/^\s*0\s+(HEAD|@)/m.test(String(s).slice(0,400))) importGEDCOM(String(s));
+  else { try{ importJSON(JSON.parse(String(s))); }catch(_){ toast('Format file tidak dikenali'); } }
+ };
+ r.readAsText(f); e.target.value='';
+});
+
+/* ================= WIZARD PENGATURAN CEPAT ================= */
+let wizStep=0;
+function startWizard(){ wizStep=0; showWizStep(); showModal('mWizard'); }
+function showWizStep(){
+ document.querySelectorAll('.wizStep').forEach(d=>d.style.display=+d.dataset.s===wizStep?'block':'none');
+ $('#wizSub').textContent=`Langkah ${wizStep+1} dari 4 · Bangun pohon Anda dalam hitungan menit`;
+ $('#wizBack').style.display=wizStep>0?'inline-block':'none';
+ $('#wizNext').textContent=wizStep===3?'🌳 Mulai!':'Lanjut ➜';
+}
+$('#wizSkip').onclick=()=>{closeModal('mWizard');localStorage.setItem('ft_onb','1');};
+$('#wizBack').onclick=()=>{wizStep--;showWizStep();};
+$('#wHasPartner').onchange=e=>$('#wPartnerBox').style.display=e.target.checked?'block':'none';
+$('#wizNext').onclick=()=>{
+ if(wizStep===0&&!$('#wFirst').value.trim()){toast('Isi nama depan Anda dulu ya');return;}
+ if(wizStep<3){wizStep++;showWizStep();return;}
+ // selesai — buat data
+ const me={id:uid(),first:$('#wFirst').value.trim(),last:$('#wLast').value.trim(),sex:$('#wSex').value,
+  birth:$('#wBirth').value.trim(),death:'',bio:'',culture:$('#wCulture').value,parents:[],spouses:[]};
+ P.set(me.id,me);
+ if($('#wHasPartner').checked&&$('#wpFirst').value.trim()){
+  const sex2=me.sex==='M'?'F':'M';
+  const sp={id:uid(),first:$('#wpFirst').value.trim(),last:$('#wpLast').value.trim(),sex:sex2,birth:'',death:'',bio:'',culture:$('#wpCulture').value,parents:[],spouses:[me.id]};
+  me.spouses=[sp.id]; P.set(sp.id,sp);
+ }
+ const pf=$('#wFather').value.trim(), pm=$('#wMother').value.trim();
+ const pars=[];
+ if(pf){const f={id:uid(),first:pf,last:me.last,sex:'M',birth:'',death:'',bio:'',culture:me.culture,parents:[],spouses:[]};P.set(f.id,f);pars.push(f.id);if(!pm)me.last=me.last;}
+ if(pm){const m={id:uid(),first:pm,last:'',sex:'F',birth:'',death:'',bio:'',culture:me.culture,parents:[],spouses:[]};P.set(m.id,m);pars.push(m.id);}
+ if(pars.length===2){P.get(pars[0]).spouses=[pars[1]];P.get(pars[1]).spouses=[pars[0]];}
+ me.parents=pars;
+ if($('#wSample').checked)loadSample();
+ localStorage.setItem('ft_onb','1'); closeModal('mWizard');
+ selectedId=me.id; changed(); fitView();
+ toast('🌳 Pohon keluarga Anda dibuat! Ketuk kartu untuk detail, geser untuk menjelajah.','info');
+};
+
+/* ================= DATA CONTOH ================= */
+function linkSp(a,b){if(!a.spouses.includes(b.id))a.spouses.push(b.id);if(!b.spouses.includes(a.id))b.spouses.push(a.id);}
+function mk(first,last,sex,birth,death,culture,o={}){
+ const p={id:uid(),first,last,sex,birth:birth||'',death:death||'',bio:o.bio||'',culture:culture||'modern',parents:o.parents||[],spouses:[]};
+ P.set(p.id,p); return p;
+}
+function loadSample(){
+ const gf=mk('Soekarno','Wijaya','M','1935-08-17','2010-05-02','jawa',{bio:'Pejuang kemerdekaan; veteran Agresi Militer Belanda II. Menjadi guru di Yogyakarta setelah merdeka.'});
+ const gm=mk('Siti','Aminah','F','1940-03-03','2018-11-20','sunda',{bio:'Mengabdikan hidup sebagai bidan desa di Jawa Barat.'});
+ linkSp(gf,gm);
+ const uf=mk('Raja','Hasanuddin','M','1932-06-01','2005-09-09','minang',{bio:'Pedagang antar-pulau yang merantau hingga ke Malaka.'});
+ const um=mk('Fatima','Al-Idrus','F','1938-12-25','2015-02-14','arab',{bio:'Keturunan keluarga ulama; penghafal Al-Quran.'});
+ linkSp(uf,um);
+ const fa=mk('Budi','Wijaya','M','1962-07-10','','jawa',{parents:[gf.id,gm.id],bio:'Insinyur pertanian, lulusan UGM angkatan 1981.'});
+ const au=mk('Sri','Wijaya','F','1965-02-01','','jawa',{parents:[gf.id,gm.id]});
+ const mo=mk('Maria','Simanjuntak','F','1965-09-12','','batak',{bio:'Penenun ulos generasi ketiga di Tarutung.'});
+ linkSp(fa,mo);
+ const un=mk('Ahmad','Pratama','M','1960-04-05','','melayu');
+ linkSp(au,un);
+ const me=mk('Andi','Wijaya','M','1990-01-15','','jawa',{parents:[fa.id,mo.id],bio:'Generasi ketiga; pengembang perangkat lunak.'});
+ const si=mk('Dewi','Wijaya','F','1993-04-22','','batak',{parents:[fa.id,mo.id]});
+ const co=mk('Rina','Pratama','F','1991-06-05','','minang',{parents:[au.id,un.id]});
+ const cn=mk('Zhang','Wei','M','1988-10-10','','chinese'); linkSp(co,cn);
+ const gc=mk('Mei','Pratama','F','2018-01-02','','chinese',{parents:[co.id,cn.id]});
+ const ev1={id:uid(),title:'Ulang tahun Nenek Maria ke-61',date:(new Date().getFullYear())+'-09-12',time:'18:00',note:'Acara makan bersama di rumah Tarutung.',personIds:[mo.id,fa.id,me.id,si.id]};
+ const ev2={id:uid(),title:'Reuni Akbar Keluarga Wijaya',date:(new Date().getFullYear()+1)+'-08-17',time:'09:00',note:'Bertepatan HUT RI — kumpul seluruh cabang keluarga.',personIds:[...P.keys()]};
+ EV.push(ev1,ev2);
+}
+
+/* ================= INIT ================= */
+(async function init(){
+ try{ db=await openDB();
+  const ps=await dbGetAll('persons'); ps.forEach(p=>{p.parents=p.parents||[];p.spouses=p.spouses||[];P.set(p.id,p);});
+  EV=await dbGetAll('events');
+ }catch(e){ console.warn('IndexedDB gagal, pakai memori saja',e); }
+ fillCulture($('#wCulture'),'jawa'); fillCulture($('#wpCulture'),'modern');
+ renderSidebar(); render(); fitView(); checkUpcoming();
+ if(!P.size&&!localStorage.getItem('ft_onb')) setTimeout(startWizard,400);
+ window.addEventListener('resize',()=>{render();});
+ document.addEventListener('click',e=>{ if(!e.target.closest('#expMenu')&&!e.target.closest('[onclick*="expMenu"]')) $('#expMenu').classList.remove('show'); });
+})();
+</script>
+</body>
+</html>
