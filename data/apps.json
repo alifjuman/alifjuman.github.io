@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-09-11T12:26:26.222Z",
+  "updatedAt": "2026-09-11T12:28:39.486Z",
   "apps": [
     {
-      "id": "mtwxidw5",
+      "id": "mtwxm11i",
       "name": "Notula : Notulen Rapat AI",
       "url": "apps/notula.html",
       "description": "Membuat Notulen Rapat dengan mudah",
       "category": "Tools",
       "icon": "🔗",
-      "color": "#8b5cf6",
+      "color": "#ff0000",
       "pinned": false,
       "favorite": false,
       "clicks": 0,
-      "createdAt": 1789129500629
+      "createdAt": 1789129670598
     },
     {
       "id": "mti8a2pg",
