@@ -1,6 +1,32 @@
 {
-  "updatedAt": "2026-09-11T12:28:39.486Z",
+  "updatedAt": "2026-09-11T16:27:52.220Z",
   "apps": [
+    {
+      "id": "mtx66gc7",
+      "name": "GedView : Membuat Buku Silsilah",
+      "url": "./apps/gedview.html",
+      "description": "GedView : Membuat Buku Silsilah dari file Gedcom",
+      "category": "Produktivitas",
+      "icon": "📝",
+      "color": "#8b5cf6",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789144060471
+    },
+    {
+      "id": "mtx64qg5",
+      "name": "Silsilah Keluarga",
+      "url": "./apps/silsilah.html",
+      "description": "Membuat dan Edit Silsilah Keluarga format Gedcom",
+      "category": "Produktivitas",
+      "icon": "📝",
+      "color": "#8b5cf6",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789143980261
+    },
     {
       "id": "mtwxm11i",
       "name": "Notula : Notulen Rapat AI",
