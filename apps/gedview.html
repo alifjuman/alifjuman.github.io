@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SILSILAH — Viewer GEDCOM & Buku Silsilah Keluarga</title>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><g fill="none" stroke="%23c9a54e"><circle cx="24" cy="24" r="21"/><circle cx="24" cy="24" r="13"/><path d="M24 33v-9m0 0c0-4-3-6-6-7m6 7c0-4 3-6 6-7" stroke-width="2"/></g></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKEN & DASAR ============ */
+:root{
+  --bg0:#0b2018; --bg1:#123125; --panel:#163829; --panel2:#1c4534;
+  --line:#2a5743; --line2:#3f7d5f; --ink:#ece5d1; --dim:#a7bfa9; --dim2:#7d9a86;
+  --paper:#f6efdd; --paper2:#efe5cb; --inkp:#26241b;
+  --brass:#c9a54e; --brass2:#e8cd83; --ox:#b0492f; --teal:#3f8f85;
+  --disp:'Fraunces',Georgia,'Times New Roman',serif;
+  --body:'Archivo',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono','Courier New',monospace;
+  --bookserif:'Source Serif 4',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg0);color:var(--ink);font-family:var(--body);overflow-x:hidden}
+::selection{background:#c9a54e55}
+button{font-family:inherit;cursor:pointer}
+input,select{font-family:inherit}
+[hidden]{display:none!important}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-thumb{background:#2c5a45;border-radius:8px;border:3px solid var(--bg0)}
+::-webkit-scrollbar-track{background:transparent}
+
+/* ============ LATAR AMBIENT ============ */
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  background:radial-gradient(1200px 700px at 12% -10%,#1a4433 0%,transparent 60%),
+             radial-gradient(900px 600px at 108% 112%,#173d2e 0%,transparent 55%),
+             linear-gradient(160deg,#0d251c 0%,#0b2018 55%,#0a1c15 100%)}
+#bg .rings{position:absolute;inset:-40%;opacity:.05;
+  background:repeating-radial-gradient(circle at 30% 35%,#e8cd83 0 1px,transparent 1px 46px),
+             repeating-radial-gradient(circle at 78% 80%,#e8cd83 0 1px,transparent 1px 64px);
+  animation:drift 90s linear infinite alternate}
+#bg .grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;
+  background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2"/></filter><rect width="140" height="140" filter="url(%23n)" opacity=".8"/></svg>')}
+#bg .glow{position:absolute;width:60vw;height:60vw;border-radius:50%;filter:blur(80px);opacity:.14;
+  background:radial-gradient(circle,#c9a54e,transparent 60%);top:-25vw;right:-18vw;animation:breathe 11s ease-in-out infinite}
+#bg .spore{position:absolute;width:4px;height:4px;border-radius:50%;background:#e8cd83;opacity:.25;filter:blur(1px);animation:floaty 16s ease-in-out infinite}
+@keyframes drift{to{transform:translate(3%,2%) rotate(1.2deg)}}
+@keyframes breathe{50%{opacity:.22;transform:scale(1.06)}}
+@keyframes floaty{0%,100%{transform:translate(0,0)}30%{transform:translate(28px,-40px)}60%{transform:translate(-18px,-80px);opacity:.1}90%{transform:translate(10px,-30px)}}
+@media (prefers-reduced-motion:reduce){#bg *{animation:none!important}}
+
+/* ============ KERANGKA APLIKASI ============ */
+#app{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column}
+body.mode-app{height:100vh;overflow:hidden}
+body.mode-app #app{height:100vh}
+
+header#mast{display:flex;align-items:center;gap:16px;padding:14px 26px;border-bottom:1px solid #234b39;
+  background:linear-gradient(180deg,#12312599,#0d241bcc);backdrop-filter:blur(4px);position:relative;z-index:5}
+header#mast::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--brass) 18%,var(--brass2) 50%,var(--brass) 82%,transparent)}
+.brand{display:flex;align-items:center;gap:12px;color:var(--brass2)}
+.brand svg{width:38px;height:38px}
+.brand .bt{font-family:var(--disp);font-weight:800;font-style:italic;font-size:24px;letter-spacing:.02em;color:var(--ink);line-height:1}
+.brand .bs{font-size:9px;font-weight:700;letter-spacing:.34em;color:var(--dim);margin-top:3px}
+#fileChip{display:flex;align-items:center;gap:10px;margin-left:14px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;
+  background:#12302477;font-size:12px;color:var(--dim)}
+#fileChip b{color:var(--brass2);font-weight:600;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#btnReset{background:none;border:1px solid var(--line);color:var(--dim);border-radius:999px;padding:6px 13px;font-size:11.5px;letter-spacing:.06em;transition:.2s}
+#btnReset:hover{border-color:var(--brass);color:var(--brass2);transform:translateY(-1px)}
+#mastRight{margin-left:auto;display:flex;align-items:center;gap:14px}
+
+/* strip statistik */
+#stats{display:flex;gap:0;border-bottom:1px solid #234b39;background:#0e281ecc;padding:14px 26px;flex-wrap:wrap}
+.stat{padding:2px 34px 2px 0;margin-right:34px;border-right:1px solid #234b39}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--disp);font-weight:600;font-size:31px;color:var(--brass2);line-height:1.05;font-variant-numeric:tabular-nums}
+.stat span{font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--dim2);text-transform:uppercase}
+
+/* ============ LANDING ============ */
+#landing{flex:1;overflow:auto;padding:52px 6vw 70px}
+.land-grid{display:grid;grid-template-columns:minmax(340px,1.05fr) minmax(340px,1fr);gap:56px;max-width:1280px;margin:0 auto;align-items:start}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.4em;color:var(--brass);text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.kicker::before{content:"";width:34px;height:1px;background:var(--brass)}
+#landing h1{font-family:var(--disp);font-weight:560;font-size:clamp(38px,4.6vw,64px);line-height:1.04;margin:18px 0 16px;color:#f3eddb}
+#landing h1 em{font-style:italic;color:var(--brass2);font-weight:480}
+.lead{color:var(--dim);font-size:16px;line-height:1.65;max-width:52ch}
+.feat{margin-top:42px;border-top:1px solid #234b39}
+.feat .row{display:flex;gap:22px;padding:20px 6px;border-bottom:1px solid #234b39;opacity:0;transform:translateY(16px);transition:.6s cubic-bezier(.2,.7,.2,1)}
+.feat .row.in{opacity:1;transform:none}
+.feat .no{font-family:var(--mono);color:var(--brass);font-size:13px;padding-top:4px}
+.feat h3{font-family:var(--disp);font-weight:600;font-size:19px;color:#e9e2cd;margin-bottom:4px}
+.feat p{color:var(--dim);font-size:13.5px;line-height:1.6;max-width:56ch}
+.priv{margin-top:26px;font-size:12px;color:var(--dim2);display:flex;gap:8px;align-items:center}
+.priv svg{width:14px;height:14px;flex:none}
+
+/* dropzone */
+#drop{position:relative;border:1.5px dashed #6d8f76;border-radius:14px;background:linear-gradient(170deg,#173b2c,#122e22);
+  padding:46px 36px 38px;text-align:center;cursor:pointer;transition:.25s;overflow:hidden}
+#drop:hover,#drop.over{border-color:var(--brass);box-shadow:0 0 0 5px #c9a54e1c,0 26px 60px -22px #000c;transform:translateY(-3px)}
+#drop .motif{display:block;margin:0 auto 26px;width:min(300px,72%);color:var(--brass);opacity:.85}
+#drop .motif .lvl{opacity:0;transition:.5s;transform:translateY(6px)}
+#drop:hover .motif .lvl,#drop.over .motif .lvl{opacity:1;transform:none}
+#drop:hover .motif .l1{transition-delay:.05s}#drop:hover .motif .l2,#drop.over .motif .l2{transition-delay:.16s}
+#drop:hover .motif .l3,#drop.over .motif .l3{transition-delay:.28s}
+#drop .dz-t{font-family:var(--disp);font-size:23px;font-weight:600;color:#f0ead6}
+#drop .dz-s{color:var(--dim);font-size:13px;margin-top:7px}
+#drop .dz-b{margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{border:none;border-radius:9px;padding:11px 20px;font-weight:700;font-size:13px;letter-spacing:.04em;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn svg{width:15px;height:15px}
+.btn.gold{background:linear-gradient(180deg,var(--brass2),var(--brass));color:#241d08;box-shadow:0 8px 22px -8px #c9a54e88}
+.btn.gold:hover{transform:translateY(-2px);box-shadow:0 14px 28px -8px #c9a54e99;filter:brightness(1.05)}
+.btn.ghost{background:transparent;border:1px solid var(--line2);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--brass);color:var(--brass2);transform:translateY(-2px)}
+.btn.dark{background:#0f2c20;border:1px solid var(--line2);color:var(--dim)}
+.btn.dark:hover{color:var(--brass2);border-color:var(--brass)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
+
+/* ============ AREA KERJA ============ */
+#workspace{flex:1;display:flex;flex-direction:column;min-height:0}
+#toolbar{display:flex;align-items:center;gap:14px;padding:10px 22px;border-bottom:1px solid #234b39;background:#0f2a1fdd;flex-wrap:wrap;position:relative;z-index:6}
+.picker{position:relative}
+.picker input{width:280px;background:#0c241a;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:9px 12px 9px 34px;font-size:13px;outline:none;transition:.2s}
+.picker input:focus{border-color:var(--brass);box-shadow:0 0 0 3px #c9a54e22}
+.picker .pk-ic{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--dim2);pointer-events:none}
+.pk-list{position:absolute;top:calc(100% + 6px);left:0;width:330px;max-height:330px;overflow:auto;background:#10291e;border:1px solid var(--line2);border-radius:10px;box-shadow:0 24px 50px -12px #000d;z-index:60;padding:6px}
+.pk-it{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:7px;cursor:pointer;transition:.12s}
+.pk-it:hover,.pk-it.act{background:#1c4634}
+.pk-dot{width:8px;height:8px;border-radius:50%;flex:none}
+.pk-dot.M{background:var(--teal)}.pk-dot.F{background:var(--ox)}.pk-dot.U{background:#7d9a86}
+.pk-nm{font-size:13px;color:#e9e2cd;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pk-yr{font-family:var(--mono);font-size:10.5px;color:var(--dim2)}
+#rootChip{display:flex;align-items:center;gap:9px;background:#122f23;border:1px solid var(--line);border-radius:9px;padding:7px 13px;color:var(--ink);font-size:13px;transition:.2s;max-width:280px}
+#rootChip:hover{border-color:var(--brass)}
+#rootChip .nm{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#rootChip .yr{font-family:var(--mono);font-size:10.5px;color:var(--brass2)}
+.tool-sep{width:1px;height:26px;background:#234b39}
+.tlabel{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--dim2);text-transform:uppercase;margin-right:6px}
+select.sel{background:#0c241a;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 9px;font-size:12.5px;outline:none}
+select.sel:focus{border-color:var(--brass)}
+.zoomer{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.zoomer button{background:#0c241a;color:var(--dim);border:none;width:30px;height:30px;font-size:15px;transition:.15s}
+.zoomer button:hover{color:var(--brass2);background:#16382a}
+.zoomer .zv{width:48px;text-align:center;font-family:var(--mono);font-size:11px;color:var(--dim);background:#0c241a;height:30px;line-height:30px}
+#toolbar .push{margin-left:auto;display:flex;gap:10px;align-items:center}
+
+/* tabs */
+#tabs{display:flex;gap:4px;padding:0 22px;background:#0d2419;border-bottom:1px solid #234b39;position:relative;z-index:4}
+#tabs button{background:none;border:none;color:var(--dim);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:14px 18px 15px;position:relative;transition:.2s}
+#tabs button:hover{color:var(--ink)}
+#tabs button.on{color:var(--brass2)}
+#tabInd{position:absolute;bottom:-1px;height:2.5px;background:var(--brass);transition:.28s cubic-bezier(.4,0,.2,1);box-shadow:0 0 12px #c9a54eaa}
+
+#views{flex:1;min-height:0;position:relative}
+.view{position:absolute;inset:0;display:none}
+.view.on{display:block}
+.cwrap{position:absolute;inset:0;overflow:auto;padding:30px}
+.csize{position:relative;margin:0 auto}
+.cinner{position:absolute;top:0;left:0;transform-origin:0 0}
+
+/* kartu simpul */
+@keyframes cardIn{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+.nc{position:relative;background:linear-gradient(180deg,#f8f2e2,#f0e7cf);color:#28251a;border-radius:8px;padding:9px 12px 8px;
+  border:1px solid #d8c99e;box-shadow:0 3px 10px -4px #0009;cursor:pointer;transition:transform .18s,box-shadow .18s;
+  animation:cardIn .4s cubic-bezier(.2,.7,.2,1) both;overflow:hidden}
+.nc::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:#9aa78f}
+.nc.M::before{background:var(--teal)} .nc.F::before{background:var(--ox)}
+.nc:hover{transform:translateY(-3px);box-shadow:0 12px 24px -8px #000b;z-index:3}
+.nc.rt{outline:2px solid var(--brass);outline-offset:1px;box-shadow:0 0 0 4px #c9a54e22,0 8px 20px -6px #000a}
+.nc.lit{outline:2px solid var(--brass2);box-shadow:0 0 0 4px #e8cd8333,0 10px 22px -6px #000c;z-index:2}
+.nc .an{position:absolute;top:6px;right:7px;font-family:var(--mono);font-size:9px;font-weight:600;color:#8a6d2f;background:#c9a54e2b;border:1px solid #c9a54e66;border-radius:99px;padding:1px 6px}
+.nc .nm{font-family:var(--disp);font-weight:600;font-size:13.5px;line-height:1.2;padding-right:26px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nc .yr{font-family:var(--mono);font-size:10.5px;color:#7a6a3a;margin-top:3px}
+.nc .pl{font-size:10px;color:#77705c;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nc.sp{background:linear-gradient(180deg,#f2ecdc,#e7dcc2)}
+.nc.sp .nm{font-size:12px}
+.nc .cbtn{position:absolute;left:50%;bottom:-1px;transform:translate(-50%,50%);width:19px;height:19px;border-radius:50%;
+  background:var(--brass);color:#241d08;border:2px solid #0d2419;font-size:12px;font-weight:800;line-height:1;display:flex;align-items:center;justify-content:center;z-index:4;transition:.15s}
+.nc .cbtn:hover{transform:translate(-50%,50%) scale(1.2)}
+.linkdot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--brass);border:2px solid #0d2419;z-index:3}
+svg.wires{position:absolute;top:0;left:0;pointer-events:none;overflow:visible}
+svg.wires path{fill:none;stroke:#c9a54e59;stroke-width:1.6;transition:stroke .2s,stroke-width .2s}
+svg.wires path.lit{stroke:var(--brass2);stroke-width:2.6;filter:drop-shadow(0 0 4px #e8cd8377)}
+.legend{position:absolute;left:26px;bottom:20px;display:flex;gap:18px;font-size:11px;color:var(--dim2);background:#0d241988;border:1px solid #234b39;padding:7px 14px;border-radius:99px;backdrop-filter:blur(3px);z-index:5}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+/* ============ LAPORAN (dalam app) ============ */
+#v-rep{overflow:auto;padding:34px 20px 60px}
+.rep-tools{display:flex;align-items:center;gap:10px;max-width:760px;margin:0 auto 18px}
+.seg{display:flex;border:1px solid var(--line2);border-radius:9px;overflow:hidden}
+.seg button{background:#0c241a;color:var(--dim);border:none;padding:9px 18px;font-size:12px;font-weight:700;letter-spacing:.08em;transition:.18s}
+.seg button.on{background:var(--brass);color:#241d08}
+.sheet{max-width:760px;margin:0 auto;background:var(--paper);color:#26241b;border-radius:6px;padding:56px 62px;box-shadow:0 30px 70px -28px #000d;min-height:60vh}
+
+/* ============ LACI DETAIL ============ */
+#dimBack{position:fixed;inset:0;background:#04120c99;backdrop-filter:blur(2px);z-index:40;opacity:0;pointer-events:none;transition:.25s}
+#dimBack.on{opacity:1;pointer-events:auto}
+#drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,94vw);background:#122f23;border-left:1px solid var(--line2);z-index:50;
+  transform:translateX(102%);transition:transform .32s cubic-bezier(.3,.8,.3,1);display:flex;flex-direction:column;box-shadow:-24px 0 60px #000a}
+#drawer.on{transform:none}
+.dw-head{padding:22px 24px 16px;border-bottom:1px solid #234b39;position:relative}
+.dw-head .sx{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.2em;padding:3px 9px;border-radius:99px;margin-bottom:9px}
+.sx.M{background:#3f8f8526;color:#7fd0c5;border:1px solid #3f8f8566}
+.sx.F{background:#b0492f26;color:#e0937f;border:1px solid #b0492f66}
+.sx.U{background:#7d9a8626;color:var(--dim);border:1px solid #7d9a8666}
+.dw-head h2{font-family:var(--disp);font-weight:600;font-size:24px;line-height:1.15;color:#f3eddb;padding-right:30px}
+.dw-head .lf{font-family:var(--mono);font-size:12px;color:var(--brass2);margin-top:6px}
+#dwClose{position:absolute;top:16px;right:16px;background:none;border:1px solid var(--line);color:var(--dim);width:30px;height:30px;border-radius:8px;font-size:15px;transition:.2s}
+#dwClose:hover{color:var(--brass2);border-color:var(--brass);transform:rotate(90deg)}
+.dw-body{flex:1;overflow:auto;padding:18px 24px 30px}
+.dw-sec{margin-bottom:20px}
+.dw-sec h4{font-size:10px;font-weight:800;letter-spacing:.24em;color:var(--dim2);text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:10px}
+.dw-sec h4::after{content:"";flex:1;height:1px;background:#234b39}
+.kv{display:grid;grid-template-columns:86px 1fr;gap:6px 12px;font-size:13px}
+.kv dt{color:var(--dim2)}
+.kv dd{color:#e6dfc9;line-height:1.45}
+.rellink{color:var(--brass2);cursor:pointer;border-bottom:1px dotted #c9a54e55;transition:.15s}
+.rellink:hover{color:#fff;border-color:#fff}
+.dw-act{display:flex;gap:10px;margin-top:20px}
+
+/* ============ MODAL EKSPOR ============ */
+.modal-back{position:fixed;inset:0;background:#04120ccc;backdrop-filter:blur(3px);z-index:70;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal{background:#123024;border:1px solid var(--line2);border-radius:14px;width:min(520px,96vw);padding:28px 30px;box-shadow:0 40px 90px -20px #000e;animation:pop .3s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.modal h3{font-family:var(--disp);font-weight:600;font-size:24px;color:#f3eddb;margin-bottom:4px}
+.modal .msub{font-size:12.5px;color:var(--dim);margin-bottom:20px}
+.frow{margin-bottom:16px}
+.frow label{display:block;font-size:10.5px;font-weight:800;letter-spacing:.18em;color:var(--dim2);text-transform:uppercase;margin-bottom:7px}
+.frow .picker input{width:100%}
+.frow .picker .pk-list{width:100%}
+.range-wrap{display:flex;align-items:center;gap:14px}
+input[type=range]{flex:1;accent-color:var(--brass);height:4px}
+.rv-badge{font-family:var(--mono);font-size:12px;color:#241d08;background:var(--brass);border-radius:6px;padding:3px 9px;min-width:38px;text-align:center;font-weight:600}
+.checks{display:flex;gap:20px;flex-wrap:wrap}
+.chk{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--dim);cursor:pointer}
+.chk input{accent-color:var(--brass);width:15px;height:15px}
+.m-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}
+
+/* ============ BUKU / OVERLAY ============ */
+#bookOv{position:fixed;inset:0;background:#07160f;z-index:80;display:none;flex-direction:column}
+#bookOv.open{display:flex}
+.ov-bar{display:flex;align-items:center;gap:14px;padding:12px 22px;border-bottom:1px solid #234b39;background:#0d2419}
+.ov-bar .tt{font-family:var(--disp);font-style:italic;font-weight:600;font-size:18px;color:#f0ead6}
+.ov-bar .inf{font-family:var(--mono);font-size:11px;color:var(--brass2);border:1px solid #c9a54e44;background:#c9a54e14;padding:4px 11px;border-radius:99px}
+.ov-bar .push{margin-left:auto;display:flex;gap:10px}
+.ov-hint{padding:9px 22px;background:#122e22;color:var(--dim);font-size:12px;border-bottom:1px solid #234b39}
+.ov-hint b{color:var(--brass2)}
+.ov-scroll{flex:1;overflow:auto;padding:30px 20px 70px}
+#printHost{display:flex;flex-direction:column;align-items:center}
+
+/* ---- halaman A4 ---- */
+.pg{position:relative;width:210mm;height:296.4mm;background:#fdfbf3;color:#26231a;overflow:hidden;flex:none;
+  box-shadow:0 14px 44px -10px #000d;margin:0 auto 26px}
+.pg .pgh{position:absolute;top:7.5mm;left:17mm;right:17mm;display:flex;justify-content:space-between;gap:8mm;
+  font:600 6.6pt 'Archivo',sans-serif;letter-spacing:.16em;color:#948a6f;text-transform:uppercase}
+.pg .pgh span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pg .pgc{position:absolute;top:20mm;left:17mm;right:17mm;bottom:21mm;overflow:hidden}
+.pg .pgf{position:absolute;bottom:6.5mm;left:17mm;right:17mm;text-align:center;font:600 8pt 'Archivo',sans-serif;color:#948a6f;letter-spacing:.12em}
+.pg.cover{background:linear-gradient(175deg,#fdfaf0,#f6efd9)}
+
+/* tipografi buku */
+.bk{font-family:var(--bookserif);font-size:10.2pt;line-height:1.52;color:#26231a}
+.bk .blk{display:flow-root;margin:0}
+.bk .op{padding-top:34mm;text-align:center}
+.bk .op .kick{font:700 8pt 'Archivo';letter-spacing:.42em;color:#8a6d2f;text-transform:uppercase}
+.bk .op h1{font-family:var(--disp);font-weight:600;font-size:27pt;line-height:1.12;margin:6mm 0 2.5mm;color:#1e1b12}
+.bk .op .sub{font-style:italic;font-size:11.5pt;color:#6d6450}
+.bk .op .orn{margin:9mm auto 0;width:56mm;color:#b99a4e}
+.bk .op .intro{margin:10mm auto 0;max-width:140mm;font-size:9.6pt;color:#4c4534;text-align:justify}
+.bk h2.gen{font:700 10pt 'Archivo';letter-spacing:.14em;text-transform:uppercase;color:#3c3категор;}
+.bk h2.gen{color:#3c3524;border-bottom:1pt solid #c9a54e88;padding-bottom:1.6mm;margin-top:6mm}
+.bk h2.gen span{color:#8a6d2f}
+.bk .ent{padding-left:8mm;text-indent:-8mm;margin-bottom:2.8mm;font-size:10pt;text-align:justify}
+.bk .ent b{font-weight:600}
+.bk .ent .ch{display:block;padding-left:8mm;text-indent:0;font-size:9.2pt;color:#4c4534;margin-top:1mm;line-height:1.45}
+.bk .sch{font-family:var(--mono);font-size:7.6pt;line-height:1.7;white-space:pre;color:#33301f}
+.bk .idx{column-count:3;column-gap:7mm;font-size:8.4pt;line-height:1.6}
+.bk .idx div{break-inside:avoid;margin-bottom:1.2mm}
+.bk .idx i{color:#8a6d2f;font-style:normal}
+.bk .lead{font-size:10.4pt;text-align:justify;margin-bottom:3mm}
+.bk .tbl{width:100%;border-collapse:collapse;font-size:9.6pt;margin-bottom:2mm}
+.bk .tbl td{padding:1.6mm 2mm;border-bottom:.5pt solid #d8cfb4;vertical-align:top}
+.bk .tbl td:first-child{width:42mm;font:600 8pt 'Archivo';letter-spacing:.1em;text-transform:uppercase;color:#8a6d2f}
+.bk .toc-t{font-family:var(--disp);font-weight:600;font-size:20pt;margin-bottom:7mm;color:#1e1b12}
+.bk .trow{display:flex;align-items:baseline;font-size:10pt;margin-bottom:2mm}
+.bk .trow.l2{padding-left:6mm;font-size:9.2pt;color:#4c4534}
+.bk .trow .dots{flex:1;border-bottom:.7pt dotted #a89d7e;margin:0 2.5mm;transform:translateY(-1mm)}
+.bk .trow .pgn{font-weight:600;font-variant-numeric:tabular-nums}
+.cover{position:absolute;inset:0;padding:24mm 20mm;display:flex;flex-direction:column;text-align:center}
+.cover .cv-top{font:700 8pt 'Archivo';letter-spacing:.5em;color:#8a6d2f;text-transform:uppercase;margin-top:6mm}
+.cover .cv-orn{margin:12mm auto;color:#b99a4e;width:64mm}
+.cover .cv-k{font:600 10pt 'Archivo';letter-spacing:.4em;color:#4c4534;text-transform:uppercase;margin-top:16mm}
+.cover .cv-n{font-family:var(--disp);font-weight:640;font-size:33pt;line-height:1.1;margin:7mm 0 4mm;color:#1e1b12}
+.cover .cv-s{font-style:italic;font-family:var(--disp);font-size:13pt;color:#6d6450}
+.cover .cv-meta{margin-top:auto;font-size:9pt;color:#6d6450;line-height:1.9}
+.cover .cv-meta b{color:#3c3524}
+.cover .cv-bot{margin:12mm auto 0;color:#b99a4e;width:70mm;opacity:.9}
+.cover .rule{height:1px;background:linear-gradient(90deg,transparent,#b99a4e,transparent);margin:6mm 0}
+
+/* toast */
+#toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,20px);background:#122f23;border:1px solid var(--brass);
+  color:var(--brass2);padding:11px 22px;border-radius:10px;font-size:13px;z-index:99;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 14px 40px -8px #000c}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* pengukur */
+#meas{position:absolute;left:-99999px;top:0;width:176mm;visibility:hidden;pointer-events:none}
+
+@media (max-width:980px){
+  .land-grid{grid-template-columns:1fr}
+  #toolbar{gap:10px}
+  .picker input{width:210px}
+}
+
+/* ============ CETAK ============ */
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#fff!important;height:auto!important;overflow:visible!important}
+  body.bookready #app,body.bookready #bg,body.bookready #toast,body.bookready #drawer,body.bookready #dimBack,body.bookready #mExp,body.bookready .ov-bar,body.bookready .ov-hint{display:none!important}
+  body.bookready #bookOv{position:static!important;display:block!important;background:none!important;padding:0}
+  body.bookready .ov-scroll{overflow:visible!important;padding:0!important;height:auto!important}
+  body.bookready #printHost{display:block}
+  .pg{box-shadow:none!important;margin:0!important;break-after:page;page-break-after:always}
+  .pg:last-child{break-after:auto;page-break-after:auto}
+  #meas{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<div id="bg" aria-hidden="true">
+  <div class="rings"></div><div class="glow"></div><div class="grain"></div>
+  <span class="spore" style="left:12%;top:70%"></span>
+  <span class="spore" style="left:28%;top:88%;animation-delay:-6s"></span>
+  <span class="spore" style="left:64%;top:80%;animation-delay:-3s"></span>
+  <span class="spore" style="left:83%;top:92%;animation-delay:-10s"></span>
+  <span class="spore" style="left:47%;top:95%;animation-delay:-13s"></span>
+</div>
+
+<div id="app">
+  <header id="mast">
+    <div class="brand">
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor"><circle cx="24" cy="24" r="21" opacity=".35"/><circle cx="24" cy="24" r="15" opacity=".55"/><circle cx="24" cy="24" r="9" opacity=".85"/><path d="M24 33v-9m0 0c0-4-3-6-6-7m6 7c0-4 3-6 6-7" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <div><div class="bt">Silsilah</div><div class="bs">GEDCOM FAMILY ARCHIVE</div></div>
+    </div>
+    <div id="fileChip" hidden>📜 <b id="fcName"></b><button id="btnReset">↺ ganti berkas</button></div>
+    <div id="mastRight"></div>
+  </header>
+
+  <!-- ===== LANDING ===== -->
+  <div id="landing">
+    <div class="land-grid">
+      <div>
+        <div class="kicker">Viewer GEDCOM · Arsip Keluarga</div>
+        <h1>Buka arsip<br>keluarga Anda, <em>tumbuh menjadi buku.</em></h1>
+        <p class="lead">Seret sebuah berkas <b style="color:var(--brass2)">.ged</b> — bagan leluhur, bagan keturunan, dan register silsilah tersusun seketika, lalu dapat diekspor sebagai buku A4 siap cetak.</p>
+        <div class="feat">
+          <div class="row"><div class="no">01</div><div><h3>Bagan Leluhur</h3><p>Pedigree interaktif hingga 8 generasi ke belakang. Sentuh sebuah kartu untuk menyorot garis keturunan penuh menuju tokoh pusat.</p></div></div>
+          <div class="row"><div class="no">02</div><div><h3>Bagan Keturunan</h3><p>Pohon keluarga menurun dengan pasangan, lipat-buka cabang, dan navigasi cepat — klik kartu mana pun untuk memusatkan bagan padanya.</p></div></div>
+          <div class="row"><div class="no">03</div><div><h3>Laporan &amp; Buku A4</h3><p>Register leluhur bernomor Ahnentafel dan register keturunan lengkap, dipaginasi presisi menjadi buku A4 — sampul, daftar isi, hingga indeks nama — lalu simpan sebagai PDF.</p></div></div>
+        </div>
+        <div class="priv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Seluruh pemrosesan terjadi lokal di peramban — tidak ada berkas yang diunggah ke mana pun.</div>
+      </div>
+      <div id="drop">
+        <svg class="motif" viewBox="0 0 300 150" fill="none" stroke="currentColor">
+          <g class="lvl l3">
+            <rect x="6" y="6" width="60" height="26" rx="4"/><rect x="76" y="6" width="60" height="26" rx="4"/>
+            <rect x="164" y="6" width="60" height="26" rx="4"/><rect x="234" y="6" width="60" height="26" rx="4"/>
+            <path d="M36 32v14M106 32v14M194 32v14M264 32v14" stroke-dasharray="2 3"/>
+          </g>
+          <g class="lvl l2">
+            <path d="M36 46h70M194 46h70M71 46v14M229 46v14"/>
+            <rect x="41" y="60" width="60" height="26" rx="4"/><rect x="199" y="60" width="60" height="26" rx="4"/>
+            <path d="M71 86v14M229 86v14" stroke-dasharray="2 3"/>
+          </g>
+          <g class="lvl l1">
+            <path d="M71 100h158M150 100v14"/>
+            <rect x="120" y="114" width="60" height="28" rx="4" stroke-width="1.6"/>
+          </g>
+        </svg>
+        <div class="dz-t">Seret &amp; letakkan berkas .ged di sini</div>
+        <div class="dz-s">GEDCOM 5.5 / 5.5.1 / 7.0 · maksimal disarankan 20.000 individu</div>
+        <div class="dz-b">
+          <button class="btn gold" id="btnPick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 3v12m0-12 4 4m-4-4-4 4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg> Pilih berkas</button>
+          <button class="btn ghost" id="btnSample">✦ Coba berkas contoh</button>
+        </div>
+        <input type="file" id="fileIn" accept=".ged,.gedcom,.txt" hidden>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WORKSPACE ===== -->
+  <div id="workspace" hidden>
+    <div id="stats">
+      <div class="stat"><b id="stIndi">0</b><span>Individu</span></div>
+      <div class="stat"><b id="stFam">0</b><span>Keluarga</span></div>
+      <div class="stat"><b id="stGen">0</b><span>Generasi Leluhur</span></div>
+      <div class="stat"><b id="stSpan">–</b><span>Rentang Tahun</span></div>
+    </div>
+    <div id="toolbar">
+      <div class="picker" id="pkRoot"></div>
+      <button id="rootChip" title="Buka detail tokoh pusat"></button>
+      <div class="tool-sep"></div>
+      <span class="tlabel">Leluhur</span><select class="sel" id="selAnc"></select>
+      <span class="tlabel">Keturunan</span><select class="sel" id="selDsc"></select>
+      <div class="tool-sep"></div>
+      <div class="zoomer" id="zoomer"><button id="zOut">−</button><div class="zv" id="zVal">100%</div><button id="zIn">+</button><button id="zFit" title="Pas layar">⤢</button></div>
+      <div class="push">
+        <button class="btn gold" id="btnBook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/><path d="M9 8h7M9 11h5"/></svg> Ekspor Buku PDF · A4</button>
+      </div>
+    </div>
+    <nav id="tabs">
+      <button data-tab="anc" class="on">Bagan Leluhur</button>
+      <button data-tab="dsc">Bagan Keturunan</button>
+      <button data-tab="rep">Laporan</button>
+      <div id="tabInd"></div>
+    </nav>
+    <div id="views">
+      <div class="view on" id="v-anc">
+        <div class="cwrap" id="ancWrap"></div>
+        <div class="legend"><span><i style="background:var(--teal)"></i>Laki-laki</span><span><i style="background:var(--ox)"></i>Perempuan</span><span><i style="background:var(--brass)"></i>Tokoh pusat</span></div>
+      </div>
+      <div class="view" id="v-dsc">
+        <div class="cwrap" id="dscWrap"></div>
+        <div class="legend"><span><i style="background:var(--brass)"></i>Garis pernikahan</span><span>Klik − / + untuk melipat cabang</span></div>
+      </div>
+      <div class="view" id="v-rep">
+        <div class="rep-tools">
+          <div class="seg"><button id="repAnc" class="on">Laporan Leluhur</button><button id="repDsc">Laporan Keturunan</button></div>
+          <span style="font-size:11.5px;color:var(--dim2)">Kedalaman mengikuti pilihan pada bilah alat · pratinjau gaya buku</span>
+        </div>
+        <div class="sheet bk" id="repSheet"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- laci detail -->
+<div id="dimBack"></div>
+<aside id="drawer"><div class="dw-head" id="dwHead"></div><div class="dw-body" id="dwBody"></div></aside>
+
+<!-- modal ekspor -->
+<div class="modal-back" id="mExp" hidden>
+  <div class="modal">
+    <h3>Susun Buku Silsilah</h3>
+    <div class="msub">Buku A4 berisi sampul, prakata, daftar isi, laporan leluhur &amp; keturunan, dan indeks nama.</div>
+    <div class="frow"><label>Tokoh pusat</label><div class="picker" id="pkBook"></div></div>
+    <div class="frow"><label>Kedalaman laporan leluhur</label>
+      <div class="range-wrap"><input type="range" id="rgAnc" min="2" max="8" value="4"><span class="rv-badge" id="rvAnc">4 gen</span></div></div>
+    <div class="frow"><label>Kedalaman laporan keturunan</label>
+      <div class="range-wrap"><input type="range" id="rgDsc" min="1" max="8" value="4"><span class="rv-badge" id="rvDsc">4 gen</span></div></div>
+    <div class="frow"><label>Bagian tambahan</label>
+      <div class="checks">
+        <label class="chk"><input type="checkbox" id="ckPrakata" checked> Prakata &amp; info berkas</label>
+        <label class="chk"><input type="checkbox" id="ckIdx" checked> Indeks nama</label>
+      </div></div>
+    <div class="m-actions"><button class="btn dark" id="btnExpCancel">Batal</button><button class="btn gold" id="btnExpGo">📖 Susun &amp; Pratinjau Buku</button></div>
+  </div>
+</div>
+
+<!-- overlay buku -->
+<div id="bookOv">
+  <div class="ov-bar">
+    <span class="tt">Pratinjau Buku Silsilah</span><span class="inf" id="ovInfo">A4</span>
+    <div class="push"><button class="btn dark" id="btnOvClose">Tutup</button><button class="btn gold" id="btnPrint">🖨 Cetak / Simpan PDF</button></div>
+  </div>
+  <div class="ov-hint">Pada dialog cetak pilih tujuan <b>“Save as PDF / Simpan sebagai PDF”</b>, ukuran kertas <b>A4</b>, dan margin <b>Default/Tidak ada</b>. Setiap halaman buku telah dipotong presisi 210 × 297 mm.</div>
+  <div class="ov-scroll"><div id="printHost"></div></div>
+</div>
+
+<div id="toast"></div>
+<div id="meas" class="bk"></div>
+
+<script>
+"use strict";
+/* ================= UTIL ================= */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ROMAN=[[1000,"m"],[900,"cm"],[500,"d"],[400,"cd"],[100,"c"],[90,"xc"],[50,"l"],[40,"xl"],[10,"x"],[9,"ix"],[5,"v"],[4,"iv"],[1,"i"]];
+const roman=n=>{let s="";for(const[v,r]of ROMAN){while(n>=v){s+=r;n-=v}}return s||"–"};
+const fmtDateLong=d=>new Intl.DateTimeFormat("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(d);
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("on"),2600)}
+function countUp(el,val,ms=800){const t0=performance.now();(function f(t){const k=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-k,3);el.textContent=Math.round(val*e).toLocaleString("id-ID");if(k<1)requestAnimationFrame(f)})(t0)}
+const ORN='<svg viewBox="0 0 220 14" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 7h86M134 7h86"/><path d="M110 1l6 6-6 6-6-6z" fill="currentColor" stroke="none"/><circle cx="96" cy="7" r="1.6" fill="currentColor" stroke="none"/><circle cx="124" cy="7" r="1.6" fill="currentColor" stroke="none"/></svg>';
+const MINIPED='<svg viewBox="0 0 300 90" fill="none" stroke="currentColor"><rect x="6" y="4" width="56" height="22" rx="3"/><rect x="70" y="4" width="56" height="22" rx="3"/><rect x="174" y="4" width="56" height="22" rx="3"/><rect x="238" y="4" width="56" height="22" rx="3"/><path d="M34 26v12M98 26v12M202 26v12M266 26v12M34 38h64M202 38h64M66 38v12M234 38v12M66 50h168M150 50v12"/><rect x="122" y="62" width="56" height="24" rx="3" stroke-width="1.5"/></svg>';
+
+/* ================= STATE ================= */
+const state={DB:null,file:"",root:null,tab:"anc",zoom:1,collapsed:new Set(),ancG:4,dscG:4,book:null,tocList:[]};
+let DB={indi:new Map(),fam:new Map(),head:{}};
+const getP=id=>DB.indi.get(id), getF=id=>DB.fam.get(id);
+
+/* ================= PARSER GEDCOM ================= */
+const EVT=new Set(["BIRT","DEAT","CHR","BURI","CREM","BAPM","MARR","DIV","ANUL","OCCU","RESI","GRAD","RETI","CENS","PROB","WILL","NATU","EMIG","IMMI","ADOP","EVEN"]);
+function parseGedcom(text){
+  const indi=new Map(),fam=new Map(),notes=new Map();const head={};
+  const mkI=id=>({id,name:"",givn:"",surn:"",sex:"",events:[],birth:null,death:null,famc:[],fams:[],notes:[]});
+  const mkF=id=>({id,husb:"",wife:"",chil:[],events:[],marr:null,div:null});
+  let kind=null,rec=null,ev=null,evLvl=-1,nameLvl=-1,gedcNext=false;
+  for(const raw of text.split(/\r\n|\n|\r/)){
+    if(!raw.trim())continue;
+    const m=/^(\d+)\s+(?:(@[^@]+@)\s+)?([A-Za-z0-9_]+)(?:\s([\s\S]*))?$/.exec(raw);
+    if(!m)continue;
+    const lvl=+m[1],xref=m[2]?m[2].slice(1,-1):null,tag=m[3].toUpperCase(),val=(m[4]||"").trim();
+    if(lvl===0){
+      ev=null;kind=null;rec=null;
+      if(tag==="INDI"){kind="I";rec=mkI(xref);indi.set(xref,rec)}
+      else if(tag==="FAM"){kind="F";rec=mkF(xref);fam.set(xref,rec)}
+      else if(tag==="NOTE"&&xref){notes.set(xref,val)}
+      else if(tag==="HEAD"){kind="H"}
+      else if(tag==="TRLR"){break}
+      continue;
+    }
+    if(ev&&lvl<=evLvl)ev=null;
+    if(kind==="H"){
+      if(tag==="SOUR")head.src=val;else if(tag==="DATE")head.date=val;
+      else if(tag==="CHAR")head.char=val;else if(tag==="GEDC")gedcNext=true;
+      else if(tag==="VERS"&&gedcNext){head.vers=val;gedcNext=false}
+      else if(tag==="PLAC"&&val)head.place=val;
+      continue;
+    }
+    if(!rec)continue;
+    switch(tag){
+      case"NAME":if(!rec.name){rec.name=val;nameLvl=lvl;
+        const s=/\/([^/]*)\//.exec(val);if(s&&!rec.surn)rec.surn=s[1];
+        if(!rec.givn)rec.givn=val.replace(/\/[^/]*\//g,"").trim();}break;
+      case"GIVN":if(lvl===nameLvl+1)rec.givn=val;break;
+      case"SURN":if(lvl===nameLvl+1)rec.surn=val;break;
+      case"SEX":rec.sex=val.toUpperCase().charAt(0);break;
+      case"FAMC":if(kind==="I")rec.famc.push(xref||val.replace(/@/g,""));break;
+      case"FAMS":if(kind==="I")rec.fams.push(xref||val.replace(/@/g,""));break;
+      case"HUSB":rec.husb=(xref||val.replace(/@/g,""));break;
+      case"WIFE":rec.wife=(xref||val.replace(/@/g,""));break;
+      case"CHIL":rec.chil.push(xref||val.replace(/@/g,""));break;
+      case"DATE":if(ev)ev.date=val;break;
+      case"PLAC":if(ev)ev.place=val;break;
+      case"CONT":case"CONC":if(ev&&ev.note!=null)ev.note+=(tag==="CONT"?"\n":"")+val;break;
+      default:
+        if(EVT.has(tag)){ev={type:tag,val,date:"",place:"",note:""};rec.events.push(ev);evLvl=lvl;
+          if(tag==="BIRT")rec.birth=ev;else if(tag==="DEAT")rec.death=ev;
+          else if(tag==="MARR"&&kind==="F")rec.marr=ev;else if(tag==="DIV"&&kind==="F")rec.div=ev;}
+    }
+  }
+  return{indi,fam,notes,head};
+}
+function decodeGedcom(buf){
+  const u8=new Uint8Array(buf);let enc="utf-8";
+  if(u8[0]===0xEF&&u8[1]===0xBB&&u8[2]===0xBF)enc="utf-8";
+  else if(u8[0]===0xFF&&u8[1]===0xFE)enc="utf-16le";
+  else if(u8[0]===0xFE&&u8[1]===0xFF)enc="utf-16be";
+  else{
+    const pre=new TextDecoder("utf-8").decode(u8.slice(0,1024));
+    const m=/^1\s+CHAR\s+(\S+)/im.exec(pre);
+    const c=(m?m[1]:"utf-8").toUpperCase();
+    if(/UTF-?8|UNICODE/.test(c))enc="utf-8";
+    else if(/WINDOWS|ANSI|1252/.test(c))enc="windows-1252";
+    else if(/ANSEL|ASCII/.test(c))enc="windows-1252";
+  }
+  try{return new TextDecoder(enc).decode(buf)}catch(e){return new TextDecoder("utf-8").decode(buf)}
+}
+
+/* ================= AKSES DATA ================= */
+const nameOf=p=>p?(p.name||"").replace(/\//g,"").replace(/\s+/g," ").trim()||"(tanpa nama)":"—";
+const surnameOf=p=>p?.surn||((/\/([^/]*)\//.exec(p?.name||"")||[])[1]||"");
+const yearOf=ev=>{const m=/\d{4}/.exec(ev?.date||"");return m?m[0]:""};
+const lifeOf=p=>{const b=yearOf(p?.birth),d=yearOf(p?.death);return b||d?`${b||"?"} – ${d||""}`:""};
+const famcOf=p=>p?.famc.length?getF(p.famc[0]):null;
+const fatherOf=p=>famcOf(p)?.husb||null, motherOf=p=>famcOf(p)?.wife||null;
+function childrenOf(p){const out=[],seen=new Set();for(const fid of(p?.fams||[])){const f=getF(fid);if(!f)continue;for(const c of f.chil)if(!seen.has(c)){seen.add(c);out.push(c)}}return out}
+function spousesOf(p){const out=[];for(const fid of(p?.fams||[])){const f=getF(fid);if(!f)continue;const s=f.husb===p.id?f.wife:f.husb;if(s&&getP(s))out.push({sp:s,f})}return out}
+function ancDepth(id,max=10){let d=1,front=[id];for(let g=2;g<=max;g++){const nx=[];for(const x of front){const p=getP(x),f=famcOf(p);if(f?.husb)nx.push(f.husb);if(f?.wife)nx.push(f.wife)}if(!nx.length)break;d=g;front=nx}return d}
+function dscDepth(id,max=10){let d=1,front=[id];for(let g=2;g<=max;g++){const nx=[];for(const x of front)nx.push(...childrenOf(getP(x)));if(!nx.length)break;d=g;front=[...new Set(nx)]}return d}
+function buildAhn(rootId,maxG){const ahn=new Map();ahn.set(1,rootId);
+  for(let a=1;a<2**(maxG-1);a++){const id=ahn.get(a);if(!id)continue;const f=famcOf(getP(id));if(!f)continue;
+    if(f.husb&&!ahn.has(2*a))ahn.set(2*a,f.husb);if(f.wife&&!ahn.has(2*a+1))ahn.set(2*a+1,f.wife)}return ahn}
+
+/* ================= MUAT BERKAS ================= */
+async function loadBuffer(buf,fname){
+  const text=decodeGedcom(buf);
+  const db=parseGedcom(text);
+  if(!db.indi.size){toast("⚠ Berkas tidak memuat data individu GEDCOM yang valid.");return}
+  DB=db;state.DB=db;state.file=fname;state.collapsed.clear();
+  // pilih tokoh pusat terbaik
+  let best=null,bs=-1;
+  for(const p of db.indi.values()){
+    const s=ancDepth(p.id,7)*2+dscDepth(p.id,6);
+    if(s>bs){bs=s;best=p.id}
+  }
+  state.root=best;
+  state.ancG=Math.min(4,ancDepth(best,8));state.dscG=Math.min(4,dscDepth(best,8));
+  $("#landing").style.display="none";$("#workspace").hidden=false;document.body.classList.add("mode-app");
+  $("#fileChip").hidden=false;$("#fcName").textContent=fname;
+  document.body.classList.remove("bookready");$("#printHost").innerHTML="";
+  renderStats();initPickers();fillDepthSelects();setRoot(best,{silent:true});
+  switchTab("anc");toast(`✓ ${db.indi.size} individu dimuat dari “${fname}”`);
+}
+function renderStats(){
+  countUp($("#stIndi"),DB.indi.size);countUp($("#stFam"),DB.fam.size);
+  $("#stGen").textContent=ancDepth(state.root,12);
+  let mn=9999,mx=0;
+  for(const p of DB.indi.values()){const b=+yearOf(p.birth),d=+yearOf(p.death);
+    if(b){mn=Math.min(mn,b);mx=Math.max(mx,b)}if(d){mx=Math.max(mx,d)}}
+  $("#stSpan").textContent=mx?`${mn} – ${mx}`:"–";
+}
+function fillDepthSelects(){
+  const sa=$("#selAnc"),sd=$("#selDsc");
+  const ma=Math.min(8,ancDepth(state.root,8)),md=Math.min(8,dscDepth(state.root,8));
+  sa.innerHTML="";sd.innerHTML="";
+  for(let g=2;g<=Math.max(2,ma);g++)sa.innerHTML+=`<option value="${g}"${g===state.ancG?" selected":""}>${g} generasi</option>`;
+  for(let g=1;g<=Math.max(1,md);g++)sd.innerHTML+=`<option value="${g}"${g===state.dscG?" selected":""}>${g} generasi</option>`;
+  state.ancG=+sa.value;state.dscG=+sd.value;
+}
+
+/* ================= PICKER (autocomplete) ================= */
+function makePicker(host,onPick){
+  host.innerHTML='<svg class="pk-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="text" placeholder="Cari nama tokoh…" autocomplete="off"><div class="pk-list" hidden></div>';
+  const inp=host.querySelector("input"),list=host.querySelector(".pk-list");let items=[],act=-1;
+  function render(){
+    const q=inp.value.trim().toLowerCase();
+    items=[...DB.indi.values()].filter(p=>!q||nameOf(p).toLowerCase().includes(q)).slice(0,40);
+    act=-1;
+    if(!items.length){list.hidden=true;return}
+    list.innerHTML=items.map((p,i)=>`<div class="pk-it" data-i="${i}"><span class="pk-dot ${p.sex||"U"}"></span><span class="pk-nm">${esc(nameOf(p))}</span><span class="pk-yr">${esc(lifeOf(p))}</span></div>`).join("");
+    list.hidden=false;
+    list.querySelectorAll(".pk-it").forEach(el=>el.addEventListener("mousedown",e=>{e.preventDefault();pick(+el.dataset.i)}));
+  }
+  function pick(i){const p=items[i];if(!p)return;inp.value=nameOf(p);list.hidden=true;onPick(p.id)}
+  inp.addEventListener("input",render);
+  inp.addEventListener("focus",render);
+  inp.addEventListener("blur",()=>setTimeout(()=>list.hidden=true,150));
+  inp.addEventListener("keydown",e=>{
+    const vis=[...list.querySelectorAll(".pk-it")];
+    if(e.key==="ArrowDown"){act=Math.min(act+1,vis.length-1);e.preventDefault()}
+    else if(e.key==="ArrowUp"){act=Math.max(act-1,0);e.preventDefault()}
+    else if(e.key==="Enter"){if(act>=0){pick(act);e.preventDefault()}return}
+    else if(e.key==="Escape"){list.hidden=true;return}
+    else return;
+    vis.forEach((el,i)=>el.classList.toggle("act",i===act));
+    vis[act]?.scrollIntoView({block:"nearest"});
+  });
+  return{inp};
+}
+let pkRoot,pkBook;
+function initPickers(){
+  if(!pkRoot)pkRoot=makePicker($("#pkRoot"),id=>{setRoot(id);});
+  if(!pkBook)pkBook=makePicker($("#pkBook"),id=>{state.bookRoot=id});
+}
+function setRoot(id,o={}){
+  state.root=id;const p=getP(id);
+  $("#pkRoot").querySelector("input").value=nameOf(p);
+  $("#rootChip").innerHTML=`<span class="pk-dot ${p?.sex||"U"}"></span><span class="nm">${esc(nameOf(p))}</span><span class="yr">${esc(lifeOf(p))}</span>`;
+  fillDepthSelects();renderCurrent();
+  if(!o.silent)toast(`Tokoh pusat: ${nameOf(p)}`);
+}
+
+/* ================= TABS ================= */
+function switchTab(t){
+  state.tab=t;
+  $$("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.tab===t));
+  $$(".view").forEach(v=>v.classList.remove("on"));
+  $("#v-"+t).classList.add("on");
+  const ind=$("#tabInd"),btn=$(`#tabs button[data-tab="${t}"]`);
+  ind.style.left=btn.offsetLeft+"px";ind.style.width=btn.offsetWidth+"px";
+  renderCurrent();
+}
+function renderCurrent(){
+  if(!DB)return;
+  if(state.tab==="anc")renderAncestor();
+  else if(state.tab==="dsc")renderDesc();
+  else renderReport();
+}
+
+/* ================= BAGAN LELUHUR ================= */
+const AC={col:254,row:76};
+function renderAncestor(){
+  const depth=Math.min(state.ancG,ancDepth(state.root,8));
+  const rows=2**(depth-1),ahn=buildAhn(state.root,depth);
+  const W=depth*AC.col+20,H=rows*AC.row+20;
+  let cards="",delay=0;
+  for(let g=1;g<=depth;g++){
+    const span=2**(depth-g);
+    for(let a=2**(g-1);a<2**g;a++){
+      const id=ahn.get(a);if(!id)continue;
+      const p=getP(id);if(!p)continue;
+      const slot=a-2**(g-1),r0=slot*span+1;
+      cards+=`<div class="nc ${p.sex||"U"}${a===1?" rt":""}" data-a="${a}" data-p="${esc(p.id)}"
+        style="grid-column:${g};grid-row:${r0} / span ${span};margin:5px 8px;animation-delay:${delay+=12}ms">
+        <div class="an">${a}</div>
+        <div class="nm">${esc(nameOf(p))}</div>
+        <div class="yr">${esc(lifeOf(p))}</div>
+        <div class="pl">${esc(p.birth?.place||"")}</div></div>`;
+    }
+  }
+  const wrap=$("#ancWrap");
+  wrap.innerHTML=`<div class="csize" style="width:${W*state.zoom}px;height:${H*state.zoom}px">
+    <div class="cinner" id="ancInner" style="width:${W}px;height:${H}px;transform:scale(${state.zoom});
+      display:grid;grid-template-columns:repeat(${depth},${AC.col}px);grid-template-rows:repeat(${rows},${AC.row}px)">${cards}
+      <svg class="wires" id="ancWires" width="${W}" height="${H}"></svg></div></div>`;
+  requestAnimationFrame(()=>drawAncWires(ahn,depth));
+  bindNodes($("#ancInner"));
+  $("#zVal").textContent=Math.round(state.zoom*100)+"%";
+}
+function drawAncWires(ahn,depth){
+  const inner=$("#ancInner"),svg=$("#ancWires");if(!svg)return;
+  let d="";
+  for(let a=2;a<2**depth;a++){
+    const cid=ahn.get(a),pid=ahn.get(a>>1);
+    if(!cid||!pid)continue;
+    const c=inner.querySelector(`[data-a="${a}"]`),p=inner.querySelector(`[data-a="${a>>1}"]`);
+    if(!c||!p)continue;
+    const x1=c.offsetLeft+c.offsetWidth,y1=c.offsetTop+c.offsetHeight/2;
+    const x2=p.offsetLeft,y2=p.offsetTop+p.offsetHeight/2,mx=(x1+x2)/2;
+    d+=`<path data-a="${a}" d="M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}"/>`;
+  }
+  svg.innerHTML=d;
+}
+/* sorot garis keturunan saat hover */
+document.addEventListener("mouseover",e=>{
+  const card=e.target.closest("#ancInner .nc");if(!card)return;
+  let a=+card.dataset.a;const chain=new Set();
+  while(a>=1){chain.add(a);a>>=1}
+  $$("#ancInner .nc").forEach(c=>c.classList.toggle("lit",chain.has(+c.dataset.a)));
+  $$("#ancWires path").forEach(p=>p.classList.toggle("lit",chain.has(+p.dataset.a)));
+});
+document.addEventListener("mouseout",e=>{
+  if(!e.target.closest("#ancInner .nc"))return;
+  $$("#ancInner .lit").forEach(x=>x.classList.remove("lit"));
+});
+
+/* ================= BAGAN KETURUNAN ================= */
+const DC={w:212,h:62,spW:180,gapX:26,gapY:66,spGap:12};
+function buildDNode(id,depth,d){
+  const p=getP(id);if(!p)return null;
+  const n={p,unions:[],kids:[],w:0,x:0,y:0};
+  const seen=new Set();
+  for(const fid of p.fams){
+    const f=getF(fid);if(!f)continue;
+    const spId=f.husb===p.id?f.wife:f.husb;
+    n.unions.push(spId&&getP(spId)?getP(spId):null);
+    for(const c of f.chil)if(!seen.has(c)){seen.add(c);
+      if(d<depth)n.kids.push({id:c,node:buildDNode(c,depth,d+1)});}
+  }
+  return n;
+}
+function mWidth(n){
+  const cw=DC.w+(n.unions.length?DC.spW+DC.spGap:0);
+  if(!n.kids.length||state.collapsed.has(n.p.id)){n.w=cw;n.kids.forEach(k=>k.node=null);return}
+  let s=0;n.kids.forEach((k,i)=>{k.node=k.node||buildDNode(k.id,99,0);mWidth(k.node);s+=k.node.w+(i?DC.gapX:0)});
+  n.w=Math.max(cw,s);
+}
+function place(n,x,y,maxY){
+  n.x=x;n.y=y;maxY.v=Math.max(maxY.v,y);
+  if(!n.kids.length||state.collapsed.has(n.p.id))return maxY;
+  let tot=0;n.kids.forEach((k,i)=>tot+=k.node.w+(i?DC.gapX:0));
+  let cx=x+n.w/2-tot/2;
+  for(const k of n.kids){place(k.node,cx,y+DC.h+DC.gapY,maxY);cx+=k.node.w+DC.gapX}
+  return maxY;
+}
+function renderDesc(){
+  const depth=state.dscG;
+  const root=buildDNode(state.root,depth,0);
+  if(!root)return;
+  mWidth(root);
+  const maxY={v:0};place(root,10,10,maxY);
+  const W=root.w+40,H=maxY.v+DC.h+50;
+  let nodes="",wires="",delay=0;
+  (function draw(n){
+    const cw=DC.w+(n.unions.length?DC.spW+DC.spGap:0);
+    const px=n.x+(n.w-cw)/2;
+    const hasKidsReal=childrenOf(n.p).length>0;
+    const collapsed=state.collapsed.has(n.p.id);
+    nodes+=`<div class="nc ${n.p.sex||"U"}${n.p.id===state.root?" rt":""}" data-p="${esc(n.p.id)}"
+      style="left:${px}px;top:${n.y}px;width:${DC.w}px;height:${DC.h}px;animation-delay:${delay+=10}ms">
+      <div class="nm">${esc(nameOf(n.p))}</div><div class="yr">${esc(lifeOf(n.p))}</div>
+      ${hasKidsReal?`<button class="cbtn" data-t="${esc(n.p.id)}">${collapsed?"+":"−"}</button>`:""}</div>`;
+    let sx=px+DC.w+DC.spGap;
+    for(const sp of n.unions){
+      if(!sp)continue;
+      nodes+=`<div class="nc sp ${sp.sex||"U"}" data-p="${esc(sp.id)}" style="left:${sx}px;top:${n.y}px;width:${DC.spW}px;height:${DC.h}px;animation-delay:${delay+=10}ms">
+        <div class="nm">${esc(nameOf(sp))}</div><div class="yr">${esc(lifeOf(sp))}</div></div>`;
+      wires+=`<div class="linkdot" style="left:${px+DC.w-4.5}px;top:${n.y+DC.h/2-4.5}px"></div>`;
+    }
+    if(n.kids.length&&!collapsed){
+      const ox=px+DC.w/2,oy=n.y+DC.h;
+      for(const k of n.kids){
+        const kn=k.node;const kw=DC.w+(kn.unions.length?DC.spW+DC.spGap:0);
+        const kx=kn.x+(kn.w-kw)/2+DC.w/2,ky=kn.y;
+        const my=(oy+ky)/2;
+        wires+=`<path d="M${ox},${oy} C${ox},${my} ${kx},${my} ${kx},${ky}"/>`;
+        draw(kn);
+      }
+    }
+  })(root);
+  const wrap=$("#dscWrap");
+  wrap.innerHTML=`<div class="csize" style="width:${W*state.zoom}px;height:${H*state.zoom}px">
+    <div class="cinner" id="dscInner" style="width:${W}px;height:${H}px;transform:scale(${state.zoom})">
+      <svg class="wires" width="${W}" height="${H}">${wires}</svg>${nodes}</div></div>`;
+  bindNodes($("#dscInner"));
+  $("#zVal").textContent=Math.round(state.zoom*100)+"%";
+}
+function bindNodes(scope){
+  if(!scope)return;
+  scope.querySelectorAll(".nc").forEach(el=>{
+    el.addEventListener("click",e=>{
+      if(e.target.closest(".cbtn"))return;
+      openDrawer(el.dataset.p);
+    });
+    el.addEventListener("dblclick",()=>setRoot(el.dataset.p));
+  });
+  scope.querySelectorAll(".cbtn").forEach(b=>b.addEventListener("click",e=>{
+    e.stopPropagation();const id=b.dataset.t;
+    state.collapsed.has(id)?state.collapsed.delete(id):state.collapsed.add(id);
+    renderDesc();
+  }));
+}
+
+/* ================= ZOOM ================= */
+function applyZoom(z){
+  state.zoom=Math.max(.3,Math.min(1.8,z));
+  $$(".cinner").forEach(el=>el.style.transform=`scale(${state.zoom})`);
+  $$(".csize").forEach(el=>{
+    const inner=el.querySelector(".cinner");
+    el.style.width=inner.offsetWidth*state.zoom+"px";
+    el.style.height=inner.offsetHeight*state.zoom+"px";
+  });
+  $("#zVal").textContent=Math.round(state.zoom*100)+"%";
+}
+function fitZoom(){
+  const wrap=state.tab==="anc"?$("#ancWrap"):$("#dscWrap");
+  const inner=wrap.querySelector(".cinner");if(!inner)return;
+  const z=Math.min(1,(wrap.clientWidth-70)/inner.offsetWidth,(wrap.clientHeight-70)/inner.offsetHeight);
+  applyZoom(Math.max(.3,z));
+}
+
+/* ================= LACI DETAIL ================= */
+const EVLBL={BIRT:"Lahir",DEAT:"Wafat",CHR:"Pembaptisan",BAPM:"Pembaptisan",BURI:"Pemakaman",CREM:"Kremasi",OCCU:"Pekerjaan",RESI:"Tempat tinggal",MARR:"Menikah",DIV:"Bercerai",GRAD:"Lulus",RETI:"Pensiun",CENS:"Sensus",NATU:"Naturalisasi",EMIG:"Emigrasi",IMIG:"Imigrasi",ADOP:"Adopsi"};
+function openDrawer(id){
+  const p=getP(id);if(!p)return;
+  $("#dwHead").innerHTML=`
+    <span class="sx ${p.sex||"U"}">${p.sex==="M"?"LAKI-LAKI":p.sex==="F"?"PEREMPUAN":"—"}</span>
+    <h2>${esc(nameOf(p))}</h2><div class="lf">${esc(lifeOf(p)||"tahun tidak tercatat")}</div>
+    <button id="dwClose">✕</button>`;
+  const rel=id=>{const q=getP(id);return q?`<span class="rellink" data-p="${esc(id)}">${esc(nameOf(q))}</span>`:"—"};
+  const famc=famcOf(p),spouses=spousesOf(p),kids=childrenOf(p);
+  let evHtml=p.events.filter(e=>!["BIRT","DEAT"].includes(e.type)).map(e=>
+    `<div style="margin-bottom:9px"><div style="font-size:10px;font-weight:700;letter-spacing:.14em;color:#8a6d2f;text-transform:uppercase">${EVLBL[e.type]||e.type}${e.val&&e.type!=="OCCU"&&e.type!=="RESI"?" · "+esc(e.val):""}</div>
+     <div style="font-size:13px;color:#e6dfc9">${e.type==="OCCU"||e.type==="RESI"?esc(e.val||""):""}${e.date?`<span style="color:var(--brass2)">${esc(e.date)}</span>`:""}${e.place?" · "+esc(e.place):""}</div></div>`).join("");
+  $("#dwBody").innerHTML=`
+    <div class="dw-sec"><h4>Peristiwa Utama</h4><dl class="kv">
+      <dt>Lahir</dt><dd>${esc(p.birth?.date||"—")}${p.birth?.place?" · "+esc(p.birth.place):""}</dd>
+      <dt>Wafat</dt><dd>${esc(p.death?.date||"—")}${p.death?.place?" · "+esc(p.death.place):""}</dd>
+      <dt>Ayah</dt><dd>${rel(fatherOf(p))}</dd><dt>Ibu</dt><dd>${rel(motherOf(p))}</dd>
+    </dl></div>
+    ${spouses.length?`<div class="dw-sec"><h4>Pernikahan</h4>${spouses.map(({sp,f})=>`<dl class="kv" style="margin-bottom:8px">
+      <dt>Pasangan</dt><dd>${rel(sp)}</dd>
+      ${f.marr?`<dt>Menikah</dt><dd>${esc(f.marr.date||"—")}${f.marr.place?" · "+esc(f.marr.place):""}</dd>`:""}
+      </dl>`).join("")}</div>`:""}
+    ${kids.length?`<div class="dw-sec"><h4>Anak (${kids.length})</h4><div style="display:flex;flex-direction:column;gap:6px">${kids.map((c,i)=>`<div style="font-size:13px;color:#e6dfc9"><span style="color:var(--dim2);font-family:var(--mono);font-size:10.5px">${i+1}.</span> ${rel(c)} <span style="color:var(--dim2);font-size:11px">${esc(lifeOf(getP(c)))}</span></div>`).join("")}</div></div>`:""}
+    ${evHtml?`<div class="dw-sec"><h4>Catatan Peristiwa</h4>${evHtml}</div>`:""}
+    ${p.notes.length?`<div class="dw-sec"><h4>Catatan</h4><div style="font-size:12.5px;color:var(--dim);line-height:1.6">${esc(p.notes.join("\n"))}</div></div>`:""}
+    <div class="dw-act">
+      <button class="btn gold" id="dwCenter">◎ Pusatkan Bagan</button>
+      <button class="btn ghost" id="dwBook">Sertakan ke Buku</button>
+    </div>`;
+  $("#drawer").classList.add("on");$("#dimBack").classList.add("on");
+  $("#dwClose").onclick=closeDrawer;
+  $("#dwCenter").onclick=()=>{closeDrawer();setRoot(id)};
+  $("#dwBook").onclick=()=>{closeDrawer();openExport(id)};
+  $$("#dwBody .rellink").forEach(el=>el.onclick=()=>openDrawer(el.dataset.p));
+}
+function closeDrawer(){$("#drawer").classList.remove("on");$("#dimBack").classList.remove("on")}
+
+/* ================= LAPORAN ================= */
+function marriageLine(p,ahn,a){
+  const out=[];
+  if(a===1){for(const {sp,f} of spousesOf(p))out.push({sp,f})}
+  else{const child=ahn?.get(a>>1);const f=child?famcOf(getP(child)):null;
+    if(f){const spId=f.husb===p.id?f.wife:f.husb;out.push({sp:spId,f})}}
+  return out;
+}
+function personBio(p,ahn,a){
+  const bits=[];
+  if(p.birth)bits.push(`lahir ${esc(p.birth.date||"")}${p.birth.place?" di "+esc(p.birth.place):""}`);
+  if(p.death)bits.push(`wafat ${esc(p.death.date||"")}${p.death.place?" di "+esc(p.death.place):""}`);
+  const occ=p.events.find(e=>e.type==="OCCU");
+  if(occ?.val)bits.push(`berprofesi sebagai ${esc(occ.val)}`);
+  return bits.length?bits.join("; ")+".":"";
+}
+/* --- blok leluhur --- */
+function ancOutlineRows(ahn,maxG){
+  const rows=[];
+  (function walk(a,prefix,last){
+    const p=getP(ahn.get(a));if(!p)return;
+    rows.push(`${prefix}${a===1?"":last?"└─ ":"├─ "}${a}. ${nameOf(p)} (${lifeOf(p)||"–"})`);
+    const kids=[];if(ahn.get(2*a))kids.push(2*a);if(ahn.get(2*a+1))kids.push(2*a+1);
+    kids.forEach((k,i)=>walk(k,prefix+(a===1?"":last?"   ":"│  "),i===kids.length-1));
+  })(1,"",true);
+  return rows;
+}
+function ancBlocks(root,maxG){
+  const ahn=buildAhn(root,maxG),B=[],p=getP(root);
+  B.push({force:1,sec:"anc",cls:"op",html:`<div class="kick">Bagian I</div><h1>Laporan Leluhur</h1>
+    <div class="sub">Silsilah ke atas dari <b>${esc(nameOf(p))}</b> · ${maxG} generasi</div>
+    <div class="orn">${ORN}</div>
+    <p class="intro">Bagian ini memuat register leluhur dengan penomoran Ahnentafel: tokoh pusat bernomor 1, ayah bernomor dua kali lipat, dan ibu dua kali lipat ditambah satu. Setiap entri merangkum peristiwa kelahiran, kematian, dan pernikahan yang tercatat dalam berkas.</p>`});
+  const rows=ancOutlineRows(ahn,maxG);
+  B.push({kwn:1,html:'<h2 class="gen">Silsilah Leluhur — Skema</h2>'});
+  rows.forEach(r=>B.push({cls:"sch",html:esc(r)}));
+  for(let g=1;g<=maxG;g++){
+    const s=2**(g-1);let any=false;
+    for(let a=s;a<2**g;a++)if(ahn.get(a)){any=true;break}
+    if(!any)continue;
+    B.push({kwn:1,sec:"ancG"+g,html:`<h2 class="gen">Generasi ke-<span>${g}</span></h2>`});
+    for(let a=s;a<2**g;a++){
+      const id=ahn.get(a);if(!id)continue;const q=getP(id);if(!q)continue;
+      const marr=marriageLine(q,ahn,a).map(({sp,f})=>{
+        const s=getP(sp);
+        return ` Menikah dengan <b>${esc(nameOf(s))}</b>${f.marr?` (${esc(f.marr.date||"")}${f.marr.place?", "+esc(f.marr.place):""})`:""}.`}).join("");
+      B.push({cls:"ent",html:`<b>${a}.</b> <b>${esc(nameOf(q))}</b>. ${personBio(q,ahn,a)}${marr}`});
+    }
+  }
+  return B;
+}
+/* --- blok keturunan --- */
+function descGenMap(root,maxG){
+  const gens=[[root]],num=new Map();let n=0;
+  num.set(root,++n);
+  for(let g=1;g<maxG;g++){
+    const prev=gens[g-1],cur=[],seen=new Set();
+    for(const id of prev)for(const c of childrenOf(getP(id)))if(!seen.has(c)){seen.add(c);cur.push(c);num.set(c,++n)}
+    if(!cur.length)break;gens.push(cur);
+  }
+  return{gens,num};
+}
+function dscOutlineRows(root,maxG){
+  const rows=[];
+  (function walk(id,d,last,prefix){
+    const p=getP(id);if(!p)return;
+    rows.push(`${prefix}${d===0?"":"├─ "}${nameOf(p)} (${lifeOf(p)||"–"})`);
+    if(d>=maxG)return;
+    const kids=childrenOf(p);
+    kids.forEach((c,i)=>walk(c,d+1,i===kids.length-1,prefix+(d===0?"":last?"   ":"│  ")));
+  })(root,0,true,"");
+  return rows;
+}
+function dscBlocks(root,maxG){
+  const {gens,num}=descGenMap(root,maxG),B=[],p=getP(root);
+  B.push({force:1,sec:"dsc",cls:"op",html:`<div class="kick">Bagian II</div><h1>Laporan Keturunan</h1>
+    <div class="sub">Silsilah ke bawah dari <b>${esc(nameOf(p))}</b> · ${gens.length} generasi · ${num.size} keturunan</div>
+    <div class="orn">${ORN}</div>
+    <p class="intro">Register keturunan disusun per generasi. Nomor rujukan setiap anak menunjuk pada entrinya sendiri; tanda ▸ menandai garis yang berlanjut pada generasi berikutnya.</p>`});
+  B.push({kwn:1,html:'<h2 class="gen">Silsilah Keturunan — Skema</h2>'});
+  dscOutlineRows(root,maxG).forEach(r=>B.push({cls:"sch",html:esc(r)}));
+  gens.forEach((gen,gi)=>{
+    B.push({kwn:1,sec:"dscG"+(gi+1),html:`<h2 class="gen">Generasi ke-<span>${gi+1}</span></h2>`});
+    for(const id of gen){
+      const q=getP(id);if(!q)continue;
+      const marr=spousesOf(q).map(({sp,f})=>{
+        const s=getP(sp);
+        return ` Menikah dengan <b>${esc(nameOf(s))}</b>${f.marr?` (${esc(f.marr.date||"")}${f.marr.place?", "+esc(f.marr.place):""})`:""}.`}).join("");
+      const kids=childrenOf(q);
+      const kidHtml=kids.length?`<span class="ch">${kids.map((c,i)=>{
+        const cq=getP(c);const hasLine=childrenOf(cq).length>0;
+        return `${i+1}. ${nameOf(cq)} (${lifeOf(cq)||"–"})${hasLine?" ▸":""}`}).join(" · ")}</span>`:"";
+      B.push({cls:"ent",html:`<b>${num.get(id)}.</b> <b>${esc(nameOf(q))}</b>. ${personBio(q)}${marr}${kidHtml}`});
+    }
+  });
+  return B;
+}
+/* --- indeks & prakata --- */
+function idxBlocks(){
+  const B=[{force:1,sec:"idx",cls:"op",html:`<div class="kick">Lampiran</div><h1>Indeks Nama</h1>
+    <div class="sub">Seluruh ${DB.indi.size} individu dalam berkas, diurutkan menurut nama keluarga</div><div class="orn">${ORN}</div>`}];
+  const all=[...DB.indi.values()].sort((a,b)=>(surnameOf(a)+nameOf(a)).localeCompare(surnameOf(b)+nameOf(b),"id"));
+  for(let i=0;i<all.length;i+=66){
+    const chunk=all.slice(i,i+66);
+    B.push({cls:"idx",html:chunk.map(p=>`<div>${esc(nameOf(p))} <i>${esc(lifeOf(p))}</i></div>`).join("")});
+  }
+  return B;
+}
+function prakataBlocks(o){
+  const p=getP(o.root);
+  return[{sec:"prakata",html:`
+    <h2 class="gen" style="margin-top:0">Prakata</h2>
+    <p class="lead">Buku silsilah ini disusun secara otomatis dari berkas GEDCOM sebagai dokumentasi keluarga — memuat laporan leluhur (ke atas) dan laporan keturunan (ke bawah) dari tokoh pusat <b>${esc(nameOf(p))}</b>.</p>
+    <table class="tbl">
+      <tr><td>Berkas sumber</td><td>${esc(state.file)}</td></tr>
+      <tr><td>Format</td><td>GEDCOM ${esc(DB.head.vers||"5.5")}${DB.head.src?" · "+esc(DB.head.src):""}</td></tr>
+      <tr><td>Isi berkas</td><td>${DB.indi.size} individu · ${DB.fam.size} keluarga</td></tr>
+      <tr><td>Kedalaman</td><td>Leluhur ${o.ancG} generasi · Keturunan ${o.dscG} generasi</td></tr>
+      <tr><td>Tanggal susun</td><td>${fmtDateLong(new Date())}</td></tr>
+    </table>
+    <p class="lead" style="margin-top:4mm">Seluruh data berasal dari catatan dalam berkas; aplikasi hanya menyusun ulang tanpa mengubah isi. Entri yang kosong menandakan informasi belum tercatat pada sumber.</p>`}];
+}
+/* pratinjau di tab Laporan */
+function renderReport(){
+  const sheet=$("#repSheet");
+  const showAnc=state.repMode!=="dsc";
+  const blocks=showAnc?ancBlocks(state.root,state.ancG):dscBlocks(state.root,state.dscG);
+  sheet.innerHTML=blocks.map(b=>`<div class="blk ${b.cls||""}" style="margin-bottom:12px">${b.html}</div>`).join("");
+}
+
+/* ================= PAGINATOR BUKU ================= */
+const MM=96/25.4,CW=176*MM,CH=250*MM,GAP=10;
+function meas(b){
+  const M=$("#meas");M.innerHTML="";
+  const w=document.createElement("div");w.className="blk "+(b.cls||"");w.innerHTML=b.html;
+  M.appendChild(w);return w.offsetHeight;
+}
+function paginate(blocks){
+  const pages=[];let cur=[],used=0;const secAt={};
+  const flush=()=>{if(cur.length){pages.push(cur);cur=[];used=0}};
+  blocks.forEach((b,i)=>{
+    b.h=b.h??meas(b);
+    if(b.force)flush();
+    let need=b.h;
+    if(b.kwn){const nb=blocks[i+1];if(nb&&!nb.force){nb.h=nb.h??meas(nb);need+=nb.h+GAP}}
+    if(cur.length&&used+need>CH)flush();
+    if(b.sec&&!(b.sec in secAt))secAt[b.sec]=pages.length;
+    cur.push(b);used+=b.h+GAP;
+  });
+  flush();return{pages,secAt};
+}
+async function buildBook(o){
+  try{await Promise.race([document.fonts.ready, new Promise(r=>setTimeout(r,1300))])}catch(e){}
+  state.tocList=[];
+  const main=[];
+  if(o.anc){main.push(...ancBlocks(o.root,o.ancG));
+    for(let g=1;g<=o.ancG;g++)state.tocList.push({l:`Generasi ke-${g}`,sec:"ancG"+g,lvl:2,grp:"Laporan Leluhur"})}
+  if(o.dsc){const {gens}=descGenMap(o.root,o.dscG);main.push(...dscBlocks(o.root,o.dscG));
+    for(let g=1;g<=gens.length;g++)state.tocList.push({l:`Generasi ke-${g}`,sec:"dscG"+g,lvl:2,grp:"Laporan Keturunan"})}
+  if(o.idx)main.push(...idxBlocks());
+  const pr=o.prakata?paginate(prakataBlocks(o)):{pages:[],secAt:{}};
+  let tocN=1,out=null;
+  for(let it=0;it<2;it++){
+    const front=1+pr.pages.length+tocN;
+    const mn=paginate(main.map(b=>({...b})));
+    const tocB=tocBlocks(pr,mn,front,o);
+    const tc=paginate(tocB);
+    out={pr,mn,tc,front,o};
+    if(tc.pages.length===tocN)break;tocN=tc.pages.length;
+  }
+  state.book=out;renderBookPages();
+}
+function tocBlocks(pr,mn,front,o){
+  const rows=[{l:"Prakata",n:"i",lvl:1}];
+  let lastGrp="";
+  if(o.anc)rows.push({l:"Bagian I · Laporan Leluhur",n:"1",lvl:1});
+  for(const t of state.tocList){
+    if(t.grp==="Laporan Leluhur"&&!o.anc)continue;
+    if(t.grp==="Laporan Keturunan"&&!o.dsc)continue;
+    if(t.grp!==lastGrp&&t.grp==="Laporan Keturunan")rows.push({l:"Bagian II · Laporan Keturunan",n:String((mn.secAt["dsc"]??0)+1),lvl:1});
+    lastGrp=t.grp;
+    const idx=mn.secAt[t.sec];
+    if(idx!=null)rows.push({l:t.l,n:String(idx+1),lvl:2});
+  }
+  if(o.idx)rows.push({l:"Lampiran · Indeks Nama",n:String((mn.secAt["idx"]??0)+1),lvl:1});
+  return[{sec:"toc",html:`<div class="toc-t">Daftar Isi</div>`+
+    rows.map(r=>`<div class="trow${r.lvl===2?" l2":""}"><span>${esc(r.l)}</span><span class="dots"></span><span class="pgn">${esc(r.n)}</span></div>`).join("")}];
+}
+function stdPg(blocks,hL,hR,foot){
+  return `<div class="pg"><div class="pgh"><span>${esc(hL)}</span><span>${esc(hR)}</span></div>
+    <div class="pgc bk">${blocks.map(b=>`<div class="blk ${b.cls||""}" style="margin-bottom:${GAP}px">${b.html}</div>`).join("")}</div>
+    <div class="pgf">— ${esc(foot)} —</div></div>`;
+}
+function coverPg(o){
+  const p=getP(o.root);
+  return `<div class="pg cover"><div class="cover bk">
+    <div class="cv-top">Arsip Silsilah Keluarga</div>
+    <div class="cv-orn">${ORN}</div>
+    <div class="cv-k">Buku Silsilah</div>
+    <h1 class="cv-n">${esc(nameOf(p))}</h1>
+    <div class="cv-s">Leluhur dan Keturunan</div>
+    <div class="cv-meta">
+      <div class="rule"></div>
+      Disusun dari berkas GEDCOM <b>${esc(state.file)}</b><br>
+      ${fmtDateLong(new Date())}<br>
+      ${DB.indi.size} individu · ${DB.fam.size} keluarga
+    </div>
+    <div class="cv-bot">${MINIPED}</div>
+  </div></div>`;
+}
+function renderBookPages(){
+  const B=state.book,o=B.o;let html=coverPg(o),g=1;
+  const hL="Buku Silsilah · "+nameOf(getP(o.root));
+  B.pr.pages.forEach(pg=>{g++;html+=stdPg(pg,hL,"Prakata",roman(g))});
+  B.tc.pages.forEach(pg=>{g++;html+=stdPg(pg,hL,"Daftar Isi",roman(g))});
+  const SECH={anc:"Laporan Leluhur",dsc:"Laporan Keturunan",idx:"Indeks Nama"};
+  let curSec="";
+  B.mn.pages.forEach(pg=>{g++;
+    const b0=pg.find(b=>b.sec&&SECH[b.sec]);if(b0)curSec=SECH[b0.sec];
+    html+=stdPg(pg,hL,curSec||"Laporan",String(g-B.front))});
+  $("#printHost").innerHTML=html;
+  $("#ovInfo").textContent=`A4 · ${g} halaman · ${esc(nameOf(getP(o.root)))}`;
+  document.body.classList.add("bookready");
+}
+
+/* ================= MODAL EKSPOR & OVERLAY ================= */
+function openExport(rootId){
+  state.bookRoot=rootId||state.root;
+  if(!pkBook)pkBook=makePicker($("#pkBook"),id=>{state.bookRoot=id});
+  $("#pkBook").querySelector("input").value=nameOf(getP(state.bookRoot));
+  $("#rgAnc").value=state.ancG;$("#rgDsc").value=state.dscG;
+  $("#rvAnc").textContent=state.ancG+" gen";$("#rvDsc").textContent=state.dscG+" gen";
+  $("#mExp").hidden=false;
+}
+function closeExport(){$("#mExp").hidden=true}
+
+/* ================= INIT & EVENT ================= */
+function wire(){
+  const drop=$("#drop"),fin=$("#fileIn");
+  drop.addEventListener("click",e=>{if(!e.target.closest("#btnSample"))fin.click()});
+  fin.addEventListener("change",()=>{if(fin.files[0])readFile(fin.files[0])});
+  ["dragover","dragenter"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("over")}));
+  ["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("over")}));
+  drop.addEventListener("drop",e=>{const f=e.dataTransfer.files[0];if(f)readFile(f)});
+  document.addEventListener("dragover",e=>e.preventDefault());
+  document.addEventListener("drop",e=>e.preventDefault());
+  $("#btnSample").addEventListener("click",e=>{e.stopPropagation();loadSample()});
+  $("#btnReset").addEventListener("click",()=>{
+    document.body.classList.remove("mode-app","bookready");
+    $("#workspace").hidden=true;$("#landing").style.display="";
+    $("#fileChip").hidden=true;$("#printHost").innerHTML="";DB={indi:new Map(),fam:new Map(),head:{}};
+  });
+  $$("#tabs button").forEach(b=>b.addEventListener("click",()=>switchTab(b.dataset.tab)));
+  $("#selAnc").addEventListener("change",e=>{state.ancG=+e.target.value;if(state.tab==="anc")renderAncestor()});
+  $("#selDsc").addEventListener("change",e=>{state.dscG=+e.target.value;if(state.tab==="dsc")renderDesc()});
+  $("#zIn").addEventListener("click",()=>applyZoom(state.zoom+.15));
+  $("#zOut").addEventListener("click",()=>applyZoom(state.zoom-.15));
+  $("#zFit").addEventListener("click",fitZoom);
+  $("#rootChip").addEventListener("click",()=>openDrawer(state.root));
+  $("#dimBack").addEventListener("click",closeDrawer);
+  $("#repAnc").addEventListener("click",()=>{state.repMode="anc";$("#repAnc").classList.add("on");$("#repDsc").classList.remove("on");renderReport()});
+  $("#repDsc").addEventListener("click",()=>{state.repMode="dsc";$("#repDsc").classList.add("on");$("#repAnc").classList.remove("on");renderReport()});
+  $("#btnBook").addEventListener("click",()=>openExport());
+  $("#btnExpCancel").addEventListener("click",closeExport);
+  $("#mExp").addEventListener("click",e=>{if(e.target.id==="mExp")closeExport()});
+  $("#rgAnc").addEventListener("input",e=>$("#rvAnc").textContent=e.target.value+" gen");
+  $("#rgDsc").addEventListener("input",e=>$("#rvDsc").textContent=e.target.value+" gen");
+  $("#btnExpGo").addEventListener("click",async e=>{
+    const btn=e.currentTarget;btn.disabled=true;btn.textContent="Menyusun buku…";
+    const o={root:state.bookRoot||state.root,ancG:+$("#rgAnc").value,dscG:+$("#rgDsc").value,
+      prakata:$("#ckPrakata").checked,idx:$("#ckIdx").checked,anc:true,dsc:true};
+    await new Promise(r=>setTimeout(r,30));
+    try{await buildBook(o);closeExport();$("#bookOv").classList.add("open")}
+    catch(err){console.error(err);toast("⚠ Gagal menyusun buku: "+err.message)}
+    btn.disabled=false;btn.innerHTML="📖 Susun &amp; Pratinjau Buku";
+  });
+  $("#btnOvClose").addEventListener("click",()=>$("#bookOv").classList.remove("open"));
+  $("#btnPrint").addEventListener("click",()=>window.print());
+  document.addEventListener("keydown",e=>{
+    if(e.key==="Escape"){closeDrawer();closeExport();$("#bookOv").classList.remove("open")}
+  });
+  // reveal landing
+  const io=new IntersectionObserver(es=>es.forEach(en=>en.isIntersecting&&en.target.classList.add("in")),{threshold:.2});
+  $$(".feat .row").forEach((r,i)=>{r.style.transitionDelay=i*120+"ms";io.observe(r)});
+}
+function readFile(f){
+  const rd=new FileReader();
+  rd.onload=()=>loadBuffer(rd.result,f.name);
+  rd.onerror=()=>toast("⚠ Berkas tidak dapat dibaca.");
+  rd.readAsArrayBuffer(f);
+}
+
+/* ================= BERKAS CONTOH ================= */
+const SAMPLE=`0 HEAD
+1 SOUR SILSILAH-DEMO
+2 VERS 1.0
+2 NAME Arsip Contoh Silsilah
+1 DATE 11 SEP 2026
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+1 LANG Indonesian
+0 @I1@ INDI
+1 NAME Bagas /Sastrawan/
+1 SEX M
+1 BIRT
+2 DATE 12 MAR 1948
+2 PLAC Bandung, Jawa Barat
+1 OCCU Insinyur sipil
+1 FAMS @F1@
+1 FAMC @F2@
+0 @I2@ INDI
+1 NAME Dewi /Lestari/
+1 SEX F
+1 BIRT
+2 DATE 3 JUN 1951
+2 PLAC Jakarta
+1 FAMS @F1@
+0 @I3@ INDI
+1 NAME Arif /Sastrawan/
+1 SEX M
+1 BIRT
+2 DATE 21 JAN 1975
+2 PLAC Jakarta
+1 OCCU Arsitek
+1 FAMS @F7@
+1 FAMC @F1@
+0 @I4@ INDI
+1 NAME Maya /Kusuma/
+1 SEX F
+1 BIRT
+2 DATE 9 APR 1978
+2 PLAC Bogor
+1 FAMS @F7@
+0 @I5@ INDI
+1 NAME Putri /Sastrawan/
+1 SEX F
+1 BIRT
+2 DATE 17 AUG 2004
+2 PLAC Bandung
+1 FAMC @F7@
+0 @I6@ INDI
+1 NAME Dimas /Sastrawan/
+1 SEX M
+1 BIRT
+2 DATE 2 FEB 2007
+2 PLAC Bandung
+1 FAMC @F7@
+0 @I7@ INDI
+1 NAME Laksmi /Sastrawan/
+1 SEX F
+1 BIRT
+2 DATE 30 MAY 1978
+2 PLAC Jakarta
+1 FAMS @F8@
+1 FAMC @F1@
+0 @I8@ INDI
+1 NAME Rahmat /Hidayat/
+1 SEX M
+1 BIRT
+2 DATE 14 NOV 1976
+2 PLAC Surabaya
+1 OCCU Dokter
+1 FAMS @F8@
+0 @I9@ INDI
+1 NAME Aisyah /Hidayat/
+1 SEX F
+1 BIRT
+2 DATE 25 DEC 2009
+2 PLAC Surabaya
+1 FAMC @F8@
+0 @I10@ INDI
+1 NAME Gilang /Sastrawan/
+1 SEX M
+1 BIRT
+2 DATE 8 SEP 1982
+2 PLAC Jakarta
+1 FAMC @F1@
+0 @I11@ INDI
+1 NAME Harjo /Sastrawan/
+1 SEX M
+1 BIRT
+2 DATE 5 JUL 1920
+2 PLAC Yogyakarta
+1 DEAT
+2 DATE 19 NOV 1998
+2 PLAC Bandung
+1 OCCU Guru
+1 FAMS @F2@
+1 FAMC @F3@
+0 @I12@ INDI
+1 NAME Ratna /Puspita/
+1 SEX F
+1 BIRT
+2 DATE 22 FEB 1925
+2 PLAC Solo, Jawa Tengah
+1 DEAT
+2 DATE 7 JAN 2010
+2 PLAC Bandung
+1 FAMS @F2@
+1 FAMC @F4@
+0 @I13@ INDI
+1 NAME Wongso /Sastrawan/
+1 SEX M
+1 BIRT
+2 DATE 1893
+2 PLAC Yogyakarta
+1 DEAT
+2 DATE 1965
+1 OCCU Pedagang batik
+1 FAMS @F3@
+1 FAMC @F5@
+0 @I14@ INDI
+1 NAME Lastri /Sastrawan/
+1 SEX F
+1 BIRT
+2 DATE 1899
+1 DEAT
+2 DATE 1970
+1 FAMS @F3@
+0 @I15@ INDI
+1 NAME Suryadi /Puspita/
+1 SEX M
+1 BIRT
+2 DATE 1901
+2 PLAC Solo, Jawa Tengah
+1 DEAT
+2 DATE 1978
+1 FAMS @F4@
+1 FAMC @F6@
+0 @I16@ INDI
+1 NAME Kartinem /Puspita/
+1 SEX F
+1 BIRT
+2 DATE 1905
+1 FAMS @F4@
+0 @I17@ INDI
+1 NAME Tjitro /Sastrawan/
+1 SEX M
+1 BIRT
+2 DATE 1861
+2 PLAC Yogyakarta
+1 DEAT
+2 DATE 1932
+1 FAMS @F5@
+0 @I18@ INDI
+1 NAME Pawestri /Sastrawan/
+1 SEX F
+1 BIRT
+2 DATE 1868
+1 DEAT
+2 DATE 1940
+1 FAMS @F5@
+0 @I19@ INDI
+1 NAME Mangku /Puspita/
+1 SEX M
+1 BIRT
+2 DATE 1870
+2 PLAC Solo, Jawa Tengah
+1 DEAT
+2 DATE 1940
+1 FAMS @F6@
+0 @I20@ INDI
+1 NAME Sumilah /Puspita/
+1 SEX F
+1 BIRT
+2 DATE 1876
+1 DEAT
+2 DATE 1952
+1 FAMS @F6@
+0 @I21@ INDI
+1 NAME Sri /Handayani/
+1 SEX F
+1 BIRT
+2 DATE 14 APR 1952
+2 PLAC Bandung
+1 FAMC @F2@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 CHIL @I7@
+1 CHIL @I10@
+1 MARR
+2 DATE 20 JUL 1974
+2 PLAC Jakarta
+0 @F2@ FAM
+1 HUSB @I11@
+1 WIFE @I12@
+1 CHIL @I1@
+1 CHIL @I21@
+1 MARR
+2 DATE 1946
+2 PLAC Yogyakarta
+0 @F3@ FAM
+1 HUSB @I13@
+1 WIFE @I14@
+1 CHIL @I11@
+1 MARR
+2 DATE 1918
+2 PLAC Yogyakarta
+0 @F4@ FAM
+1 HUSB @I15@
+1 WIFE @I16@
+1 CHIL @I12@
+1 MARR
+2 DATE 1923
+2 PLAC Solo, Jawa Tengah
+0 @F5@ FAM
+1 HUSB @I17@
+1 WIFE @I18@
+1 CHIL @I13@
+0 @F6@ FAM
+1 HUSB @I19@
+1 WIFE @I20@
+1 CHIL @I15@
+0 TRLR`;
+function loadSample(){
+  const buf=new TextEncoder().encode(SAMPLE).buffer;
+  loadBuffer(buf,"contoh-sastrawan.ged");
+}
+wire();
+</script>
+</body>
+</html>
