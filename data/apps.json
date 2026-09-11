@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-11T16:27:52.220Z",
+  "updatedAt": "2026-09-11T16:39:54.017Z",
   "apps": [
+    {
+      "id": "mtx6lzap",
+      "name": "PDF Editor",
+      "url": "./apps/pdfeditor.html",
+      "description": "PDF Editor Free",
+      "category": "Produktivitas",
+      "icon": "📝",
+      "color": "#3901bc",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789144784881
+    },
     {
       "id": "mtx66gc7",
       "name": "GedView : Membuat Buku Silsilah",
