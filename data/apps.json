@@ -1,6 +1,58 @@
 {
-  "updatedAt": "2026-09-11T16:39:54.017Z",
+  "updatedAt": "2026-09-13T12:30:46.762Z",
   "apps": [
+    {
+      "id": "mtzsklpy",
+      "name": "NusaTV IPTV Player",
+      "url": "./apps/iptv.html",
+      "description": "Menonton TV Internet dengan IPTV Player",
+      "category": "Tools",
+      "icon": "🔳",
+      "color": "#450fc2",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789302604534
+    },
+    {
+      "id": "mtzsitw8",
+      "name": "Who Wants to be Millionare 11 in 1",
+      "url": "./apps/11in1.html",
+      "description": "Game Who Wants to be Millionare 11 Pelajaran",
+      "category": "Desain",
+      "icon": "✅",
+      "color": "#450fc2",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789302521816
+    },
+    {
+      "id": "mtzsferh",
+      "name": "SciCalc : Scientific Calculator Pro",
+      "url": "./apps/scicalc.html",
+      "description": "Scientific Calculator Pro fitur lengkap",
+      "category": "Produktivitas",
+      "icon": "🧮",
+      "color": "#450fc2",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789302362237
+    },
+    {
+      "id": "mtzsdl3s",
+      "name": "KataKita : TTS Umum",
+      "url": "./apps/tts.html",
+      "description": "KataKita : Game TTS materi Umum",
+      "category": "Desain",
+      "icon": "✅",
+      "color": "#450fc2",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789302277144
+    },
     {
       "id": "mtx6lzap",
       "name": "PDF Editor",
