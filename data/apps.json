@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-13T12:30:46.762Z",
+  "updatedAt": "2026-09-13T13:18:54.454Z",
   "apps": [
+    {
+      "id": "mtzub2pn",
+      "name": "SPU Plus",
+      "url": "./apps/spu2.html",
+      "description": "Sistem Periodik Unsur Kimia Plus",
+      "category": "Produktivitas",
+      "icon": "📝",
+      "color": "#450fc2",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789305519227
+    },
     {
       "id": "mtzsklpy",
       "name": "NusaTV IPTV Player",
