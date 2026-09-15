@@ -1,153 +1,759 @@
 {
   "siswa": [
     {
-      "nis": "20241001",
-      "nama": "Ahmad Fauzi",
-      "kelas": "XII IPA 1",
+      "nis": "33260430",
+      "nama": "ABID FALAH AUDIANSYAH",
+      "kelas": "XA",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241002",
-      "nama": "Siti Nurhaliza",
-      "kelas": "XII IPA 2",
+      "nis": "33260431",
+      "nama": "ACHMAD MUSYAFA' ALI",
+      "kelas": "XB",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241003",
-      "nama": "Budi Santoso",
-      "kelas": "XII IPS 1",
+      "nis": "33260474",
+      "nama": "AFIFA RAFANANTA RAMADANISA",
+      "kelas": "XE",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241004",
-      "nama": "Dewi Lestari",
-      "kelas": "XII IPA 1",
+      "nis": "33260475",
+      "nama": "AHLA TSAMAR AZZAFIRA",
+      "kelas": "XD",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241005",
-      "nama": "Rizki Pratama",
-      "kelas": "XII IPA 2",
+      "nis": "33260432",
+      "nama": "AHMAD ABDURROHIM",
+      "kelas": "XB",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241006",
-      "nama": "Putri Ayu",
-      "kelas": "XII IPS 1",
+      "nis": "33260546",
+      "nama": "AHMAD HUDALLOH",
+      "kelas": "XA",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241007",
-      "nama": "Fajar Maulana",
-      "kelas": "XII IPA 1",
+      "nis": "33260433",
+      "nama": "AHMAD MAULANA NASUKHA",
+      "kelas": "XA",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241008",
-      "nama": "Intan Permata",
-      "kelas": "XII IPA 2",
+      "nis": "33260476",
+      "nama": "ALFIRA MIFTAHUL JANAH",
+      "kelas": "XD",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241009",
-      "nama": "Eko Wijaya",
-      "kelas": "XII IPS 1",
+      "nis": "33260544",
+      "nama": "ALFITO BAGUS WIBISONO",
+      "kelas": "XA",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241010",
-      "nama": "Lestari Wulandari",
-      "kelas": "XII IPA 1",
+      "nis": "33260477",
+      "nama": "ALYA ADRIYANA",
+      "kelas": "XD",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241011",
-      "nama": "Bayu Saputra",
-      "kelas": "XII IPA 2",
+      "nis": "33260435",
+      "nama": "ARINAL HAQQ EKA PUTRA",
+      "kelas": "XA",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241012",
-      "nama": "Maya Sari",
-      "kelas": "XII IPS 1",
+      "nis": "33260478",
+      "nama": "ARINI OLIVIA DZAKI",
+      "kelas": "XC",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241013",
-      "nama": "Rian Hidayat",
-      "kelas": "XII IPA 1",
+      "nis": "33260436",
+      "nama": "ARJU NAJA AL-ADIB",
+      "kelas": "XB",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241014",
-      "nama": "Nurul Azizah",
-      "kelas": "XII IPA 2",
+      "nis": "33260437",
+      "nama": "ARJUNA ISRAFIEL HAQ",
+      "kelas": "XB",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241015",
-      "nama": "Agus Prasetyo",
-      "kelas": "XII IPS 1",
+      "nis": "33260479",
+      "nama": "ARROFATUL LUTFIANA NOVA",
+      "kelas": "XC",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241016",
-      "nama": "Fitri Handayani",
-      "kelas": "XII IPA 1",
+      "nis": "33260438",
+      "nama": "ASBIQ ROJIH HASYIM ABDULLOH",
+      "kelas": "XA",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241017",
-      "nama": "Dimas Anggara",
-      "kelas": "XII IPA 2",
+      "nis": "33260439",
+      "nama": "ATHO'ILLAH FAWWAZ SYAKIB",
+      "kelas": "XA",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241018",
-      "nama": "Citra Kirana",
-      "kelas": "XII IPS 1",
+      "nis": "33260440",
+      "nama": "ATSBIQ MUHAMMAD ARDAN 'ARAS",
+      "kelas": "XB",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241019",
-      "nama": "Hendra Gunawan",
-      "kelas": "XII IPA 1",
+      "nis": "33260441",
+      "nama": "ATSIER SYAUQI ABDULLAH",
+      "kelas": "XA",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241020",
-      "nama": "Anisa Rahmawati",
-      "kelas": "XII IPA 2",
+      "nis": "33260480",
+      "nama": "AULIA PUTRI RAMADHANI",
+      "kelas": "XC",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241021",
-      "nama": "Galih Permana",
-      "kelas": "XII IPS 1",
+      "nis": "33260481",
+      "nama": "AZIZAH FEBRIANI",
+      "kelas": "XC",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241022",
-      "nama": "Yuni Astuti",
-      "kelas": "XII IPA 1",
+      "nis": "33260443",
+      "nama": "AZKA ABDILLAH",
+      "kelas": "XB",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241023",
-      "nama": "Arif Rahman",
-      "kelas": "XII IPA 2",
+      "nis": "33260483",
+      "nama": "BILKIS AULIA",
+      "kelas": "XE",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241024",
-      "nama": "Siska Amelia",
-      "kelas": "XII IPS 1",
+      "nis": "33260444",
+      "nama": "DAFFA HUTAMA SUBANDRI",
+      "kelas": "XA",
+      "jurusan": "Umum",
       "password": "siswa123"
     },
     {
-      "nis": "20241025",
-      "nama": "Joko Widodo",
-      "kelas": "XII IPA 1",
+      "nis": "33260445",
+      "nama": "DANIAL MUMTAZ HERLAMBANG",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260446",
+      "nama": "DANISH DHIYAULHAQ QASTALANI",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260447",
+      "nama": "DANISH FAEYZA RIFAI",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260484",
+      "nama": "DEWI AISYAH",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260541",
+      "nama": "DINI PUPUT RAMADHANI",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260487",
+      "nama": "ELSY FEBIANA SAFARA",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260488",
+      "nama": "EVA SHOFIYA",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260489",
+      "nama": "FAAIZAH NURAINI",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260448",
+      "nama": "FADHIL MA'RUF MANTORO",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260450",
+      "nama": "FARIZ RAHMAN HAKIM",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260451",
+      "nama": "FATCHAN RIEZQIE AKBAR",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260490",
+      "nama": "FATMA AQILAH",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260491",
+      "nama": "FAYZA ZAHRANI ADILA HUSNA",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260452",
+      "nama": "FIRASYAN AKBAR SETYAWAN",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260453",
+      "nama": "GALIH MUHAMAD OKTA MUBAROK",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260542",
+      "nama": "HADIAN FAIQ AKMAL",
+      "kelas": "XF",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260455",
+      "nama": "IRFAN FADLI MUSTHOFA",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260494",
+      "nama": "ITNA KHUSNA FAIZA",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260495",
+      "nama": "JINAN MEILA TAHANI",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260496",
+      "nama": "KAISA NUQOYYAH",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260552",
+      "nama": "KARISMA ADILLA MARSYA",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260497",
+      "nama": "KHANSA CALLYSTA",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260456",
+      "nama": "KHOIRUL `AZMI AL FAWWAZ",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260547",
+      "nama": "LATIFATUL MUNAWWAROH",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260498",
+      "nama": "LIBNA KHIKMATUL 'ULYA",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260500",
+      "nama": "LUTHFYA KHAIRUNNISA",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260458",
+      "nama": "M.FAKHRI ADZZIKRA",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260501",
+      "nama": "MAHRISA NANDA PUTRI",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260502",
+      "nama": "MAISYA QUTROTUNNADA",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260459",
+      "nama": "MAULUDA MAULANA AHMAD",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260460",
+      "nama": "MIFTAHUL HASAN",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260461",
+      "nama": "MUH FADLI ALBINA MUAZZAM",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260463",
+      "nama": "MUHAMMAD AZKA ALKAFA",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260457",
+      "nama": "MUHAMMAD EVAN KURNIAWAN",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260464",
+      "nama": "MUHAMMAD HADI HISYAM AL AMIN",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260465",
+      "nama": "MUHAMMAD HAIDAR NASHIR",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260466",
+      "nama": "MUHAMMAD RAFKA ABHINAYA",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260560",
+      "nama": "MUHAMMAD RAKHA FATANAYA",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260467",
+      "nama": "MUKHLIS ARYA SAPUTRA",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260503",
+      "nama": "MUNA SOFI JALILA",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260504",
+      "nama": "NABILA FALABIBA KAMALIN",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260505",
+      "nama": "NABILA JANNET FIRDAUSIY",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260506",
+      "nama": "NABILA KHILWA NUR ANJANI",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260507",
+      "nama": "NABILA RAHMADHANI",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260508",
+      "nama": "NADIA OKTAFIANA",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260509",
+      "nama": "NADYA KAYLA KHAIRUNISA",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260510",
+      "nama": "NAFISA WAHYU NINGTYAS",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260511",
+      "nama": "NAMIRA ADELIA",
+      "kelas": "XF",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260512",
+      "nama": "NAURA SHOFIYA",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260550",
+      "nama": "NAZALLA DUTA RAMADHAN",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260513",
+      "nama": "NAZILA AQILA ALFAT",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260514",
+      "nama": "NISRINA ADIVA SYAKIRAH",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260515",
+      "nama": "NISWA FATIHA 'ADNA",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260561",
+      "nama": "PARISYA SERAFINA ARGANI",
+      "kelas": "XI",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260517",
+      "nama": "QONITA NADA SYAFIQOH",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260549",
+      "nama": "QURROTA AYUN",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260468",
+      "nama": "RASYA IBADIL MUBAROK",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260518",
+      "nama": "RAYYA KHOIRIN NAJWA",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260519",
+      "nama": "RESTU AEIVI AZZAHRA",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260520",
+      "nama": "RIFDA AZKIYA SYAQILA",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260521",
+      "nama": "RIFNA AURIELIA ZAKIYYA",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260522",
+      "nama": "RIRI MAELANI",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260523",
+      "nama": "SAFINATUZ ZAHRO",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260524",
+      "nama": "SALSA AULIA AGUSTA",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260548",
+      "nama": "SHOFA NAILUL MUNA",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260525",
+      "nama": "SHOFIYA FATIMATUZZAHRA",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260526",
+      "nama": "SITI BADI'ATUL MUSYAROFAH",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260527",
+      "nama": "SITI CHALIATUL CHASANAH",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260543",
+      "nama": "SITI NUR KHASANAH",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260529",
+      "nama": "SYIFAUL JHINAN",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260530",
+      "nama": "TSANIYATUL KHOTIMAH",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260540",
+      "nama": "VIA NAFSA ZAKIA",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260531",
+      "nama": "WAHIDATUN NISA AZ-ZAHRA",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260532",
+      "nama": "YASMIN HUMAIRA",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260470",
+      "nama": "YUDHISTIRO HANIF ALFAROUK",
+      "kelas": "XA",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260533",
+      "nama": "YUMNA IZZATUN NISA'",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260471",
+      "nama": "ZAHABIDZ EL-KARIM",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260534",
+      "nama": "ZAHRATUN NAFIZA",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260535",
+      "nama": "ZAIDA IMROATUS SHOLIKHAH",
+      "kelas": "XC",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260472",
+      "nama": "ZAKARIA FARIZ NUR AHMAD",
+      "kelas": "XB",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260536",
+      "nama": "ZALFA KHANSA ASSYIFA ABDULLAH",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260537",
+      "nama": "ZAYYINA NAJMA AMANINA",
+      "kelas": "XE",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260538",
+      "nama": "ZIADA TSAQIIFA MARITZ",
+      "kelas": "XD",
+      "jurusan": "Umum",
+      "password": "siswa123"
+    },
+    {
+      "nis": "33260539",
+      "nama": "ZULAIKHA RAMADANI",
+      "kelas": "XC",
+      "jurusan": "Umum",
       "password": "siswa123"
     }
   ],
