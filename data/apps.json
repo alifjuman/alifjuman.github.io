@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-15T05:58:43.840Z",
+  "updatedAt": "2026-09-15T14:53:30.279Z",
   "apps": [
+    {
+      "id": "mu2skg2b",
+      "name": "SIM Persuratan Madrasah",
+      "url": "./apps/surat.html",
+      "description": "Sistem Informasi Managemen Persuratan Madrasah",
+      "category": "Tools",
+      "icon": "📝",
+      "color": "#8b5cf6",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789483995731
+    },
     {
       "id": "mu29grer",
       "name": "Notepad Online",
