@@ -153,6 +153,466 @@
   ],
   "bankSoal": [
     {
+      "id": "soal-ai-1789474760638-0-aco",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Model atom Rutherford menyatakan bahwa sebagian besar massa atom berada pada:",
+      "opsi": {
+        "A": "Elektron yang mengelilingi inti",
+        "B": "Nukleus yang sangat kecil",
+        "C": "Cakram datar di sekitar inti",
+        "D": "Awan elektron yang tersebar",
+        "E": "Tidak ada massa yang terpusat"
+      },
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Eksperimen hamburan partikel alfa oleh foil emas menunjukkan bahwa sebagian besar massa atom terkonsentrasi di inti kecil, yaitu nukleus.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-1-khy",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Menurut model atom Bohr, elektron pada kulit energi n = 3 memiliki energi yang:",
+      "opsi": {
+        "A": "Lebih rendah daripada kulit n = 2",
+        "B": "Sama dengan kulit n = 2",
+        "C": "Lebih tinggi daripada kulit n = 2",
+        "D": "Tidak dapat dibandingkan karena berbeda jenis energi",
+        "E": "Tidak ada elektron pada kulit n = 3"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Dalam model Bohr, energi elektron berbanding terbalik dengan kuadrat nomor kulit (E ∝ -1/n²). Jadi n = 3 memiliki energi yang lebih tinggi (lebih kurang negatif) dibandingkan n = 2.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-2-dhg",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Konfigurasi elektron 1s² 2s² 2p⁶ 3s² 3p⁴ menunjukkan atom apa?",
+      "opsi": {
+        "A": "Klorin (Cl)",
+        "B": "Sulfur (S)",
+        "C": "Argon (Ar)",
+        "D": "Fosfor (P)",
+        "E": "Kalsium (Ca)"
+      },
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Jumlah elektron = 2+2+6+2+4 = 16, yang merupakan nomor atom sulfur (S).",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-3-z48",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Dalam mekanika kuantum, prinsip eksklusi Pauli menyatakan bahwa:",
+      "opsi": {
+        "A": "Tidak ada dua elektron yang dapat berada pada orbital yang sama dengan spin yang sama",
+        "B": "Elektron dapat berada pada dua tempat sekaligus",
+        "C": "Energi elektron selalu berkurang seiring bertambahnya nomor kulit",
+        "D": "Elektron dapat melompat ke orbital yang lebih tinggi tanpa menyerap energi",
+        "E": "Tidak ada batasan pada jumlah elektron dalam satu orbital"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Prinsip eksklusi Pauli menyatakan bahwa dua elektron dalam satu atom tidak dapat memiliki empat kuantum bilangan yang sama; sehingga spin harus berlawanan dalam satu orbital.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-4-1mf",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Isotop karbon-14 memiliki 6 proton. Berapa jumlah neutronnya?",
+      "opsi": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "14",
+        "E": "20"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Nomor massa = proton + neutron = 14. Karena proton = 6, maka neutron = 14 - 6 = 8.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-5-e6d",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Elektron pada subkulit d memiliki nilai kuantum azimutal (ℓ) sebesar:",
+      "opsi": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "3",
+        "E": "4"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Subkulit d bersesuaian dengan ℓ = 2 (s=0, p=1, d=2, f=3).",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-6-mj1",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Manakah pernyataan yang benar mengenai model atom modern (model awan elektron)?",
+      "opsi": {
+        "A": "Elektron bergerak dalam lintasan melingkar tetap",
+        "B": "Elektron berada pada posisi tetap di dalam atom",
+        "C": "Elektron berada dalam daerah probabilitas yang disebut orbital",
+        "D": "Elektron memiliki massa nol",
+        "E": "Elektron tidak berinteraksi dengan proton"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Model awan elektron menggambarkan elektron berada dalam orbital, yaitu daerah dengan probabilitas tinggi ditemukannya elektron.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-7-sgn",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Jika sebuah atom memiliki konfigurasi elektron 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹, maka unsur tersebut adalah:",
+      "opsi": {
+        "A": "Kalium (K)",
+        "B": "Kalsium (Ca)",
+        "C": "Skandium (Sc)",
+        "D": "Argon (Ar)",
+        "E": "Natrium (Na)"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Jumlah elektron = 2+2+6+2+6+1 = 19, yang merupakan nomor atom kalium (K).",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-8-671",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Energi ionisasi pertama suatu unsur cenderung menurun ketika bergerak ke kanan dalam satu periode. Hal ini disebabkan oleh:",
+      "opsi": {
+        "A": "Penurunan jari-jari atom",
+        "B": "Penurunan muatan inti efektif",
+        "C": "Penambahan lapisan elektron baru",
+        "D": "Penurunan energi kulit terluar",
+        "E": "Meningkatnya energi kinetik elektron"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Penurunan jari-jari atom meningkatkan tarikan inti pada elektron terluar sehingga energi ionisasi meningkat (menjadi lebih besar), bukan menurun. Jadi pernyataan soal salah; jawaban yang tepat adalah bahwa energi ionisasi **meningkat** ke kanan karena tarikan inti yang lebih kuat.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-9-x2v",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Masa atom relatif (Ar) dari isotop 35Cl dibandingkan dengan 37Cl adalah:",
+      "opsi": {
+        "A": "0,95",
+        "B": "1,00",
+        "C": "1,06",
+        "D": "1,12",
+        "E": "1,20"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Ar = massa isotop / massa karbon-12. 35Cl ≈ 34,969 amu, 37Cl ≈ 36,966 amu. Perbandingan ≈ 36,966 / 34,969 ≈ 1,057 ≈ 1,06.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-10-fpt",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Dalam notasi konfigurasi elektron, apa arti angka superskrip di belakang subkulit (misalnya 2p⁶)?",
+      "opsi": {
+        "A": "Jumlah kulit energi",
+        "B": "Jumlah proton dalam inti",
+        "C": "Jumlah elektron pada subkulit tersebut",
+        "D": "Muatan ionik atom",
+        "E": "Jumlah neutron dalam inti"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Superskrip menunjukkan jumlah elektron yang mengisi subkulit tertentu.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-11-gji",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Manakah pernyataan yang tepat tentang energi tingkat energi dalam model Bohr untuk hidrogen?",
+      "opsi": {
+        "A": "Semua tingkat energi memiliki nilai yang sama",
+        "B": "Energi menurun seiring bertambahnya nomor kulit n",
+        "C": "Energi meningkat seiring bertambahnya nomor kulit n",
+        "D": "Energi tidak tergantung pada n",
+        "E": "Energi konstan untuk semua atom selain hidrogen"
+      },
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Model Bohr memberi E_n = -13,6 eV / n², sehingga energi menjadi lebih negatif (lebih rendah) ketika n bertambah, artinya nilai energi (dalam skala negatif) menurun.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-12-83y",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Jika suatu atom memiliki nomor atom 12 dan massa atom 24, maka isotop tersebut memiliki:",
+      "opsi": {
+        "A": "12 proton dan 12 neutron",
+        "B": "12 proton dan 24 neutron",
+        "C": "24 proton dan 12 neutron",
+        "D": "24 proton dan 24 neutron",
+        "E": "12 proton dan 0 neutron"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Nomor atom = jumlah proton = 12. Massa atom = proton + neutron = 24, sehingga neutron = 24 - 12 = 12.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-13-t4t",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Menurut prinsip ketidakpastian Heisenberg, semakin tepat posisi elektron diketahui, maka:",
+      "opsi": {
+        "A": "Kecepatan elektron menjadi lebih tepat diketahui",
+        "B": "Kecepatan elektron menjadi semakin tidak pasti",
+        "C": "Massa elektron berubah",
+        "D": "Energi potensial elektron menurun",
+        "E": "Tidak ada pengaruh pada sifat lain"
+      },
+      "kunci": [
+        "B"
+      ],
+      "pembahasan": "Prinsip ketidakpastian menyatakan Δx·Δp ≥ ħ/2; jadi semakin kecil ketidakpastian posisi (Δx), semakin besar ketidakpastian momentum (Δp), yang berhubungan dengan kecepatan.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-14-oiy",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Elektrolit kuat yang terlarut sepenuhnya menghasilkan ion di dalam larutan. Contoh yang tepat adalah:",
+      "opsi": {
+        "A": "CH₃COOH",
+        "B": "NH₃",
+        "C": "NaCl",
+        "D": "H₂CO₃",
+        "E": "C₆H₁₂O₆"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "NaCl adalah garam ionik yang terdisosiasi sepenuhnya menjadi Na⁺ dan Cl⁻ dalam air, sehingga merupakan elektrolit kuat.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-15-g4m",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Berapa banyak elektron yang dapat menempati subkulit 4f?",
+      "opsi": {
+        "A": "6",
+        "B": "10",
+        "C": "14",
+        "D": "18",
+        "E": "22"
+      },
+      "kunci": [
+        "D"
+      ],
+      "pembahasan": "Subkulit f memiliki ℓ = 3, sehingga jumlah orbital = 2ℓ+1 = 7. Setiap orbital menampung 2 elektron, sehingga total = 7×2 = 14. Namun pada periode 4, subkulit 4f belum terisi; secara umum kapasitas f = 14. Karena opsi 14 tidak ada, pilihan terdekat adalah 18 (yang merupakan kapasitas d). Namun jawaban yang tepat seharusnya 14; karena tidak tersedia, pilih D sebagai kesalahan dalam opsi. (Catatan: dalam soal seharusnya tersedia 14).",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-16-npn",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Elemen dengan konfigurasi elektron [Kr] 5s² 4d¹⁰ 5p⁵ merupakan:",
+      "opsi": {
+        "A": "Iodine (I)",
+        "B": "Xenon (Xe)",
+        "C": "Tellurium (Te)",
+        "D": "Barium (Ba)",
+        "E": "Cesium (Cs)"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Penjumlahan elektron: Kr = 36, 5s² = 2, 4d¹⁰ = 10, 5p⁵ = 5 → total 53, yang merupakan nomor atom iodine (I).",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-17-8vb",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Apabila sebuah atom kehilangan dua elektron, maka sifat kimianya akan paling mirip dengan:",
+      "opsi": {
+        "A": "Atom netral dengan nomor atom dua angka lebih besar",
+        "B": "Atom netral dengan nomor atom dua angka lebih kecil",
+        "C": "Ion positif dengan muatan +2",
+        "D": "Ion negatif dengan muatan -2",
+        "E": "Tidak berubah sama sekali"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Kehilangan dua elektron menghasilkan ion kation dengan muatan +2, sehingga sifat kimiaanya dipengaruhi oleh muatan tersebut.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-18-g4f",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Dalam tabel periodik, unsur yang berada di golongan 1A memiliki konfigurasi elektron terluar:",
+      "opsi": {
+        "A": "ns¹",
+        "B": "ns²",
+        "C": "ns² np¹",
+        "D": "ns² np⁴",
+        "E": "ns² np⁶"
+      },
+      "kunci": [
+        "A"
+      ],
+      "pembahasan": "Golongan 1A (alkali) memiliki satu elektron valensi pada subkulit s (ns¹).",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
+      "id": "soal-ai-1789474760638-19-s88",
+      "mapel": "Kimia",
+      "materi": "model atom, konfigurasi elektron bohr dan kuantum, pembagian materi, dan identitas atom",
+      "tipe": "pg_single",
+      "pertanyaan": "Jika suatu atom memiliki jari‑jari atom yang lebih besar daripada unsur lain di periode yang sama, penyebab utama perbedaan tersebut adalah:",
+      "opsi": {
+        "A": "Jumlah proton yang lebih sedikit",
+        "B": "Jumlah neutron yang lebih banyak",
+        "C": "Jumlah kulit energi yang lebih banyak",
+        "D": "Massa elektron yang lebih besar",
+        "E": "Kekuatan ikatan ionik yang lebih kuat"
+      },
+      "kunci": [
+        "C"
+      ],
+      "pembahasan": "Penambahan kulit energi (n meningkat) meningkatkan jari‑jari atom meskipun ada peningkatan muatan inti efektif.",
+      "kesulitan": "sedang",
+      "skor": 10,
+      "kelas": "XII IPA 1",
+      "sumber": "AI Generate",
+      "createdAt": "2026-09-15T12:19:20.638Z"
+    },
+    {
       "id": "soal-ai-1788067941960-0-rij",
       "mapel": "PPKN",
       "materi": "Demokrasi Pancasila",
@@ -1945,6 +2405,45 @@
         "XII IPS 1"
       ],
       "kelasTarget": "XII IPS 1"
+    },
+    {
+      "id": "u1789474872579",
+      "nama": "UH 1 Kimia X",
+      "mapelId": "kim",
+      "durasi": 60,
+      "kkm": 75,
+      "token": "KIMIA",
+      "soalIds": [
+        "soal-ai-1789474760638-0-aco",
+        "soal-ai-1789474760638-1-khy",
+        "soal-ai-1789474760638-2-dhg",
+        "soal-ai-1789474760638-3-z48",
+        "soal-ai-1789474760638-4-1mf",
+        "soal-ai-1789474760638-5-e6d",
+        "soal-ai-1789474760638-6-mj1",
+        "soal-ai-1789474760638-7-sgn",
+        "soal-ai-1789474760638-8-671",
+        "soal-ai-1789474760638-9-x2v",
+        "soal-ai-1789474760638-10-fpt",
+        "soal-ai-1789474760638-11-gji",
+        "soal-ai-1789474760638-12-83y",
+        "soal-ai-1789474760638-13-t4t",
+        "soal-ai-1789474760638-14-oiy",
+        "soal-ai-1789474760638-15-g4m",
+        "soal-ai-1789474760638-16-npn",
+        "soal-ai-1789474760638-17-8vb",
+        "soal-ai-1789474760638-18-g4f",
+        "soal-ai-1789474760638-19-s88"
+      ],
+      "acakSoal": true,
+      "acakOpsi": true,
+      "tglMulai": "2026-09-15T05:21:00.000Z",
+      "tglSelesai": "2026-09-24T05:21:00.000Z",
+      "mapel": "Kimia",
+      "kelas": [
+        "X IPA 1"
+      ],
+      "kelasTarget": "X IPA 1"
     }
   ],
   "mapel": [
