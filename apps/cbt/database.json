@@ -3047,9 +3047,15 @@
       "tglSelesai": "2026-09-24T05:21:00.000Z",
       "mapel": "Kimia",
       "kelas": [
-        "X IPA 1"
+        "XC",
+        "XA",
+        "XD",
+        "XF",
+        "XB",
+        "XE",
+        "XI"
       ],
-      "kelasTarget": "X IPA 1"
+      "kelasTarget": "XC, XA, XD, XF, XB, XE, XI"
     }
   ],
   "mapel": [
