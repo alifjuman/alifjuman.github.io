@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIM Persuratan MAN v4.0 - Footer Mepet Bawah Fix</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
+<style>
+body{font-family:Inter,sans-serif}
+.font-jkt{font-family:'Plus Jakarta Sans',sans-serif}
+@media print{
+  body *{visibility:hidden}
+  #print-area, #print-area *{visibility:visible}
+  #print-area{position:absolute; left:0; top:0; width:100%; margin:0; padding:0; background:white}
+  .no-print{display:none !important}
+  @page{margin: 2.5cm 2cm 2cm 2.5cm; size:A4}
+}
+.print-paper{width:210mm; min-height:297mm; background:white; margin:0 auto; padding:2.5cm 2cm 1.2cm 2.5cm; box-sizing:border-box; font-size:11pt; line-height:1.5; color:#000; position:relative; display:flex; flex-direction:column}
+.print-paper .content-wrap{flex:1}
+@media print{
+  .print-paper{padding:2.5cm 2cm 0.8cm 2.5cm; min-height:297mm; height:297mm; position:relative}
+  .print-paper > div > div:last-child{position:absolute !important; bottom:0.3cm !important; left:0 !important; right:0 !important}
+}
+.screen-paper{position:relative; min-height:900px; display:flex; flex-direction:column; padding-bottom:30px}
+.screen-paper .footer-abs{position:absolute; bottom:5px; left:0; right:0}
+
+</style>
+</head>
+<body class="bg-slate-50">
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+const {useState,useEffect,useRef}=React;
+const ROLES=["OSIS","MPK","Gudep","Bendahara","Waka Kesiswaan","Waka Kurikulum","Kepala Madrasah"];
+const HIERARCHY={"OSIS":1,"MPK":1,"Gudep":2,"Bendahara":2,"Waka Kesiswaan":3,"Waka Kurikulum":3,"Kepala Madrasah":5};
+const DEFAULT_USERS=[
+  {id:"1",username:"admin2026",password:"admin2026#",nama:"Dr. H. Kepala Madrasah",role:"Kepala Madrasah",nip:"19650101",aktif:true},
+  {id:"2",username:"osis01",password:"osis123",nama:"Ahmad - Ketua OSIS",role:"OSIS",nip:"-",aktif:true},
+  {id:"3",username:"mpk01",password:"mpk123",nama:"Siti - Ketua MPK",role:"MPK",nip:"-",aktif:true},
+  {id:"4",username:"gudep01",password:"gudep123",nama:"Budi - Pembina Pramuka",role:"Gudep",nip:"-",aktif:true},
+  {id:"5",username:"bendahara01",password:"bendahara123",nama:"Ibu Bendahara",role:"Bendahara",nip:"1978",aktif:true},
+  {id:"6",username:"wakasiswa",password:"wakasiswa123",nama:"Pak Waka Kesiswaan",role:"Waka Kesiswaan",nip:"1975",aktif:true},
+  {id:"7",username:"wakakur",password:"wakakur123",nama:"Bu Waka Kurikulum",role:"Waka Kurikulum",nip:"1976",aktif:true},
+];
+const TEMPLATES={
+  "Surat Tugas":{kode:"ST", fields:["dasar","menugaskan","untuk","waktu"]},
+  "Surat Keputusan":{kode:"SK", fields:["menimbang","mengingat","memutuskan","tembusan"]},
+  "Surat Ketetapan":{kode:"TAP", fields:["menimbang","mengingat","menetapkan"]},
+  "Surat Edaran":{kode:"ED", fields:["kepada","isi_edaran"]},
+  "Surat Keterangan":{kode:"KET", fields:["menerangkan","keterangan"]},
+  "Surat Undangan":{kode:"UND", fields:["hari_tanggal","waktu","tempat","agenda"]},
+  "Surat Peminjaman":{kode:"PINJAM", fields:["barang","tanggal_pinjam","tanggal_kembali"]},
+  "Surat Permohonan Dana":{kode:"DANA", fields:["jumlah_dana","keperluan","rincian"]},
+};
+function hashCode(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))|0;return Math.abs(h);}
+
+function QR({value,size=80}){
+  const ref=useRef(null);
+  useEffect(()=>{
+    if(!ref.current||!value) return;
+    ref.current.innerHTML="";
+    try{ new QRCode(ref.current,{text:value,width:size,height:size,colorDark:"#111827",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H}); }catch(e){}
+  },[value,size]);
+  return <div ref={ref} style={{width:size,height:size}} className="bg-white"/>
+}
+function QRSignature({value,size=80}){
+  const ref=useRef(null);
+  useEffect(()=>{
+    if(!ref.current||!value) return;
+    ref.current.innerHTML="";
+    try{
+      new QRCode(ref.current,{text:value,width:size,height:size,colorDark:"#111827",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H});
+      setTimeout(()=>{
+        const canvas=ref.current?.querySelector('canvas');
+        if(canvas){
+          const ctx=canvas.getContext('2d');
+          const logoSize=size*0.24;
+          const x=(size-logoSize)/2, y=(size-logoSize)/2;
+          ctx.fillStyle="#fff"; ctx.fillRect(x-2,y-2,logoSize+4,logoSize+4);
+          ctx.fillStyle="#059669"; ctx.fillRect(x,y,logoSize,logoSize);
+          ctx.fillStyle="#fff"; ctx.font=`bold ${logoSize*0.38}px Inter`; ctx.textAlign="center"; ctx.textBaseline="middle"; ctx.fillText("MAN",size/2,size/2);
+        }
+      },80);
+    }catch(e){}
+  },[value,size]);
+  return <div ref={ref} style={{width:size,height:size}}/>
+}
+
+const DUMMY=[
+  {id:"S1001",nomor:"001/ST/OSIS/MAN/IX/2026",jenis:"Surat Tugas",perihal:"Tugas Lomba Pramuka Kabupaten",tujuan:"Siswa Kelas XI",tgl:"2026-09-10",pemohon:"OSIS",pemohonNama:"Ahmad - Ketua OSIS",status:"Diajukan",fields:{dasar:"Program Kerja OSIS 2026",menugaskan:"Ahmad, Siti, Budi",untuk:"Mengikuti Lomba Pramuka Tingkat Kabupaten",waktu:"20 September 2026"},memo:[],disposisi:null,qr:null},
+  {id:"S1002",nomor:"002/SK/KAMAD/MAN/IX/2026",jenis:"Surat Keputusan",perihal:"Pengurus OSIS Periode 2026/2027",tujuan:"Seluruh Warga Madrasah",tgl:"2026-09-12",pemohon:"Kepala Madrasah",pemohonNama:"Dr. H. Kepala Madrasah",status:"Disetujui",fields:{menimbang:"Perlu regenerasi pengurus OSIS",mengingat:"AD/ART OSIS Pasal 5",memutuskan:"Mengangkat pengurus OSIS periode 2026/2027",tembusan:"Waka Kesiswaan, Pembina OSIS"},memo:[],disposisi:{tujuan:"OSIS",instruksi:"Laksanakan pelantikan",sifat:"Segera",batas:"2026-09-15",dari:"Kepala Madrasah"},qr:"https://man-skh.sch.id/v/002-SK-KAMAD-MAN-IX-2026/VALID-88912",qrId:"VALID-88912",qrUrl:"https://man-skh.sch.id/v/002-SK-KAMAD-MAN-IX-2026",ttdBy:"Dr. H. Ahmad Fauzi, M.Pd",ttdRole:"Kepala Madrasah",ttdAt:"12 September 2026 10:30",createdBySelf:false},
+];
+
+function Login({onLogin}){
+  const [u,setU]=useState(""),[p,setP]=useState(""),[err,setErr]=useState("");
+  const [verifyInput,setVerifyInput]=useState(""),[verifyResult,setVerifyResult]=useState(null);
+  const [suratList,setSuratList]=useState(()=>{try{return JSON.parse(localStorage.getItem("sim_surat_v35")||"[]")}catch{return DUMMY}});
+  const submit=e=>{
+    e.preventDefault();
+    const users=JSON.parse(localStorage.getItem("sim_users_v35")||"[]");
+    const f=users.find(x=>x.username===u&&x.password===p&&x.aktif);
+    if(f){localStorage.setItem("sim_session_v35",JSON.stringify(f)); onLogin(f);} else setErr("Username/password salah");
+  };
+  const doVerify=()=>{
+    const list=JSON.parse(localStorage.getItem("sim_surat_v35")||"[]");
+    const f=list.find(s=>s.nomor.toLowerCase()===verifyInput.toLowerCase()&&s.qr) || list.find(s=>s.qrId&&verifyInput.includes(s.qrId)) || list.find(s=>verifyInput.includes(s.nomor));
+    if(f) setVerifyResult({valid:true,surat:f}); else setVerifyResult({valid:false});
+  };
+  return <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-slate-900 to-emerald-800 p-4 flex flex-col items-center">
+    <div className="w-full max-w-5xl grid md:grid-cols-2 bg-white rounded-[28px] overflow-hidden shadow-2xl mt-6">
+      <div className="bg-emerald-50 p-8 flex flex-col justify-between"><div><div className="w-12 h-12 bg-emerald-700 rounded-2xl flex items-center justify-center text-white font-bold">MAN</div><h1 className="font-jkt text-3xl font-bold mt-6">SIM Persuratan<br/>Madrasah Digital</h1><p className="mt-3 text-sm text-slate-600">Clean QR di posisi ttd manual + Print PDF margin moderate elegan + footer verifikasi kecil simpel.</p></div><div className="text-[10px] text-slate-400 mt-4">v3.5 Print PDF Elegant</div></div>
+      <div className="p-8"><h2 className="font-jkt text-2xl font-bold">Login</h2><form onSubmit={submit} className="mt-6 space-y-4"><input value={u} onChange={e=>setU(e.target.value)} placeholder="admin2026" className="w-full px-4 py-3 border rounded-xl"/><input type="password" value={p} onChange={e=>setP(e.target.value)} placeholder="admin2026#" className="w-full px-4 py-3 border rounded-xl"/>{err&&<div className="bg-red-50 text-red-600 text-xs p-3 rounded-xl">{err}</div>}<button className="w-full bg-emerald-700 text-white py-3 rounded-xl font-semibold">Masuk</button></form><div className="mt-4 bg-slate-50 p-3 rounded-xl text-[11px]">Super Admin: admin2026 / admin2026#</div></div>
+    </div>
+    <div className="w-full max-w-5xl mt-6 bg-white rounded-[28px] shadow-2xl p-8">
+      <h3 className="font-jkt font-bold text-lg">Verifikasi Publik - Scan HP (Tanpa Login)</h3>
+      <div className="mt-4 flex gap-2"><input value={verifyInput} onChange={e=>setVerifyInput(e.target.value)} placeholder="Nomor surat / ID / URL QR" className="flex-1 px-4 py-3 border rounded-xl text-sm"/><button onClick={doVerify} className="bg-emerald-700 text-white px-6 rounded-xl text-sm">Verifikasi</button></div>
+      {verifyResult&&<div className="mt-5">{verifyResult.valid?<div className="bg-emerald-50 border-2 border-emerald-300 p-5 rounded-2xl flex gap-5"><QR value={verifyResult.surat.qr} size={120}/><div className="text-xs"><div className="font-bold text-emerald-700">✓ VALID - {verifyResult.surat.nomor}</div><div className="mt-2">ID: {verifyResult.surat.id} | QR-ID: {verifyResult.surat.qrId}<br/>URL: {verifyResult.surat.qrUrl}<br/>Waktu: {verifyResult.surat.ttdAt}</div></div></div>:<div className="bg-red-50 p-4 rounded-xl text-xs text-red-700">Tidak valid</div>}</div>}
+    </div>
+  </div>
+}
+
+function App(){
+  const [session,setSession]=useState(()=>{try{return JSON.parse(localStorage.getItem("sim_session_v35"))}catch{return null}});
+  const [users,setUsers]=useState(()=>{const s=localStorage.getItem("sim_users_v35"); if(s){try{return JSON.parse(s)}catch{return DEFAULT_USERS}} localStorage.setItem("sim_users_v35",JSON.stringify(DEFAULT_USERS)); return DEFAULT_USERS;});
+  const [surat,setSurat]=useState(()=>{const s=localStorage.getItem("sim_surat_v35"); if(s){try{return JSON.parse(s)}catch{return DUMMY}} localStorage.setItem("sim_surat_v35",JSON.stringify(DUMMY)); return DUMMY;});
+  const [page,setPage]=useState("dashboard");
+  const [jenis,setJenis]=useState("Surat Tugas");
+  const [formUmum,setFormUmum]=useState({perihal:"",tujuan:"",tgl:new Date().toISOString().slice(0,10)});
+  const [formFields,setFormFields]=useState({});
+  const [detail,setDetail]=useState(null);
+  const [newUser,setNewUser]=useState({username:"",password:"",nama:"",role:"OSIS",nip:""});
+  const [kop,setKop]=useState(()=>{const s=localStorage.getItem("sim_kop_v35"); if(s){try{return JSON.parse(s)}catch{return null}} return {nama:"MADRASAH ALIYAH NEGERI SUKOHARJO",alamat:"Jl. Raya Solo - Sukoharjo KM 12, Telp (0271) 123456 - Kode Pos 57521",email:"info@man-sukoharjo.sch.id",logoText:"MAN",logoImage:null,margin:"moderate",nipKamad:"1983060345273002",namaKamad:"Dr. Salman Masduki, Lc, M.Hum."};});
+  const [logoPreview,setLogoPreview]=useState(kop.logoImage);
+  const [printData,setPrintData]=useState(null);
+
+  useEffect(()=>localStorage.setItem("sim_surat_v35",JSON.stringify(surat)),[surat]);
+  useEffect(()=>localStorage.setItem("sim_users_v35",JSON.stringify(users)),[users]);
+  useEffect(()=>localStorage.setItem("sim_kop_v35",JSON.stringify(kop)),[kop]);
+
+  if(!session) return <Login onLogin={setSession}/>;
+  const isAdmin=session.username==="admin2026";
+  const isKamad=session.role==="Kepala Madrasah"||isAdmin;
+  const isWaka=session.role.includes("Waka");
+  const genId=()=>`MAN-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2,6).toUpperCase()}`;
+  const genNo=(j)=>{const c=surat.length+1; const kode=TEMPLATES[j]?.kode||"UMUM"; const b=new Date().toLocaleString('id-ID',{month:'short'}).toUpperCase(); return `${String(c).padStart(3,'0')}/${kode}/${session.role.slice(0,4).toUpperCase()}/MAN/${b}/2026`;};
+
+  const handleLogoUpload=e=>{
+    const file=e.target.files[0]; if(!file) return;
+    const reader=new FileReader();
+    reader.onload=ev=>{ setLogoPreview(ev.target.result); setKop({...kop,logoImage:ev.target.result}); };
+    reader.readAsDataURL(file);
+  };
+
+  const handleBuat=(isSelf=false)=>{
+    const nomor=genNo(jenis);
+    const idSurat=genId();
+    const now=new Date().toLocaleString('id-ID',{day:'2-digit',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    const qrId=isSelf?`SELF-${hashCode(nomor)}`:`DRAFT-${hashCode(nomor)}`;
+    const qrUrl=`https://man-skh.sch.id/v/${encodeURIComponent(nomor)}/${qrId}`;
+    const baru={
+      id:idSurat, nomor, jenis, perihal:formUmum.perihal, tujuan:formUmum.tujuan, tgl:formUmum.tgl,
+      pemohon:session.role, pemohonNama:session.nama, status:isSelf?"Disetujui":"Diajukan",
+      fields:{...formFields}, memo:[], disposisi:null,
+      qr:isSelf?qrUrl:null, qrId:isSelf?qrId:null, qrUrl:isSelf?qrUrl:null, ttdBy:isSelf?session.nama:null, ttdRole:isSelf?session.role:null, ttdAt:isSelf?now:null, createdBySelf:isSelf, idInternal:idSurat
+    };
+    setSurat([baru,...surat]); setPage("arsip"); setFormFields({});
+  };
+  const approve=id=>{
+    const now=new Date().toLocaleString('id-ID',{day:'2-digit',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    setSurat(surat.map(s=>{
+      if(s.id===id){
+        const qrId=`VALID-${hashCode(s.nomor)}`;
+        const qrUrl=`https://man-skh.sch.id/v/${encodeURIComponent(s.nomor)}/${qrId}`;
+        return {...s,status:"Disetujui",qr:qrUrl,qrId,qrUrl,ttdBy:kop.namaKamad||session.nama,ttdRole:session.role,ttdAt:now,createdBySelf:false};
+      }
+      return s;
+    }));
+  };
+  const periksa=id=>setSurat(surat.map(s=>s.id===id?{...s,status:"Diperiksa"}:s));
+  const tolak=id=>{const a=prompt("Alasan tolak:"); if(a) setSurat(surat.map(s=>s.id===id?{...s,status:"Ditolak",alasan:a}:s));};
+  const memoAdd=id=>{const m=prompt("Memo:"); if(m) setSurat(surat.map(s=>s.id===id?{...s,memo:[...s.memo,{dari:session.role,isi:m,tgl:new Date().toLocaleString('id-ID')}]}:s));};
+  const disposisiAdd=id=>{const t=prompt("Disposisi ke:","OSIS"); const ins=prompt("Instruksi:","Segera tindaklanjuti"); const s=prompt("Sifat:","Segera"); if(t) setSurat(surat.map(x=>x.id===id?{...x,disposisi:{tujuan:t,instruksi:ins,sifat:s,batas:new Date().toISOString().slice(0,10),dari:session.role},status:"Disposisi"}:x));};
+
+  const suratMasuk=surat.filter(s=>{if(isKamad) return ["Diajukan","Diperiksa","Disposisi"].includes(s.status); if(isWaka) return ["Diajukan","Diperiksa"].includes(s.status)&&HIERARCHY[s.pemohon]<HIERARCHY[session.role]; return true;});
+
+  const doPrint=(data)=>{
+    setPrintData(data);
+    setTimeout(()=>window.print(),300);
+  };
+
+  const SuratElegant=({data, forPrint=false})=>(
+    <div className={forPrint?"print-paper":"bg-white text-[11px] leading-relaxed flex flex-col"}>
+      <div className="content-wrap">
+      {/* KOP */}
+      <div className="flex gap-4 items-center border-b-[3px] border-black pb-3">
+        <div className="w-14 h-14 flex-shrink-0 rounded-lg flex items-center justify-center overflow-hidden bg-white border">
+          {kop.logoImage ? <img src={kop.logoImage} className="w-full h-full object-contain"/> : <span className="font-bold text-emerald-700 text-sm">{kop.logoText}</span>}
+        </div>
+        <div className="flex-1 text-center">
+          <div className="font-bold text-[13px] tracking-wide uppercase">{kop.nama}</div>
+          <div className="text-[9px] mt-0.5 leading-tight text-slate-700">{kop.alamat}<br/>{kop.email}</div>
+        </div>
+        <div className="w-14 h-14"></div>
+      </div>
+
+      {/* META */}
+      <div className="mt-5 grid grid-cols-[80px_1fr_100px_1fr] gap-1 text-[11px]">
+        <div>Nomor</div><div>: {data.nomor}</div><div className="text-right">{data.tgl}</div><div></div>
+        <div>Lamp</div><div>: -</div><div></div><div></div>
+        <div>Hal</div><div className="col-span-3">: <b>{data.perihal}</b></div>
+      </div>
+
+      <div className="mt-5 text-[11px]">
+        <div>Kepada Yth:</div>
+        <div className="font-semibold">{data.tujuan}</div>
+        <div>di Tempat</div>
+      </div>
+
+      <div className="mt-6">
+        <div className="font-bold uppercase text-center underline text-[12px]">{data.jenis}</div>
+        <div className="mt-4 space-y-2 text-justify text-[11px] leading-[1.6]">
+          {Object.entries(data.fields||{}).map(([k,v])=>(
+            <div key={k} className="flex gap-2"><span className="font-semibold capitalize min-w-[90px]">{k.replaceAll("_"," ")}:</span><span>{v}</span></div>
+          ))}
+          {!data.fields || Object.keys(data.fields).length===0 && <div className="text-slate-500">Isi surat belum lengkap</div>}
+        </div>
+      </div>
+
+      {data.disposisi&&<div className="mt-5 border border-blue-300 bg-blue-50 p-2.5 rounded text-[10px]"><b>LEMBAR DISPOSISI</b><br/>Dari {data.disposisi.dari} → Tujuan: {data.disposisi.tujuan}<br/>Instruksi: {data.disposisi.instruksi} ({data.disposisi.sifat}) - Batas: {data.disposisi.batas}</div>}
+      {data.memo?.length>0&&<div className="mt-3 space-y-1">{data.memo.map((m,i)=><div key={i} className="bg-yellow-50 border border-yellow-200 p-2 rounded text-[10px]"><b>MEMO {m.dari}:</b> {m.isi} <span className="text-slate-500">- {m.tgl}</span></div>)}</div>}
+
+      {/* TANDA TANGAN CLEAN - POSISI MANUAL - UNTUK KEPALA MADRASAH NAMA TERANG DI BAWAH QR */}
+      <div className="mt-10 flex justify-end">
+        <div className="text-center min-w-[200px]">
+          <div className="text-[11px]">Sukoharjo, {data.tgl}</div>
+          <div className="text-[11px] mt-1">{data.ttdRole?.includes("Kepala Madrasah") ? "Kepala Madrasah," : data.ttdRole||data.pemohon}</div>
+          <div className="mt-3 flex justify-center">
+            {data.qr ? <div className="p-1 bg-white border border-slate-200 rounded-lg"><QRSignature value={data.qr} size={85}/></div> : <div className="w-[85px] h-[85px] border border-dashed border-slate-300 flex items-center justify-center text-[8px] text-slate-400 rounded-lg">Belum<br/>TTD QR</div>}
+          </div>
+          {/* NAMA TERANG KEPALA MADRASAH - FIX: HANYA NAMA + NIP, TANPA TEKS NAMA TERANG */}
+          <div className="mt-3">
+            {data.ttdRole?.includes("Kepala Madrasah") ? (
+              <>
+                <div className="font-bold text-[11px]">{kop.namaKamad || "Dr. Salman Masduki, Lc, M.Hum."}</div>
+                <div className="text-[9px] text-slate-700 mt-1">NIP. {kop.nipKamad || "1983060345273002"}</div>
+              </>
+            ) : (
+              <>
+                <div className="font-bold text-[11px] underline">{data.ttdBy||data.pemohonNama}</div>
+                <div className="text-[9px] text-slate-600 mt-1">{data.ttdRole||data.pemohon}</div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+
+      </div>
+      {/* FOOTER IDENTITAS - DIPOSISIKAN LEBIH KE BAWAH MENDEKATI MARGIN MINIMAL */}
+      {data.qr && (
+        <div className="footer-verify pt-2 border-t border-slate-200 flex justify-between text-[7px] font-mono text-slate-500 leading-tight">
+          <div>ID: {data.idInternal?.slice(0,12)||data.id.slice(0,12)} • QR-ID: {data.qrId} • {data.ttdAt}</div>
+          <div className="text-right max-w-[55%] truncate">{data.qrUrl}</div>
+        </div>
+      )}
+    </div>
+  );
+
+  return <div className="min-h-screen flex">
+    <aside className="w-64 bg-slate-900 text-white p-5 flex flex-col no-print">
+      <div className="flex gap-3 items-center"><div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center overflow-hidden">{kop.logoImage?<img src={kop.logoImage} className="w-full h-full object-cover"/>:<span className="font-bold">{kop.logoText}</span>}</div><div><div className="font-bold text-sm">SIM Persuratan</div><div className="text-[10px] text-slate-400">v3.5 Print PDF</div></div></div>
+      <div className="mt-5 bg-slate-800 p-3 rounded-xl text-xs"><div className="font-semibold">{session.nama}</div><div className="text-emerald-400 text-[11px]">{session.role}</div></div>
+      <nav className="mt-5 space-y-1 text-[13px]">{[["dashboard","Dashboard"],["buat","Buat Surat (8 Template)"],["masuk",`Surat Masuk (${suratMasuk.length})`],["arsip","Arsip & QR"],["memo","Memo & Disposisi"],...(isAdmin?[["users","Manajemen User"]]:[]),["kop","Kop & Logo + Margin"]].map(([k,l])=><button key={k} onClick={()=>setPage(k)} className={`w-full text-left px-3 py-2.5 rounded-xl ${page===k?"bg-emerald-600":"hover:bg-slate-800 text-slate-300"}`}>{l}</button>)}</nav>
+      <button onClick={()=>{localStorage.removeItem("sim_session_v35"); setSession(null);}} className="mt-auto bg-slate-800 py-2.5 rounded-xl text-sm">Logout</button>
+    </aside>
+
+    <main className="flex-1 bg-slate-50 p-6 overflow-auto">
+      {page==="dashboard"&&<div><h1 className="font-jkt text-2xl font-bold">Dashboard {session.role}</h1><div className="grid grid-cols-4 gap-4 mt-5"><div className="bg-white p-5 rounded-2xl border"><div className="text-xs">Total Surat</div><div className="text-2xl font-bold">{surat.length}</div></div><div className="bg-white p-5 rounded-2xl border"><div className="text-xs">Perlu Periksa</div><div className="text-2xl font-bold text-amber-600">{surat.filter(s=>s.status==="Diajukan").length}</div></div><div className="bg-white p-5 rounded-2xl border"><div className="text-xs">QR Clean</div><div className="text-2xl font-bold text-emerald-600">{surat.filter(s=>s.qr).length}</div></div><div className="bg-white p-5 rounded-2xl border"><div className="text-xs">Siap Print PDF</div><div className="text-2xl font-bold">{surat.filter(s=>s.qr).length}</div></div></div>
+        <div className="mt-6 bg-white p-5 rounded-2xl border"><h3 className="font-semibold text-sm">Fitur Print PDF Elegant - Margin Moderate</h3><p className="text-xs text-slate-600 mt-2">Margin: Top 2.5cm, Left 2.5cm, Right 2cm, Bottom 2cm (moderate) → surat tampak elegan, tidak mepet. Footer verifikasi dibuat kecil simpel tanpa QR (hanya ID, QR-ID, waktu, URL). QR TTD clean tetap di posisi ttd manual pojok kanan bawah.</p></div>
+      </div>}
+
+      {page==="buat"&&<div className="grid lg:grid-cols-[1fr_480px] gap-6"><div className="bg-white p-6 rounded-2xl border"><h2 className="font-bold">Buat Surat - Print PDF Elegant</h2><div className="mt-4 grid grid-cols-2 gap-3"><select value={jenis} onChange={e=>{setJenis(e.target.value); setFormFields({});}} className="px-3 py-2.5 border rounded-xl text-sm">{Object.keys(TEMPLATES).map(t=><option key={t}>{t}</option>)}</select><input type="date" value={formUmum.tgl} onChange={e=>setFormUmum({...formUmum,tgl:e.target.value})} className="px-3 py-2.5 border rounded-xl text-sm"/></div><div className="mt-3 grid grid-cols-2 gap-3"><input value={formUmum.perihal} onChange={e=>setFormUmum({...formUmum,perihal:e.target.value})} placeholder="Perihal" className="px-3 py-2.5 border rounded-xl text-sm"/><input value={formUmum.tujuan} onChange={e=>setFormUmum({...formUmum,tujuan:e.target.value})} placeholder="Tujuan" className="px-3 py-2.5 border rounded-xl text-sm"/></div><div className="mt-4 space-y-3">{TEMPLATES[jenis].fields.map(f=><div key={f}><label className="text-[11px] font-semibold uppercase">{f.replaceAll("_"," ")}</label><textarea value={formFields[f]||""} onChange={e=>setFormFields({...formFields,[f]:e.target.value})} rows={2} placeholder={f.replaceAll("_"," ")} className="w-full mt-1 px-3 py-2.5 border rounded-xl text-sm"/></div>)}</div><div className="mt-5 grid grid-cols-2 gap-3"><button onClick={()=>handleBuat(false)} className="bg-slate-900 text-white py-3 rounded-xl text-sm font-semibold">Ajukan ke Atasan</button><button onClick={()=>handleBuat(true)} className="bg-emerald-700 text-white py-3 rounded-xl text-sm font-semibold">Buat & TTD QR Sendiri</button></div></div><div className="bg-slate-100 p-4 rounded-2xl border"><div className="text-xs font-semibold flex justify-between"><span>Preview Elegant - Margin Moderate</span><button onClick={()=>doPrint({nomor:genNo(jenis),jenis,perihal:formUmum.perihal||"Perihal",tujuan:formUmum.tujuan||"Tujuan",tgl:formUmum.tgl,fields:formFields,qr:`https://man-skh.sch.id/v/${genNo(jenis)}/PREVIEW`,qrId:"PREVIEW",qrUrl:`https://man-skh.sch.id/v/${genNo(jenis)}`,ttdBy:session.nama,ttdRole:session.role,ttdAt:new Date().toLocaleString('id-ID'),pemohonNama:session.nama,idInternal:"PREVIEW",createdBySelf:true})} className="bg-slate-900 text-white px-3 py-1 rounded-lg text-[10px]">Print PDF</button></div><div className="mt-3 bg-white shadow-sm p-2"><SuratElegant data={{nomor:genNo(jenis),jenis,perihal:formUmum.perihal||"Perihal Surat",tujuan:formUmum.tujuan||"Tujuan",tgl:formUmum.tgl,fields:formFields,qr:`https://man-skh.sch.id/v/${genNo(jenis)}/PREVIEW`,qrId:"PREVIEW",qrUrl:`https://man-skh.sch.id/v/${genNo(jenis)}`,ttdBy:session.nama,ttdRole:session.role,ttdAt:new Date().toLocaleString('id-ID'),pemohonNama:session.nama,idInternal:"PREVIEW-ID",createdBySelf:true}}/></div></div></div>}
+
+      {page==="masuk"&&<div className="bg-white p-6 rounded-2xl border"><h2 className="font-bold">Periksa Surat Bawahan</h2><div className="mt-4 space-y-3">{suratMasuk.map(s=><div key={s.id} className="border rounded-xl p-4 text-sm"><div className="flex justify-between"><div><b className="font-mono text-xs">{s.nomor}</b><div className="font-semibold">{s.perihal} - {s.jenis}</div><div className="text-xs text-slate-500">{s.pemohon} • {s.status}</div></div>{s.qr&&<QRSignature value={s.qr} size={60}/>}</div><div className="mt-2 bg-slate-50 p-2 rounded text-xs">{Object.entries(s.fields||{}).map(([k,v])=><div key={k}><b>{k}:</b> {v}</div>)}</div><div className="mt-3 flex gap-2 flex-wrap"><button onClick={()=>memoAdd(s.id)} className="px-3 py-1.5 bg-yellow-100 rounded-lg text-xs">Memo</button><button onClick={()=>disposisiAdd(s.id)} className="px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs">Disposisi</button>{(isWaka||isKamad)&&s.status==="Diajukan"&&<button onClick={()=>periksa(s.id)} className="px-3 py-1.5 bg-amber-600 text-white rounded-lg text-xs">Periksa</button>}{isKamad&&s.status!=="Disetujui"&&<><button onClick={()=>approve(s.id)} className="px-3 py-1.5 bg-emerald-600 text-white rounded-lg text-xs">✓ TTD QR Clean</button><button onClick={()=>tolak(s.id)} className="px-3 py-1.5 bg-red-600 text-white rounded-lg text-xs">Tolak</button></>}<button onClick={()=>setDetail(s)} className="px-3 py-1.5 bg-slate-100 rounded-lg text-xs">Detail</button><button onClick={()=>doPrint(s)} className="px-3 py-1.5 bg-slate-900 text-white rounded-lg text-xs">Print PDF</button></div></div>)}</div></div>}
+
+      {page==="arsip"&&<div className="bg-white p-6 rounded-2xl border"><h2 className="font-bold">Arsip - Print PDF Elegant</h2><p className="text-xs text-slate-500 mt-1">Margin moderate (Top 2.5cm, Left 2.5cm, Right 2cm, Bottom 2cm) • Footer kecil simpel tanpa QR</p><table className="w-full text-xs mt-4"><thead><tr className="border-b text-left text-slate-500"><th>Nomor</th><th>Template</th><th>Status</th><th>QR Clean</th><th>Aksi</th></tr></thead><tbody>{surat.map(s=><tr key={s.id} className="border-b hover:bg-slate-50"><td className="font-mono py-2">{s.nomor}</td><td>{s.jenis}</td><td>{s.status}</td><td>{s.qr?<QRSignature value={s.qr} size={32}/>:"-"}</td><td className="flex gap-1 py-1"><button onClick={()=>setDetail(s)} className="px-2 py-1 bg-slate-100 rounded">Detail</button><button onClick={()=>doPrint(s)} className="px-2 py-1 bg-slate-900 text-white rounded">Print PDF</button></td></tr>)}</tbody></table></div>}
+
+      {page==="memo"&&<div className="bg-white p-6 rounded-2xl border"><h2 className="font-bold">Memo & Disposisi</h2><div className="mt-4 space-y-3">{surat.filter(s=>s.memo.length>0||s.disposisi).map(s=><div key={s.id} className="border rounded-xl p-3 text-xs"><b>{s.nomor}</b> - {s.perihal}{s.memo.map((m,i)=><div key={i} className="mt-1 bg-yellow-50 p-2 rounded">MEMO {m.dari}: {m.isi}</div>)}{s.disposisi&&<div className="mt-1 bg-blue-50 p-2 rounded">DISPOSISI ke {s.disposisi.tujuan}: {s.disposisi.instruksi}</div>}</div>)}</div></div>}
+
+      {page==="users"&&isAdmin&&<div><h2 className="font-bold">Manajemen User</h2><div className="grid lg:grid-cols-[300px_1fr] gap-6 mt-4"><div className="bg-white p-5 rounded-2xl border"><h3 className="text-sm font-semibold">Tambah User</h3><form onSubmit={e=>{e.preventDefault(); if(users.find(u=>u.username===newUser.username)){alert("Username ada");return;} setUsers([...users,{id:Date.now().toString(),...newUser,aktif:true}]); setNewUser({username:"",password:"",nama:"",role:"OSIS",nip:""});}} className="mt-3 space-y-2"><input value={newUser.username} onChange={e=>setNewUser({...newUser,username:e.target.value})} required placeholder="Username" className="w-full px-3 py-2.5 border rounded-xl text-sm"/><input value={newUser.password} onChange={e=>setNewUser({...newUser,password:e.target.value})} required placeholder="Password" className="w-full px-3 py-2.5 border rounded-xl text-sm"/><input value={newUser.nama} onChange={e=>setNewUser({...newUser,nama:e.target.value})} required placeholder="Nama" className="w-full px-3 py-2.5 border rounded-xl text-sm"/><select value={newUser.role} onChange={e=>setNewUser({...newUser,role:e.target.value})} className="w-full px-3 py-2.5 border rounded-xl text-sm">{ROLES.map(r=><option key={r}>{r}</option>)}</select><button className="w-full bg-emerald-700 text-white py-2.5 rounded-xl text-sm">Simpan</button></form></div><div className="bg-white p-5 rounded-2xl border overflow-auto"><table className="w-full text-xs"><thead><tr className="border-b text-left"><th>User</th><th>Role</th><th>Aksi</th></tr></thead><tbody>{users.map(u=><tr key={u.id} className="border-b"><td className="py-2 font-mono">{u.username} - {u.nama}</td><td>{u.role}</td><td><button onClick={()=>{if(u.username==="admin2026")return alert("Tidak bisa"); setUsers(users.filter(x=>x.id!==u.id))}} className="px-2 py-1 bg-red-50 text-red-600 rounded">Hapus</button></td></tr>)}</tbody></table></div></div></div>}
+
+      {page==="kop"&&<div className="grid lg:grid-cols-[380px_1fr] gap-6"><div className="bg-white p-6 rounded-2xl border"><h2 className="font-bold">Pengaturan Kop Surat, Logo & Margin</h2><div className="mt-5 space-y-4"><div><label className="text-xs font-semibold">Nama Madrasah</label><input value={kop.nama} onChange={e=>setKop({...kop,nama:e.target.value})} className="w-full mt-1 px-3 py-2.5 border rounded-xl text-sm"/></div><div><label className="text-xs font-semibold">Alamat Lengkap</label><textarea value={kop.alamat} onChange={e=>setKop({...kop,alamat:e.target.value})} rows={2} className="w-full mt-1 px-3 py-2.5 border rounded-xl text-sm"/></div><div><label className="text-xs font-semibold">Email / Kontak</label><input value={kop.email} onChange={e=>setKop({...kop,email:e.target.value})} className="w-full mt-1 px-3 py-2.5 border rounded-xl text-sm"/></div><div className="grid grid-cols-2 gap-3"><div><label className="text-xs font-semibold">Nama Terang Kepala Madrasah</label><input value={kop.namaKamad||""} onChange={e=>setKop({...kop,namaKamad:e.target.value})} placeholder="Dr. H. Ahmad Fauzi, M.Pd" className="w-full mt-1 px-3 py-2.5 border rounded-xl text-sm"/></div><div><label className="text-xs font-semibold">NIP Kepala Madrasah</label><input value={kop.nipKamad||""} onChange={e=>setKop({...kop,nipKamad:e.target.value})} placeholder="19650101 199001 1 001" className="w-full mt-1 px-3 py-2.5 border rounded-xl text-sm"/></div></div><div><label className="text-xs font-semibold">Teks Logo (jika tanpa gambar)</label><input value={kop.logoText} onChange={e=>setKop({...kop,logoText:e.target.value})} className="w-full mt-1 px-3 py-2.5 border rounded-xl text-sm"/></div><div><label className="text-xs font-semibold">Upload Logo Madrasah</label><input type="file" accept="image/*" onChange={e=>{const f=e.target.files[0]; if(!f)return; const r=new FileReader(); r.onload=ev=>{setLogoPreview(ev.target.result); setKop({...kop,logoImage:ev.target.result});}; r.readAsDataURL(f);}} className="w-full mt-1 px-3 py-2.5 border rounded-xl text-sm"/><div className="mt-2 flex gap-3 items-center"><div className="w-16 h-16 bg-emerald-50 border rounded-xl flex items-center justify-center overflow-hidden">{logoPreview?<img src={logoPreview} className="w-full h-full object-contain"/>:<span className="font-bold text-emerald-700">{kop.logoText}</span>}</div><div className="text-[11px] text-slate-500">Logo tampil di kop kiri atas.<br/><button onClick={()=>{setKop({...kop,logoImage:null}); setLogoPreview(null);}} className="mt-1 text-red-600">Hapus Logo</button></div></div></div><div><label className="text-xs font-semibold">Setting Margin Print PDF</label><select value={kop.margin} onChange={e=>setKop({...kop,margin:e.target.value})} className="w-full mt-1 px-3 py-2.5 border rounded-xl text-sm"><option value="moderate">Moderate Elegant (2.5cm, 2.5cm, 2cm, 2cm) - Rekomendasi</option><option value="narrow">Narrow (1.5cm semua)</option><option value="wide">Wide (3cm semua)</option></select><div className="mt-2 bg-emerald-50 p-3 rounded-xl text-[11px]">✓ Margin Moderate: Top 2.5cm, Left 2.5cm, Right 2cm, Bottom 2cm → tampak elegan, tidak mepet, sesuai surat dinas resmi. Footer verifikasi kecil simpel tanpa QR, hanya ID, QR-ID, waktu, URL.</div></div></div></div><div className="bg-slate-100 p-4 rounded-2xl border"><div className="text-xs font-semibold mb-3 flex justify-between"><span>Preview Elegant + Print</span><button onClick={()=>doPrint({nomor:"001/ST/OSIS/MAN/IX/2026",jenis:"Surat Tugas",perihal:"Contoh",tujuan:"Siswa",tgl:new Date().toISOString().slice(0,10),fields:{dasar:"Program Kerja",menugaskan:"Ahmad",untuk:"Lomba",waktu:"20 Sept"},qr:"https://man-skh.sch.id/v/001-ST/VALID-123",qrId:"VALID-123",qrUrl:"https://man-skh.sch.id/v/001-ST/VALID-123",ttdBy:"Kepala Madrasah",ttdRole:"Kepala Madrasah",ttdAt:new Date().toLocaleString('id-ID'),pemohonNama:"OSIS",idInternal:"MAN-ABC123"})} className="bg-slate-900 text-white px-3 py-1 rounded-lg text-[10px]">Test Print PDF</button></div><div className="bg-white shadow-sm"><SuratElegant data={{nomor:"001/ST/OSIS/MAN/IX/2026",jenis:"Surat Tugas",perihal:"Contoh Perihal",tujuan:"Siswa",tgl:new Date().toISOString().slice(0,10),fields:{dasar:"Program Kerja",menugaskan:"Ahmad",untuk:"Lomba",waktu:"20 Sept"},qr:"https://man-skh.sch.id/v/001-ST/VALID-123",qrId:"VALID-123",qrUrl:"https://man-skh.sch.id/v/001-ST/VALID-123",ttdBy:"Kepala Madrasah",ttdRole:"Kepala Madrasah",ttdAt:new Date().toLocaleString('id-ID'),pemohonNama:"OSIS",idInternal:"MAN-ABC123"}}/></div></div></div>}
+
+      {detail&&<div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50" onClick={()=>setDetail(null)}><div className="bg-slate-100 p-4 rounded-2xl max-w-[560px] w-full max-h-[92vh] overflow-auto" onClick={e=>e.stopPropagation()}><div className="flex justify-between mb-3"><h3 className="font-bold text-sm">Detail + Print PDF Elegant</h3><div className="flex gap-2"><button onClick={()=>doPrint(detail)} className="text-xs bg-slate-900 text-white px-3 py-1 rounded-full">Print PDF</button><button onClick={()=>setDetail(null)} className="text-xs bg-slate-200 px-3 py-1 rounded-full">Tutup</button></div></div><SuratElegant data={detail}/><div className="mt-3 bg-white p-3 rounded-xl border text-[10px] font-mono"><div>ID: {detail.idInternal} | QR-ID: {detail.qrId}</div><div className="mt-1 break-all">URL: {detail.qrUrl}</div><div className="mt-2 flex justify-center"><QR value={detail.qr} size={140}/></div></div></div></div>}
+
+      {/* PRINT AREA - Hidden, only visible when printing */}
+      <div id="print-area" className="hidden print:block">
+        {printData&&<SuratElegant data={printData}/>}
+      </div>
+    </main>
+  </div>
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>
