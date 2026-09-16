@@ -1,6 +1,32 @@
 {
-  "updatedAt": "2026-09-15T14:53:30.279Z",
+  "updatedAt": "2026-09-16T12:30:45.034Z",
   "apps": [
+    {
+      "id": "mu42wroi",
+      "name": "Ulangan Bab Atom dan Konfigurasi Elektron",
+      "url": "./apps/cbtkimia30.html",
+      "description": "Ujian CBT Ulangan Bab Atom dan Konfigurasi Elektron",
+      "category": "Umum",
+      "icon": "🔗",
+      "color": "#8b5cf6",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789561832994
+    },
+    {
+      "id": "mu42uxs1",
+      "name": "Who Want to be Millionare Chemistry",
+      "url": "./apps/whowantkimia.html",
+      "description": "Game edukasi Who Want to be Millionare Chemistry",
+      "category": "Desain",
+      "icon": "✅",
+      "color": "#8b5cf6",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1789561747585
+    },
     {
       "id": "mu2skg2b",
       "name": "SIM Persuratan Madrasah",
@@ -128,7 +154,7 @@
       "color": "#450fc2",
       "pinned": false,
       "favorite": false,
-      "clicks": 0,
+      "clicks": 2,
       "createdAt": 1789302521816
     },
     {
