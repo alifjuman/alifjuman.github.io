@@ -1,29 +1,18 @@
 0 HEAD
-1 SOUR FamilyGTG
-2 NAME FamilyGTG (free)
-2 VERS 1.3.9.1
-2 CORP FamilyGTG Inc.
-1 GEDC
-2 VERS 5.5.1
-2 FORM LINEAGE-LINKED
+1 SOUR SILSILAH-v11
 1 CHAR UTF-8
-1 DATE 05 Jan 2023
-1 FILE Silsilah.okt.2019_2023_01_05.ged
-1 NOTE Created by FamilyGTG app.
 0 @I1@ INDI
 1 NAME Alif /Jum'an/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 04 JANUARI 1980
 2 PLAC Cilacap
-1 NOTE Salah satu sukarelawan yang mengetik SILSILAH ini, terutama keluarga Mlangi Yogyakarta(akhir 2009)
-2 CONT Mencatat juga silsilah keluarga Kromoijoyo (keturunan ke 11) dari Ki Ageng Giring di Akhir April 2010
 1 FAMC @I2_GTG_I3@
 1 FAMS @I1_GTG_I320@
 0 @I10@ INDI
 1 NAME Astuti /Baroroh/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1967
 2 PLAC Cilacap
 1 FAMC @I2_GTG_I3@
@@ -32,16 +21,17 @@
 1 NAME Muhammad /Yunus/
 1 SEX M
 1 FAMC @I146_GTG_UN@
+1 FAMS @I100_GTG_UN@
 0 @I1000@ INDI
-1 NAME /Masduk/
+1 NAME Masduk /Masduk/
 1 SEX M
 1 FAMC @I922_GTG_I999@
 0 @I1001@ INDI
-1 NAME /Falah/
+1 NAME Falah /Falah/
 1 SEX M
 1 FAMC @I922_GTG_I999@
 0 @I1002@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMC @I922_GTG_I999@
 0 @I1003@ INDI
@@ -49,134 +39,139 @@
 1 SEX M
 1 FAMC @I935_GTG_I939@
 0 @I1004@ INDI
-1 NAME /Sholikhah/
+1 NAME Sholikhah /Sholikhah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Bantul
 1 FAMS @I682_GTG_I1004@
 0 @I1005@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMC @I1006_GTG_UN@
 1 FAMS @I1005_GTG_I1010@
 0 @I1006@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
+1 FAMS @I1006_GTG_UN@
 0 @I1007@ INDI
-1 NAME /Muhyi/
+1 NAME Muhyi /Muhyi/
 1 SEX M
 1 FAMC @I1006_GTG_UN@
 1 FAMS @I1007_GTG_I1009@
 0 @I1008@ INDI
 1 NAME Syamsul /Huda/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1979
 2 PLAC Kulonprogo
 1 FAMC @I1007_GTG_I1009@
 0 @I1009@ INDI
-1 NAME /Fulanah/
+1 NAME Fulanah /Fulanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @UN_GTG_I1011@
 1 FAMS @I1007_GTG_I1009@
 0 @I101@ INDI
-1 NAME /Homrowi/
+1 NAME Homrowi /Homrowi/
 1 SEX M
 1 FAMS @I101_GTG_I82@
 0 @I1010@ INDI
-1 NAME /Fulanah/
+1 NAME Fulanah /Fulanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @UN_GTG_I1011@
 1 FAMS @I1005_GTG_I1010@
 0 @I1011@ INDI
-1 NAME /Nuroniyah/
+1 NAME Nuroniyah /Nuroniyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
+1 FAMS @UN_GTG_I1011@
 0 @I1012@ INDI
-1 NAME /Maksud/
+1 NAME Maksud /Maksud/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @UN_GTG_I1011@
 1 FAMS @I1012_GTG_I1013@
 0 @I1013@ INDI
-1 NAME /Itun/
+1 NAME Itun /Itun/
 1 SEX F
 1 FAMC @I1014_GTG_UN@
 1 FAMS @I1012_GTG_I1013@
 0 @I1014@ INDI
-1 NAME /Marzuki/
+1 NAME Marzuki /Marzuki/
 1 SEX M
+1 FAMS @I1014_GTG_UN@
 0 @I1015@ INDI
-1 NAME /Fanani/
+1 NAME Fanani /Fanani/
 1 SEX M
 1 FAMC @I1012_GTG_I1013@
 0 @I1016@ INDI
-1 NAME /Umamah/
+1 NAME Umamah /Umamah/
 1 SEX F
 1 FAMC @I325_GTG_UN@
+1 FAMS @UN_GTG_I1016@
 0 @I1017@ INDI
-1 NAME /Tasrifudin/
+1 NAME Tasrifudin /Tasrifudin/
 1 SEX M
 1 FAMC @UN_GTG_I1016@
 1 FAMS @I1017_GTG_I1018@
 0 @I1018@ INDI
-1 NAME /Jum/
+1 NAME Jum /Jum/
 1 SEX F
 1 FAMS @I1017_GTG_I1018@
 0 @I1019@ INDI
-1 NAME /Karim/
+1 NAME Karim /Karim/
 1 SEX M
 1 FAMC @I1017_GTG_I1018@
 0 @I102@ INDI
-1 NAME /Rokhibah/
+1 NAME Rokhibah /Rokhibah/
 1 SEX F
 1 FAMC @I101_GTG_I82@
 1 FAMS @I103_GTG_I102@
 0 @I1020@ INDI
-1 NAME /Laela/
+1 NAME Laela /Laela/
 1 SEX F
 1 FAMC @I1017_GTG_I1018@
 0 @I1021@ INDI
-1 NAME /Imu'/
+1 NAME Imu' /Imu'/
 1 SEX F
 1 FAMC @I1017_GTG_I1018@
 0 @I1022@ INDI
-1 NAME /Abror/
+1 NAME Abror /Abror/
 1 SEX M
 1 FAMC @I1017_GTG_I1018@
 0 @I1023@ INDI
-1 NAME /Fulanah/
+1 NAME Fulanah /Fulanah/
 1 SEX F
 1 FAMC @I1017_GTG_I1018@
 0 @I1024@ INDI
-1 NAME /Syamsiyah/
+1 NAME Syamsiyah /Syamsiyah/
 1 SEX F
 1 FAMC @UN_GTG_I1016@
+1 FAMS @UN_GTG_I1024@
 0 @I1025@ INDI
-1 NAME /Urip/
+1 NAME Urip /Urip/
 1 SEX F
 1 FAMC @UN_GTG_I1016@
 0 @I1026@ INDI
-1 NAME /Shofan/
+1 NAME Shofan /Shofan/
 1 SEX M
 1 FAMC @UN_GTG_I1016@
 1 FAMS @I1026_GTG_I1029@
 0 @I1027@ INDI
-1 NAME /Rudin/
+1 NAME Rudin /Rudin/
 1 SEX M
 1 FAMC @UN_GTG_I1024@
 0 @I1028@ INDI
-1 NAME /Iswari/
+1 NAME Iswari /Iswari/
 1 SEX F
 1 FAMC @UN_GTG_I1024@
 0 @I1029@ INDI
-1 NAME /Rodiyah/
+1 NAME Rodiyah /Rodiyah/
 1 SEX F
 1 FAMS @I1026_GTG_I1029@
 0 @I103@ INDI
@@ -185,89 +180,91 @@
 1 FAMC @I238_GTG_I151@
 1 FAMS @I103_GTG_I102@
 0 @I1030@ INDI
-1 NAME /Dawamah/
+1 NAME Dawamah /Dawamah/
 1 SEX F
 1 FAMC @I1026_GTG_I1029@
 1 FAMS @I1035_GTG_I1030@
 0 @I1031@ INDI
-1 NAME /Muslim/
+1 NAME Muslim /Muslim/
 1 SEX M
 1 FAMC @I1026_GTG_I1029@
 0 @I1032@ INDI
-1 NAME /Musyrifah/
+1 NAME Musyrifah /Musyrifah/
 1 SEX F
 1 FAMC @I1026_GTG_I1029@
 1 FAMS @I1038_GTG_I1032@
 0 @I1033@ INDI
-1 NAME /Dalifah/
+1 NAME Dalifah /Dalifah/
 1 SEX F
 1 FAMC @I1026_GTG_I1029@
 0 @I1034@ INDI
-1 NAME /As'ad/
+1 NAME As'ad /As'ad/
 1 SEX M
 1 FAMC @I1026_GTG_I1029@
 0 @I1035@ INDI
-1 NAME /Istisqo'/
+1 NAME Istisqo' /Istisqo'/
 1 SEX M
 1 FAMS @I1035_GTG_I1030@
 0 @I1036@ INDI
-1 NAME /Ulil/
+1 NAME Ulil /Ulil/
 1 SEX F
 1 FAMC @I1035_GTG_I1030@
 0 @I1037@ INDI
-1 NAME /Inas/
+1 NAME Inas /Inas/
 1 SEX F
 1 FAMC @I1035_GTG_I1030@
 0 @I1038@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMS @I1038_GTG_I1032@
 0 @I1039@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
+1 FAMS @I1039_GTG_UN@
 0 @I104@ INDI
 1 NAME Inarotut /Taufiqiyah/
 1 SEX F
 1 FAMC @I103_GTG_I102@
 1 FAMS @I245_GTG_I104@
 0 @I1040@ INDI
-1 NAME /H.Wajizi/
+1 NAME H.Wajizi /H.Wajizi/
 1 SEX M
 1 FAMC @I1039_GTG_UN@
+1 FAMS @I1040_GTG_UN@
 0 @I1041@ INDI
-1 NAME /KH.Qothrul/
+1 NAME KH.Qothrul /KH.Qothrul/
 1 SEX M
 1 FAMC @I1039_GTG_UN@
 0 @I1042@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMC @I1039_GTG_UN@
 0 @I1043@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMC @I1039_GTG_UN@
 0 @I1044@ INDI
-1 NAME /Ghufron/
+1 NAME Ghufron /Ghufron/
 1 SEX M
 1 FAMC @I1040_GTG_UN@
 0 @I1045@ INDI
-1 NAME /Malik/
+1 NAME Malik /Malik/
 1 SEX M
 1 FAMC @I1040_GTG_UN@
 0 @I1046@ INDI
-1 NAME /Faris/
+1 NAME Faris /Faris/
 1 SEX M
 1 FAMC @I673_GTG_I674@
 0 @I1047@ INDI
-1 NAME /Bandiyah/
+1 NAME Bandiyah /Bandiyah/
 1 SEX F
 1 FAMS @I359_GTG_I1047@
 0 @I1048@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMS @I1048_GTG_I1049@
 0 @I1049@ INDI
-1 NAME /Fulanah/
+1 NAME Fulanah /Fulanah/
 1 SEX F
 1 FAMC @I1050_GTG_UN@
 1 FAMS @I1048_GTG_I1049@
@@ -277,35 +274,36 @@
 1 FAMC @I103_GTG_I102@
 1 FAMS @I247_GTG_I105@
 0 @I1050@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
+1 FAMS @I1050_GTG_UN@
 0 @I1051@ INDI
 1 NAME Mudari /Rohman/
 1 SEX M
 1 FAMC @I1050_GTG_UN@
 1 FAMS @I1051_GTG_I1052@
 0 @I1052@ INDI
-1 NAME /Jami'/
+1 NAME Jami' /Jami'/
 1 SEX F
 1 FAMS @I1051_GTG_I1052@
 0 @I1053@ INDI
-1 NAME /Imuf/
+1 NAME Imuf /Imuf/
 1 SEX F
 1 FAMC @I1051_GTG_I1052@
 0 @I1054@ INDI
-1 NAME /Inung/
+1 NAME Inung /Inung/
 1 SEX F
 1 FAMC @I1051_GTG_I1052@
 0 @I1055@ INDI
-1 NAME /Rokhim/
+1 NAME Rokhim /Rokhim/
 1 SEX M
 1 FAMC @I1051_GTG_I1052@
 0 @I1056@ INDI
-1 NAME /Tajib/
+1 NAME Tajib /Tajib/
 1 SEX M
 1 FAMC @I1051_GTG_I1052@
 0 @I1057@ INDI
-1 NAME /Rofi'/
+1 NAME Rofi' /Rofi'/
 1 SEX F
 1 FAMC @I1051_GTG_I1052@
 0 @I1058@ INDI
@@ -321,7 +319,7 @@
 0 @I106@ INDI
 1 NAME Faqih /Jalaluddin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I103_GTG_I102@
 0 @I1060@ INDI
@@ -329,49 +327,52 @@
 1 SEX F
 1 FAMC @I1051_GTG_I1052@
 0 @I1061@ INDI
-1 NAME /Malin/
+1 NAME Malin /Malin/
 1 SEX F
 1 FAMC @I1051_GTG_I1052@
 0 @I1062@ INDI
-1 NAME /Uum/
+1 NAME Uum /Uum/
 1 SEX F
 1 FAMC @I1051_GTG_I1052@
 0 @I1063@ INDI
-1 NAME /Nisa'/
+1 NAME Nisa' /Nisa'/
 1 SEX F
 1 FAMC @I1051_GTG_I1052@
 0 @I1064@ INDI
-1 NAME /Syamsuri/
+1 NAME Syamsuri /Syamsuri/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Bantul
 1 FAMC @I1065_GTG_UN@
 1 FAMS @I1064_GTG_I1059@
 0 @I1065@ INDI
 1 NAME Muhammad /Muhari/
 1 SEX M
+1 FAMS @I1065_GTG_UN@
 0 @I1066@ INDI
 1 NAME Muslikhatin Khoiriyah /Mahmudah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Oku Sumsel
 1 FAMC @I1067_GTG_UN@
 1 FAMS @I1058_GTG_I1066@
 0 @I1067@ INDI
 1 NAME H.Ahmad /Fadholi/
 1 SEX M
+1 FAMS @I1067_GTG_UN@
 0 @I1068@ INDI
-1 NAME /Hasyim/
+1 NAME Hasyim /Hasyim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Gersik
+1 FAMS @I1068_GTG_UN@
 0 @I1069@ INDI
-1 NAME /Zul/
+1 NAME Zul /Zul/
 1 SEX F
 1 FAMC @I1068_GTG_UN@
 1 FAMS @I1073_GTG_I1069@
 0 @I107@ INDI
-1 NAME Ziaul Haq
+1 NAME Ziaul /Haq/
 1 SEX M
 1 FAMC @I451_GTG_UN@
 0 @I1070@ INDI
@@ -380,29 +381,29 @@
 1 FAMC @I1068_GTG_UN@
 1 FAMS @I1070_GTG_I1074@
 0 @I1071@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMC @I1068_GTG_UN@
 0 @I1072@ INDI
-1 NAME /Mas'adah/
+1 NAME Mas'adah /Mas'adah/
 1 SEX F
 1 FAMC @I1068_GTG_UN@
 0 @I1073@ INDI
-1 NAME /Rokhamin/
+1 NAME Rokhamin /Rokhamin/
 1 SEX M
 1 FAMS @I1073_GTG_I1069@
 0 @I1074@ INDI
-1 NAME /Lifah/
+1 NAME Lifah /Lifah/
 1 SEX F
 1 FAMS @I1070_GTG_I1074@
 0 @I1075@ INDI
-1 NAME /Karina/
+1 NAME Karina /Karina/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I1070_GTG_I1074@
 0 @I1076@ INDI
-1 NAME /Fulanah/
+1 NAME Fulanah /Fulanah/
 1 SEX F
 1 FAMC @I1070_GTG_I1074@
 0 @I1077@ INDI
@@ -410,153 +411,152 @@
 1 SEX M
 1 FAMS @I1077_GTG_I1078@
 0 @I1078@ INDI
-1 NAME /Fulanah/
+1 NAME Fulanah /Fulanah/
 1 SEX F
 1 FAMS @I1077_GTG_I1078@
 0 @I1079@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMS @I1079_GTG_I605@
 0 @I108@ INDI
-1 NAME /Karsono/
+1 NAME Karsono /Karsono/
 1 SEX M
 1 FAMS @I108_GTG_I73@
 0 @I1080@ INDI
-1 NAME /Suroh/
+1 NAME Suroh /Suroh/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I1081_GTG_I1082@
 1 FAMS @I923_GTG_I1080@
 0 @I1081@ INDI
 1 NAME KH.Mukhtar /Dawam/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMS @I1081_GTG_I1082@
 0 @I1082@ INDI
-1 NAME /Badriyah/
+1 NAME Badriyah /Badriyah/
 1 SEX F
 1 FAMS @I1081_GTG_I1082@
 0 @I1083@ INDI
-1 NAME /Mufrod/
+1 NAME Mufrod /Mufrod/
 1 SEX M
 1 FAMC @I1081_GTG_I1082@
 0 @I1084@ INDI
-1 NAME /Muslih/
+1 NAME Muslih /Muslih/
 1 SEX M
 1 FAMC @I1081_GTG_I1082@
 0 @I1085@ INDI
-1 NAME /Imron/
+1 NAME Imron /Imron/
 1 SEX M
 1 FAMC @I1081_GTG_I1082@
 0 @I1086@ INDI
-1 NAME /Yafan/
+1 NAME Yafan /Yafan/
 1 SEX M
 1 FAMC @I1081_GTG_I1082@
 0 @I1087@ INDI
-1 NAME /Inayah/
+1 NAME Inayah /Inayah/
 1 SEX F
 1 FAMC @I1081_GTG_I1082@
 1 FAMS @I1089_GTG_I1087@
 0 @I1088@ INDI
-1 NAME /Khirza/
+1 NAME Khirza /Khirza/
 1 SEX M
 1 FAMC @I1081_GTG_I1082@
 0 @I1089@ INDI
-1 NAME /Memed/
+1 NAME Memed /Memed/
 1 SEX M
 1 FAMS @I1089_GTG_I1087@
 0 @I109@ INDI
-1 NAME /Sugiyarti/
+1 NAME Sugiyarti /Sugiyarti/
 1 SEX F
 1 FAMS @I74_GTG_I109@
 0 @I1090@ INDI
-1 NAME /Waringi/
+1 NAME Waringi /Waringi/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
-1 DEAT 
+1 DEAT
 2 DATE BALITA
 1 FAMC @I332_GTG_I860@
 0 @I1091@ INDI
-1 NAME /Khotijah/
+1 NAME Khotijah /Khotijah/
 1 SEX F
 1 FAMC @I1068_GTG_UN@
 0 @I1092@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMC @I1068_GTG_UN@
 0 @I1093@ INDI
-1 NAME /Tarwiyah/
+1 NAME Tarwiyah /Tarwiyah/
 1 SEX F
 1 FAMS @I1094_GTG_I1093@
 0 @I1094@ INDI
-1 NAME /Adzkiya/
+1 NAME Adzkiya /Adzkiya/
 1 SEX M
 1 FAMS @I1094_GTG_I1093@
 0 @I1095@ INDI
-1 NAME /Zumar/
+1 NAME Zumar /Zumar/
 1 SEX M
 1 FAMC @I1094_GTG_I1093@
 0 @I1096@ INDI
-1 NAME /Sungada/
+1 NAME Sungada /Sungada/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1094_GTG_I1093@
 1 FAMS @I1096_GTG_I1101@
 0 @I1097@ INDI
-1 NAME /Hamam/
+1 NAME Hamam /Hamam/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1094_GTG_I1093@
 1 FAMS @I1097_GTG_I1102@
 0 @I1098@ INDI
-1 NAME /Sahal/
+1 NAME Sahal /Sahal/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1094_GTG_I1093@
 1 FAMS @I1098_GTG_I1103@
 0 @I1099@ INDI
-1 NAME /Masrohah/
+1 NAME Masrohah /Masrohah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1094_GTG_I1093@
 1 FAMS @I1104_GTG_I1099@
 0 @I11@ INDI
 1 NAME Imam /Baedowi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1972
 2 PLAC Cilacap
-1 NOTE Salah satu kontributor utama yang menyusun silsilah ini, terutama keluarga Kroya, Gemawang, Kalisabuk, Cilacap dan Banyumas.
 1 FAMC @I2_GTG_I3@
 1 FAMS @I11_GTG_I27@
 0 @I110@ INDI
-1 NAME /Sambihin/
+1 NAME Sambihin /Sambihin/
 1 SEX M
 1 FAMS @I110_GTG_I75@
 0 @I1100@ INDI
-1 NAME /Mas'adah/
+1 NAME Mas'adah /Mas'adah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1094_GTG_I1093@
 1 FAMS @I1105_GTG_I1100@
 0 @I1101@ INDI
-1 NAME /Sun/
+1 NAME Sun /Sun/
 1 SEX F
 1 FAMS @I1096_GTG_I1101@
 0 @I1102@ INDI
-1 NAME /Mut/
+1 NAME Mut /Mut/
 1 SEX F
 1 FAMS @I1097_GTG_I1102@
 0 @I1103@ INDI
-1 NAME /Sanah/
+1 NAME Sanah /Sanah/
 1 SEX F
 1 FAMS @I1098_GTG_I1103@
 0 @I1104@ INDI
@@ -564,102 +564,103 @@
 1 SEX M
 1 FAMS @I1104_GTG_I1099@
 0 @I1105@ INDI
-1 NAME /Mahalli/
+1 NAME Mahalli /Mahalli/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1106_GTG_UN@
 1 FAMS @I1105_GTG_I1100@
 0 @I1106@ INDI
 1 NAME Mbah /Jahid/
 1 SEX M
+1 FAMS @I1106_GTG_UN@
 0 @I1107@ INDI
 1 NAME Iqbal /Muhammad/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1105_GTG_I1100@
 1 FAMS @I1107_GTG_I1121@
 0 @I1108@ INDI
-1 NAME /Ismah/
+1 NAME Ismah /Ismah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1105_GTG_I1100@
 1 FAMS @I1123_GTG_I1108@
 0 @I1109@ INDI
-1 NAME /Amanah/
+1 NAME Amanah /Amanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1105_GTG_I1100@
 1 FAMS @I1126_GTG_I1109@
 0 @I111@ INDI
-1 NAME /Tantowi/
+1 NAME Tantowi /Tantowi/
 1 SEX M
 1 FAMS @I111_GTG_I76@
 0 @I1110@ INDI
 1 NAME Ibnu Hajar /Muhammad/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1105_GTG_I1100@
 1 FAMS @I1110_GTG_I1128@
 0 @I1111@ INDI
 1 NAME M.Irvan /Zaki/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1105_GTG_I1100@
 0 @I1112@ INDI
-1 NAME /Amriyah/
+1 NAME Amriyah /Amriyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1105_GTG_I1100@
 1 FAMS @I1130_GTG_I1112@
 0 @I1113@ INDI
 1 NAME M.Faiz /Alfatih/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1105_GTG_I1100@
 0 @I1114@ INDI
 1 NAME Fahrunnisa' /Nahdiyati/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I1105_GTG_I1100@
 0 @I1115@ INDI
-1 NAME /Hamami/
+1 NAME Hamami /Hamami/
 1 SEX M
 1 FAMC @I1106_GTG_UN@
 0 @I1116@ INDI
-1 NAME /Ro/
+1 NAME Ro /Ro/
 1 SEX F
 1 FAMC @I1106_GTG_UN@
 0 @I1117@ INDI
-1 NAME /Mas/
+1 NAME Mas /Mas/
 1 SEX F
 1 FAMC @I1106_GTG_UN@
 0 @I1118@ INDI
-1 NAME /Mahalli/
+1 NAME Mahalli /Mahalli/
 1 SEX M
 1 FAMC @I1106_GTG_UN@
 0 @I1119@ INDI
-1 NAME /Fathoni/
+1 NAME Fathoni /Fathoni/
 1 SEX M
 1 FAMC @I1106_GTG_UN@
 0 @I112@ INDI
-1 NAME /Sumadi/
+1 NAME Sumadi /Sumadi/
 1 SEX M
 1 FAMS @I112_GTG_I77@
 0 @I1120@ INDI
-1 NAME /Salamah/
+1 NAME Salamah /Salamah/
 1 SEX F
 1 FAMC @I1106_GTG_UN@
 0 @I1121@ INDI
-1 NAME /Emiliyanawati/
+1 NAME Emiliyanawati /Emiliyanawati/
 1 SEX F
 1 FAMS @I1107_GTG_I1121@
 0 @I1122@ INDI
@@ -695,349 +696,376 @@
 1 SEX M
 1 FAMC @I1110_GTG_I1128@
 0 @I113@ INDI
-1 NAME /Suhadi/
+1 NAME Suhadi /Suhadi/
 1 SEX M
 1 FAMS @I113_GTG_I78@
 0 @I1130@ INDI
 1 NAME A.Mahrus /Muttaqien/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1981
 2 PLAC Cilacap
 1 FAMS @I1130_GTG_I1112@
 0 @I1131@ INDI
-1 NAME /K.Kromoijoyo/
+1 NAME K.Kromoijoyo /K.Kromoijoyo/
 1 SEX M
 1 FAMC @I1132_GTG_UN@
+1 FAMS @I1131_GTG_UN@
 0 @I1132@ INDI
-1 NAME /K.Setrodikromo/
+1 NAME K.Setrodikromo /K.Setrodikromo/
 1 SEX M
 1 FAMC @I1133_GTG_UN@
+1 FAMS @I1132_GTG_UN@
 0 @I1133@ INDI
-1 NAME /K.Surowijoyo/
+1 NAME K.Surowijoyo /K.Surowijoyo/
 1 SEX M
 1 FAMC @I1134_GTG_UN@
+1 FAMS @I1133_GTG_UN@
 0 @I1134@ INDI
-1 NAME /K.Wonodikromo/
+1 NAME K.Wonodikromo /K.Wonodikromo/
 1 SEX M
 1 FAMC @I1135_GTG_UN@
+1 FAMS @I1134_GTG_UN@
 0 @I1135@ INDI
 1 NAME Demang /Wirosetiko/
 1 SEX M
 1 FAMC @I1136_GTG_UN@
+1 FAMS @I1135_GTG_UN@
 0 @I1136@ INDI
 1 NAME Pangeran /Riyomenggolo/
 1 SEX M
 1 FAMC @I1137_GTG_UN@
+1 FAMS @I1136_GTG_UN@
 0 @I1137@ INDI
 1 NAME Romo /Kajoran/
 1 SEX M
 1 FAMC @I1138_GTG_UN@
+1 FAMS @I1137_GTG_UN@
 0 @I1138@ INDI
 1 NAME Pangeran Panembahan /Sadem/
 1 SEX M
 1 FAMC @I1139_GTG_UN@
+1 FAMS @I1138_GTG_UN@
 0 @I1139@ INDI
 1 NAME Pangeran Panembahan /Sangke/
 1 SEX M
 1 FAMC @I1140_GTG_UN@
+1 FAMS @I1139_GTG_UN@
 0 @I114@ INDI
-1 NAME /Siti/
+1 NAME Siti /Siti/
 1 SEX F
 1 FAMS @I79_GTG_I114@
 0 @I1140@ INDI
 1 NAME KyaiAgeng /Wonontoro/
 1 SEX M
 1 FAMC @I1141_GTG_UN@
+1 FAMS @I1140_GTG_UN@
 0 @I1141@ INDI
 1 NAME KyaiAgeng /Giring/
 1 SEX M
+1 FAMS @I1141_GTG_UN@
 0 @I1142@ INDI
 1 NAME Nyi /Nitiwijoyo/
 1 SEX F
 1 FAMC @I1131_GTG_UN@
+1 FAMS @UN_GTG_I1142@
 0 @I1143@ INDI
 1 NAME K.Abdul /Mungin/
 1 SEX M
 1 FAMC @I1131_GTG_UN@
+1 FAMS @I1143_GTG_UN@
 0 @I1144@ INDI
 1 NAME KH.Abdul /Mukti/
 1 SEX M
 1 FAMC @I1131_GTG_UN@
+1 FAMS @I1144_GTG_UN@
 0 @I1145@ INDI
-1 NAME /K.Asy'ari/
+1 NAME K.Asy'ari /K.Asy'ari/
 1 SEX M
 1 FAMC @I1131_GTG_UN@
+1 FAMS @I1145_GTG_UN@
 0 @I1146@ INDI
 1 NAME K.Amad /Syirat/
 1 SEX M
 1 FAMC @I1131_GTG_UN@
+1 FAMS @I1146_GTG_UN@
 0 @I1147@ INDI
 1 NAME Nyi /Sudjak/
 1 SEX F
 1 FAMC @I1131_GTG_UN@
+1 FAMS @UN_GTG_I1147@
 0 @I1148@ INDI
 1 NAME K.Resodiryo /(Satori)/
 1 SEX M
 1 FAMC @UN_GTG_I1142@
+1 FAMS @I1148_GTG_UN@
 0 @I1149@ INDI
 1 NAME Ny.Muh. /Ali/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1148_GTG_UN@
+1 FAMS @UN_GTG_I1149@
 0 @I115@ INDI
-1 NAME /Endah/
+1 NAME Endah /Endah/
 1 SEX F
 1 FAMC @I112_GTG_I77@
 0 @I1150@ INDI
 1 NAME K.Muh. /Nahrowi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1148_GTG_UN@
+1 FAMS @I1150_GTG_UN@
 0 @I1151@ INDI
-1 NAME /Ny.Pawirosentono/
+1 NAME Ny.Pawirosentono /Ny.Pawirosentono/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1148_GTG_UN@
+1 FAMS @UN_GTG_I1151@
 0 @I1152@ INDI
-1 NAME /K.Ahyar/
+1 NAME K.Ahyar /K.Ahyar/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1148_GTG_UN@
+1 FAMS @I1152_GTG_UN@
 0 @I1153@ INDI
 1 NAME Ny.Silah /Juwahir/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1148_GTG_UN@
+1 FAMS @UN_GTG_I1153@
 0 @I1154@ INDI
 1 NAME K.Abdul /Hamid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1148_GTG_UN@
+1 FAMS @I1154_GTG_UN@
 0 @I1155@ INDI
 1 NAME K.Abdul /Manaf/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1148_GTG_UN@
+1 FAMS @I1155_GTG_UN@
 0 @I1156@ INDI
 1 NAME K.Muh. /Ridwan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1148_GTG_UN@
+1 FAMS @I1156_GTG_UN@
 0 @I1157@ INDI
-1 NAME /K.Daroni/
+1 NAME K.Daroni /K.Daroni/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1148_GTG_UN@
+1 FAMS @I1157_GTG_UN@
 0 @I1158@ INDI
 1 NAME K.Abdul /Basyir/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @UN_GTG_I1149@
 0 @I1159@ INDI
 1 NAME K.Abdul /Rohim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1149@
 0 @I116@ INDI
-1 NAME /Fitri/
+1 NAME Fitri /Fitri/
 1 SEX F
 1 FAMC @I112_GTG_I77@
 0 @I1160@ INDI
-1 NAME /Ny.Tumiyah/
+1 NAME Ny.Tumiyah /Ny.Tumiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1149@
 0 @I1161@ INDI
-1 NAME /K.Jamari/
+1 NAME K.Jamari /K.Jamari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1149@
 0 @I1162@ INDI
-1 NAME /K.Sihud/
+1 NAME K.Sihud /K.Sihud/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @UN_GTG_I1149@
 0 @I1163@ INDI
-1 NAME /Ny.Jamilah/
+1 NAME Ny.Jamilah /Ny.Jamilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1150_GTG_UN@
 0 @I1164@ INDI
-1 NAME /K.Hadi/
+1 NAME K.Hadi /K.Hadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1150_GTG_UN@
 0 @I1165@ INDI
-1 NAME /Ny.Hidayah/
+1 NAME Ny.Hidayah /Ny.Hidayah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1150_GTG_UN@
 0 @I1166@ INDI
-1 NAME /Ny.Khuzaimah/
+1 NAME Ny.Khuzaimah /Ny.Khuzaimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Wonosari
 1 FAMC @I1150_GTG_UN@
 0 @I1167@ INDI
-1 NAME /K.Rubangi/
+1 NAME K.Rubangi /K.Rubangi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1150_GTG_UN@
 0 @I1168@ INDI
-1 NAME /Ny.Amini/
+1 NAME Ny.Amini /Ny.Amini/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Wonosari
 1 FAMC @I1150_GTG_UN@
 0 @I1169@ INDI
-1 NAME /Ny.Fadhilah/
+1 NAME Ny.Fadhilah /Ny.Fadhilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1150_GTG_UN@
 0 @I117@ INDI
-1 NAME /Yeni/
+1 NAME Yeni /Yeni/
 1 SEX F
 1 FAMC @I112_GTG_I77@
 0 @I1170@ INDI
-1 NAME /K.Tuhilan/
+1 NAME K.Tuhilan /K.Tuhilan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1150_GTG_UN@
 0 @I1171@ INDI
-1 NAME /K.Jukiran/
+1 NAME K.Jukiran /K.Jukiran/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Wonosari
 1 FAMC @UN_GTG_I1151@
 0 @I1172@ INDI
-1 NAME /K.Jumar/
+1 NAME K.Jumar /K.Jumar/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1151@
 0 @I1173@ INDI
-1 NAME /K.Tamyiz/
+1 NAME K.Tamyiz /K.Tamyiz/
 1 SEX M
 1 FAMC @UN_GTG_I1151@
 0 @I1174@ INDI
-1 NAME /Ny.Suwarni/
+1 NAME Ny.Suwarni /Ny.Suwarni/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1151@
 0 @I1175@ INDI
-1 NAME /Ny.Waridah/
+1 NAME Ny.Waridah /Ny.Waridah/
 1 SEX F
-1 DEAT 
+1 DEAT
 2 PLAC Sumatra
 1 FAMC @I1152_GTG_UN@
 0 @I1176@ INDI
-1 NAME /K.Zaenal/
+1 NAME K.Zaenal /K.Zaenal/
 1 SEX M
-1 DEAT 
+1 DEAT
 2 PLAC Sumatra
 1 FAMC @I1152_GTG_UN@
 0 @I1177@ INDI
-1 NAME /Ny.Wasingah/
+1 NAME Ny.Wasingah /Ny.Wasingah/
 1 SEX F
-1 DEAT 
+1 DEAT
 2 PLAC Sumatra
 1 FAMC @I1152_GTG_UN@
 0 @I1178@ INDI
-1 NAME /Ny.Mustijah/
+1 NAME Ny.Mustijah /Ny.Mustijah/
 1 SEX F
-1 DEAT 
+1 DEAT
 2 PLAC Sumatra Barat
 1 FAMC @UN_GTG_I1153@
 0 @I1179@ INDI
-1 NAME /K.Muhadi/
+1 NAME K.Muhadi /K.Muhadi/
 1 SEX M
-1 DEAT 
+1 DEAT
 2 PLAC Ketangi
 1 FAMC @UN_GTG_I1153@
 0 @I118@ INDI
-1 NAME /Hanip/
+1 NAME Hanip /Hanip/
 1 SEX M
 1 FAMC @I112_GTG_I77@
 0 @I1180@ INDI
-1 NAME /Ny.Romlah/
+1 NAME Ny.Romlah /Ny.Romlah/
 1 SEX F
-1 DEAT 
+1 DEAT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1153@
 0 @I1181@ INDI
-1 NAME /Ny.Hamdiyah/
+1 NAME Ny.Hamdiyah /Ny.Hamdiyah/
 1 SEX F
-1 DEAT 
+1 DEAT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1153@
 0 @I1182@ INDI
-1 NAME /Ny.Zubaidah/
+1 NAME Ny.Zubaidah /Ny.Zubaidah/
 1 SEX F
-1 DEAT 
+1 DEAT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1153@
 0 @I1183@ INDI
-1 NAME /K.Habibullah/
+1 NAME K.Habibullah /K.Habibullah/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1154_GTG_UN@
 0 @I1184@ INDI
-1 NAME /K.Jalaludin/
+1 NAME K.Jalaludin /K.Jalaludin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Imogiri
 1 FAMC @I1154_GTG_UN@
 0 @I1185@ INDI
-1 NAME /K.Khoirudin/
+1 NAME K.Khoirudin /K.Khoirudin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1154_GTG_UN@
 0 @I1186@ INDI
-1 NAME /K.Anwari/
+1 NAME K.Anwari /K.Anwari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Patuk
 1 FAMC @I1154_GTG_UN@
 0 @I1187@ INDI
-1 NAME /K.Mujahid/
+1 NAME K.Mujahid /K.Mujahid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1154_GTG_UN@
 0 @I1188@ INDI
-1 NAME /K.Istihari/
+1 NAME K.Istihari /K.Istihari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Patuk
 1 FAMC @I1154_GTG_UN@
 0 @I1189@ INDI
-1 NAME /K.Jamil/
+1 NAME K.Jamil /K.Jamil/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1154_GTG_UN@
 0 @I119@ INDI
@@ -1046,69 +1074,69 @@
 1 FAMC @I74_GTG_I109@
 1 FAMS @I119_GTG_I314@
 0 @I1190@ INDI
-1 NAME /K.Amin/
+1 NAME K.Amin /K.Amin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1154_GTG_UN@
 0 @I1191@ INDI
-1 NAME /Ny.Baroyah/
+1 NAME Ny.Baroyah /Ny.Baroyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1154_GTG_UN@
 0 @I1192@ INDI
-1 NAME /Ny.Jariyah/
+1 NAME Ny.Jariyah /Ny.Jariyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1155_GTG_UN@
 0 @I1193@ INDI
-1 NAME /K.Ngusman/
+1 NAME K.Ngusman /K.Ngusman/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1155_GTG_UN@
 0 @I1194@ INDI
-1 NAME /K.Rohmat/
+1 NAME K.Rohmat /K.Rohmat/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1155_GTG_UN@
 0 @I1195@ INDI
-1 NAME /K.Ismail/
+1 NAME K.Ismail /K.Ismail/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1156_GTG_UN@
 0 @I1196@ INDI
-1 NAME /K.Jamzani/
+1 NAME K.Jamzani /K.Jamzani/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1156_GTG_UN@
 0 @I1197@ INDI
-1 NAME /Ny.Salamah/
+1 NAME Ny.Salamah /Ny.Salamah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1156_GTG_UN@
 0 @I1198@ INDI
-1 NAME /K.Sarir/
+1 NAME K.Sarir /K.Sarir/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1156_GTG_UN@
 0 @I1199@ INDI
 1 NAME K.Abdul /Manan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1156_GTG_UN@
 0 @I12@ INDI
 1 NAME Ali /Subkhan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1973
 2 PLAC Cilacap
 1 FAMC @I2_GTG_I3@
@@ -1119,374 +1147,393 @@
 1 FAMC @I74_GTG_I109@
 1 FAMS @I315_GTG_I120@
 0 @I1200@ INDI
-1 NAME /K.Surono/
+1 NAME K.Surono /K.Surono/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jawa Barat
 1 FAMC @I1157_GTG_UN@
 0 @I1201@ INDI
-1 NAME /Ny.Asyiyah/
+1 NAME Ny.Asyiyah /Ny.Asyiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1157_GTG_UN@
 0 @I1202@ INDI
-1 NAME /Ny.Bashiroh/
+1 NAME Ny.Bashiroh /Ny.Bashiroh/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1157_GTG_UN@
 0 @I1203@ INDI
-1 NAME /K.Daris/
+1 NAME K.Daris /K.Daris/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jawa Barat
 1 FAMC @I1157_GTG_UN@
 0 @I1204@ INDI
-1 NAME /Ny.Daliyah/
+1 NAME Ny.Daliyah /Ny.Daliyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1157_GTG_UN@
 0 @I1205@ INDI
 1 NAME K.Abdul /Jalal/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1143_GTG_UN@
+1 FAMS @I1205_GTG_UN@
 0 @I1206@ INDI
 1 NAME K.Amat /Dasuki/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Karang Asem
 1 FAMC @I1143_GTG_UN@
+1 FAMS @I1206_GTG_UN@
 0 @I1207@ INDI
 1 NAME Ny.Dulah /Hadi/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @I1143_GTG_UN@
+1 FAMS @UN_GTG_I1207@
 0 @I1208@ INDI
 1 NAME K.Abdul /Khanan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1143_GTG_UN@
+1 FAMS @I1208_GTG_UN@
 0 @I1209@ INDI
-1 NAME /Ny.Abdullahuri/
+1 NAME Ny.Abdullahuri /Ny.Abdullahuri/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1143_GTG_UN@
+1 FAMS @UN_GTG_I1209@
 0 @I121@ INDI
-1 NAME /Akah/
+1 NAME Akah /Akah/
 1 SEX M
 1 FAMC @I74_GTG_I109@
 0 @I1210@ INDI
 1 NAME Ny.Ahmad /Sahid/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1143_GTG_UN@
+1 FAMS @UN_GTG_I1210@
 0 @I1211@ INDI
-1 NAME /K.Bajuri/
+1 NAME K.Bajuri /K.Bajuri/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1143_GTG_UN@
+1 FAMS @I1211_GTG_UN@
 0 @I1212@ INDI
-1 NAME /Ny.Dumilah/
+1 NAME Ny.Dumilah /Ny.Dumilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Ketangi
 1 FAMC @I1205_GTG_UN@
+1 FAMS @UN_GTG_I1212@
 0 @I1213@ INDI
-1 NAME /Ny.Notosuyono/
+1 NAME Ny.Notosuyono /Ny.Notosuyono/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Ketangi
 1 FAMC @I1205_GTG_UN@
+1 FAMS @UN_GTG_I1213@
 0 @I1214@ INDI
 1 NAME Ny.Wasilah /Harjosuparno/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Ketangi
 1 FAMC @UN_GTG_I1212@
 0 @I1215@ INDI
 1 NAME Ny.Marsiyah /Hartosuwarno/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Ketangi
 1 FAMC @UN_GTG_I1212@
 0 @I1216@ INDI
 1 NAME K.Sarip /Susanto/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Ketangi
 1 FAMC @UN_GTG_I1212@
 0 @I1217@ INDI
-1 NAME /K.Subardi/
+1 NAME K.Subardi /K.Subardi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mampang Jakarta
 1 FAMC @UN_GTG_I1213@
 0 @I1218@ INDI
-1 NAME /Ny.Asroriyah/
+1 NAME Ny.Asroriyah /Ny.Asroriyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Ketangi
 1 FAMC @UN_GTG_I1213@
 0 @I1219@ INDI
-1 NAME /Ny.Suharni/
+1 NAME Ny.Suharni /Ny.Suharni/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra Barat
 1 FAMC @UN_GTG_I1213@
 0 @I122@ INDI
-1 NAME /Amad/
+1 NAME Amad /Amad/
 1 SEX M
 1 FAMC @I74_GTG_I109@
 0 @I1220@ INDI
-1 NAME /Ny.Rosiyah/
+1 NAME Ny.Rosiyah /Ny.Rosiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra Barat
 1 FAMC @UN_GTG_I1213@
 0 @I1221@ INDI
-1 NAME /Ny.Mursilah/
+1 NAME Ny.Mursilah /Ny.Mursilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Tambun Bekasi
 0 @I1222@ INDI
-1 NAME /Ny.Mursilah/
+1 NAME Ny.Mursilah /Ny.Mursilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Tambun Bekasi
 1 FAMC @UN_GTG_I1213@
 0 @I1223@ INDI
 1 NAME Ny.Puji /Lestari/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra Barat
 1 FAMC @UN_GTG_I1213@
 0 @I1224@ INDI
-1 NAME /K.Zaini/
+1 NAME K.Zaini /K.Zaini/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Karangasem
 1 FAMC @I1206_GTG_UN@
 0 @I1225@ INDI
-1 NAME /K.Juremi/
+1 NAME K.Juremi /K.Juremi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1206_GTG_UN@
+1 FAMS @I1225_GTG_UN@
 0 @I1226@ INDI
-1 NAME /Ny.Jumanah/
+1 NAME Ny.Jumanah /Ny.Jumanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Karangasem
 1 FAMC @I1206_GTG_UN@
 0 @I1227@ INDI
-1 NAME /Ny.Jumali/
+1 NAME Ny.Jumali /Ny.Jumali/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Balikpapan
 1 FAMC @I1206_GTG_UN@
+1 FAMS @UN_GTG_I1227@
 0 @I1228@ INDI
-1 NAME /K.Badawi/
+1 NAME K.Badawi /K.Badawi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jakarta
 1 FAMC @I1206_GTG_UN@
 0 @I1229@ INDI
-1 NAME /Ny.Isti'anah/
+1 NAME Ny.Isti'anah /Ny.Isti'anah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Karangasem
 1 FAMC @I1206_GTG_UN@
 0 @I123@ INDI
-1 NAME /Sukapti/
+1 NAME Sukapti /Sukapti/
 1 SEX F
 1 FAMC @I110_GTG_I75@
 0 @I1230@ INDI
 1 NAME Ny.Sri /Safangati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1225_GTG_UN@
 0 @I1231@ INDI
-1 NAME /Ny.Astuti/
+1 NAME Ny.Astuti /Ny.Astuti/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1225_GTG_UN@
 0 @I1232@ INDI
 1 NAME K.Sukro /Hadiwoto/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1225_GTG_UN@
 0 @I1233@ INDI
 1 NAME Ny.Kasih /Hadiwati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1225_GTG_UN@
 0 @I1234@ INDI
-1 NAME /K.Haryanto/
+1 NAME K.Haryanto /K.Haryanto/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1225_GTG_UN@
 0 @I1235@ INDI
-1 NAME /Ny.Haryati/
+1 NAME Ny.Haryati /Ny.Haryati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1225_GTG_UN@
 0 @I1236@ INDI
-1 NAME /Ny.Yatini/
+1 NAME Ny.Yatini /Ny.Yatini/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan
 1 FAMC @UN_GTG_I1227@
 0 @I1237@ INDI
-1 NAME /K.Ahyadi/
+1 NAME K.Ahyadi /K.Ahyadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan
 1 FAMC @UN_GTG_I1227@
 0 @I1238@ INDI
-1 NAME /Ny.Yatinah/
+1 NAME Ny.Yatinah /Ny.Yatinah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan
 1 FAMC @UN_GTG_I1227@
 0 @I1239@ INDI
-1 NAME /Ny.Sukriyah/
+1 NAME Ny.Sukriyah /Ny.Sukriyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan
 1 FAMC @UN_GTG_I1227@
 0 @I124@ INDI
-1 NAME /Edi/
+1 NAME Edi /Edi/
 1 SEX M
 1 FAMC @I110_GTG_I75@
 0 @I1240@ INDI
-1 NAME /Ny.Kusmiyati/
+1 NAME Ny.Kusmiyati /Ny.Kusmiyati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan
 1 FAMC @UN_GTG_I1227@
 0 @I1241@ INDI
-1 NAME /K.Mashudi/
+1 NAME K.Mashudi /K.Mashudi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1207@
+1 FAMS @I1241_GTG_UN@
 0 @I1242@ INDI
-1 NAME /K.Suhaimi/
+1 NAME K.Suhaimi /K.Suhaimi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1207@
+1 FAMS @I1242_GTG_UN@
 0 @I1243@ INDI
-1 NAME /K.Duryat/
+1 NAME K.Duryat /K.Duryat/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1207@
+1 FAMS @I1243_GTG_UN@
 0 @I1244@ INDI
 1 NAME Ny.Martijah /Markum/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1207@
+1 FAMS @UN_GTG_I1244@
 0 @I1245@ INDI
 1 NAME KH.Zainal /Abidin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1207@
+1 FAMS @I1245_GTG_UN@
 0 @I1246@ INDI
 1 NAME Ny.Mustojah /Daroni/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1207@
+1 FAMS @UN_GTG_I1246@
 0 @I1247@ INDI
 1 NAME Ny.Suti Abdul /Manaf/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1207@
+1 FAMS @UN_GTG_I1247@
 0 @I1248@ INDI
-1 NAME /K.Mujari/
+1 NAME K.Mujari /K.Mujari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1207@
 0 @I1249@ INDI
 1 NAME KH.Nurhadi /Abdulloh/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Imogiri
 1 FAMC @UN_GTG_I1207@
+1 FAMS @I1249_GTG_UN@
 0 @I125@ INDI
-1 NAME /Wahyudin/
+1 NAME Wahyudin /Wahyudin/
 1 SEX M
 1 FAMC @I111_GTG_I76@
 0 @I1250@ INDI
-1 NAME /K.Nuri/
+1 NAME K.Nuri /K.Nuri/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1241_GTG_UN@
 0 @I1251@ INDI
-1 NAME /Ny.Khasanah/
+1 NAME Ny.Khasanah /Ny.Khasanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @I1241_GTG_UN@
 0 @I1252@ INDI
-1 NAME /K.Jamhari/
+1 NAME K.Jamhari /K.Jamhari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Padang
 1 FAMC @I1241_GTG_UN@
 0 @I1253@ INDI
 1 NAME K.Abu /Syairi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Semarang
 1 FAMC @I1241_GTG_UN@
 0 @I1254@ INDI
 1 NAME K.Ali /Ridho/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Padang
 1 FAMC @I1241_GTG_UN@
 0 @I1255@ INDI
 1 NAME K.Amir /Sholeh/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @I1241_GTG_UN@
 0 @I1256@ INDI
-1 NAME /K.Muhyidin/
+1 NAME K.Muhyidin /K.Muhyidin/
 1 SEX M
 1 FAMC @I1242_GTG_UN@
 0 @I1257@ INDI
-1 NAME /K.Safrudin/
+1 NAME K.Safrudin /K.Safrudin/
 1 SEX M
 1 FAMC @I1242_GTG_UN@
 0 @I1258@ INDI
-1 NAME /K.Zuhdi/
+1 NAME K.Zuhdi /K.Zuhdi/
 1 SEX M
 1 FAMC @I1242_GTG_UN@
 0 @I1259@ INDI
-1 NAME /Ny.Istijabah/
+1 NAME Ny.Istijabah /Ny.Istijabah/
 1 SEX F
 1 FAMC @I1242_GTG_UN@
 0 @I126@ INDI
@@ -1498,51 +1545,51 @@
 1 SEX M
 1 FAMC @I1242_GTG_UN@
 0 @I1261@ INDI
-1 NAME /K.Ramdhani/
+1 NAME K.Ramdhani /K.Ramdhani/
 1 SEX M
 1 FAMC @I1243_GTG_UN@
 0 @I1262@ INDI
-1 NAME /K.Subagyo/
+1 NAME K.Subagyo /K.Subagyo/
 1 SEX M
 1 FAMC @I1243_GTG_UN@
 0 @I1263@ INDI
-1 NAME /Ny.Syahidah/
+1 NAME Ny.Syahidah /Ny.Syahidah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1244@
 0 @I1264@ INDI
-1 NAME /K.Jamzuri/
+1 NAME K.Jamzuri /K.Jamzuri/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1244@
 0 @I1265@ INDI
-1 NAME /K.Jamzani/
+1 NAME K.Jamzani /K.Jamzani/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1244@
 0 @I1266@ INDI
-1 NAME /K.Ahyadi/
+1 NAME K.Ahyadi /K.Ahyadi/
 1 SEX M
 1 FAMC @UN_GTG_I1244@
 0 @I1267@ INDI
-1 NAME /Ny.Rowingah/
+1 NAME Ny.Rowingah /Ny.Rowingah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1244@
 0 @I1268@ INDI
-1 NAME /K.Juremi/
+1 NAME K.Juremi /K.Juremi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1244@
 0 @I1269@ INDI
-1 NAME /Ny.Jumanah/
+1 NAME Ny.Jumanah /Ny.Jumanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1244@
 0 @I127@ INDI
@@ -1550,67 +1597,67 @@
 1 SEX M
 1 FAMC @I108_GTG_I73@
 0 @I1270@ INDI
-1 NAME /K.Jumali/
+1 NAME K.Jumali /K.Jumali/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumba
 1 FAMC @UN_GTG_I1244@
 0 @I1271@ INDI
-1 NAME /K.Busyro/
+1 NAME K.Busyro /K.Busyro/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1245_GTG_UN@
 0 @I1272@ INDI
-1 NAME /K.Bahroni/
+1 NAME K.Bahroni /K.Bahroni/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Imogiri
 1 FAMC @I1245_GTG_UN@
 0 @I1273@ INDI
 1 NAME Ny.Siti /Wafi'ah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @I1245_GTG_UN@
 0 @I1274@ INDI
-1 NAME /K.Jalaluddin/
+1 NAME K.Jalaluddin /K.Jalaluddin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1245_GTG_UN@
 0 @I1275@ INDI
-1 NAME /K.Dalhari/
+1 NAME K.Dalhari /K.Dalhari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @I1245_GTG_UN@
 0 @I1276@ INDI
-1 NAME /Ny.Sulthonah/
+1 NAME Ny.Sulthonah /Ny.Sulthonah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Ngrancang
 1 FAMC @I1245_GTG_UN@
 0 @I1277@ INDI
-1 NAME /Ny.Jamronah/
+1 NAME Ny.Jamronah /Ny.Jamronah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Purwodadi
 1 FAMC @I1245_GTG_UN@
 0 @I1278@ INDI
-1 NAME /Ny.Jamilah/
+1 NAME Ny.Jamilah /Ny.Jamilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jepara
 1 FAMC @I1245_GTG_UN@
 0 @I1279@ INDI
-1 NAME /Ny.Bashiroh/
+1 NAME Ny.Bashiroh /Ny.Bashiroh/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @I1245_GTG_UN@
 0 @I128@ INDI
-1 NAME /Yuliatri/
+1 NAME Yuliatri /Yuliatri/
 1 SEX F
 1 FAMC @I108_GTG_I73@
 0 @I1280@ INDI
@@ -1618,248 +1665,254 @@
 1 SEX M
 1 FAMC @I1245_GTG_UN@
 0 @I1281@ INDI
-1 NAME /Ny.Na'imah/
+1 NAME Ny.Na'imah /Ny.Na'imah/
 1 SEX F
 1 FAMC @UN_GTG_I1246@
 0 @I1282@ INDI
-1 NAME /Ny.Sarofah/
+1 NAME Ny.Sarofah /Ny.Sarofah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1246@
 0 @I1283@ INDI
-1 NAME /K.Habib/
+1 NAME K.Habib /K.Habib/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1246@
 0 @I1284@ INDI
-1 NAME /K.Zawawi/
+1 NAME K.Zawawi /K.Zawawi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jepara
 1 FAMC @UN_GTG_I1246@
 0 @I1285@ INDI
-1 NAME /K.Afandi/
+1 NAME K.Afandi /K.Afandi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1246@
 0 @I1286@ INDI
-1 NAME /Ny.Solikhah/
+1 NAME Ny.Solikhah /Ny.Solikhah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Wonosari
 1 FAMC @UN_GTG_I1246@
 0 @I1287@ INDI
-1 NAME /K.Zahid/
+1 NAME K.Zahid /K.Zahid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1247@
 0 @I1288@ INDI
-1 NAME /Ny.Jariyah/
+1 NAME Ny.Jariyah /Ny.Jariyah/
 1 SEX F
 1 FAMC @UN_GTG_I1247@
 0 @I1289@ INDI
-1 NAME /K.Usman/
+1 NAME K.Usman /K.Usman/
 1 SEX M
 1 FAMC @UN_GTG_I1247@
 0 @I129@ INDI
-1 NAME /Yulantari/
+1 NAME Yulantari /Yulantari/
 1 SEX F
 1 FAMC @I108_GTG_I73@
 0 @I1290@ INDI
-1 NAME /K.Basyarudin/
+1 NAME K.Basyarudin /K.Basyarudin/
 1 SEX M
 1 FAMC @UN_GTG_I1247@
 0 @I1291@ INDI
-1 NAME /Ny.Hanifah/
+1 NAME Ny.Hanifah /Ny.Hanifah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Imogiri
 1 FAMC @I1249_GTG_UN@
 0 @I1292@ INDI
-1 NAME /K.Amin/
+1 NAME K.Amin /K.Amin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Imogiri
 1 FAMC @I1249_GTG_UN@
 0 @I1293@ INDI
-1 NAME /K.Hadi/
+1 NAME K.Hadi /K.Hadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1208_GTG_UN@
 0 @I1294@ INDI
-1 NAME /Ny.Sumingah/
+1 NAME Ny.Sumingah /Ny.Sumingah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1208_GTG_UN@
 0 @I1295@ INDI
-1 NAME /Muhtarom/
+1 NAME Muhtarom /Muhtarom/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1208_GTG_UN@
 0 @I1296@ INDI
-1 NAME /Ny.Fatimah/
+1 NAME Ny.Fatimah /Ny.Fatimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1208_GTG_UN@
 0 @I1297@ INDI
-1 NAME /Ny.Jalilah/
+1 NAME Ny.Jalilah /Ny.Jalilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1208_GTG_UN@
 0 @I1298@ INDI
-1 NAME /K.Muchlas/
+1 NAME K.Muchlas /K.Muchlas/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1208_GTG_UN@
 0 @I1299@ INDI
-1 NAME /Ny.Musrifah/
+1 NAME Ny.Musrifah /Ny.Musrifah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1208_GTG_UN@
 0 @I13@ INDI
 1 NAME Mohammad /Ningamullah/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1975
 2 PLAC Cilacap
-1 NOTE Alamat : Perum Telaga Pasiraya Sukasari Serang Bekasi Jawa Barat
 1 FAMC @I2_GTG_I3@
 1 FAMS @I13_GTG_I29@
 0 @I130@ INDI
-1 NAME /Junianto/
+1 NAME Junianto /Junianto/
 1 SEX F
 1 FAMC @I108_GTG_I73@
 0 @I1300@ INDI
-1 NAME /Ny.Jupainah/
+1 NAME Ny.Jupainah /Ny.Jupainah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1208_GTG_UN@
 0 @I1301@ INDI
-1 NAME /Nudiudin/
+1 NAME Nudiudin /Nudiudin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I909_GTG_I867@
 0 @I1302@ INDI
-1 NAME /Asyhari/
+1 NAME Asyhari /Asyhari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I909_GTG_I867@
 0 @I1303@ INDI
-1 NAME /Zubaidah/
+1 NAME Zubaidah /Zubaidah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I909_GTG_I867@
 0 @I1304@ INDI
-1 NAME /Syamsudin/
+1 NAME Syamsudin /Syamsudin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I909_GTG_I867@
 0 @I1305@ INDI
 1 NAME Siti /Syarifah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I909_GTG_I867@
 0 @I1306@ INDI
 1 NAME Dewi /Utami/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I909_GTG_I867@
 0 @I1307@ INDI
 1 NAME K.Imam /Muslim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Ketangi
 1 FAMC @UN_GTG_I1209@
+1 FAMS @I1307_GTG_UN@
 0 @I1308@ INDI
-1 NAME /K.Sastrodiryo/
+1 NAME K.Sastrodiryo /K.Sastrodiryo/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Pijinan
 1 FAMC @UN_GTG_I1209@
+1 FAMS @I1308_GTG_UN@
 0 @I1309@ INDI
-1 NAME /K.Darmowijoyo/
+1 NAME K.Darmowijoyo /K.Darmowijoyo/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1209@
+1 FAMS @I1309_GTG_UN@
 0 @I131@ INDI
 1 NAME Retno /Astuti/
 1 SEX F
 1 FAMC @I108_GTG_I73@
 0 @I1310@ INDI
-1 NAME /K.Sahro/
+1 NAME K.Sahro /K.Sahro/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1209@
+1 FAMS @I1310_GTG_UN@
 0 @I1311@ INDI
-1 NAME /Ny.Hadiyah/
+1 NAME Ny.Hadiyah /Ny.Hadiyah/
 1 SEX F
 1 FAMC @UN_GTG_I1209@
 0 @I1312@ INDI
-1 NAME /K.Harjodinomo/
+1 NAME K.Harjodinomo /K.Harjodinomo/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jeruken
 1 FAMC @UN_GTG_I1209@
+1 FAMS @I1312_GTG_UN@
 0 @I1313@ INDI
-1 NAME /K.Junaedi/
+1 NAME K.Junaedi /K.Junaedi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1209@
+1 FAMS @I1313_GTG_UN@
 0 @I1314@ INDI
-1 NAME /Yatimah/
+1 NAME Yatimah /Yatimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1209@
+1 FAMS @UN_GTG_I1314@
 0 @I1315@ INDI
-1 NAME /Ny.Dawimah/
+1 NAME Ny.Dawimah /Ny.Dawimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Ketangi
 1 FAMC @I1307_GTG_UN@
 0 @I1316@ INDI
-1 NAME /K.Sudjadi/
+1 NAME K.Sudjadi /K.Sudjadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Ketangi
 1 FAMC @I1307_GTG_UN@
 0 @I1317@ INDI
-1 NAME /K.Sarjuni/
+1 NAME K.Sarjuni /K.Sarjuni/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan
 1 FAMC @I1307_GTG_UN@
 0 @I1318@ INDI
-1 NAME /K.Sarjudi/
+1 NAME K.Sarjudi /K.Sarjudi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan Timur
 1 FAMC @I1307_GTG_UN@
 0 @I1319@ INDI
-1 NAME /K.Sumardiyono/
+1 NAME K.Sumardiyono /K.Sumardiyono/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan Timur
 1 FAMC @I1307_GTG_UN@
 0 @I132@ INDI
@@ -1867,319 +1920,326 @@
 1 SEX M
 1 FAMC @I108_GTG_I73@
 0 @I1320@ INDI
-1 NAME /Ny.Sumartijah/
+1 NAME Ny.Sumartijah /Ny.Sumartijah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan Selatan
 1 FAMC @I1307_GTG_UN@
 0 @I1321@ INDI
-1 NAME /Ny.Sumartini/
+1 NAME Ny.Sumartini /Ny.Sumartini/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan Timur
 1 FAMC @I1307_GTG_UN@
 0 @I1322@ INDI
 1 NAME KH.Hadi /Sardjono/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Pijinan
 1 FAMC @I1308_GTG_UN@
 0 @I1323@ INDI
-1 NAME /Ny.Sarjinah/
+1 NAME Ny.Sarjinah /Ny.Sarjinah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1308_GTG_UN@
 0 @I1324@ INDI
-1 NAME /K.Sugiyono/
+1 NAME K.Sugiyono /K.Sugiyono/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Ungaran
 1 FAMC @I1308_GTG_UN@
 0 @I1325@ INDI
-1 NAME /Ny.Murkanti/
+1 NAME Ny.Murkanti /Ny.Murkanti/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1308_GTG_UN@
 0 @I1326@ INDI
 1 NAME K.Yusuf /Sumaryono/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC G.Sk
 1 FAMC @I1308_GTG_UN@
 0 @I1327@ INDI
-1 NAME /K.Saroja/
+1 NAME K.Saroja /K.Saroja/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cekel Jetis
 1 FAMC @I1308_GTG_UN@
 0 @I1328@ INDI
-1 NAME /Ny.Supilih/
+1 NAME Ny.Supilih /Ny.Supilih/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Berbah
 1 FAMC @I1308_GTG_UN@
 0 @I1329@ INDI
-1 NAME /Ny.Bariyah/
+1 NAME Ny.Bariyah /Ny.Bariyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Bogor JKT
 1 FAMC @I1308_GTG_UN@
 0 @I133@ INDI
-1 NAME /Ipung/
+1 NAME Ipung /Ipung/
 1 SEX F
 1 FAMC @I108_GTG_I73@
 0 @I1330@ INDI
-1 NAME /Ny.Surtini/
+1 NAME Ny.Surtini /Ny.Surtini/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan
 1 FAMC @I1308_GTG_UN@
 0 @I1331@ INDI
-1 NAME /Ny.Amini/
+1 NAME Ny.Amini /Ny.Amini/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Ungaran Semarang
 1 FAMC @I1312_GTG_UN@
 0 @I1332@ INDI
-1 NAME /K.Basuki/
+1 NAME K.Basuki /K.Basuki/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1312_GTG_UN@
 0 @I1333@ INDI
-1 NAME /Ny.Sapurah/
+1 NAME Ny.Sapurah /Ny.Sapurah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jeruken
 1 FAMC @I1312_GTG_UN@
 0 @I1334@ INDI
-1 NAME /K.Dwijo/
+1 NAME K.Dwijo /K.Dwijo/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Ungaran Semarang
 1 FAMC @I1312_GTG_UN@
 0 @I1335@ INDI
-1 NAME /Ny.Sarilah/
+1 NAME Ny.Sarilah /Ny.Sarilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jeruken
 1 FAMC @I1312_GTG_UN@
 0 @I1336@ INDI
-1 NAME /K.Seno/
+1 NAME K.Seno /K.Seno/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jeruken
 1 FAMC @I1312_GTG_UN@
 0 @I1337@ INDI
-1 NAME /K.Safari/
+1 NAME K.Safari /K.Safari/
 1 SEX M
-1 DEAT 
+1 DEAT
 2 PLAC Jeruken
 1 FAMC @I1312_GTG_UN@
 0 @I1338@ INDI
-1 NAME /K.Widayat/
+1 NAME K.Widayat /K.Widayat/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jeruken
 1 FAMC @I1312_GTG_UN@
 0 @I1339@ INDI
-1 NAME /Ny.Saryanti/
+1 NAME Ny.Saryanti /Ny.Saryanti/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1312_GTG_UN@
 0 @I134@ INDI
-1 NAME /Heni/
+1 NAME Heni /Heni/
 1 SEX F
 1 FAMC @I79_GTG_I114@
 0 @I1340@ INDI
-1 NAME /Ny.Suimah/
+1 NAME Ny.Suimah /Ny.Suimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1309_GTG_UN@
 0 @I1341@ INDI
-1 NAME /K.Suhardi/
+1 NAME K.Suhardi /K.Suhardi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1309_GTG_UN@
 0 @I1342@ INDI
-1 NAME /K.Sujadi/
+1 NAME K.Sujadi /K.Sujadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1309_GTG_UN@
 0 @I1343@ INDI
-1 NAME /Ny.Sulastri/
+1 NAME Ny.Sulastri /Ny.Sulastri/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1309_GTG_UN@
 0 @I1344@ INDI
-1 NAME /K.Sunardi/
+1 NAME K.Sunardi /K.Sunardi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1310_GTG_UN@
 0 @I1345@ INDI
-1 NAME /K.Rubangi/
+1 NAME K.Rubangi /K.Rubangi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1313_GTG_UN@
 0 @I1346@ INDI
 1 NAME Ny.Siti /Fatimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1314@
 0 @I1347@ INDI
 1 NAME Ny.Siti /Nangimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1314@
 0 @I1348@ INDI
 1 NAME Ny.Siti /Munzaro'ah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1314@
 0 @I1349@ INDI
-1 NAME /Ny.Sartini/
+1 NAME Ny.Sartini /Ny.Sartini/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1314@
 0 @I135@ INDI
-1 NAME /Wati/
+1 NAME Wati /Wati/
 1 SEX F
 1 FAMC @I79_GTG_I114@
 0 @I1350@ INDI
-1 NAME /K.Bakir/
+1 NAME K.Bakir /K.Bakir/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1210@
 0 @I1351@ INDI
-1 NAME /K.Harun/
+1 NAME K.Harun /K.Harun/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1210@
 0 @I1352@ INDI
-1 NAME /K.Sobari/
+1 NAME K.Sobari /K.Sobari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1210@
 0 @I1353@ INDI
-1 NAME /Ny.Awaliyah/
+1 NAME Ny.Awaliyah /Ny.Awaliyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1210@
 0 @I1354@ INDI
-1 NAME /Ny.Hj.Sukartinah/
+1 NAME Ny.Hj.Sukartinah /Ny.Hj.Sukartinah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1211_GTG_UN@
+1 FAMS @UN_GTG_I1354@
 0 @I1355@ INDI
 1 NAME Ny.Hj.Siti /Nurhayati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @UN_GTG_I1354@
 0 @I1356@ INDI
 1 NAME Ny.Hj.Syarifatul /Jannah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @UN_GTG_I1354@
 0 @I1357@ INDI
-1 NAME /K.H.Benyamin/
+1 NAME K.H.Benyamin /K.H.Benyamin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC GB Yk
 1 FAMC @UN_GTG_I1354@
 0 @I1358@ INDI
 1 NAME Ny.Eni /Rusmi/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @UN_GTG_I1354@
 0 @I1359@ INDI
-1 NAME /Ny.Dawam/
+1 NAME Ny.Dawam /Ny.Dawam/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Menggoran
 1 FAMC @I1144_GTG_UN@
+1 FAMS @UN_GTG_I1359@
 0 @I136@ INDI
-1 NAME /Ani/
+1 NAME Ani /Ani/
 1 SEX F
 1 FAMC @I79_GTG_I114@
 0 @I1360@ INDI
 1 NAME K.Iman /Yahya/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1144_GTG_UN@
+1 FAMS @I1360_GTG_UN@
 0 @I1361@ INDI
 1 NAME K.Abdul /Qodir/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1144_GTG_UN@
+1 FAMS @I1361_GTG_UN@
 0 @I1362@ INDI
-1 NAME /K.Maksum/
+1 NAME K.Maksum /K.Maksum/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1144_GTG_UN@
 0 @I1363@ INDI
-1 NAME /Ny.Monah/
+1 NAME Ny.Monah /Ny.Monah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Malaysia
 1 FAMC @I1144_GTG_UN@
 0 @I1364@ INDI
 1 NAME Ny.Jinab /Turmudzi/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1144_GTG_UN@
+1 FAMS @UN_GTG_I1364@
 0 @I1365@ INDI
-1 NAME /Ny.Romlah/
+1 NAME Ny.Romlah /Ny.Romlah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Menggoran
 1 FAMC @UN_GTG_I1359@
+1 FAMS @UN_GTG_I1365@
 0 @I1366@ INDI
-1 NAME /KH.Syahid/
+1 NAME KH.Syahid /KH.Syahid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Menggoran
 1 FAMC @UN_GTG_I1359@
+1 FAMS @I1366_GTG_UN@
 0 @I1367@ INDI
 1 NAME Ny.Sutimah /Hasyim/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1359@
 0 @I1368@ INDI
-1 NAME /K.Zaidi/
+1 NAME K.Zaidi /K.Zaidi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Menggoran
 1 FAMC @UN_GTG_I1359@
 0 @I1369@ INDI
-1 NAME /K.Suwardi/
+1 NAME K.Suwardi /K.Suwardi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1365@
 0 @I137@ INDI
@@ -2187,63 +2247,63 @@
 1 SEX M
 1 FAMC @I113_GTG_I78@
 0 @I1370@ INDI
-1 NAME /Ny.Amini/
+1 NAME Ny.Amini /Ny.Amini/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1365@
 0 @I1371@ INDI
-1 NAME /Ny.Jazamah/
+1 NAME Ny.Jazamah /Ny.Jazamah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Gubukrubuh
 1 FAMC @I1366_GTG_UN@
 0 @I1372@ INDI
-1 NAME /Ny.Fathonah/
+1 NAME Ny.Fathonah /Ny.Fathonah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1366_GTG_UN@
 0 @I1373@ INDI
-1 NAME /Ny.Badriyah/
+1 NAME Ny.Badriyah /Ny.Badriyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I1366_GTG_UN@
 0 @I1374@ INDI
-1 NAME /K.Zabidi/
+1 NAME K.Zabidi /K.Zabidi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Menggoran
 1 FAMC @I1366_GTG_UN@
 0 @I1375@ INDI
-1 NAME /K.Badarudin/
+1 NAME K.Badarudin /K.Badarudin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mulusan
 1 FAMC @I1366_GTG_UN@
 0 @I1376@ INDI
-1 NAME /K.Jamhari/
+1 NAME K.Jamhari /K.Jamhari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Menggoran
 1 FAMC @I1366_GTG_UN@
 0 @I1377@ INDI
 1 NAME Ny.Umi /Jundiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Wonokromo
 1 FAMC @I1366_GTG_UN@
 0 @I1378@ INDI
-1 NAME /K.Danuri/
+1 NAME K.Danuri /K.Danuri/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1360_GTG_UN@
 0 @I1379@ INDI
-1 NAME /K.Muslim/
+1 NAME K.Muslim /K.Muslim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1360_GTG_UN@
 0 @I138@ INDI
@@ -2251,63 +2311,63 @@
 1 SEX F
 1 FAMC @I113_GTG_I78@
 0 @I1380@ INDI
-1 NAME /K.Alif/
+1 NAME K.Alif /K.Alif/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1360_GTG_UN@
 0 @I1381@ INDI
-1 NAME /Ny.Dawimah/
+1 NAME Ny.Dawimah /Ny.Dawimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1361_GTG_UN@
 0 @I1382@ INDI
-1 NAME /Ny.Hadiyah/
+1 NAME Ny.Hadiyah /Ny.Hadiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Ngrancang
 1 FAMC @I1361_GTG_UN@
 0 @I1383@ INDI
-1 NAME /K.Mahmudi/
+1 NAME K.Mahmudi /K.Mahmudi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1361_GTG_UN@
 0 @I1384@ INDI
-1 NAME /Ny.Istiqomah/
+1 NAME Ny.Istiqomah /Ny.Istiqomah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1361_GTG_UN@
 0 @I1385@ INDI
-1 NAME /K.Muhibud/
+1 NAME K.Muhibud /K.Muhibud/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1361_GTG_UN@
 0 @I1386@ INDI
-1 NAME /K.Ali/
+1 NAME K.Ali /K.Ali/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @UN_GTG_I1364@
 0 @I1387@ INDI
-1 NAME /Ny.Yatim/
+1 NAME Ny.Yatim /Ny.Yatim/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @UN_GTG_I1364@
 0 @I1388@ INDI
-1 NAME /Ny.Ngasiyah/
+1 NAME Ny.Ngasiyah /Ny.Ngasiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @UN_GTG_I1364@
 0 @I1389@ INDI
-1 NAME /K.Safi'i/
+1 NAME K.Safi'i /K.Safi'i/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @UN_GTG_I1364@
 0 @I139@ INDI
@@ -2317,521 +2377,536 @@
 0 @I1390@ INDI
 1 NAME K.Abdul /Qodir/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1145_GTG_UN@
 0 @I1391@ INDI
 1 NAME K.Amat /Jazuli/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1145_GTG_UN@
+1 FAMS @I1391_GTG_UN@
 0 @I1392@ INDI
-1 NAME /Ny.Dawami/
+1 NAME Ny.Dawami /Ny.Dawami/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @I1145_GTG_UN@
+1 FAMS @UN_GTG_I1392@
 0 @I1393@ INDI
-1 NAME /K.Nahrowi/
+1 NAME K.Nahrowi /K.Nahrowi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1145_GTG_UN@
+1 FAMS @I1393_GTG_UN@
 0 @I1394@ INDI
-1 NAME /Ny.Munawir/
+1 NAME Ny.Munawir /Ny.Munawir/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1145_GTG_UN@
+1 FAMS @UN_GTG_I1394@
 0 @I1395@ INDI
-1 NAME /Ny.Kusnan/
+1 NAME Ny.Kusnan /Ny.Kusnan/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1145_GTG_UN@
+1 FAMS @UN_GTG_I1395@
 0 @I1396@ INDI
-1 NAME /K.Mudzakir/
+1 NAME K.Mudzakir /K.Mudzakir/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Dlingo
 1 FAMC @I1145_GTG_UN@
+1 FAMS @I1396_GTG_UN@
 0 @I1397@ INDI
 1 NAME Ny.Sumirat /Danuri/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Bantul
 1 FAMC @I1145_GTG_UN@
+1 FAMS @UN_GTG_I1397@
 0 @I1398@ INDI
 1 NAME Ny.Jaizah Abdul /Hamid/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1391_GTG_UN@
 0 @I1399@ INDI
-1 NAME /Ny.Sukemi/
+1 NAME Ny.Sukemi /Ny.Sukemi/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1391_GTG_UN@
 0 @I14@ INDI
 1 NAME Rahayu /Nikmah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1978
 2 PLAC Cilacap
 1 FAMC @I2_GTG_I3@
 1 FAMS @I318_GTG_I14@
 0 @I140@ INDI
-1 NAME /Yasroji/
+1 NAME Yasroji /Yasroji/
 1 SEX M
 1 FAMS @I140_GTG_I78@
 0 @I1400@ INDI
-1 NAME /K.Khuzam/
+1 NAME K.Khuzam /K.Khuzam/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1391_GTG_UN@
 0 @I1401@ INDI
-1 NAME /Ny.Rodhiyah/
+1 NAME Ny.Rodhiyah /Ny.Rodhiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1391_GTG_UN@
 0 @I1402@ INDI
-1 NAME /K.Irsyad/
+1 NAME K.Irsyad /K.Irsyad/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @I1391_GTG_UN@
 0 @I1403@ INDI
 1 NAME K.Zaen /Dahlan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1391_GTG_UN@
 0 @I1404@ INDI
-1 NAME /Ny.Fathonah/
+1 NAME Ny.Fathonah /Ny.Fathonah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1392@
 0 @I1405@ INDI
-1 NAME /K.Thobroni/
+1 NAME K.Thobroni /K.Thobroni/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1392@
 0 @I1406@ INDI
 1 NAME Ny.Siti /Thoharti/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1392@
 0 @I1407@ INDI
-1 NAME /Ny.Thoyibah/
+1 NAME Ny.Thoyibah /Ny.Thoyibah/
 1 SEX F
 1 FAMC @UN_GTG_I1392@
 0 @I1408@ INDI
-1 NAME /Ny.Muthmainnah/
+1 NAME Ny.Muthmainnah /Ny.Muthmainnah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1392@
 0 @I1409@ INDI
-1 NAME /K.Mathori/
+1 NAME K.Mathori /K.Mathori/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1392@
 0 @I141@ INDI
-1 NAME /Chotijah/
+1 NAME Chotijah /Chotijah/
 1 SEX F
 1 FAMC @I142_GTG_UN@
 1 FAMS @I72_GTG_I141@
 0 @I1410@ INDI
-1 NAME /Ny.Thohiriyati/
+1 NAME Ny.Thohiriyati /Ny.Thohiriyati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1392@
 0 @I1411@ INDI
-1 NAME /K.Abadi/
+1 NAME K.Abadi /K.Abadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @UN_GTG_I1392@
 0 @I1412@ INDI
 1 NAME K.Hamid Thoha /Mahsun/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1392@
 0 @I1413@ INDI
-1 NAME /Ny.Jamilah/
+1 NAME Ny.Jamilah /Ny.Jamilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1393_GTG_UN@
 0 @I1414@ INDI
-1 NAME /K.Hudi/
+1 NAME K.Hudi /K.Hudi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1393_GTG_UN@
 0 @I1415@ INDI
-1 NAME /Ny.Hidayah/
+1 NAME Ny.Hidayah /Ny.Hidayah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1393_GTG_UN@
 0 @I1416@ INDI
-1 NAME /Ny.Khuzaimah/
+1 NAME Ny.Khuzaimah /Ny.Khuzaimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Wonosari
 1 FAMC @I1393_GTG_UN@
 0 @I1417@ INDI
-1 NAME /Ny.Rubangi/
+1 NAME Ny.Rubangi /Ny.Rubangi/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1393_GTG_UN@
 0 @I1418@ INDI
-1 NAME /Ny.Amini/
+1 NAME Ny.Amini /Ny.Amini/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1393_GTG_UN@
 0 @I1419@ INDI
-1 NAME /Ny.Fadhilah/
+1 NAME Ny.Fadhilah /Ny.Fadhilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1393_GTG_UN@
 0 @I142@ INDI
 1 NAME Imam /Rofingi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebarongan
+1 FAMS @I142_GTG_UN@
 0 @I1420@ INDI
-1 NAME /K.Tuhilan/
+1 NAME K.Tuhilan /K.Tuhilan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1393_GTG_UN@
 0 @I1421@ INDI
 1 NAME Ny.Siti /Arwani/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1394@
 0 @I1422@ INDI
-1 NAME /Ny.Badriyah/
+1 NAME Ny.Badriyah /Ny.Badriyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1394@
 0 @I1423@ INDI
-1 NAME /Ny.Rosyidah/
+1 NAME Ny.Rosyidah /Ny.Rosyidah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1394@
 0 @I1424@ INDI
-1 NAME /Ny.Bariyah/
+1 NAME Ny.Bariyah /Ny.Bariyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1394@
 0 @I1425@ INDI
 1 NAME K.Ja'far /Shidiq/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1394@
 0 @I1426@ INDI
 1 NAME Ny.Duriyatul /Alifah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Bengkulu
 1 FAMC @UN_GTG_I1394@
 0 @I1427@ INDI
-1 NAME /K.Salami/
+1 NAME K.Salami /K.Salami/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1395@
 0 @I1428@ INDI
-1 NAME /K.Ahyadi/
+1 NAME K.Ahyadi /K.Ahyadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Banyusuco
 1 FAMC @UN_GTG_I1395@
 0 @I1429@ INDI
-1 NAME /K.Hasanun/
+1 NAME K.Hasanun /K.Hasanun/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1395@
 0 @I143@ INDI
-1 NAME /Sujinah/
+1 NAME Sujinah /Sujinah/
 1 SEX F
-1 NOTE dikenal orang-orang sebagai wali bismillah, karena tidak bicara kecuali bismillah alhamdulillah...
-2 CONT justru yang lebih sering disowani adalah beliau bukan pak asro-nya
 1 FAMC @I144_GTG_UN@
 1 FAMS @I71_GTG_I143@
 0 @I1430@ INDI
-1 NAME /Ny.Zaidah/
+1 NAME Ny.Zaidah /Ny.Zaidah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1395@
 0 @I1431@ INDI
-1 NAME /K.Syarifudin/
+1 NAME K.Syarifudin /K.Syarifudin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1395@
 0 @I1432@ INDI
-1 NAME /Asroriyah/
+1 NAME Asroriyah /Asroriyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Yogyakarta
 1 FAMC @I1396_GTG_UN@
 0 @I1433@ INDI
-1 NAME /Ny.Maimunah/
+1 NAME Ny.Maimunah /Ny.Maimunah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Yogyakarta
 1 FAMC @I1396_GTG_UN@
 0 @I1434@ INDI
-1 NAME /Ny.Jazimah/
+1 NAME Ny.Jazimah /Ny.Jazimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Yogyakarta
 1 FAMC @I1396_GTG_UN@
 0 @I1435@ INDI
 1 NAME Ny.Azizatul /Jannah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Playen
 1 FAMC @I1396_GTG_UN@
 0 @I1436@ INDI
-1 NAME /K.H.Drs.Fauzi/
+1 NAME K.H.Drs.Fauzi /K.H.Drs.Fauzi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Dlingo
 1 FAMC @I1396_GTG_UN@
 0 @I1437@ INDI
-1 NAME /Ny.Sriharyati/
+1 NAME Ny.Sriharyati /Ny.Sriharyati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Dlingo
 1 FAMC @I1396_GTG_UN@
 0 @I1438@ INDI
 1 NAME K.Drs.Nasirudin /Thoha/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Dlingo
 1 FAMC @I1396_GTG_UN@
 0 @I1439@ INDI
 1 NAME K.Drs.Agus /Salim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Dlingo
 1 FAMC @I1396_GTG_UN@
 0 @I144@ INDI
 1 NAME Ahmad /Ghozali/
 1 SEX M
-1 NOTE punya wiridan khas "laa haula walaa quwwata illa billah..."
-2 CONT 
-2 CONT beliau adalah keturunanan diponegoro yang mengungsi ke barat yang sampai ke kebarongan pasca perjanjian giyanti.
+1 FAMS @I144_GTG_UN@
 0 @I1440@ INDI
-1 NAME /Ny.Qibtiyah/
+1 NAME Ny.Qibtiyah /Ny.Qibtiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Bantul
 1 FAMC @UN_GTG_I1397@
 0 @I1441@ INDI
-1 NAME /Ny.Pardilah/
+1 NAME Ny.Pardilah /Ny.Pardilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Bantul
 1 FAMC @UN_GTG_I1397@
 0 @I1442@ INDI
-1 NAME /Thohayadi/
+1 NAME Thohayadi /Thohayadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Bantul
 1 FAMC @UN_GTG_I1397@
 0 @I1443@ INDI
-1 NAME /K.Mulyadi/
+1 NAME K.Mulyadi /K.Mulyadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Bantul
 1 FAMC @UN_GTG_I1397@
 0 @I1444@ INDI
-1 NAME /Ny.Juwariyah/
+1 NAME Ny.Juwariyah /Ny.Juwariyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Bantul
 1 FAMC @UN_GTG_I1397@
 0 @I1445@ INDI
-1 NAME /K.Yunus/
+1 NAME K.Yunus /K.Yunus/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Bantul
 1 FAMC @UN_GTG_I1397@
 0 @I1446@ INDI
 1 NAME K.Abdul /Jupri/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1146_GTG_UN@
+1 FAMS @I1446_GTG_UN@
 0 @I1447@ INDI
-1 NAME /K.Mustaqim/
+1 NAME K.Mustaqim /K.Mustaqim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1146_GTG_UN@
+1 FAMS @I1447_GTG_UN@
 0 @I1448@ INDI
-1 NAME /K.Muh.Sidiq/
+1 NAME K.Muh.Sidiq /K.Muh.Sidiq/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1146_GTG_UN@
+1 FAMS @I1448_GTG_UN@
 0 @I1449@ INDI
-1 NAME /K.Juwahir/
+1 NAME K.Juwahir /K.Juwahir/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1146_GTG_UN@
+1 FAMS @I1449_GTG_UN@
 0 @I145@ INDI
 1 NAME Imam /Besari/
 1 SEX M
+1 FAMS @I145_GTG_UN@
 0 @I1450@ INDI
-1 NAME /Ny.M.Ashari/
+1 NAME Ny.M.Ashari /Ny.M.Ashari/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1146_GTG_UN@
+1 FAMS @UN_GTG_I1450@
 0 @I1451@ INDI
-1 NAME /Ny.Asrori/
+1 NAME Ny.Asrori /Ny.Asrori/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1146_GTG_UN@
+1 FAMS @UN_GTG_I1451@
 0 @I1452@ INDI
-1 NAME /K.Dimyati/
+1 NAME K.Dimyati /K.Dimyati/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1146_GTG_UN@
+1 FAMS @I1452_GTG_UN@
 0 @I1453@ INDI
-1 NAME /K.Jumali/
+1 NAME K.Jumali /K.Jumali/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kalimantan
 1 FAMC @I1146_GTG_UN@
+1 FAMS @I1453_GTG_UN@
 0 @I1454@ INDI
-1 NAME /Ny.Maryam/
+1 NAME Ny.Maryam /Ny.Maryam/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1146_GTG_UN@
+1 FAMS @UN_GTG_I1454@
 0 @I1455@ INDI
-1 NAME /Ny.Mustingah/
+1 NAME Ny.Mustingah /Ny.Mustingah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC sumatra
 1 FAMC @I1446_GTG_UN@
 0 @I1456@ INDI
-1 NAME /K.Muh.Dayat/
+1 NAME K.Muh.Dayat /K.Muh.Dayat/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1446_GTG_UN@
 0 @I1457@ INDI
-1 NAME /Ny.Maimunah/
+1 NAME Ny.Maimunah /Ny.Maimunah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1446_GTG_UN@
 0 @I1458@ INDI
-1 NAME /Ny.Safinah/
+1 NAME Ny.Safinah /Ny.Safinah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1446_GTG_UN@
 0 @I1459@ INDI
-1 NAME /Ny.Marfu'ah/
+1 NAME Ny.Marfu'ah /Ny.Marfu'ah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1446_GTG_UN@
 0 @I146@ INDI
 1 NAME Kasan /Lahuri/
 1 SEX M
 1 FAMC @I145_GTG_UN@
+1 FAMS @I146_GTG_UN@
 0 @I1460@ INDI
-1 NAME /KH.Bashori/
+1 NAME KH.Bashori /KH.Bashori/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @I1447_GTG_UN@
 0 @I1461@ INDI
-1 NAME /Ny.Alifah/
+1 NAME Ny.Alifah /Ny.Alifah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1447_GTG_UN@
 0 @I1462@ INDI
-1 NAME /K.Dalhar/
+1 NAME K.Dalhar /K.Dalhar/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1447_GTG_UN@
 0 @I1463@ INDI
-1 NAME /K.Juzat/
+1 NAME K.Juzat /K.Juzat/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung Selatan
 1 FAMC @I1447_GTG_UN@
 0 @I1464@ INDI
-1 NAME /Ny.Murhimah/
+1 NAME Ny.Murhimah /Ny.Murhimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung Selatan
 1 FAMC @I1447_GTG_UN@
 0 @I1465@ INDI
 1 NAME Ny.Siti /Fajriyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung Selatan
 1 FAMC @I1447_GTG_UN@
 0 @I1466@ INDI
-1 NAME /Ny.Isrofiyyah/
+1 NAME Ny.Isrofiyyah /Ny.Isrofiyyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @I1448_GTG_UN@
 0 @I1467@ INDI
-1 NAME /K.Samrodi/
+1 NAME K.Samrodi /K.Samrodi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1448_GTG_UN@
 0 @I1468@ INDI
-1 NAME /K.Nawaji/
+1 NAME K.Nawaji /K.Nawaji/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Silaut
 1 FAMC @I1448_GTG_UN@
 0 @I1469@ INDI
-1 NAME /K.Darojat/
+1 NAME K.Darojat /K.Darojat/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Silaut
 1 FAMC @I1448_GTG_UN@
 0 @I147@ INDI
@@ -2839,127 +2914,128 @@
 1 SEX M
 1 FAMC @I146_GTG_UN@
 0 @I1470@ INDI
-1 NAME /Ny.Suhartilah/
+1 NAME Ny.Suhartilah /Ny.Suhartilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Aceh Tengah
 1 FAMC @I1448_GTG_UN@
 0 @I1471@ INDI
-1 NAME /Ny.Ngaliyah/
+1 NAME Ny.Ngaliyah /Ny.Ngaliyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Belitung
 1 FAMC @I1448_GTG_UN@
 0 @I1472@ INDI
-1 NAME /Ny.Romlah/
+1 NAME Ny.Romlah /Ny.Romlah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1449_GTG_UN@
 0 @I1473@ INDI
-1 NAME /Ny.Amdiyah/
+1 NAME Ny.Amdiyah /Ny.Amdiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1449_GTG_UN@
 0 @I1474@ INDI
-1 NAME /Ny.Zubaidah/
+1 NAME Ny.Zubaidah /Ny.Zubaidah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1449_GTG_UN@
 0 @I1475@ INDI
-1 NAME /K.Muhajir/
+1 NAME K.Muhajir /K.Muhajir/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @I1449_GTG_UN@
 0 @I1476@ INDI
-1 NAME /Ny.Qibtiyah/
+1 NAME Ny.Qibtiyah /Ny.Qibtiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1450@
 0 @I1477@ INDI
-1 NAME /Ny.Zaini/
+1 NAME Ny.Zaini /Ny.Zaini/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1450@
 0 @I1478@ INDI
-1 NAME /K.Zainun/
+1 NAME K.Zainun /K.Zainun/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1450@
 0 @I1479@ INDI
-1 NAME /Ny.Ngalimah/
+1 NAME Ny.Ngalimah /Ny.Ngalimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1450@
 0 @I148@ INDI
 1 NAME H /Afandi/
 1 SEX M
 1 FAMC @I146_GTG_UN@
+1 FAMS @I148_GTG_UN@
 0 @I1480@ INDI
-1 NAME /K.Khudhori/
+1 NAME K.Khudhori /K.Khudhori/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1450@
 0 @I1481@ INDI
-1 NAME /Ny.Sutingah/
+1 NAME Ny.Sutingah /Ny.Sutingah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Bleberan
 1 FAMC @UN_GTG_I1451@
 0 @I1482@ INDI
-1 NAME /K.Nursalim/
+1 NAME K.Nursalim /K.Nursalim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sumatra
 1 FAMC @UN_GTG_I1451@
 0 @I1483@ INDI
-1 NAME /Ny.Kustiyah/
+1 NAME Ny.Kustiyah /Ny.Kustiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @UN_GTG_I1451@
 0 @I1484@ INDI
-1 NAME /KH.Jarzani/
+1 NAME KH.Jarzani /KH.Jarzani/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1452_GTG_UN@
 0 @I1485@ INDI
-1 NAME /Ny.Mardiyah/
+1 NAME Ny.Mardiyah /Ny.Mardiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1452_GTG_UN@
 0 @I1486@ INDI
-1 NAME /K.Asmuni/
+1 NAME K.Asmuni /K.Asmuni/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kebosungu
 1 FAMC @I1452_GTG_UN@
 0 @I1487@ INDI
-1 NAME /K.Bahrodin/
+1 NAME K.Bahrodin /K.Bahrodin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Banyusuco
 1 FAMC @I1452_GTG_UN@
 0 @I1488@ INDI
-1 NAME /K.Munajad/
+1 NAME K.Munajad /K.Munajad/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Silaut Sumatra
 1 FAMC @I1452_GTG_UN@
 0 @I1489@ INDI
-1 NAME /KH.Bajuri/
+1 NAME KH.Bajuri /KH.Bajuri/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Riau
 1 FAMC @I1452_GTG_UN@
 0 @I149@ INDI
@@ -2968,154 +3044,155 @@
 1 FAMC @I5_GTG_I6@
 1 FAMS @I153_GTG_I149@
 0 @I1490@ INDI
-1 NAME /Ny.Sarifah/
+1 NAME Ny.Sarifah /Ny.Sarifah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lubuklinggau
 1 FAMC @I1453_GTG_UN@
 0 @I1491@ INDI
-1 NAME /Ny.Asiyah/
+1 NAME Ny.Asiyah /Ny.Asiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I1453_GTG_UN@
 0 @I1492@ INDI
-1 NAME /Ny.Nangimah/
+1 NAME Ny.Nangimah /Ny.Nangimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1454@
 0 @I1493@ INDI
-1 NAME /Ny.Amanah/
+1 NAME Ny.Amanah /Ny.Amanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1454@
 0 @I1494@ INDI
-1 NAME /Ny.Islamiyah/
+1 NAME Ny.Islamiyah /Ny.Islamiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1454@
 0 @I1495@ INDI
-1 NAME /K.Fakhari/
+1 NAME K.Fakhari /K.Fakhari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @UN_GTG_I1454@
 0 @I1496@ INDI
-1 NAME /Dalilah/
+1 NAME Dalilah /Dalilah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I863_GTG_I871@
 0 @I1497@ INDI
-1 NAME /Juwariyah/
+1 NAME Juwariyah /Juwariyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I863_GTG_I871@
 0 @I1498@ INDI
-1 NAME /Alifah/
+1 NAME Alifah /Alifah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I863_GTG_I871@
 0 @I1499@ INDI
 1 NAME K.Imam /Sanusi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Banjaran
 1 FAMC @UN_GTG_I1147@
+1 FAMS @I1499_GTG_UN@
 0 @I15@ INDI
 1 NAME Ilzamul /Wafiq/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1984
 2 PLAC Cilacap
-1 NOTE Salah satu sukarelawan yang melengkapi dan merawat silsilah ini dari versi tulisan tangan dan ketikan komputer.
 1 FAMC @I2_GTG_I3@
 1 FAMS @I15_GTG_I1556@
 0 @I150@ INDI
-1 NAME /Suwaibah/
+1 NAME Suwaibah /Suwaibah/
 1 SEX F
 1 FAMC @I5_GTG_I6@
 1 FAMS @I152_GTG_I150@
 0 @I1500@ INDI
-1 NAME /Ny.Askiyah/
+1 NAME Ny.Askiyah /Ny.Askiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1147@
 0 @I1501@ INDI
-1 NAME /K.Bisri/
+1 NAME K.Bisri /K.Bisri/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Banjaran
 1 FAMC @UN_GTG_I1147@
+1 FAMS @I1501_GTG_UN@
 0 @I1502@ INDI
-1 NAME /K.Husain/
+1 NAME K.Husain /K.Husain/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1147@
 0 @I1503@ INDI
-1 NAME /Ny.Fatimah/
+1 NAME Ny.Fatimah /Ny.Fatimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1147@
 0 @I1504@ INDI
-1 NAME /Ny.Wasiyati/
+1 NAME Ny.Wasiyati /Ny.Wasiyati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Banjaran
 1 FAMC @I1499_GTG_UN@
 0 @I1505@ INDI
-1 NAME /K.Syamsuhadi/
+1 NAME K.Syamsuhadi /K.Syamsuhadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Banjaran
 1 FAMC @I1499_GTG_UN@
 0 @I1506@ INDI
-1 NAME /Ny.Marsiyah/
+1 NAME Ny.Marsiyah /Ny.Marsiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Banjaran
 1 FAMC @I1499_GTG_UN@
 0 @I1507@ INDI
-1 NAME /Ny.Supinah/
+1 NAME Ny.Supinah /Ny.Supinah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kepek S.Sari
 1 FAMC @I1499_GTG_UN@
 0 @I1508@ INDI
-1 NAME /K.Komari/
+1 NAME K.Komari /K.Komari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kepek S.Sari
 1 FAMC @I1499_GTG_UN@
 0 @I1509@ INDI
 1 NAME Ny.Muslimah /Sukoyo/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Condongcatur
 1 FAMC @I1501_GTG_UN@
 0 @I151@ INDI
-1 NAME /Ngaisah/
+1 NAME Ngaisah /Ngaisah/
 1 SEX F
 1 FAMC @I5_GTG_I6@
 1 FAMS @I238_GTG_I151@
 0 @I1510@ INDI
-1 NAME /K.Hasyim/
+1 NAME K.Hasyim /K.Hasyim/
 1 SEX M
 1 FAMC @I1501_GTG_UN@
 0 @I1511@ INDI
-1 NAME /K.Qomarudin/
+1 NAME K.Qomarudin /K.Qomarudin/
 1 SEX M
 1 FAMC @I1501_GTG_UN@
 0 @I1512@ INDI
-1 NAME /K.Sarjudi/
+1 NAME K.Sarjudi /K.Sarjudi/
 1 SEX M
 1 FAMC @I1501_GTG_UN@
 0 @I1513@ INDI
@@ -3123,38 +3200,38 @@
 1 SEX M
 1 FAMC @I1501_GTG_UN@
 0 @I1514@ INDI
-1 NAME /K.Badarudin/
+1 NAME K.Badarudin /K.Badarudin/
 1 SEX M
 1 FAMC @I1501_GTG_UN@
 0 @I1515@ INDI
-1 NAME /K.Samsi/
+1 NAME K.Samsi /K.Samsi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Banjaran
 1 FAMC @I1501_GTG_UN@
 0 @I1516@ INDI
-1 NAME /Ny.Badriyah/
+1 NAME Ny.Badriyah /Ny.Badriyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Banjaran
 1 FAMC @I1501_GTG_UN@
 0 @I1517@ INDI
-1 NAME /Ismanto/
+1 NAME Ismanto /Ismanto/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Tegalanyar
 1 FAMS @I1517_GTG_I462@
 0 @I1518@ INDI
 1 NAME Salwa /salsabila/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 2005
 2 PLAC tegalanyar
 1 FAMC @I1517_GTG_I462@
 0 @I1519@ INDI
 1 NAME Muhammad Kaif /kaisyan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2009
 2 PLAC karangmangu kroya
 1 FAMC @I1517_GTG_I462@
@@ -3166,51 +3243,51 @@
 0 @I1520@ INDI
 1 NAME Asep /Supratman/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Tasikmalaya
 1 FAMS @I1520_GTG_I461@
 0 @I1521@ INDI
-1 NAME /Azka/
+1 NAME Azka /Azka/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2007
 2 PLAC Tasikmalaya
 1 FAMC @I1520_GTG_I461@
 0 @I1522@ INDI
-1 NAME Isnani Abdussalam //
+1 NAME Isnani /Abdussalam/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 25 MAY 2010
 2 PLAC Kalisabuk
-1 DEAT 
+1 DEAT
 2 DATE 16 AUG 2010
 2 PLAC Kalisabuk
 1 FAMC @I11_GTG_I27@
 0 @I1523@ INDI
-1 NAME /Indah/
+1 NAME Indah /Indah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 2010
 2 PLAC Kalisabuk
 1 FAMC @I12_GTG_I28@
 0 @I1524@ INDI
-1 NAME Mohamad Husni Ramadhan //
+1 NAME Mohamad Husni /Ramadhan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2011
 2 PLAC Cikarang
 1 FAMC @I13_GTG_I29@
 0 @I1525@ INDI
 1 NAME Fawaz Abdullah /Zubaedi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2010
 2 PLAC Kalisabuk
 1 FAMC @I318_GTG_I14@
 0 @I1526@ INDI
 1 NAME Muhammad /Warsun/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1984
 2 PLAC Purworejo
 1 FAMC @I1578_GTG_I1579@
@@ -3218,187 +3295,194 @@
 0 @I1527@ INDI
 1 NAME Zahwa Khoirun /Nisa/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 2011
 2 PLAC Nogotirto
 1 FAMC @I799_GTG_I797@
 0 @I1528@ INDI
-1 NAME Suwati //
+1 NAME Suwati /Suwati/
 1 SEX F
 1 FAMC @I1531_GTG_I1532@
 1 FAMS @I749_GTG_I1528@
 0 @I1529@ INDI
-1 NAME Musin //
+1 NAME Musin /Musin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Puring
 1 FAMC @I1534_GTG_UN@
 1 FAMS @I1529_GTG_I1530@
 0 @I153@ INDI
-1 NAME /Hamdi/
+1 NAME Hamdi /Hamdi/
 1 SEX M
 1 FAMS @I153_GTG_I149@
 0 @I1530@ INDI
-1 NAME Sarilah //
+1 NAME Sarilah /Sarilah/
 1 SEX F
 1 FAMC @I1536_GTG_UN@
 1 FAMS @I1529_GTG_I1530@
 0 @I1531@ INDI
-1 NAME Abdullah //
+1 NAME Abdullah /Abdullah/
 1 SEX M
 1 FAMS @I1531_GTG_I1532@
 0 @I1532@ INDI
-1 NAME Kusnaenah //
+1 NAME Kusnaenah /Kusnaenah/
 1 SEX F
 1 FAMC @I1533_GTG_UN@
 1 FAMS @I1531_GTG_I1532@
 0 @I1533@ INDI
-1 NAME H. Machful //
+1 NAME H. /Machful/
 1 SEX M
+1 FAMS @I1533_GTG_UN@
 0 @I1534@ INDI
-1 NAME Somadikrama //
+1 NAME Somadikrama /Somadikrama/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Puring Kebumen
 1 FAMC @I1535_GTG_UN@
+1 FAMS @I1534_GTG_UN@
 0 @I1535@ INDI
-1 NAME Somajaya //
+1 NAME Somajaya /Somajaya/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Puring Kebumen
+1 FAMS @I1535_GTG_UN@
 0 @I1536@ INDI
-1 NAME Ali Wijaya //
+1 NAME Ali /Wijaya/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Puring Kebumen
 1 FAMC @I1537_GTG_UN@
+1 FAMS @I1536_GTG_UN@
 0 @I1537@ INDI
-1 NAME Ali Murtawi //
+1 NAME Ali /Murtawi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Puring Kebumen
+1 FAMS @I1537_GTG_UN@
 0 @I1538@ INDI
-1 NAME Doni Afriyanto //
+1 NAME Doni /Afriyanto/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Bolra
 1 FAMC @I1540_GTG_I1541@
 1 FAMS @I1538_GTG_I21@
 0 @I1539@ INDI
-1 NAME Khanifan Rauf Ad Dakhil Putra Afrianto //
+1 NAME Khanifan Rauf Ad Dakhil Putra /Afrianto/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 30 JULI 2015
 2 PLAC Cepu Blora
 1 FAMC @I1538_GTG_I21@
 0 @I154@ INDI
-1 NAME /Faijun/
+1 NAME Faijun /Faijun/
 1 SEX M
 1 FAMC @I152_GTG_I150@
 1 FAMS @I154_GTG_I304@
 0 @I1540@ INDI
-1 NAME H Jantofiq //
+1 NAME H /Jantofiq/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Blora
 1 FAMS @I1540_GTG_I1541@
 0 @I1541@ INDI
-1 NAME Hj Sumiyatun //
+1 NAME Hj /Sumiyatun/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Blora
 1 FAMS @I1540_GTG_I1541@
 0 @I1542@ INDI
-1 NAME Aan Rohayanto //
+1 NAME Aan /Rohayanto/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Blora
 1 FAMC @I1540_GTG_I1541@
 0 @I1543@ INDI
-1 NAME Dina Fitriya Rahmawati //
+1 NAME Dina Fitriya /Rahmawati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Blora
 1 FAMC @I1540_GTG_I1541@
 0 @I1544@ INDI
-1 NAME Dempek //
+1 NAME Dempek /Dempek/
 1 SEX F
 1 FAMC @I1545_GTG_UN@
 1 FAMS @I69_GTG_I1544@
 0 @I1545@ INDI
-1 NAME Ramane Dempek //
+1 NAME Ramane /Dempek/
 1 SEX M
+1 FAMS @I1545_GTG_UN@
 0 @I1546@ INDI
-1 NAME Pepek //
+1 NAME Pepek /Pepek/
 1 SEX F
 1 FAMC @I1545_GTG_UN@
+1 FAMS @UN_GTG_I1546@
 0 @I1547@ INDI
-1 NAME Khotijah //
+1 NAME Khotijah /Khotijah/
 1 SEX F
 1 FAMC @UN_GTG_I1546@
 1 FAMS @I1550_GTG_I1547@
 0 @I1548@ INDI
-1 NAME ? unknown ?
+1 NAME ? unknown /?/
 1 SEX M
 1 FAMC @UN_GTG_I1546@
 0 @I1549@ INDI
-1 NAME Sadjari //
+1 NAME Sadjari /Sadjari/
 1 SEX M
 1 FAMC @UN_GTG_I1546@
 0 @I155@ INDI
-1 NAME /Hafsin/
+1 NAME Hafsin /Hafsin/
 1 SEX M
 1 FAMC @I152_GTG_I150@
 0 @I1550@ INDI
-1 NAME Eyang Syech Basalim //
+1 NAME Eyang Syech /Basalim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Yaman
 1 FAMS @I1550_GTG_I1547@
 0 @I1551@ INDI
-1 NAME Umar Basalim //
+1 NAME Umar /Basalim/
 1 SEX M
 1 FAMC @I1550_GTG_I1547@
 0 @I1552@ INDI
-1 NAME Jum'an Basalim //
+1 NAME Jum'an /Basalim/
 1 SEX M
-1 DEAT 
+1 DEAT
 2 DATE 2018
 2 PLAC Jakarta
 1 FAMC @I1550_GTG_I1547@
 0 @I1556@ INDI
-1 NAME Siti Suhbatun Nafi'ah
+1 NAME Siti Suhbatun /Nafi'ah/
 1 SEX F
 1 FAMS @I15_GTG_I1556@
 0 @I1558@ INDI
-1 NAME Diana Rohayatul Farida //
+1 NAME Diana Rohayatul /Farida/
 1 SEX F
 1 FAMS @I339_GTG_I1558@
 0 @I1559@ INDI
 1 NAME Carisa Putri /Mashduqi/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi Nogotirto Gamping Sleman Yogyakarta
 1 FAMC @I339_GTG_I1558@
 0 @I156@ INDI
-1 NAME /Khasbullah/
+1 NAME Khasbullah /Khasbullah/
 1 SEX M
 1 FAMC @I152_GTG_I150@
 1 FAMS @I156_GTG_I306@
 0 @I1560@ INDI
 1 NAME Ibrahim Kafabihi /Mashduqi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi Nogotirto Gamping Sleman Yogyakarta
 1 FAMC @I339_GTG_I1558@
 0 @I1561@ INDI
 1 NAME Zida /Majid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I334_GTG_I335@
 0 @I157@ INDI
-1 NAME /Hudori/
+1 NAME Hudori /Hudori/
 1 SEX M
 1 FAMC @I152_GTG_I150@
 0 @I1573@ INDI
@@ -3408,114 +3492,108 @@
 0 @I1574@ INDI
 1 NAME Alvina Zinatul Atqiya /Warsun/
 1 SEX F
-1 EVEN 
-2 DATE 17 JUN 2018
-2 PLAC Mlangi Nogotirto Gamping Sleman Yogyakarta
-2 NOTE foster
-1 BIRT 
+1 BIRT
 2 DATE 12 MAY 2018
 2 PLAC Purworejo
-2 ADDR Bayan Purworejo
-2 NOTE Ayah kandung Bapak Winartoto / Muhammad Warsun
 1 FAMC @I1_GTG_I320@
 0 @I1576@ INDI
 1 NAME Minhad /Asy'ari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1926
 1 FAMC @I7_GTG_I8@
 0 @I1577@ INDI
 1 NAME Chabib /Munawir/
 1 SEX M
-1 DEAT 
+1 DEAT
 2 PLAC Banyuwangi
 1 FAMC @I481_GTG_UN@
 0 @I1578@ INDI
-1 NAME Kuwatono //
+1 NAME Kuwatono /Kuwatono/
 1 SEX M
 1 FAMS @I1578_GTG_I1579@
 0 @I1579@ INDI
-1 NAME Umi Warsun //
+1 NAME Umi /Warsun/
 1 SEX F
 1 FAMS @I1578_GTG_I1579@
 0 @I158@ INDI
-1 NAME /Rochmah/
+1 NAME Rochmah /Rochmah/
 1 SEX F
 1 FAMC @I152_GTG_I150@
 1 FAMS @I780_GTG_I158@
 0 @I1580@ INDI
-1 NAME Ahmad Salim Zend //
+1 NAME Ahmad Salim /Zend/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2018
 1 FAMC @I15_GTG_I1556@
 0 @I1582@ INDI
-1 NAME Em Mandalla Hayat Elmakky //
+1 NAME Em Mandalla Hayat /Elmakky/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2017
 1 FAMC @I15_GTG_I1556@
 0 @I1583@ INDI
-1 NAME Mugi Salimna //
+1 NAME Mugi /Salimna/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 10 OCT 2013
-1 DEAT 
+1 DEAT
 2 DATE 13 OCT 2013
 1 FAMC @I11_GTG_I27@
 0 @I1584@ INDI
-1 NAME Pujiarto //
+1 NAME Pujiarto /Pujiarto/
 1 SEX M
 1 FAMS @I1584_GTG_I778@
 0 @I1585@ INDI
-1 NAME MH Eljawwad //
+1 NAME MH /Eljawwad/
 1 SEX M
 1 FAMC @I1584_GTG_I778@
 0 @I159@ INDI
-1 NAME /Mutmainah/
+1 NAME Mutmainah /Mutmainah/
 1 SEX F
 1 FAMC @I152_GTG_I150@
 1 FAMS @I782_GTG_I159@
 0 @I16@ INDI
 1 NAME Ahmad /Fauzan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1989
 2 PLAC Cilacap
 1 FAMC @I2_GTG_I3@
 0 @I160@ INDI
-1 NAME /Sintelah/
+1 NAME Sintelah /Sintelah/
 1 SEX F
 1 FAMS @I19_GTG_I160@
 0 @I161@ INDI
-1 NAME /Tiyah/
+1 NAME Tiyah /Tiyah/
 1 SEX F
 1 FAMC @I19_GTG_I160@
 0 @I162@ INDI
-1 NAME /Tiyem/
+1 NAME Tiyem /Tiyem/
 1 SEX F
 1 FAMC @I19_GTG_I160@
 0 @I163@ INDI
 1 NAME Mad /Yusup/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sidareja
 1 FAMC @I19_GTG_I160@
 0 @I164@ INDI
-1 NAME /Nasucha/
+1 NAME Nasucha /Nasucha/
 1 SEX M
 1 FAMC @I34_GTG_I32@
 1 FAMS @I164_GTG_I171@
 0 @I165@ INDI
-1 NAME /Nasikhah/
+1 NAME Nasikhah /Nasikhah/
 1 SEX M
 0 @I166@ INDI
-1 NAME /Nasikhah/
+1 NAME Nasikhah /Nasikhah/
 1 SEX F
 1 FAMC @I34_GTG_I32@
 1 FAMS @I172_GTG_I166@
 0 @I167@ INDI
-1 NAME /Mukhtasir/
+1 NAME Mukhtasir /Mukhtasir/
 1 SEX M
 1 FAMC @I34_GTG_I32@
 1 FAMS @I167_GTG_I180@
@@ -3525,17 +3603,17 @@
 1 FAMC @I34_GTG_I32@
 1 FAMS @I183_GTG_I168@
 0 @I169@ INDI
-1 NAME /Fathurokhman/
+1 NAME Fathurokhman /Fathurokhman/
 1 SEX M
 1 FAMC @I34_GTG_I32@
 1 FAMS @I169_GTG_I187@
 0 @I17@ INDI
 1 NAME Muhammad /Iqdam/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1981
 2 PLAC Cilacap
-1 DEAT 
+1 DEAT
 2 DATE 1982
 2 PLAC Cilacap
 1 FAMC @I2_GTG_I3@
@@ -3545,7 +3623,7 @@
 1 FAMC @I164_GTG_I171@
 1 FAMS @I179_GTG_I170@
 0 @I171@ INDI
-1 NAME /Latifah/
+1 NAME Latifah /Latifah/
 1 SEX F
 1 FAMS @I164_GTG_I171@
 0 @I172@ INDI
@@ -3553,7 +3631,7 @@
 1 SEX M
 1 FAMS @I172_GTG_I166@
 0 @I173@ INDI
-1 NAME Balqis
+1 NAME Balqis /Balqis/
 1 SEX F
 0 @I174@ INDI
 1 NAME M /Marzuki/
@@ -3576,13 +3654,13 @@
 1 SEX M
 1 FAMC @I172_GTG_I166@
 0 @I179@ INDI
-1 NAME /Azam/
+1 NAME Azam /Azam/
 1 SEX M
 1 FAMS @I179_GTG_I170@
 0 @I18@ INDI
 1 NAME Dyah Sri /Utari/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1965
 2 PLAC Purbalingga
 1 FAMC @I40_GTG_I41@
@@ -3612,7 +3690,7 @@
 1 SEX M
 1 FAMC @I183_GTG_I168@
 0 @I186@ INDI
-1 NAME /Naskhuddin/
+1 NAME Naskhuddin /Naskhuddin/
 1 SEX M
 1 FAMC @I183_GTG_I168@
 0 @I187@ INDI
@@ -3629,12 +3707,12 @@
 1 FAMC @I153_GTG_I149@
 1 FAMS @I189_GTG_I198@
 0 @I19@ INDI
-1 NAME /Resadikrama/
+1 NAME Resadikrama /Resadikrama/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1789
 2 PLAC Sidareja
-1 DEAT 
+1 DEAT
 2 DATE 1890
 2 PLAC Sidareja
 1 FAMS @I19_GTG_I160@
@@ -3665,28 +3743,28 @@
 1 SEX M
 1 FAMC @I189_GTG_I198@
 0 @I196@ INDI
-1 NAME /Maghfiroh/
+1 NAME Maghfiroh /Maghfiroh/
 1 SEX F
 1 FAMC @I189_GTG_I198@
 0 @I197@ INDI
-1 NAME /Iqmatul/
+1 NAME Iqmatul /Iqmatul/
 1 SEX F
 1 FAMC @I189_GTG_I198@
 0 @I198@ INDI
-1 NAME /Marfungah/
+1 NAME Marfungah /Marfungah/
 1 SEX F
 1 FAMS @I189_GTG_I198@
 0 @I199@ INDI
-1 NAME /Bunyani/
+1 NAME Bunyani /Bunyani/
 1 SEX M
 1 FAMS @I199_GTG_I193@
 0 @I2@ INDI
 1 NAME H.Ahmad /Zaenuddin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1 APRIL 1932
 2 PLAC Cilacap
-1 DEAT 
+1 DEAT
 2 DATE 24 JAN 2012
 2 PLAC Gebang Kuning
 1 FAMC @I5_GTG_I6@
@@ -3694,12 +3772,12 @@
 0 @I20@ INDI
 1 NAME Hilmy Ilman /Nafi'an/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1993
 2 PLAC Purwokerto
 1 FAMC @I4_GTG_I18@
 0 @I200@ INDI
-1 NAME /Mughni/
+1 NAME Mughni /Mughni/
 1 SEX M
 1 FAMS @I200_GTG_I194@
 0 @I201@ INDI
@@ -3719,7 +3797,7 @@
 1 FAMC @I153_GTG_I149@
 1 FAMS @I203_GTG_I777@
 0 @I204@ INDI
-1 NAME /Nasruddin/
+1 NAME Nasruddin /Nasruddin/
 1 SEX M
 1 FAMC @I153_GTG_I149@
 1 FAMS @I204_GTG_I220@
@@ -3729,13 +3807,13 @@
 1 FAMC @I153_GTG_I149@
 1 FAMS @I222_GTG_I205@
 0 @I206@ INDI
-1 NAME /Mufroil/
+1 NAME Mufroil /Mufroil/
 1 SEX M
 1 FAMC @I499_GTG_I482@
-1 FAMS @I206_GTG_I201@
 1 FAMS @I206_GTG_I764@
+1 FAMS @I206_GTG_I201@
 0 @I207@ INDI
-1 NAME /Qoimah/
+1 NAME Qoimah /Qoimah/
 1 SEX F
 1 FAMC @I206_GTG_I201@
 0 @I208@ INDI
@@ -3744,13 +3822,13 @@
 1 FAMC @I206_GTG_I201@
 1 FAMS @I208_GTG_I209@
 0 @I209@ INDI
-1 NAME /Kartumi/
+1 NAME Kartumi /Kartumi/
 1 SEX F
 1 FAMS @I208_GTG_I209@
 0 @I21@ INDI
 1 NAME Afini Zidnil /Ilma/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1990
 2 PLAC Purwokerto
 1 FAMC @I4_GTG_I18@
@@ -3764,31 +3842,31 @@
 1 SEX M
 1 FAMC @I208_GTG_I209@
 0 @I212@ INDI
-1 NAME /Wafa/
+1 NAME Wafa /Wafa/
 1 SEX M
 1 FAMC @I208_GTG_I209@
 0 @I213@ INDI
-1 NAME /Saiman/
+1 NAME Saiman /Saiman/
 1 SEX M
 1 FAMS @I213_GTG_I201@
 0 @I214@ INDI
-1 NAME /Maryatul/
+1 NAME Maryatul /Maryatul/
 1 SEX M
 1 FAMC @I213_GTG_I201@
 0 @I215@ INDI
-1 NAME /Muflikhah/
+1 NAME Muflikhah /Muflikhah/
 1 SEX F
 1 FAMC @I213_GTG_I201@
 0 @I216@ INDI
-1 NAME /Mamad/
+1 NAME Mamad /Mamad/
 1 SEX M
 1 FAMC @I213_GTG_I201@
 0 @I217@ INDI
-1 NAME /Maemunah/
+1 NAME Maemunah /Maemunah/
 1 SEX F
 1 FAMC @I213_GTG_I201@
 0 @I218@ INDI
-1 NAME /Jafi'ah/
+1 NAME Jafi'ah /Jafi'ah/
 1 SEX M
 1 FAMC @I213_GTG_I201@
 0 @I219@ INDI
@@ -3798,7 +3876,7 @@
 0 @I22@ INDI
 1 NAME Fadloli /Mukhtar/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1964
 2 PLAC Cilacap
 1 FAMC @I98_GTG_I99@
@@ -3812,7 +3890,7 @@
 1 SEX M
 1 FAMC @I204_GTG_I220@
 0 @I222@ INDI
-1 NAME /Solikhin/
+1 NAME Solikhin /Solikhin/
 1 SEX M
 1 FAMS @I222_GTG_I205@
 0 @I223@ INDI
@@ -3820,7 +3898,7 @@
 1 SEX M
 1 FAMC @I222_GTG_I205@
 0 @I224@ INDI
-1 NAME /Miftakhudin/
+1 NAME Miftakhudin /Miftakhudin/
 1 SEX M
 1 FAMC @I222_GTG_I205@
 0 @I225@ INDI
@@ -3828,7 +3906,7 @@
 1 SEX F
 1 FAMC @I222_GTG_I205@
 0 @I226@ INDI
-1 NAME /Qomarudin/
+1 NAME Qomarudin /Qomarudin/
 1 SEX M
 1 FAMS @I226_GTG_I202@
 0 @I227@ INDI
@@ -3848,30 +3926,30 @@
 0 @I23@ INDI
 1 NAME Aiman /Unaisah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1999
 2 PLAC Cilacap
 1 FAMC @I22_GTG_I10@
 0 @I230@ INDI
-1 NAME Masih dalam proses
+1 NAME Masih dalam /proses/
 1 SEX M
 0 @I231@ INDI
-1 NAME /M.Badrun/
+1 NAME M.Badrun /M.Badrun/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1980
 2 PLAC Cilacap
 1 FAMC @I226_GTG_I202@
 0 @I232@ INDI
-1 NAME /Jumiyah/
+1 NAME Jumiyah /Jumiyah/
 1 SEX F
 1 FAMS @I227_GTG_I232@
 0 @I233@ INDI
-1 NAME /Fifi/
+1 NAME Fifi /Fifi/
 1 SEX F
 1 FAMC @I227_GTG_I232@
 0 @I234@ INDI
-1 NAME /Zizi/
+1 NAME Zizi /Zizi/
 1 SEX F
 1 FAMC @I227_GTG_I232@
 0 @I235@ INDI
@@ -3883,7 +3961,7 @@
 1 SEX F
 1 FAMS @I229_GTG_I236@
 0 @I237@ INDI
-1 NAME /Muhamad/
+1 NAME Muhamad /Muhamad/
 1 SEX M
 1 FAMC @I229_GTG_I236@
 0 @I238@ INDI
@@ -3891,15 +3969,15 @@
 1 SEX M
 1 FAMS @I238_GTG_I151@
 0 @I239@ INDI
-1 NAME Nuril Hasna Ariqoh
+1 NAME Nuril Hasna /Ariqoh/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 29 OCT 2015
 1 FAMC @I13_GTG_I29@
 0 @I24@ INDI
 1 NAME Ubaid /Dzulfikri/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2001
 1 FAMC @I22_GTG_I10@
 0 @I240@ INDI
@@ -3913,7 +3991,7 @@
 1 FAMC @I238_GTG_I151@
 1 FAMS @I241_GTG_I262@
 0 @I242@ INDI
-1 NAME /Ikhsanuddin/
+1 NAME Ikhsanuddin /Ikhsanuddin/
 1 SEX M
 1 FAMC @I238_GTG_I151@
 1 FAMS @I242_GTG_I259@
@@ -3948,9 +4026,9 @@
 1 SEX M
 1 FAMS @I249_GTG_I240@
 0 @I25@ INDI
-1 NAME /Yuli Nihayati/
+1 NAME Yuli /Nihayati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 2003
 2 PLAC Cilacap
 1 FAMC @I22_GTG_I10@
@@ -3960,7 +4038,7 @@
 1 FAMC @I249_GTG_I240@
 1 FAMS @I250_GTG_I253@
 0 @I251@ INDI
-1 NAME /Najmuddin/
+1 NAME Najmuddin /Najmuddin/
 1 SEX M
 1 FAMC @I249_GTG_I240@
 1 FAMS @I251_GTG_I255@
@@ -3979,7 +4057,7 @@
 1 SEX M
 1 FAMC @I250_GTG_I253@
 0 @I255@ INDI
-1 NAME /Nani/
+1 NAME Nani /Nani/
 1 SEX F
 1 FAMS @I251_GTG_I255@
 0 @I256@ INDI
@@ -3995,13 +4073,13 @@
 1 SEX M
 1 FAMC @I257_GTG_I252@
 0 @I259@ INDI
-1 NAME /Maesaroh/
+1 NAME Maesaroh /Maesaroh/
 1 SEX F
 1 FAMS @I242_GTG_I259@
 0 @I26@ INDI
-1 NAME /Zaid/
+1 NAME Zaid /Zaid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2005
 2 PLAC Cilacap
 1 FAMC @I22_GTG_I10@
@@ -4010,10 +4088,10 @@
 1 SEX M
 1 FAMC @I242_GTG_I259@
 0 @I261@ INDI
-1 NAME /Sundari/
+1 NAME Sundari /Sundari/
 1 SEX F
 0 @I262@ INDI
-1 NAME /Sundari/
+1 NAME Sundari /Sundari/
 1 SEX F
 1 FAMS @I241_GTG_I262@
 0 @I263@ INDI
@@ -4035,7 +4113,7 @@
 0 @I267@ INDI
 1 NAME Alfi /Hidayati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I265_GTG_I243@
 0 @I268@ INDI
@@ -4043,13 +4121,13 @@
 1 SEX F
 1 FAMC @I265_GTG_I243@
 0 @I269@ INDI
-1 NAME /Partini/
+1 NAME Partini /Partini/
 1 SEX F
 1 FAMS @I244_GTG_I269@
 0 @I27@ INDI
 1 NAME Uswatun /Khasanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1980
 2 PLAC Cilacap
 1 FAMC @I348_GTG_I347@
@@ -4063,12 +4141,12 @@
 1 SEX F
 1 FAMC @I244_GTG_I269@
 0 @I272@ INDI
-1 NAME /Muhisam/
+1 NAME Muhisam /Muhisam/
 1 SEX M
 1 FAMC @I153_GTG_I149@
 1 FAMS @I272_GTG_I273@
 0 @I273@ INDI
-1 NAME /Arsiyah/
+1 NAME Arsiyah /Arsiyah/
 1 SEX F
 1 FAMS @I272_GTG_I273@
 0 @I274@ INDI
@@ -4101,7 +4179,7 @@
 0 @I28@ INDI
 1 NAME Uswah /Sumarni/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1976
 2 PLAC Cilacap
 1 FAMS @I12_GTG_I28@
@@ -4111,25 +4189,25 @@
 1 FAMC @I31_GTG_I33@
 1 FAMS @I289_GTG_I280@
 0 @I281@ INDI
-1 NAME /Muzamil/
+1 NAME Muzamil /Muzamil/
 1 SEX M
 1 FAMC @I31_GTG_I33@
 1 FAMS @I281_GTG_I287@
 0 @I282@ INDI
-1 NAME /Khomsatun/
+1 NAME Khomsatun /Khomsatun/
 1 SEX F
 1 FAMC @I31_GTG_I33@
 1 FAMS @I283_GTG_I282@
 0 @I283@ INDI
-1 NAME /Muhajar/
+1 NAME Muhajar /Muhajar/
 1 SEX M
 1 FAMS @I283_GTG_I282@
 0 @I284@ INDI
-1 NAME /Puspa/
+1 NAME Puspa /Puspa/
 1 SEX F
 1 FAMC @I283_GTG_I282@
 0 @I285@ INDI
-1 NAME /Ilham/
+1 NAME Ilham /Ilham/
 1 SEX M
 1 FAMC @I283_GTG_I282@
 0 @I286@ INDI
@@ -4137,7 +4215,7 @@
 1 SEX M
 1 FAMC @I283_GTG_I282@
 0 @I287@ INDI
-1 NAME /Masrokhatun/
+1 NAME Masrokhatun /Masrokhatun/
 1 SEX F
 1 FAMS @I281_GTG_I287@
 0 @I288@ INDI
@@ -4151,20 +4229,20 @@
 0 @I29@ INDI
 1 NAME Utin /Chandrasari/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1976
 2 PLAC Sukabumi
 1 FAMS @I13_GTG_I29@
 0 @I290@ INDI
-1 NAME /Amalina/
+1 NAME Amalina /Amalina/
 1 SEX F
 1 FAMC @I289_GTG_I280@
 0 @I291@ INDI
-1 NAME /Bajuri/
+1 NAME Bajuri /Bajuri/
 1 SEX M
 1 FAMS @I291_GTG_I279@
 0 @I292@ INDI
-1 NAME /Fathul/
+1 NAME Fathul /Fathul/
 1 SEX M
 1 FAMC @I291_GTG_I279@
 0 @I293@ INDI
@@ -4173,15 +4251,15 @@
 1 FAMC @I291_GTG_I279@
 1 FAMS @I295_GTG_I293@
 0 @I294@ INDI
-1 NAME /Huda/
+1 NAME Huda /Huda/
 1 SEX M
 1 FAMC @I291_GTG_I279@
 0 @I295@ INDI
-1 NAME /Mugiarto/
+1 NAME Mugiarto /Mugiarto/
 1 SEX M
 1 FAMS @I295_GTG_I293@
 0 @I296@ INDI
-1 NAME /Muhtadi/
+1 NAME Muhtadi /Muhtadi/
 1 SEX M
 1 FAMS @I296_GTG_I278@
 0 @I297@ INDI
@@ -4194,27 +4272,24 @@
 1 FAMC @I296_GTG_I278@
 1 FAMS @I303_GTG_I298@
 0 @I299@ INDI
-1 NAME /Siti/
+1 NAME Siti /Siti/
 1 SEX F
 1 FAMS @I277_GTG_I299@
 0 @I3@ INDI
 1 NAME Laelatul /Badriyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1 APRIL 1942
 2 PLAC Kroya
-1 NOTE Alamat : Rt 03 Rw 10 Gebang Kuning Kalisabuk Cilacap 53274
-1 DEAT 
+1 DEAT
 2 DATE 21 MAR 2014
 2 PLAC Gebang Kuning
-2 ADDR Kalisabuk Kesugihan Cilacap, dimakamkan di Tegal Anyar Kroya
-2 NOTE Sakit
 1 FAMC @I7_GTG_I8@
 1 FAMS @I2_GTG_I3@
 0 @I30@ INDI
-1 NAME Fadhli Abdillah Nur
+1 NAME Fadhli Abdillah /Nur/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2006
 2 PLAC Cilacap
 1 FAMC @I12_GTG_I28@
@@ -4228,23 +4303,23 @@
 1 SEX F
 1 FAMC @I277_GTG_I299@
 0 @I302@ INDI
-1 NAME /Supriyanto/
+1 NAME Supriyanto /Supriyanto/
 1 SEX M
 1 FAMS @I302_GTG_I300@
 0 @I303@ INDI
-1 NAME /Ahnan/
+1 NAME Ahnan /Ahnan/
 1 SEX M
 1 FAMS @I303_GTG_I298@
 0 @I304@ INDI
-1 NAME /Kholifah/
+1 NAME Kholifah /Kholifah/
 1 SEX F
 1 FAMS @I154_GTG_I304@
 0 @I305@ INDI
-1 NAME /Aan/
+1 NAME Aan /Aan/
 1 SEX M
 1 FAMC @I154_GTG_I304@
 0 @I306@ INDI
-1 NAME /Dariyah/
+1 NAME Dariyah /Dariyah/
 1 SEX F
 1 FAMS @I156_GTG_I306@
 0 @I307@ INDI
@@ -4263,16 +4338,16 @@
 0 @I31@ INDI
 1 NAME Mohammad /Adnan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1915
 2 PLAC Cilacap
-1 DEAT 
+1 DEAT
 2 DATE 2005
 2 PLAC Cilacap
 1 FAMC @I5_GTG_I6@
 1 FAMS @I31_GTG_I33@
 0 @I310@ INDI
-1 NAME /Doro/
+1 NAME Doro /Doro/
 1 SEX M
 1 FAMS @I310_GTG_I308@
 0 @I311@ INDI
@@ -4284,35 +4359,35 @@
 1 SEX F
 1 FAMS @I49_GTG_I312@
 0 @I313@ INDI
-1 NAME /Bowo/
+1 NAME Bowo /Bowo/
 1 SEX M
 1 FAMS @I313_GTG_I50@
 0 @I314@ INDI
-1 NAME /Rini/
+1 NAME Rini /Rini/
 1 SEX F
 1 FAMS @I119_GTG_I314@
 0 @I315@ INDI
-1 NAME /Anto/
+1 NAME Anto /Anto/
 1 SEX M
 1 FAMS @I315_GTG_I120@
 0 @I316@ INDI
-1 NAME /Rino/
+1 NAME Rino /Rino/
 1 SEX M
 1 FAMC @I315_GTG_I120@
 0 @I317@ INDI
 1 NAME Ridwan /Halimi/
 1 SEX M
-1 DEAT 
-2 DATE 21 MAY 2009
-2 PLAC Cilacap
-1 BIRT 
+1 BIRT
 2 DATE 27 FEB 2009
 2 PLAC Kalisabuk
+1 DEAT
+2 DATE 21 MAY 2009
+2 PLAC Cilacap
 1 FAMC @I11_GTG_I27@
 0 @I318@ INDI
 1 NAME Achmad /Zubaedi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1978
 2 PLAC Jangrana
 1 FAMC @I1077_GTG_I1078@
@@ -4320,22 +4395,22 @@
 0 @I319@ INDI
 1 NAME Aulia Nisa' /Zubaedi/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 2009
 2 PLAC Cilacap
 1 FAMC @I318_GTG_I14@
 0 @I32@ INDI
-1 NAME /Hj.Ruqoyah/
+1 NAME Hj.Ruqoyah /Hj.Ruqoyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1942
 2 PLAC Cilacap
 1 FAMC @I5_GTG_I6@
 1 FAMS @I34_GTG_I32@
 0 @I320@ INDI
-1 NAME /Jazariyah/
+1 NAME Jazariyah /Jazariyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 28 JANUARI 1982
 2 PLAC Sleman
 1 FAMC @I321_GTG_I322@
@@ -4343,150 +4418,152 @@
 0 @I321@ INDI
 1 NAME Danu /Kromo/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1943
 2 PLAC Sleman
-1 DEAT 
+1 DEAT
 2 DATE 26 APR 2019
 2 PLAC Mlangi Nogotirto Gamping Sleman Yogyakarta
-2 NOTE Sakit
 1 FAMC @I323_GTG_I324@
 1 FAMS @I321_GTG_I322@
 0 @I322@ INDI
-1 NAME /Hariyah/
+1 NAME Hariyah /Hariyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1953
 2 PLAC Kulonprogo
 1 FAMC @I638_GTG_I639@
 1 FAMS @I321_GTG_I322@
 0 @I323@ INDI
-1 NAME /Maknun/
+1 NAME Maknun /Maknun/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I694_GTG_I695@
 1 FAMS @I323_GTG_I324@
 0 @I324@ INDI
 1 NAME Robingah /Nguduyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I325_GTG_UN@
 1 FAMS @I323_GTG_I324@
 0 @I325@ INDI
 1 NAME Saptozani Zen Dahlan /Usaini/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
+1 FAMS @I325_GTG_UN@
 0 @I326@ INDI
-1 NAME /Ibrahim/
+1 NAME Ibrahim /Ibrahim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I325_GTG_UN@
+1 FAMS @I326_GTG_UN@
 0 @I327@ INDI
 1 NAME Mbakyune /slamet/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I326_GTG_UN@
 1 FAMS @I858_GTG_I327@
 0 @I328@ INDI
 1 NAME Slamet /Farkhun/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I326_GTG_UN@
 1 FAMS @I328_GTG_I360@
 0 @I329@ INDI
 1 NAME Hj. /Nasyi'ah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I326_GTG_UN@
 1 FAMS @I331_GTG_I329@
 0 @I33@ INDI
-1 NAME /Saonah/
+1 NAME Saonah /Saonah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1940
 2 PLAC Cilacap
-1 DEAT 
+1 DEAT
 2 DATE 2001
 2 PLAC Cilacap
 1 FAMS @I31_GTG_I33@
 0 @I330@ INDI
-1 NAME /Ma'munah/
+1 NAME Ma'munah /Ma'munah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I326_GTG_UN@
+1 FAMS @UN_GTG_I330@
 0 @I331@ INDI
 1 NAME KH. /Syuja'i/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I332_GTG_I860@
 1 FAMS @I331_GTG_I329@
 0 @I332@ INDI
 1 NAME Mbah Kyai /Mashduqi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok Bantul
 1 FAMC @I861_GTG_I862@
 1 FAMS @I332_GTG_I860@
 0 @I333@ INDI
 1 NAME Dafiniyatul /'Ulum/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I331_GTG_I329@
 1 FAMS @I340_GTG_I333@
 0 @I334@ INDI
 1 NAME H.Nurhamid /Majid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I331_GTG_I329@
 1 FAMS @I334_GTG_I335@
 0 @I335@ INDI
 1 NAME Lina /Markhumah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I673_GTG_I674@
 1 FAMS @I334_GTG_I335@
 0 @I336@ INDI
 1 NAME Mirza /Makhdum/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I334_GTG_I335@
 0 @I337@ INDI
 1 NAME Revada Himmatul /Ulya/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I334_GTG_I335@
 0 @I338@ INDI
-1 NAME /Zar'anuddin/
+1 NAME Zar'anuddin /Zar'anuddin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I331_GTG_I329@
 1 FAMS @I338_GTG_I357@
 0 @I339@ INDI
 1 NAME Irwan /Mashduqi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I331_GTG_I329@
 1 FAMS @I339_GTG_I1558@
 0 @I34@ INDI
 1 NAME Imam /Bukhori/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1912
 2 PLAC Cilacap
 1 FAMC @I100_GTG_UN@
@@ -4494,177 +4571,177 @@
 0 @I340@ INDI
 1 NAME KH.Abdulloh /Hasan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Gresik
 1 FAMC @I1068_GTG_UN@
 1 FAMS @I340_GTG_I333@
 0 @I341@ INDI
 1 NAME Hilyatul /Jannah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I340_GTG_I333@
 0 @I342@ INDI
 1 NAME Nabila Ismatun /Nikmah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I340_GTG_I333@
 0 @I343@ INDI
 1 NAME Firdausi /Nuzula/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I340_GTG_I333@
 0 @I344@ INDI
-1 NAME /Muhdir/
+1 NAME Muhdir /Muhdir/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I70_GTG_UN@
 1 FAMS @I344_GTG_I759@
 1 FAMS @I344_GTG_I762@
 0 @I345@ INDI
-1 NAME /Ismangil/
+1 NAME Ismangil /Ismangil/
 1 SEX M
-1 DEAT 
+1 DEAT
 2 PLAC Cilacap
 1 FAMC @I70_GTG_UN@
 1 FAMS @I345_GTG_I750@
 0 @I346@ INDI
-1 NAME /Mangunah/
+1 NAME Mangunah /Mangunah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I70_GTG_UN@
 1 FAMS @I758_GTG_I346@
 0 @I347@ INDI
-1 NAME /Fatimah/
+1 NAME Fatimah /Fatimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I70_GTG_UN@
 1 FAMS @I348_GTG_I347@
 0 @I348@ INDI
 1 NAME Jamil /Suherman/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMS @I348_GTG_I347@
 0 @I349@ INDI
 1 NAME Irfan /Amrulloh/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I348_GTG_I347@
 0 @I35@ INDI
 1 NAME Basuki /Rahmat/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1971
 2 PLAC Cilacap
-1 DEAT 
+1 DEAT
 2 DATE 1972
 2 PLAC Cilacap
 1 FAMC @I2_GTG_I3@
 0 @I350@ INDI
-1 NAME /Usman/
+1 NAME Usman /Usman/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I348_GTG_I347@
 1 FAMS @I350_GTG_I771@
 0 @I351@ INDI
-1 NAME /Muslikhatun/
+1 NAME Muslikhatun /Muslikhatun/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I348_GTG_I347@
 0 @I352@ INDI
 1 NAME Uswatun /Hasanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 0 @I353@ INDI
 1 NAME Ja'far /Shodiq/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I348_GTG_I347@
 0 @I354@ INDI
 1 NAME Nur /Edi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I348_GTG_I347@
 0 @I355@ INDI
-1 NAME /Mamad/
+1 NAME Mamad /Mamad/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I348_GTG_I347@
 0 @I356@ INDI
-1 NAME /Ragil/
+1 NAME Ragil /Ragil/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @I348_GTG_I347@
 0 @I357@ INDI
-1 NAME /Mastutik/
+1 NAME Mastutik /Mastutik/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I359_GTG_I1047@
 1 FAMS @I338_GTG_I357@
 0 @I358@ INDI
-1 NAME /Alya/
+1 NAME Alya /Alya/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 2007
 2 PLAC Sleman
 1 FAMC @I338_GTG_I357@
 0 @I359@ INDI
 1 NAME KH.Nuriman /Muqim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMS @I359_GTG_I1047@
 0 @I36@ INDI
 1 NAME Muhammad /Ibrohim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1964
 2 PLAC Cilacap
-1 DEAT 
+1 DEAT
 2 DATE 1965
 2 PLAC Cilacap
 1 FAMC @I2_GTG_I3@
 0 @I360@ INDI
 1 NAME Sri /Hartati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
-1 DEAT 
+1 DEAT
 2 DATE 1990
 1 FAMS @I328_GTG_I360@
 0 @I361@ INDI
 1 NAME Abdul /Wahid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1974
 2 PLAC Sleman
 0 @I362@ INDI
 1 NAME Abdul /Wahid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1974
 2 PLAC Sleman
 1 FAMC @I321_GTG_I322@
 1 FAMS @I362_GTG_I730@
 0 @I363@ INDI
-1 NAME /Zumariyah/
+1 NAME Zumariyah /Zumariyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1978
 2 PLAC Sleman
 1 FAMC @I321_GTG_I322@
@@ -4672,25 +4749,25 @@
 0 @I364@ INDI
 1 NAME Mustofa /Bisri/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1979
 2 PLAC Sleman
-1 DEAT 
+1 DEAT
 2 DATE 1981
 2 PLAC Sleman
 1 FAMC @I321_GTG_I322@
 0 @I365@ INDI
-1 NAME /Istijabah/
+1 NAME Istijabah /Istijabah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1985
 2 PLAC Sleman
 1 FAMC @I321_GTG_I322@
 1 FAMS @I1526_GTG_I365@
 0 @I366@ INDI
-1 NAME /Suskaryanto/
+1 NAME Suskaryanto /Suskaryanto/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1982
 2 PLAC Ngampilan
 1 FAMC @I839_GTG_I840@
@@ -4698,63 +4775,62 @@
 0 @I367@ INDI
 1 NAME Salsabila Ayu /Ramadhani/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 2008
 2 PLAC Sleman
 1 FAMC @I366_GTG_I363@
 0 @I368@ INDI
-1 NAME /Marsiyah/
+1 NAME Marsiyah /Marsiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMS @I81_GTG_I368@
 0 @I369@ INDI
-1 NAME /Rofiqoh/
+1 NAME Rofiqoh /Rofiqoh/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Banyumas
 1 FAMC @I81_GTG_I368@
 1 FAMS @I375_GTG_I369@
 0 @I37@ INDI
-1 NAME ID Marva Janeta //
+1 NAME ID Marva /Janeta/
 1 SEX F
 1 FAMC @I449_GTG_UN@
 0 @I370@ INDI
 1 NAME Abdul /Malik/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Banyumas
 1 FAMC @I81_GTG_I368@
 0 @I371@ INDI
 1 NAME Nur /Faridah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Banyumas
 1 FAMC @I81_GTG_I368@
 1 FAMS @I377_GTG_I371@
 0 @I372@ INDI
 1 NAME Ms /Munir/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Banyumas
 1 FAMC @I81_GTG_I368@
 1 FAMS @I372_GTG_I379@
 0 @I373@ INDI
 1 NAME Umi /Zuhroh/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Banyumas
-1 NOTE Alamat : Rt 03 Rw 04 Mujur Lor Pecangakan Kroya Cilacap 53282
 1 FAMC @I81_GTG_I368@
 1 FAMS @I381_GTG_I373@
 0 @I374@ INDI
 1 NAME Iqbal /Fauzi/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Banyumas
 1 FAMC @I81_GTG_I368@
 0 @I375@ INDI
-1 NAME /Saelani/
+1 NAME Saelani /Saelani/
 1 SEX M
 1 FAMS @I375_GTG_I369@
 0 @I376@ INDI
@@ -4762,7 +4838,7 @@
 1 SEX M
 1 FAMC @I375_GTG_I369@
 0 @I377@ INDI
-1 NAME /Mutofiq/
+1 NAME Mutofiq /Mutofiq/
 1 SEX M
 1 FAMS @I377_GTG_I371@
 0 @I378@ INDI
@@ -4774,18 +4850,18 @@
 1 SEX F
 1 FAMS @I372_GTG_I379@
 0 @I38@ INDI
-1 NAME Mahatma Dipa Nusantara //
+1 NAME Mahatma Dipa /Nusantara/
 1 SEX M
 1 FAMC @I449_GTG_UN@
 0 @I380@ INDI
-1 NAME /Fulanah/
+1 NAME Fulanah /Fulanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 2008
 2 PLAC jakarta
 1 FAMC @I372_GTG_I379@
 0 @I381@ INDI
-1 NAME /Mafhuri/
+1 NAME Mafhuri /Mafhuri/
 1 SEX M
 1 FAMS @I381_GTG_I373@
 0 @I382@ INDI
@@ -4797,32 +4873,32 @@
 1 SEX M
 1 FAMC @I381_GTG_I373@
 0 @I384@ INDI
-1 NAME /Abdurrohman/
+1 NAME Abdurrohman /Abdurrohman/
 1 SEX M
 1 FAMS @I384_GTG_I83@
 0 @I385@ INDI
-1 NAME /Qudsiyyah/
+1 NAME Qudsiyyah /Qudsiyyah/
 1 SEX F
 1 FAMC @I384_GTG_I83@
 1 FAMS @I394_GTG_I385@
 0 @I386@ INDI
-1 NAME /Asliyah/
+1 NAME Asliyah /Asliyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I384_GTG_I83@
 1 FAMS @I399_GTG_I386@
 0 @I387@ INDI
-1 NAME /Fajriyah/
+1 NAME Fajriyah /Fajriyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I384_GTG_I83@
 1 FAMS @I410_GTG_I387@
 0 @I388@ INDI
 1 NAME Fadhluz /Zaman/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I384_GTG_I83@
 0 @I389@ INDI
@@ -4835,7 +4911,7 @@
 1 SEX F
 1 FAMS @I451_GTG_I39@
 0 @I390@ INDI
-1 NAME /Mahmudah/
+1 NAME Mahmudah /Mahmudah/
 1 SEX F
 1 FAMC @I384_GTG_I83@
 1 FAMS @I427_GTG_I390@
@@ -4850,12 +4926,12 @@
 1 FAMC @I384_GTG_I83@
 1 FAMS @I433_GTG_I392@
 0 @I393@ INDI
-1 NAME /Hilaliyah/
+1 NAME Hilaliyah /Hilaliyah/
 1 SEX F
 1 FAMC @I384_GTG_I83@
 1 FAMS @I446_GTG_I393@
 0 @I394@ INDI
-1 NAME /Thoifur/
+1 NAME Thoifur /Thoifur/
 1 SEX M
 1 FAMS @I394_GTG_I385@
 0 @I395@ INDI
@@ -4863,11 +4939,11 @@
 1 SEX M
 1 FAMC @I394_GTG_I385@
 0 @I396@ INDI
-1 NAME /Efa/
+1 NAME Efa /Efa/
 1 SEX F
 1 FAMC @I394_GTG_I385@
 0 @I397@ INDI
-1 NAME /Nufus/
+1 NAME Nufus /Nufus/
 1 SEX F
 1 FAMC @I394_GTG_I385@
 0 @I398@ INDI
@@ -4875,26 +4951,22 @@
 1 SEX F
 1 FAMC @I394_GTG_I385@
 0 @I399@ INDI
-1 NAME /Sumadi/
+1 NAME Sumadi /Sumadi/
 1 SEX M
 1 FAMS @I399_GTG_I386@
 0 @I4@ INDI
 1 NAME Sugeng /Abdullah/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 16 JULI 1963
 2 PLAC Kesugihan, Cilacap
-2 ADDR Perum APK, Jln Raya Baturraden Km 12 Purwokerto
-1 NOTE Alamat : Kampus AKL Karangmangu Baturaden Purwokerto Telp. (0821) 681250
-2 CONT 
-2 CONT Salah satu kontributor utama silsilah ini, terutama yang berasal dari keluarga Cilacap dan Purbalingga.
 1 FAMC @I2_GTG_I3@
 1 FAMS @I4_GTG_I18@
 1 FAMS @I4_GTG_I502@
 0 @I40@ INDI
 1 NAME Bambang /Sukarto/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1928
 2 PLAC Kasih Karangnanyar
 1 FAMS @I40_GTG_I41@
@@ -4908,31 +4980,31 @@
 1 SEX F
 1 FAMC @I399_GTG_I386@
 0 @I402@ INDI
-1 NAME /Lina/
+1 NAME Lina /Lina/
 1 SEX F
 1 FAMC @I399_GTG_I386@
 0 @I403@ INDI
-1 NAME /Fitri/
+1 NAME Fitri /Fitri/
 1 SEX F
 1 FAMC @I399_GTG_I386@
 0 @I404@ INDI
-1 NAME /Lili/
+1 NAME Lili /Lili/
 1 SEX F
 1 FAMC @I399_GTG_I386@
 0 @I405@ INDI
-1 NAME /Azmil/
+1 NAME Azmil /Azmil/
 1 SEX M
 1 FAMC @I399_GTG_I386@
 0 @I406@ INDI
-1 NAME /Ida/
+1 NAME Ida /Ida/
 1 SEX F
 1 FAMC @I399_GTG_I386@
 0 @I407@ INDI
-1 NAME /Nisa/
+1 NAME Nisa /Nisa/
 1 SEX F
 1 FAMC @I399_GTG_I386@
 0 @I408@ INDI
-1 NAME /Toro/
+1 NAME Toro /Toro/
 1 SEX M
 1 FAMS @I408_GTG_I400@
 0 @I409@ INDI
@@ -4940,7 +5012,7 @@
 1 SEX M
 1 FAMC @I408_GTG_I400@
 0 @I41@ INDI
-1 NAME /Suwestri/
+1 NAME Suwestri /Suwestri/
 1 SEX F
 1 FAMC @I52_GTG_I53@
 1 FAMS @I40_GTG_I41@
@@ -4950,17 +5022,17 @@
 1 FAMC @I1094_GTG_I1093@
 1 FAMS @I410_GTG_I387@
 0 @I411@ INDI
-1 NAME /Faqih/
+1 NAME Faqih /Faqih/
 1 SEX M
 1 FAMC @I410_GTG_I387@
 1 FAMS @I411_GTG_I417@
 0 @I412@ INDI
-1 NAME /Khodijah/
+1 NAME Khodijah /Khodijah/
 1 SEX F
 1 FAMC @I410_GTG_I387@
 1 FAMS @I419_GTG_I412@
 0 @I413@ INDI
-1 NAME /Ngaisah/
+1 NAME Ngaisah /Ngaisah/
 1 SEX F
 1 FAMC @I410_GTG_I387@
 1 FAMS @I421_GTG_I413@
@@ -4972,7 +5044,7 @@
 0 @I415@ INDI
 1 NAME Abdul /Qohar/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kroya
 1 FAMC @I410_GTG_I387@
 1 FAMS @I415_GTG_I425@
@@ -4988,7 +5060,7 @@
 0 @I418@ INDI
 1 NAME Anas /Mutsbit/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2010
 2 PLAC Kroya
 1 FAMC @I411_GTG_I417@
@@ -4999,13 +5071,13 @@
 0 @I42@ INDI
 1 NAME Erni /Purwaningsih/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1961
 2 PLAC Purwokerto
 1 FAMC @I40_GTG_I41@
 1 FAMS @I48_GTG_I42@
 0 @I420@ INDI
-1 NAME /Pramestik/
+1 NAME Pramestik /Pramestik/
 1 SEX F
 1 FAMC @I419_GTG_I412@
 0 @I421@ INDI
@@ -5017,11 +5089,11 @@
 1 SEX M
 1 FAMC @I421_GTG_I413@
 0 @I423@ INDI
-1 NAME /Musinah/
+1 NAME Musinah /Musinah/
 1 SEX F
 1 FAMS @I414_GTG_I423@
 0 @I424@ INDI
-1 NAME /Lael/
+1 NAME Lael /Lael/
 1 SEX F
 1 FAMC @I414_GTG_I423@
 0 @I425@ INDI
@@ -5033,28 +5105,28 @@
 1 SEX F
 1 FAMS @I416_GTG_I426@
 0 @I427@ INDI
-1 NAME /Karman/
+1 NAME Karman /Karman/
 1 SEX M
 1 FAMS @I427_GTG_I390@
 0 @I428@ INDI
-1 NAME /Isro/
+1 NAME Isro /Isro/
 1 SEX M
 1 FAMC @I427_GTG_I390@
 0 @I429@ INDI
 1 NAME Bejo Arif /Raharjo/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Bekasi
 1 FAMC @I427_GTG_I390@
 0 @I43@ INDI
 1 NAME Nelly Dwi /Hastuti/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1963
 1 FAMC @I40_GTG_I41@
 1 FAMS @I56_GTG_I43@
 0 @I430@ INDI
-1 NAME /Sari/
+1 NAME Sari /Sari/
 1 SEX F
 1 FAMC @I427_GTG_I390@
 0 @I431@ INDI
@@ -5062,11 +5134,11 @@
 1 SEX F
 1 FAMS @I391_GTG_I431@
 0 @I432@ INDI
-1 NAME /Yassirli/
+1 NAME Yassirli /Yassirli/
 1 SEX F
 1 FAMC @I391_GTG_I431@
 0 @I433@ INDI
-1 NAME /Waluyo/
+1 NAME Waluyo /Waluyo/
 1 SEX M
 1 FAMS @I433_GTG_I392@
 0 @I434@ INDI
@@ -5075,11 +5147,11 @@
 1 FAMC @I433_GTG_I392@
 1 FAMS @I445_GTG_I434@
 0 @I435@ INDI
-1 NAME /Dimas/
+1 NAME Dimas /Dimas/
 1 SEX M
 1 FAMC @I433_GTG_I392@
 0 @I436@ INDI
-1 NAME /Alwi/
+1 NAME Alwi /Alwi/
 1 SEX M
 1 FAMS @I436_GTG_I389@
 0 @I437@ INDI
@@ -5088,17 +5160,17 @@
 1 FAMC @I436_GTG_I389@
 1 FAMS @I444_GTG_I437@
 0 @I438@ INDI
-1 NAME /Zahroh/
+1 NAME Zahroh /Zahroh/
 1 SEX F
 1 FAMC @I436_GTG_I389@
 0 @I439@ INDI
-1 NAME /Rusdan/
+1 NAME Rusdan /Rusdan/
 1 SEX M
 1 FAMC @I436_GTG_I389@
 0 @I44@ INDI
 1 NAME Rio /Ubyantoro/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1967
 1 FAMC @I40_GTG_I41@
 1 FAMS @I44_GTG_I61@
@@ -5127,11 +5199,11 @@
 1 SEX M
 1 FAMS @I445_GTG_I434@
 0 @I446@ INDI
-1 NAME /Muhtarom/
+1 NAME Muhtarom /Muhtarom/
 1 SEX M
 1 FAMS @I446_GTG_I393@
 0 @I447@ INDI
-1 NAME Umi Salamah
+1 NAME Umi /Salamah/
 1 SEX F
 1 FAMS @I84_GTG_I447@
 0 @I448@ INDI
@@ -5141,31 +5213,33 @@
 1 NAME Agus /Mukti/
 1 SEX M
 1 FAMC @I84_GTG_I447@
+1 FAMS @I449_GTG_UN@
 1 FAMS @I449_GTG_I453@
 0 @I45@ INDI
 1 NAME Bambang Taruno /Adi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1972
 1 FAMC @I40_GTG_I41@
 1 FAMS @I45_GTG_I64@
 0 @I450@ INDI
-1 NAME Siti Ngindiyati
+1 NAME Siti /Ngindiyati/
 1 SEX F
 1 FAMC @I84_GTG_I447@
 1 FAMS @I454_GTG_I450@
 0 @I451@ INDI
-1 NAME Usman Syah
+1 NAME Usman /Syah/
 1 SEX M
 1 FAMC @I84_GTG_I447@
+1 FAMS @I451_GTG_UN@
 1 FAMS @I451_GTG_I39@
 0 @I452@ INDI
-1 NAME Siti Komariyah
+1 NAME Siti /Komariyah/
 1 SEX F
 1 FAMC @I84_GTG_I447@
 1 FAMS @I457_GTG_I452@
 0 @I453@ INDI
-1 NAME Eti Latifah
+1 NAME Eti /Latifah/
 1 SEX F
 1 FAMS @I449_GTG_I453@
 0 @I454@ INDI
@@ -5173,11 +5247,11 @@
 1 SEX M
 1 FAMS @I454_GTG_I450@
 0 @I455@ INDI
-1 NAME /Sifa/
+1 NAME Sifa /Sifa/
 1 SEX F
 1 FAMC @I454_GTG_I450@
 0 @I456@ INDI
-1 NAME /Ahda/
+1 NAME Ahda /Ahda/
 1 SEX M
 1 FAMC @I454_GTG_I450@
 0 @I457@ INDI
@@ -5189,35 +5263,35 @@
 1 SEX F
 1 FAMC @I457_GTG_I452@
 0 @I459@ INDI
-1 NAME /Sumiyah/
+1 NAME Sumiyah /Sumiyah/
 1 SEX F
 1 FAMS @I85_GTG_I459@
 0 @I46@ INDI
 1 NAME Bambang Bangun /Nugroho/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1972
 1 FAMC @I40_GTG_I41@
 0 @I460@ INDI
-1 NAME /Al-Imaroh/
+1 NAME Al-Imaroh /Al-Imaroh/
 1 SEX F
 1 FAMC @I85_GTG_I459@
 1 FAMS @I469_GTG_I460@
 0 @I461@ INDI
 1 NAME Sofiyatun /Ningsih/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1979
 2 PLAC tegalanyar
 1 FAMC @I85_GTG_I459@
 1 FAMS @I1520_GTG_I461@
 0 @I462@ INDI
-1 NAME /Aminah/
+1 NAME Aminah /Aminah/
 1 SEX F
 1 FAMC @I85_GTG_I459@
 1 FAMS @I1517_GTG_I462@
 0 @I463@ INDI
-1 NAME /Amiroh/
+1 NAME Amiroh /Amiroh/
 1 SEX F
 1 FAMC @I85_GTG_I459@
 1 FAMS @I471_GTG_I463@
@@ -5226,7 +5300,7 @@
 1 SEX M
 1 FAMC @I85_GTG_I459@
 0 @I465@ INDI
-1 NAME /Anifuddin/
+1 NAME Anifuddin /Anifuddin/
 1 SEX M
 1 FAMC @I85_GTG_I459@
 0 @I466@ INDI
@@ -5238,7 +5312,7 @@
 1 SEX M
 1 FAMC @I85_GTG_I459@
 0 @I468@ INDI
-1 NAME /Lintang/
+1 NAME Lintang /Lintang/
 1 SEX M
 1 FAMC @I85_GTG_I459@
 0 @I469@ INDI
@@ -5248,7 +5322,7 @@
 0 @I47@ INDI
 1 NAME Endang Sri /Kuntarti/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1977
 1 FAMC @I40_GTG_I41@
 1 FAMS @I66_GTG_I47@
@@ -5257,13 +5331,13 @@
 1 SEX M
 1 FAMC @I469_GTG_I460@
 0 @I471@ INDI
-1 NAME /Syaiin/
+1 NAME Syaiin /Syaiin/
 1 SEX M
 1 FAMS @I471_GTG_I463@
 0 @I472@ INDI
 1 NAME Habil Islamil /Mar'i/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2001
 2 PLAC alas malang kemranjen
 1 FAMC @I471_GTG_I463@
@@ -5296,69 +5370,69 @@
 1 SEX M
 1 FAMC @I86_GTG_I474@
 0 @I48@ INDI
-1 NAME /Suyatno/
+1 NAME Suyatno /Suyatno/
 1 SEX M
 1 FAMS @I48_GTG_I42@
 0 @I480@ INDI
-1 NAME /Baharudin/
+1 NAME Baharudin /Baharudin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2008
 2 PLAC Cilacap
 1 FAMC @I22_GTG_I10@
 0 @I481@ INDI
-1 NAME /Munawir/
+1 NAME Munawir /Munawir/
 1 SEX M
 1 FAMC @I71_GTG_I143@
+1 FAMS @I481_GTG_UN@
 0 @I482@ INDI
-1 NAME /Fatmah/
+1 NAME Fatmah /Fatmah/
 1 SEX F
 1 FAMC @I71_GTG_I143@
 1 FAMS @I499_GTG_I482@
 0 @I483@ INDI
 1 NAME Ngali /M/
 1 SEX M
-1 NOTE Alamat : Rt 02 Rw 08 Rawa Wungu Planjan Kesugihan Cilacap 53274
 1 FAMC @I71_GTG_I143@
 1 FAMS @I483_GTG_I545@
 0 @I484@ INDI
-1 NAME /Masduki/
+1 NAME Masduki /Masduki/
 1 SEX M
 1 FAMC @I71_GTG_I143@
 1 FAMS @I484_GTG_I544@
 0 @I485@ INDI
-1 NAME /Bunyamin/
+1 NAME Bunyamin /Bunyamin/
 1 SEX M
 1 FAMC @I71_GTG_I143@
 1 FAMS @I485_GTG_I563@
 0 @I486@ INDI
-1 NAME /Munawaroh/
+1 NAME Munawaroh /Munawaroh/
 1 SEX M
 1 FAMC @I71_GTG_I143@
 1 FAMS @I486_GTG_I584@
 0 @I487@ INDI
-1 NAME /Abdurrohman/
+1 NAME Abdurrohman /Abdurrohman/
 1 SEX M
 1 FAMC @I71_GTG_I143@
 1 FAMS @I487_GTG_I621@
 0 @I488@ INDI
-1 NAME /Chafidz/
+1 NAME Chafidz /Chafidz/
 1 SEX M
 1 FAMC @I481_GTG_UN@
 1 FAMS @I488_GTG_I490@
 0 @I489@ INDI
-1 NAME /Rohmah/
+1 NAME Rohmah /Rohmah/
 1 SEX F
 1 FAMC @I481_GTG_UN@
 0 @I49@ INDI
 1 NAME Agung /Wijonarko/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1987
 1 FAMC @I48_GTG_I42@
 1 FAMS @I49_GTG_I312@
 0 @I490@ INDI
-1 NAME /Arifah/
+1 NAME Arifah /Arifah/
 1 SEX F
 1 FAMS @I488_GTG_I490@
 0 @I491@ INDI
@@ -5396,16 +5470,16 @@
 1 SEX M
 1 FAMS @I498_GTG_I492@
 0 @I499@ INDI
-1 NAME /Choliq/
+1 NAME Choliq /Choliq/
 1 SEX M
 1 FAMS @I499_GTG_I482@
 0 @I5@ INDI
 1 NAME H.Mohammad /Ridwan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1875
 2 PLAC Sidareja Cilacap
-1 DEAT 
+1 DEAT
 2 DATE 1967
 2 PLAC Cilacap
 1 FAMC @I19_GTG_I160@
@@ -5416,19 +5490,19 @@
 1 FAMC @I48_GTG_I42@
 1 FAMS @I313_GTG_I50@
 0 @I500@ INDI
-1 NAME /Maemunah/
+1 NAME Maemunah /Maemunah/
 1 SEX F
 1 FAMC @I499_GTG_I482@
 1 FAMS @I503_GTG_I500@
 0 @I501@ INDI
-1 NAME /Romlah/
+1 NAME Romlah /Romlah/
 1 SEX F
 1 FAMC @I499_GTG_I482@
 1 FAMS @I530_GTG_I501@
 0 @I502@ INDI
-1 NAME Siti Nur Khayati //
+1 NAME Siti Nur /Khayati/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 13 MEI 1984
 2 PLAC Kebumen
 1 FAMC @I749_GTG_I1528@
@@ -5438,34 +5512,33 @@
 1 SEX M
 1 FAMS @I503_GTG_I500@
 0 @I504@ INDI
-1 NAME /Khowarir/
+1 NAME Khowarir /Khowarir/
 1 SEX M
 1 FAMC @I503_GTG_I500@
 1 FAMS @I504_GTG_I510@
 0 @I505@ INDI
-1 NAME /Tohar/
+1 NAME Tohar /Tohar/
 1 SEX M
 1 FAMC @I503_GTG_I500@
 1 FAMS @I505_GTG_I513@
 0 @I506@ INDI
-1 NAME /Kusriyah/
+1 NAME Kusriyah /Kusriyah/
 1 SEX F
 1 FAMC @I503_GTG_I500@
 1 FAMS @I515_GTG_I506@
 0 @I507@ INDI
-1 NAME /Muslihatun/
+1 NAME Muslihatun /Muslihatun/
 1 SEX F
 1 FAMC @I503_GTG_I500@
 1 FAMS @I522_GTG_I507@
 0 @I508@ INDI
-1 NAME /Nasriyah/
+1 NAME Nasriyah /Nasriyah/
 1 SEX F
 1 FAMC @I503_GTG_I500@
 1 FAMS @I519_GTG_I508@
 0 @I509@ INDI
-1 NAME /Khadhiroh/
+1 NAME Khadhiroh /Khadhiroh/
 1 SEX F
-1 NOTE Alamat : Rt 03 Rw 10 Ujung Manik Ujung Manik Kawunganten Cilacap
 1 FAMC @I503_GTG_I500@
 1 FAMS @I521_GTG_I509@
 0 @I51@ INDI
@@ -5473,35 +5546,35 @@
 1 SEX F
 1 FAMC @I48_GTG_I42@
 0 @I510@ INDI
-1 NAME /Poniyah/
+1 NAME Poniyah /Poniyah/
 1 SEX F
 1 FAMS @I504_GTG_I510@
 0 @I511@ INDI
-1 NAME /Iin/
+1 NAME Iin /Iin/
 1 SEX F
 1 FAMC @I504_GTG_I510@
 0 @I512@ INDI
-1 NAME /Lili/
+1 NAME Lili /Lili/
 1 SEX F
 1 FAMC @I504_GTG_I510@
 0 @I513@ INDI
-1 NAME /Kasriyah/
+1 NAME Kasriyah /Kasriyah/
 1 SEX F
 1 FAMS @I505_GTG_I513@
 0 @I514@ INDI
-1 NAME /Zaenal/
+1 NAME Zaenal /Zaenal/
 1 SEX M
 1 FAMC @I505_GTG_I513@
 0 @I515@ INDI
-1 NAME /Mudasir/
+1 NAME Mudasir /Mudasir/
 1 SEX M
 1 FAMS @I515_GTG_I506@
 0 @I516@ INDI
-1 NAME /Maskur/
+1 NAME Maskur /Maskur/
 1 SEX M
 1 FAMC @I515_GTG_I506@
 0 @I517@ INDI
-1 NAME /Ngatinah/
+1 NAME Ngatinah /Ngatinah/
 1 SEX F
 1 FAMC @I515_GTG_I506@
 0 @I518@ INDI
@@ -5509,34 +5582,34 @@
 1 SEX F
 1 FAMC @I515_GTG_I506@
 0 @I519@ INDI
-1 NAME /Afandi/
+1 NAME Afandi /Afandi/
 1 SEX M
 1 FAMS @I519_GTG_I508@
 0 @I52@ INDI
 1 NAME Rekso /Atmojo/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Timbang
-1 DEAT 
+1 DEAT
 2 PLAC Kejobong
 1 FAMC @I55_GTG_UN@
 1 FAMS @I52_GTG_I53@
 0 @I520@ INDI
-1 NAME /Faroki/
+1 NAME Faroki /Faroki/
 1 SEX M
 1 FAMC @I519_GTG_I508@
 0 @I521@ INDI
-1 NAME /Masdan/
+1 NAME Masdan /Masdan/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMS @I521_GTG_I509@
 0 @I522@ INDI
-1 NAME /Muhroji/
+1 NAME Muhroji /Muhroji/
 1 SEX M
 1 FAMS @I522_GTG_I507@
 0 @I523@ INDI
-1 NAME /Mubarokah/
+1 NAME Mubarokah /Mubarokah/
 1 SEX F
 1 FAMC @I522_GTG_I507@
 0 @I524@ INDI
@@ -5544,11 +5617,11 @@
 1 SEX F
 1 FAMC @I522_GTG_I507@
 0 @I525@ INDI
-1 NAME /Rohmat/
+1 NAME Rohmat /Rohmat/
 1 SEX M
 1 FAMC @I522_GTG_I507@
 0 @I526@ INDI
-1 NAME /Aan/
+1 NAME Aan /Aan/
 1 SEX M
 1 FAMC @I522_GTG_I507@
 0 @I527@ INDI
@@ -5569,38 +5642,34 @@
 1 FAMC @I54_GTG_UN@
 1 FAMS @I52_GTG_I53@
 0 @I530@ INDI
-1 NAME /Sukirman/
+1 NAME Sukirman /Sukirman/
 1 SEX M
 1 FAMS @I530_GTG_I501@
 0 @I531@ INDI
-1 NAME /Munawir/
+1 NAME Munawir /Munawir/
 1 SEX M
 1 FAMC @I530_GTG_I501@
 0 @I532@ INDI
-1 NAME Firas Azri Muttaqin //
+1 NAME Firas Azri /Muttaqin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 23 JANUARI 2016
 2 PLAC Banyumas
-1 EMAIL sugengzend2016@gmail.com
-1 RESI
-2 PLAC Jln Raya Baturraden Km 10,5 Purwokerto
-2 ADDR Rumah No 24 Gerlangu,  RT 7 / RW 6 Karangtengah Baturraden Banyumas
-2 DATE 15 FEBRUARI 2016
 1 FAMC @I4_GTG_I502@
 0 @I533@ INDI
-1 NAME /Sairah/
+1 NAME Sairah /Sairah/
 1 SEX F
+1 FAMS @UN_GTG_I533@
 0 @I534@ INDI
-1 NAME /Sa'dun/
+1 NAME Sa'dun /Sa'dun/
 1 SEX M
 1 FAMC @UN_GTG_I533@
 0 @I535@ INDI
-1 NAME /Yasin/
+1 NAME Yasin /Yasin/
 1 SEX M
 1 FAMC @UN_GTG_I533@
 0 @I536@ INDI
-1 NAME /Mumfaridah/
+1 NAME Mumfaridah /Mumfaridah/
 1 SEX F
 1 FAMC @UN_GTG_I533@
 0 @I537@ INDI
@@ -5612,46 +5681,48 @@
 1 SEX F
 1 FAMC @UN_GTG_I533@
 0 @I539@ INDI
-1 NAME /Marhani/
+1 NAME Marhani /Marhani/
 1 SEX M
 1 FAMC @UN_GTG_I533@
 0 @I54@ INDI
 1 NAME Taruno Penatus /Temanggal/
 1 SEX M
+1 FAMS @I54_GTG_UN@
 0 @I540@ INDI
-1 NAME /Kartumi/
+1 NAME Kartumi /Kartumi/
 1 SEX F
+1 FAMS @UN_GTG_I540@
 0 @I541@ INDI
 1 NAME Choirul /Anam/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @UN_GTG_I540@
 0 @I542@ INDI
-1 NAME /Margisae/
+1 NAME Margisae /Margisae/
 1 SEX M
 1 FAMC @UN_GTG_I540@
 0 @I543@ INDI
-1 NAME /Wafa/
+1 NAME Wafa /Wafa/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Cilacap
 1 FAMC @UN_GTG_I540@
 0 @I544@ INDI
-1 NAME /Duriyah/
+1 NAME Duriyah /Duriyah/
 1 SEX F
 1 FAMS @I484_GTG_I544@
 0 @I545@ INDI
-1 NAME /Aminah/
+1 NAME Aminah /Aminah/
 1 SEX F
 1 FAMS @I483_GTG_I545@
 0 @I546@ INDI
-1 NAME /Nasuha/
+1 NAME Nasuha /Nasuha/
 1 SEX M
 1 FAMC @I483_GTG_I545@
 1 FAMS @I546_GTG_I549@
 0 @I547@ INDI
-1 NAME /Sholikhah/
+1 NAME Sholikhah /Sholikhah/
 1 SEX F
 1 FAMC @I483_GTG_I545@
 1 FAMS @I551_GTG_I547@
@@ -5662,14 +5733,15 @@
 1 FAMS @I548_GTG_I555@
 1 FAMS @I548_GTG_I559@
 0 @I549@ INDI
-1 NAME /Fatimah/
+1 NAME Fatimah /Fatimah/
 1 SEX F
 1 FAMS @I546_GTG_I549@
 0 @I55@ INDI
 1 NAME Mohammad /Ngarsin/
 1 SEX M
+1 FAMS @I55_GTG_UN@
 0 @I550@ INDI
-1 NAME /Mansur/
+1 NAME Mansur /Mansur/
 1 SEX M
 1 FAMC @I546_GTG_I549@
 0 @I551@ INDI
@@ -5677,23 +5749,23 @@
 1 SEX M
 1 FAMS @I551_GTG_I547@
 0 @I552@ INDI
-1 NAME /Suyati/
+1 NAME Suyati /Suyati/
 1 SEX F
 1 FAMC @I551_GTG_I547@
 0 @I553@ INDI
-1 NAME /Sholeh/
+1 NAME Sholeh /Sholeh/
 1 SEX M
 1 FAMC @I551_GTG_I547@
 0 @I554@ INDI
-1 NAME /Kusriyanto/
+1 NAME Kusriyanto /Kusriyanto/
 1 SEX M
 1 FAMC @I551_GTG_I547@
 0 @I555@ INDI
-1 NAME /Turiyem/
+1 NAME Turiyem /Turiyem/
 1 SEX F
 1 FAMS @I548_GTG_I555@
 0 @I556@ INDI
-1 NAME /Umiyatin/
+1 NAME Umiyatin /Umiyatin/
 1 SEX F
 1 FAMC @I548_GTG_I555@
 0 @I557@ INDI
@@ -5701,27 +5773,27 @@
 1 SEX F
 1 FAMC @I548_GTG_I555@
 0 @I558@ INDI
-1 NAME /Nasihun/
+1 NAME Nasihun /Nasihun/
 1 SEX M
 1 FAMC @I548_GTG_I555@
 0 @I559@ INDI
-1 NAME /Parminah/
+1 NAME Parminah /Parminah/
 1 SEX F
 1 FAMS @I548_GTG_I559@
 0 @I56@ INDI
-1 NAME /Tukarno/
+1 NAME Tukarno /Tukarno/
 1 SEX M
 1 FAMS @I56_GTG_I43@
 0 @I560@ INDI
-1 NAME /Mujib/
+1 NAME Mujib /Mujib/
 1 SEX M
 1 FAMC @I548_GTG_I559@
 0 @I561@ INDI
-1 NAME /Mustagfiroh/
+1 NAME Mustagfiroh /Mustagfiroh/
 1 SEX F
 1 FAMC @I548_GTG_I559@
 0 @I562@ INDI
-1 NAME /Muslimah/
+1 NAME Muslimah /Muslimah/
 1 SEX F
 1 FAMC @I548_GTG_I559@
 0 @I563@ INDI
@@ -5729,28 +5801,27 @@
 1 SEX F
 1 FAMS @I485_GTG_I563@
 0 @I564@ INDI
-1 NAME /Mastur/
+1 NAME Mastur /Mastur/
 1 SEX M
 1 FAMC @I485_GTG_I563@
 1 FAMS @I564_GTG_I568@
 0 @I565@ INDI
-1 NAME /Mashud/
+1 NAME Mashud /Mashud/
 1 SEX M
-1 NOTE Alamat : Rt 01 Rw 01 Gintung Reja Gintung Reja Gandrung Mangu Cilacap
 1 FAMC @I485_GTG_I563@
 1 FAMS @I565_GTG_I571@
 0 @I566@ INDI
-1 NAME /Istiqomah/
+1 NAME Istiqomah /Istiqomah/
 1 SEX F
 1 FAMC @I485_GTG_I563@
 1 FAMS @I578_GTG_I566@
 0 @I567@ INDI
-1 NAME /Mustanginah/
+1 NAME Mustanginah /Mustanginah/
 1 SEX F
 1 FAMC @I485_GTG_I563@
 1 FAMS @I581_GTG_I567@
 0 @I568@ INDI
-1 NAME /Sutini/
+1 NAME Sutini /Sutini/
 1 SEX F
 1 FAMS @I564_GTG_I568@
 0 @I569@ INDI
@@ -5766,7 +5837,7 @@
 1 SEX F
 1 FAMC @I564_GTG_I568@
 0 @I571@ INDI
-1 NAME /Sumarni/
+1 NAME Sumarni /Sumarni/
 1 SEX F
 1 FAMS @I565_GTG_I571@
 0 @I572@ INDI
@@ -5822,21 +5893,21 @@
 1 SEX M
 1 FAMC @I581_GTG_I567@
 0 @I584@ INDI
-1 NAME /Zaenab/
+1 NAME Zaenab /Zaenab/
 1 SEX F
 1 FAMS @I486_GTG_I584@
 0 @I585@ INDI
-1 NAME /Kusriyah/
+1 NAME Kusriyah /Kusriyah/
 1 SEX F
 1 FAMC @I486_GTG_I584@
 1 FAMS @I593_GTG_I585@
 0 @I586@ INDI
-1 NAME /Mursiyah/
+1 NAME Mursiyah /Mursiyah/
 1 SEX F
 1 FAMC @I486_GTG_I584@
 1 FAMS @I599_GTG_I586@
 0 @I587@ INDI
-1 NAME /Kusniyah/
+1 NAME Kusniyah /Kusniyah/
 1 SEX F
 1 FAMC @I486_GTG_I584@
 1 FAMS @I603_GTG_I587@
@@ -5846,10 +5917,8 @@
 1 FAMC @I486_GTG_I584@
 1 FAMS @I611_GTG_I588@
 0 @I589@ INDI
-1 NAME /Chomsiyah/
+1 NAME Chomsiyah /Chomsiyah/
 1 SEX F
-1 NOTE Alamat : Rt 01 Rw 03 Gemawang Sidamulya Kemranjen Banyumas 53194
-2 CONT HP. 0812 156 5015
 1 FAMC @I486_GTG_I584@
 1 FAMS @I616_GTG_I589@
 0 @I59@ INDI
@@ -5857,11 +5926,11 @@
 1 SEX M
 1 FAMC @I56_GTG_I43@
 0 @I590@ INDI
-1 NAME /Muslih/
+1 NAME Muslih /Muslih/
 1 SEX M
 1 FAMC @I486_GTG_I584@
 0 @I591@ INDI
-1 NAME /Alfiyah/
+1 NAME Alfiyah /Alfiyah/
 1 SEX F
 1 FAMC @I486_GTG_I584@
 1 FAMS @I619_GTG_I591@
@@ -5874,12 +5943,12 @@
 1 SEX M
 1 FAMS @I593_GTG_I585@
 0 @I594@ INDI
-1 NAME /Muhsin/
+1 NAME Muhsin /Muhsin/
 1 SEX M
 1 FAMC @I593_GTG_I585@
 1 FAMS @I594_GTG_I597@
 0 @I595@ INDI
-1 NAME /Nurhayati/
+1 NAME Nurhayati /Nurhayati/
 1 SEX F
 1 FAMC @I593_GTG_I585@
 1 FAMS @I609_GTG_I595@
@@ -5888,7 +5957,7 @@
 1 SEX F
 1 FAMC @I593_GTG_I585@
 0 @I597@ INDI
-1 NAME /Erma/
+1 NAME Erma /Erma/
 1 SEX F
 1 FAMS @I594_GTG_I597@
 0 @I598@ INDI
@@ -5900,9 +5969,9 @@
 1 SEX M
 1 FAMS @I599_GTG_I586@
 0 @I6@ INDI
-1 NAME /Mudirah/
+1 NAME Mudirah /Mudirah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1883
 2 PLAC Cilacap
 1 FAMC @I69_GTG_I1544@
@@ -5920,7 +5989,7 @@
 1 SEX M
 1 FAMC @I599_GTG_I586@
 0 @I602@ INDI
-1 NAME /Aris/
+1 NAME Aris /Aris/
 1 SEX M
 1 FAMC @I599_GTG_I586@
 0 @I603@ INDI
@@ -5948,7 +6017,7 @@
 1 SEX M
 1 FAMC @I603_GTG_I587@
 0 @I609@ INDI
-1 NAME /Sudarmanto/
+1 NAME Sudarmanto /Sudarmanto/
 1 SEX M
 1 FAMS @I609_GTG_I595@
 0 @I61@ INDI
@@ -5961,7 +6030,7 @@
 1 SEX M
 1 FAMC @I609_GTG_I595@
 0 @I611@ INDI
-1 NAME /Nawawi/
+1 NAME Nawawi /Nawawi/
 1 SEX M
 1 FAMS @I611_GTG_I588@
 0 @I612@ INDI
@@ -5969,7 +6038,7 @@
 1 SEX M
 1 FAMC @I611_GTG_I588@
 0 @I613@ INDI
-1 NAME /Mukholis/
+1 NAME Mukholis /Mukholis/
 1 SEX M
 1 FAMC @I611_GTG_I588@
 0 @I614@ INDI
@@ -5985,7 +6054,7 @@
 1 SEX M
 1 FAMS @I616_GTG_I589@
 0 @I617@ INDI
-1 NAME /Mustolih/
+1 NAME Mustolih /Mustolih/
 1 SEX M
 1 FAMC @I616_GTG_I589@
 0 @I618@ INDI
@@ -6005,31 +6074,31 @@
 1 SEX M
 1 FAMC @I619_GTG_I591@
 0 @I621@ INDI
-1 NAME /Maemunah/
+1 NAME Maemunah /Maemunah/
 1 SEX F
 1 FAMS @I487_GTG_I621@
 0 @I622@ INDI
-1 NAME /Hindun/
+1 NAME Hindun /Hindun/
 1 SEX F
 1 FAMC @I487_GTG_I621@
 1 FAMS @I627_GTG_I622@
 0 @I623@ INDI
-1 NAME /Muhtamil/
+1 NAME Muhtamil /Muhtamil/
 1 SEX M
 1 FAMC @I487_GTG_I621@
 1 FAMS @I623_GTG_I633@
 0 @I624@ INDI
-1 NAME /Sahil/
+1 NAME Sahil /Sahil/
 1 SEX M
 1 FAMC @I487_GTG_I621@
 1 FAMS @I624_GTG_I635@
 0 @I625@ INDI
-1 NAME /Tamam/
+1 NAME Tamam /Tamam/
 1 SEX M
 1 FAMC @I487_GTG_I621@
 1 FAMS @I625_GTG_I637@
 0 @I626@ INDI
-1 NAME /Amrin/
+1 NAME Amrin /Amrin/
 1 SEX M
 1 FAMC @I487_GTG_I621@
 0 @I627@ INDI
@@ -6045,14 +6114,15 @@
 1 SEX M
 1 FAMC @I627_GTG_I622@
 0 @I63@ INDI
-1 NAME /Sarda/
+1 NAME Sarda /Sarda/
 1 SEX M
+1 FAMS @I63_GTG_UN@
 0 @I630@ INDI
 1 NAME Ummu /Habibah/
 1 SEX F
 1 FAMC @I627_GTG_I622@
 0 @I631@ INDI
-1 NAME /Fauzan/
+1 NAME Fauzan /Fauzan/
 1 SEX M
 1 FAMC @I627_GTG_I622@
 0 @I632@ INDI
@@ -6060,7 +6130,7 @@
 1 SEX M
 1 FAMC @I627_GTG_I622@
 0 @I633@ INDI
-1 NAME /Mungawanah/
+1 NAME Mungawanah /Mungawanah/
 1 SEX F
 1 FAMS @I623_GTG_I633@
 0 @I634@ INDI
@@ -6068,7 +6138,7 @@
 1 SEX F
 1 FAMC @I623_GTG_I633@
 0 @I635@ INDI
-1 NAME /Sulastri/
+1 NAME Sulastri /Sulastri/
 1 SEX F
 1 FAMS @I624_GTG_I635@
 0 @I636@ INDI
@@ -6076,16 +6146,16 @@
 1 SEX F
 1 FAMC @I624_GTG_I635@
 0 @I637@ INDI
-1 NAME /Samiyati/
+1 NAME Samiyati /Samiyati/
 1 SEX F
 1 FAMS @I625_GTG_I637@
 0 @I638@ INDI
-1 NAME /Syamsir/
+1 NAME Syamsir /Syamsir/
 1 SEX M
 1 FAMC @I783_GTG_UN@
 1 FAMS @I638_GTG_I639@
 0 @I639@ INDI
-1 NAME /Mariyah/
+1 NAME Mariyah /Mariyah/
 1 SEX F
 1 FAMS @I638_GTG_I639@
 0 @I64@ INDI
@@ -6093,7 +6163,7 @@
 1 SEX F
 1 FAMS @I45_GTG_I64@
 0 @I640@ INDI
-1 NAME /Zahro/
+1 NAME Zahro /Zahro/
 1 SEX F
 1 FAMC @I323_GTG_I324@
 1 FAMS @I641_GTG_I640@
@@ -6107,19 +6177,19 @@
 1 FAMC @I641_GTG_I640@
 1 FAMS @I642_GTG_I646@
 0 @I643@ INDI
-1 NAME /Jaiz/
+1 NAME Jaiz /Jaiz/
 1 SEX M
 1 FAMC @I641_GTG_I640@
 1 FAMS @I643_GTG_I652@
 0 @I644@ INDI
-1 NAME /Madinah/
+1 NAME Madinah /Madinah/
 1 SEX F
 1 FAMC @I641_GTG_I640@
 1 FAMS @I661_GTG_I644@
 0 @I645@ INDI
-1 NAME /Bambang/
+1 NAME Bambang /Bambang/
 1 SEX M
-1 DEAT 
+1 DEAT
 2 DATE 2000
 2 PLAC Mlangi
 1 FAMC @I641_GTG_I640@
@@ -6129,17 +6199,17 @@
 1 SEX F
 1 FAMS @I642_GTG_I646@
 0 @I647@ INDI
-1 NAME /Muhtasim/
+1 NAME Muhtasim /Muhtasim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I642_GTG_I646@
 0 @I648@ INDI
-1 NAME /Barizi/
+1 NAME Barizi /Barizi/
 1 SEX M
 1 FAMC @I642_GTG_I646@
 0 @I649@ INDI
-1 NAME /Rif'an/
+1 NAME Rif'an /Rif'an/
 1 SEX M
 1 FAMC @I642_GTG_I646@
 0 @I65@ INDI
@@ -6147,21 +6217,21 @@
 1 SEX F
 1 FAMC @I45_GTG_I64@
 0 @I650@ INDI
-1 NAME /Zulfah/
+1 NAME Zulfah /Zulfah/
 1 SEX F
 1 FAMC @I642_GTG_I646@
 0 @I651@ INDI
-1 NAME /Mashudi/
+1 NAME Mashudi /Mashudi/
 1 SEX M
 1 FAMC @I642_GTG_I646@
 0 @I652@ INDI
-1 NAME Murwati
+1 NAME Murwati /Murwati/
 1 SEX F
 1 FAMS @I643_GTG_I652@
 0 @I653@ INDI
-1 NAME /Munaji/
+1 NAME Munaji /Munaji/
 1 SEX M
-1 DEAT 
+1 DEAT
 2 DATE 1990
 1 FAMC @I643_GTG_I652@
 0 @I654@ INDI
@@ -6179,11 +6249,11 @@
 1 FAMC @I643_GTG_I652@
 1 FAMS @GTGIID_2_GTG_I656@
 0 @I657@ INDI
-1 NAME /Khafni/
+1 NAME Khafni /Khafni/
 1 SEX M
 1 FAMC @I643_GTG_I652@
 0 @I658@ INDI
-1 NAME /Fitron/
+1 NAME Fitron /Fitron/
 1 SEX M
 1 FAMC @I643_GTG_I652@
 0 @I659@ INDI
@@ -6191,17 +6261,17 @@
 1 SEX M
 1 FAMS @I659_GTG_I654@
 0 @I66@ INDI
-1 NAME /Sugiyanto/
+1 NAME Sugiyanto /Sugiyanto/
 1 SEX M
 1 FAMS @I66_GTG_I47@
 0 @I660@ INDI
 1 NAME Muhyidin /Haqiqi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I659_GTG_I654@
 0 @I661@ INDI
-1 NAME /Mudzofar/
+1 NAME Mudzofar /Mudzofar/
 1 SEX M
 1 FAMS @I661_GTG_I644@
 0 @I662@ INDI
@@ -6217,24 +6287,24 @@
 1 SEX F
 1 FAMC @I661_GTG_I644@
 0 @I665@ INDI
-1 NAME /Amin/
+1 NAME Amin /Amin/
 1 SEX M
 1 FAMC @I661_GTG_I644@
 0 @I666@ INDI
-1 NAME /Rika/
+1 NAME Rika /Rika/
 1 SEX F
 1 FAMC @I661_GTG_I644@
 0 @I667@ INDI
-1 NAME /Naely/
+1 NAME Naely /Naely/
 1 SEX F
 1 FAMC @I661_GTG_I644@
 0 @I668@ INDI
-1 NAME /Iin/
+1 NAME Iin /Iin/
 1 SEX F
 1 FAMS @I645_GTG_I668@
 1 FAMS @I671_GTG_I668@
 0 @I669@ INDI
-1 NAME /Aan/
+1 NAME Aan /Aan/
 1 SEX M
 1 FAMC @I645_GTG_I668@
 0 @I67@ INDI
@@ -6242,42 +6312,42 @@
 1 SEX M
 1 FAMC @I66_GTG_I47@
 0 @I670@ INDI
-1 NAME /A-iq/
+1 NAME A-iq /A-iq/
 1 SEX M
 1 FAMC @I645_GTG_I668@
 0 @I671@ INDI
-1 NAME /Wanto/
+1 NAME Wanto /Wanto/
 1 SEX M
 1 FAMS @I671_GTG_I668@
 0 @I672@ INDI
-1 NAME /Lia/
+1 NAME Lia /Lia/
 1 SEX F
 1 FAMC @I671_GTG_I668@
 0 @I673@ INDI
-1 NAME /H.Halim/
+1 NAME H.Halim /H.Halim/
 1 SEX M
 1 FAMC @I1039_GTG_UN@
 1 FAMS @I673_GTG_I674@
 0 @I674@ INDI
-1 NAME /Marli/
+1 NAME Marli /Marli/
 1 SEX F
 1 FAMS @I673_GTG_I674@
 0 @I675@ INDI
-1 NAME /Askiyah/
+1 NAME Askiyah /Askiyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I332_GTG_I860@
 1 FAMS @I678_GTG_I675@
 0 @I676@ INDI
-1 NAME /Bunyanah/
+1 NAME Bunyanah /Bunyanah/
 1 SEX F
 1 FAMC @I332_GTG_I860@
 1 FAMS @I692_GTG_I676@
 0 @I677@ INDI
-1 NAME /Jananah/
+1 NAME Jananah /Jananah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I332_GTG_I860@
 1 FAMS @I988_GTG_I677@
@@ -6286,9 +6356,9 @@
 1 SEX M
 1 FAMS @I678_GTG_I675@
 0 @I679@ INDI
-1 NAME /Jamaludin/
+1 NAME Jamaludin /Jamaludin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I678_GTG_I675@
 1 FAMS @I679_GTG_I688@
@@ -6297,50 +6367,50 @@
 1 SEX M
 1 FAMC @I66_GTG_I47@
 0 @I680@ INDI
-1 NAME /Walimah/
+1 NAME Walimah /Walimah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I678_GTG_I675@
 1 FAMS @I683_GTG_I680@
 0 @I681@ INDI
-1 NAME /Jinanuddin/
+1 NAME Jinanuddin /Jinanuddin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I678_GTG_I675@
 1 FAMS @I681_GTG_I928@
 0 @I682@ INDI
-1 NAME /Nurhadi/
+1 NAME Nurhadi /Nurhadi/
 1 SEX M
 1 FAMC @I678_GTG_I675@
 1 FAMS @I682_GTG_I1004@
 0 @I683@ INDI
-1 NAME /Jironi/
+1 NAME Jironi /Jironi/
 1 SEX M
 1 FAMC @I1005_GTG_I1010@
 1 FAMS @I683_GTG_I680@
 0 @I684@ INDI
 1 NAME Ma'ruf /Masduki/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1985
 2 PLAC Kulonprogo
 1 FAMC @I683_GTG_I680@
 0 @I685@ INDI
-1 NAME /Aprilia/
+1 NAME Aprilia /Aprilia/
 1 SEX F
 1 FAMC @I683_GTG_I680@
 0 @I686@ INDI
-1 NAME /'Afif/
+1 NAME 'Afif /'Afif/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Kulonprogo
 1 FAMC @I683_GTG_I680@
 0 @I687@ INDI
-1 NAME /Rina/
+1 NAME Rina /Rina/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kulonprogo
 1 FAMC @I683_GTG_I680@
 0 @I688@ INDI
@@ -6348,7 +6418,7 @@
 1 SEX F
 1 FAMS @I679_GTG_I688@
 0 @I689@ INDI
-1 NAME /Faizun/
+1 NAME Faizun /Faizun/
 1 SEX M
 1 FAMC @I679_GTG_I688@
 0 @I69@ INDI
@@ -6358,102 +6428,80 @@
 0 @I690@ INDI
 1 NAME Ali /Humaidi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I679_GTG_I688@
 0 @I691@ INDI
 1 NAME Ibnul /Jauzi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I679_GTG_I688@
 0 @I692@ INDI
-1 NAME /KH.Salimi/
+1 NAME KH.Salimi /KH.Salimi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I1048_GTG_I1049@
 1 FAMS @I692_GTG_I676@
 0 @I693@ INDI
-1 NAME /Nasikhin/
+1 NAME Nasikhin /Nasikhin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I692_GTG_I676@
 1 FAMS @I693_GTG_I995@
 0 @I694@ INDI
-1 NAME /Kiyo/
+1 NAME Kiyo /Kiyo/
 1 SEX M
 1 FAMC @I696_GTG_UN@
 1 FAMS @I694_GTG_I695@
 0 @I695@ INDI
-1 NAME /Minah/
+1 NAME Minah /Minah/
 1 SEX F
 1 FAMS @I694_GTG_I695@
 0 @I696@ INDI
 1 NAME Bapake /Kiyo/
 1 SEX M
+1 FAMS @I696_GTG_UN@
 0 @I697@ INDI
-1 NAME /Dawami/
+1 NAME Dawami /Dawami/
 1 SEX M
 1 FAMC @I696_GTG_UN@
 1 FAMS @I697_GTG_I707@
 0 @I698@ INDI
-1 NAME /Dulah/
+1 NAME Dulah /Dulah/
 1 SEX M
 1 FAMC @I696_GTG_UN@
 1 FAMS @I698_GTG_I718@
 0 @I699@ INDI
-1 NAME /Hariyah/
+1 NAME Hariyah /Hariyah/
 1 SEX F
 1 FAMC @I694_GTG_I695@
 1 FAMS @I702_GTG_I699@
 0 @I7@ INDI
-1 NAME /Asy'ari/
+1 NAME Asy'ari /Asy'ari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1869
 2 PLAC Kroya
-1 DEAT 
+1 DEAT
 2 DATE 1951
 2 PLAC Tegalanyar
-1 NOTE Beliau pernah nyantri di Tebuireng pada Mbah Hasyim Asy'ari
-2 CONT 
-2 CONT 1919 
-2 CONT Mukim di Tegalanyar
-2 CONT 
-2 CONT 1926
-2 CONT Berpartisipasi dalam pendirian NU selaku alumni tebuireng sebagai utusan cilacap
-2 CONT 
-2 CONT 1943-an 
-2 CONT Bersama 8 kyai yang lain divonis hukuman mati oleh jepang karena perlawanan terhadap penjajahan jepang dan diselamatkan oleh pengacara yang ditunjuk pihak republik indonesia yakni raden rahmat (Sumber Guruku orang-orang pesantren : Saefudin zuhri, tanpa penyebutan nama pada cerita tentang 9 kyai dari daerah kebarongan dan sekitarnya yang divonis mati oleh jepang).
-2 CONT 
-2 CONT 1948-an 
-2 CONT Saat agresi militer II terlibat aktif dalam peristiwa palagan ambarawa bersama kyai subkhi dari Pondok bambu runcing Parakan. (Cerita mbah Kyai Muhaiminan)
-2 CONT 
-2 CONT 1950-an 
-2 CONT Tegalanyar dibumi-hanguskan oleh tentara belanda karena rangkaian perlawanan orang-orang tegalanyar (sebagai markas perlawanan), termasuk masjid tegalanyar, meski dalam versi lain dinyatakan tidak mempan dibakar. Belaiau menyingkir ke persawahan.
-2 CONT 
-2 CONT 1953-an 
-2 CONT Selang beberapa tahun setelah peristiwa pembumi-hangusan, Jum'at Legi beliau meninggal dunia.
-2 CONT 
-2 CONT Bupati cilacap SUPARDI (menjabat 1980-an) sering sowan ke beliau (murid beliau). Pernah mendatangi kembali masjid tegalanyar setelah lama beliau meninggal (1990-an)
-2 CONT 
-2 CONT Ir. sukarno pernah singgah di masjid tegalanyar sekitar 1930-an, sebagai bagian dari pergerakan kemerdekaan bersama mbah asngari, dimungkinkan karena adanya jaringan dengan tebuireng. banyak yang menyaksikan tapi tidak tahu apa yang mereka bicarakan di dalam masjid. pak sukarno dimungkinkan  berjalan kaki dan kemudian naik kereta. (Sumber wawancara sesepuh warga tegalanyar).
-2 CONT Mbah asngari pernah berucap pada anak-anak waktu itu, "cah, podo ngerti ora sopo mau kae ?" mboten mbah, "lha kae sing jenenge insinyur sukarno, sing bakal dadi lancuring negoro...."
 1 FAMC @I72_GTG_I141@
 1 FAMS @I7_GTG_I8@
 0 @I70@ INDI
 1 NAME Haji /Asngari/
 1 SEX M
 1 FAMC @I69_GTG_I1544@
+1 FAMS @I70_GTG_UN@
 0 @I700@ INDI
-1 NAME /Wasil/
+1 NAME Wasil /Wasil/
 1 SEX F
 1 FAMC @I694_GTG_I695@
 1 FAMS @I728_GTG_I700@
 0 @I701@ INDI
-1 NAME /Qosim/
+1 NAME Qosim /Qosim/
 1 SEX M
 1 FAMC @I694_GTG_I695@
 0 @I702@ INDI
@@ -6461,19 +6509,19 @@
 1 SEX M
 1 FAMS @I702_GTG_I699@
 0 @I703@ INDI
-1 NAME /Zubaidah/
+1 NAME Zubaidah /Zubaidah/
 1 SEX F
 1 FAMC @I702_GTG_I699@
 0 @I704@ INDI
-1 NAME /Khasan/
+1 NAME Khasan /Khasan/
 1 SEX M
 1 FAMC @I702_GTG_I699@
 0 @I705@ INDI
-1 NAME /Zumaro/
+1 NAME Zumaro /Zumaro/
 1 SEX F
 1 FAMC @I702_GTG_I699@
 0 @I706@ INDI
-1 NAME /Arsid/
+1 NAME Arsid /Arsid/
 1 SEX F
 1 FAMC @I702_GTG_I699@
 0 @I707@ INDI
@@ -6481,42 +6529,43 @@
 1 SEX F
 1 FAMS @I697_GTG_I707@
 0 @I708@ INDI
-1 NAME /Wasil/
+1 NAME Wasil /Wasil/
 1 SEX F
 1 FAMC @I697_GTG_I707@
 1 FAMS @I715_GTG_I708@
 0 @I709@ INDI
 1 NAME Kyai /Sirudin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Sleman
 1 FAMC @I697_GTG_I707@
+1 FAMS @I709_GTG_UN@
 0 @I71@ INDI
 1 NAME Haji /Siroj/
 1 SEX M
 1 FAMC @I145_GTG_UN@
 1 FAMS @I71_GTG_I143@
 0 @I710@ INDI
-1 NAME /Zumah/
+1 NAME Zumah /Zumah/
 1 SEX F
 1 FAMC @I697_GTG_I707@
 1 FAMS @I722_GTG_I710@
 0 @I711@ INDI
 1 NAME KH.Mukhtar /Dawam/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I697_GTG_I707@
 0 @I712@ INDI
-1 NAME /Mubaid/
+1 NAME Mubaid /Mubaid/
 1 SEX M
 1 FAMC @I709_GTG_UN@
 0 @I713@ INDI
-1 NAME /Siti/
+1 NAME Siti /Siti/
 1 SEX F
 1 FAMC @I709_GTG_UN@
 0 @I714@ INDI
-1 NAME /Ngafiyah/
+1 NAME Ngafiyah /Ngafiyah/
 1 SEX F
 1 FAMC @I709_GTG_UN@
 0 @I715@ INDI
@@ -6524,11 +6573,11 @@
 1 SEX M
 1 FAMS @I715_GTG_I708@
 0 @I716@ INDI
-1 NAME /Mardhiyah/
+1 NAME Mardhiyah /Mardhiyah/
 1 SEX F
 1 FAMC @I715_GTG_I708@
 0 @I717@ INDI
-1 NAME /Salaman/
+1 NAME Salaman /Salaman/
 1 SEX M
 1 FAMC @I715_GTG_I708@
 0 @I718@ INDI
@@ -6536,7 +6585,7 @@
 1 SEX F
 1 FAMS @I698_GTG_I718@
 0 @I719@ INDI
-1 NAME /Rosyid/
+1 NAME Rosyid /Rosyid/
 1 SEX M
 1 FAMC @I698_GTG_I718@
 0 @I72@ INDI
@@ -6544,11 +6593,11 @@
 1 SEX M
 1 FAMS @I72_GTG_I141@
 0 @I720@ INDI
-1 NAME /Wafik/
+1 NAME Wafik /Wafik/
 1 SEX M
 1 FAMC @I698_GTG_I718@
 0 @I721@ INDI
-1 NAME /As/
+1 NAME As /As/
 1 SEX F
 1 FAMC @I698_GTG_I718@
 0 @I722@ INDI
@@ -6556,23 +6605,23 @@
 1 SEX M
 1 FAMS @I722_GTG_I710@
 0 @I723@ INDI
-1 NAME /Mustangin/
+1 NAME Mustangin /Mustangin/
 1 SEX M
 1 FAMC @I722_GTG_I710@
 0 @I724@ INDI
-1 NAME /Basith/
+1 NAME Basith /Basith/
 1 SEX M
 1 FAMC @I722_GTG_I710@
 0 @I725@ INDI
-1 NAME /Ngafan/
+1 NAME Ngafan /Ngafan/
 1 SEX M
 1 FAMC @I722_GTG_I710@
 0 @I726@ INDI
-1 NAME /Iben/
+1 NAME Iben /Iben/
 1 SEX M
 1 FAMC @I722_GTG_I710@
 0 @I727@ INDI
-1 NAME /Khumah/
+1 NAME Khumah /Khumah/
 1 SEX F
 1 FAMC @I722_GTG_I710@
 0 @I728@ INDI
@@ -6580,18 +6629,18 @@
 1 SEX M
 1 FAMS @I728_GTG_I700@
 0 @I729@ INDI
-1 NAME /Zarongah/
+1 NAME Zarongah /Zarongah/
 1 SEX F
 1 FAMC @I728_GTG_I700@
 0 @I73@ INDI
-1 NAME /Sulastri/
+1 NAME Sulastri /Sulastri/
 1 SEX F
 1 FAMC @I52_GTG_I53@
 1 FAMS @I108_GTG_I73@
 0 @I730@ INDI
 1 NAME Tetti /Suryani/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1974
 2 PLAC Gombong
 1 FAMS @I362_GTG_I730@
@@ -6599,14 +6648,14 @@
 0 @I731@ INDI
 1 NAME Iqbal /Mustofa/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2004
 2 PLAC Cipete Jakarta
 1 FAMC @I362_GTG_I730@
 0 @I732@ INDI
 1 NAME Hanif /Ubaidillah/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 2007
 2 PLAC Jakarta Cipete
 1 FAMC @I362_GTG_I730@
@@ -6615,38 +6664,38 @@
 1 SEX M
 1 FAMS @I733_GTG_I730@
 0 @I734@ INDI
-1 NAME /Ida/
+1 NAME Ida /Ida/
 1 SEX F
 1 FAMC @I733_GTG_I730@
 0 @I735@ INDI
-1 NAME /Asmungi/
+1 NAME Asmungi /Asmungi/
 1 SEX M
 1 FAMC @I70_GTG_UN@
 1 FAMS @I735_GTG_I737@
 0 @I736@ INDI
-1 NAME /H.Mahfudz/
+1 NAME H.Mahfudz /H.Mahfudz/
 1 SEX M
 1 FAMC @I70_GTG_UN@
 1 FAMS @I736_GTG_I744@
 0 @I737@ INDI
-1 NAME /Marwiyyah/
+1 NAME Marwiyyah /Marwiyyah/
 1 SEX F
 1 FAMS @I735_GTG_I737@
 0 @I738@ INDI
-1 NAME /Siti/
+1 NAME Siti /Siti/
 1 SEX F
 1 FAMC @I735_GTG_I737@
 0 @I739@ INDI
-1 NAME /Toha/
+1 NAME Toha /Toha/
 1 SEX M
 1 FAMC @I735_GTG_I737@
 0 @I74@ INDI
-1 NAME /Sumaryo/
+1 NAME Sumaryo /Sumaryo/
 1 SEX M
 1 FAMC @I52_GTG_I53@
 1 FAMS @I74_GTG_I109@
 0 @I740@ INDI
-1 NAME /Taufiq/
+1 NAME Taufiq /Taufiq/
 1 SEX M
 1 FAMC @I735_GTG_I737@
 0 @I741@ INDI
@@ -6658,11 +6707,11 @@
 1 SEX M
 1 FAMC @I735_GTG_I737@
 0 @I743@ INDI
-1 NAME /Khamdiyyah/
+1 NAME Khamdiyyah /Khamdiyyah/
 1 SEX F
 1 FAMC @I735_GTG_I737@
 0 @I744@ INDI
-1 NAME /Ngulwiyyah/
+1 NAME Ngulwiyyah /Ngulwiyyah/
 1 SEX F
 1 FAMS @I736_GTG_I744@
 0 @I745@ INDI
@@ -6679,29 +6728,29 @@
 1 FAMC @I736_GTG_I744@
 1 FAMS @I748_GTG_I747@
 0 @I748@ INDI
-1 NAME /Nadhir/
+1 NAME Nadhir /Nadhir/
 1 SEX M
 1 FAMS @I748_GTG_I747@
 0 @I749@ INDI
-1 NAME H Sarodji //
+1 NAME H /Sarodji/
 1 SEX M
 1 FAMC @I1529_GTG_I1530@
 1 FAMS @I749_GTG_I1528@
 0 @I75@ INDI
-1 NAME /Sukitri/
+1 NAME Sukitri /Sukitri/
 1 SEX F
 1 FAMC @I52_GTG_I53@
 1 FAMS @I110_GTG_I75@
 0 @I750@ INDI
-1 NAME /Mutingah/
+1 NAME Mutingah /Mutingah/
 1 SEX F
 1 FAMS @I345_GTG_I750@
 0 @I751@ INDI
-1 NAME /Mahjub/
+1 NAME Mahjub /Mahjub/
 1 SEX M
 1 FAMC @I345_GTG_I750@
 0 @I752@ INDI
-1 NAME /Marfungi/
+1 NAME Marfungi /Marfungi/
 1 SEX M
 1 FAMC @I345_GTG_I750@
 0 @I753@ INDI
@@ -6709,31 +6758,31 @@
 1 SEX F
 1 FAMC @I345_GTG_I750@
 0 @I754@ INDI
-1 NAME /Mastur/
+1 NAME Mastur /Mastur/
 1 SEX F
 1 FAMC @I345_GTG_I750@
 0 @I755@ INDI
-1 NAME /Masngudah/
+1 NAME Masngudah /Masngudah/
 1 SEX F
 1 FAMC @I345_GTG_I750@
 0 @I756@ INDI
-1 NAME /Masruroh/
+1 NAME Masruroh /Masruroh/
 1 SEX F
 1 FAMC @I345_GTG_I750@
 0 @I757@ INDI
-1 NAME /Maslahudin/
+1 NAME Maslahudin /Maslahudin/
 1 SEX M
 1 FAMC @I345_GTG_I750@
 0 @I758@ INDI
-1 NAME /Abu/
+1 NAME Abu /Abu/
 1 SEX M
 1 FAMS @I758_GTG_I346@
 0 @I759@ INDI
-1 NAME /Alfiyah/
+1 NAME Alfiyah /Alfiyah/
 1 SEX F
 1 FAMS @I344_GTG_I759@
 0 @I76@ INDI
-1 NAME /Sunestri/
+1 NAME Sunestri /Sunestri/
 1 SEX F
 1 FAMC @I52_GTG_I53@
 1 FAMS @I111_GTG_I76@
@@ -6750,27 +6799,27 @@
 1 SEX F
 1 FAMS @I344_GTG_I762@
 0 @I763@ INDI
-1 NAME /Udin/
+1 NAME Udin /Udin/
 1 SEX M
 1 FAMC @I344_GTG_I762@
 0 @I764@ INDI
-1 NAME /Sairah/
+1 NAME Sairah /Sairah/
 1 SEX F
 1 FAMS @I206_GTG_I764@
 0 @I765@ INDI
-1 NAME /Jadun/
+1 NAME Jadun /Jadun/
 1 SEX M
 1 FAMC @I206_GTG_I764@
 0 @I766@ INDI
-1 NAME /Mumfaridah/
+1 NAME Mumfaridah /Mumfaridah/
 1 SEX F
 1 FAMC @I206_GTG_I764@
 0 @I767@ INDI
-1 NAME /Yasin/
+1 NAME Yasin /Yasin/
 1 SEX M
 1 FAMC @I206_GTG_I764@
 0 @I768@ INDI
-1 NAME /Siti/
+1 NAME Siti /Siti/
 1 SEX F
 1 FAMC @I206_GTG_I764@
 0 @I769@ INDI
@@ -6778,12 +6827,12 @@
 1 SEX F
 1 FAMC @I206_GTG_I764@
 0 @I77@ INDI
-1 NAME /Suprapti/
+1 NAME Suprapti /Suprapti/
 1 SEX F
 1 FAMC @I52_GTG_I53@
 1 FAMS @I112_GTG_I77@
 0 @I770@ INDI
-1 NAME /Marhani/
+1 NAME Marhani /Marhani/
 1 SEX M
 1 FAMC @I206_GTG_I764@
 0 @I771@ INDI
@@ -6792,29 +6841,29 @@
 1 FAMC @I773_GTG_I772@
 1 FAMS @I350_GTG_I771@
 0 @I772@ INDI
-1 NAME /Sanah/
+1 NAME Sanah /Sanah/
 1 SEX F
 1 FAMS @I773_GTG_I772@
 0 @I773@ INDI
-1 NAME /Ngadirun/
+1 NAME Ngadirun /Ngadirun/
 1 SEX M
 1 FAMS @I773_GTG_I772@
 0 @I774@ INDI
-1 NAME /Fulanah/
+1 NAME Fulanah /Fulanah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Kalisabuk
 1 FAMC @I350_GTG_I771@
 0 @I775@ INDI
-1 NAME /Muwafiq/
+1 NAME Muwafiq /Muwafiq/
 1 SEX M
 1 FAMC @I296_GTG_I278@
 0 @I776@ INDI
-1 NAME /Nur/
+1 NAME Nur /Nur/
 1 SEX M
 1 FAMC @I296_GTG_I278@
 0 @I777@ INDI
-1 NAME Mungamiroh //
+1 NAME Mungamiroh /Mungamiroh/
 1 SEX F
 1 FAMS @I203_GTG_I777@
 0 @I778@ INDI
@@ -6823,7 +6872,7 @@
 1 FAMC @I203_GTG_I777@
 1 FAMS @I1584_GTG_I778@
 0 @I779@ INDI
-1 NAME /Muttaqin/
+1 NAME Muttaqin /Muttaqin/
 1 SEX M
 1 FAMC @I203_GTG_I777@
 0 @I78@ INDI
@@ -6833,44 +6882,46 @@
 1 FAMS @I113_GTG_I78@
 1 FAMS @I140_GTG_I78@
 0 @I780@ INDI
-1 NAME /Solekhan/
+1 NAME Solekhan /Solekhan/
 1 SEX M
 1 FAMS @I780_GTG_I158@
 0 @I781@ INDI
-1 NAME /Qoid/
+1 NAME Qoid /Qoid/
 1 SEX M
 1 FAMC @I780_GTG_I158@
 0 @I782@ INDI
-1 NAME /Nasir/
+1 NAME Nasir /Nasir/
 1 SEX M
 1 FAMS @I782_GTG_I159@
 0 @I783@ INDI
 1 NAME Bapake /Syamsir/
 1 SEX M
+1 FAMS @I783_GTG_UN@
 0 @I784@ INDI
-1 NAME /Shoghirah/
+1 NAME Shoghirah /Shoghirah/
 1 SEX F
 1 FAMC @I783_GTG_UN@
+1 FAMS @UN_GTG_I784@
 0 @I785@ INDI
-1 NAME /Afidah/
+1 NAME Afidah /Afidah/
 1 SEX F
 1 FAMC @UN_GTG_I784@
 1 FAMS @I789_GTG_I785@
 0 @I786@ INDI
-1 NAME /Ilham/
+1 NAME Ilham /Ilham/
 1 SEX M
 1 FAMC @UN_GTG_I784@
 1 FAMS @I786_GTG_I811@
 0 @I787@ INDI
-1 NAME /Aminah/
+1 NAME Aminah /Aminah/
 1 SEX F
 1 FAMC @UN_GTG_I784@
 0 @I788@ INDI
-1 NAME /Syarfiyah/
+1 NAME Syarfiyah /Syarfiyah/
 1 SEX F
 1 FAMC @UN_GTG_I784@
 0 @I789@ INDI
-1 NAME /Basho-ir/
+1 NAME Basho-ir /Basho-ir/
 1 SEX M
 1 FAMS @I789_GTG_I785@
 0 @I79@ INDI
@@ -6879,7 +6930,7 @@
 1 FAMC @I52_GTG_I53@
 1 FAMS @I79_GTG_I114@
 0 @I790@ INDI
-1 NAME /Fatimah/
+1 NAME Fatimah /Fatimah/
 1 SEX F
 1 FAMC @I789_GTG_I785@
 1 FAMS @I794_GTG_I790@
@@ -6889,16 +6940,16 @@
 1 FAMC @I789_GTG_I785@
 1 FAMS @I791_GTG_I801@
 0 @I792@ INDI
-1 NAME Rahmat Yulianto //
+1 NAME Rahmat /Yulianto/
 1 SEX M
 1 FAMC @I749_GTG_I1528@
 0 @I793@ INDI
-1 NAME /Zamronah/
+1 NAME Zamronah /Zamronah/
 1 SEX F
 1 FAMC @I789_GTG_I785@
 1 FAMS @I805_GTG_I793@
 0 @I794@ INDI
-1 NAME /Muhari/
+1 NAME Muhari /Muhari/
 1 SEX M
 1 FAMS @I794_GTG_I790@
 0 @I795@ INDI
@@ -6920,33 +6971,33 @@
 1 SEX M
 1 FAMS @I798_GTG_I795@
 0 @I799@ INDI
-1 NAME /Asrori/
+1 NAME Asrori /Asrori/
 1 SEX M
 1 FAMS @I799_GTG_I797@
 0 @I8@ INDI
-1 NAME /Marliyah/
+1 NAME Marliyah /Marliyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1889
 2 PLAC Kroya
 1 FAMC @I71_GTG_I143@
 1 FAMS @I7_GTG_I8@
 0 @I80@ INDI
-1 NAME Mahjub Asy'ari //
+1 NAME Mahjub /Asy'ari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1929
 1 FAMC @I7_GTG_I8@
 0 @I800@ INDI
-1 NAME /Alvin/
+1 NAME Alvin /Alvin/
 1 SEX M
 1 FAMC @I798_GTG_I795@
 0 @I801@ INDI
-1 NAME /Khotijah/
+1 NAME Khotijah /Khotijah/
 1 SEX F
 1 FAMS @I791_GTG_I801@
 0 @I802@ INDI
-1 NAME /Mirza/
+1 NAME Mirza /Mirza/
 1 SEX M
 1 FAMC @I791_GTG_I801@
 0 @I803@ INDI
@@ -6954,12 +7005,12 @@
 1 SEX F
 1 FAMC @I791_GTG_I801@
 0 @I804@ INDI
-1 NAME /Salamah/
+1 NAME Salamah /Salamah/
 1 SEX F
 1 FAMC @I789_GTG_I785@
 1 FAMS @I807_GTG_I804@
 0 @I805@ INDI
-1 NAME /Ulil/
+1 NAME Ulil /Ulil/
 1 SEX M
 1 FAMS @I805_GTG_I793@
 0 @I806@ INDI
@@ -6967,7 +7018,7 @@
 1 SEX M
 1 FAMC @I805_GTG_I793@
 0 @I807@ INDI
-1 NAME /Huda/
+1 NAME Huda /Huda/
 1 SEX M
 1 FAMS @I807_GTG_I804@
 0 @I808@ INDI
@@ -6979,9 +7030,9 @@
 1 SEX M
 1 FAMC @I807_GTG_I804@
 0 @I81@ INDI
-1 NAME Adzrongi Asy'ari //
+1 NAME Adzrongi /Asy'ari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1933
 1 FAMC @I7_GTG_I8@
 1 FAMS @I81_GTG_I368@
@@ -6990,27 +7041,27 @@
 1 SEX M
 1 FAMC @I807_GTG_I804@
 0 @I811@ INDI
-1 NAME /Wasingah/
+1 NAME Wasingah /Wasingah/
 1 SEX F
 1 FAMC @I817_GTG_UN@
 1 FAMS @I786_GTG_I811@
 0 @I812@ INDI
-1 NAME /Badrudin/
+1 NAME Badrudin /Badrudin/
 1 SEX M
 1 FAMC @I786_GTG_I811@
 1 FAMS @I812_GTG_I836@
 0 @I813@ INDI
-1 NAME /Hani-ah/
+1 NAME Hani-ah /Hani-ah/
 1 SEX F
 1 FAMC @I786_GTG_I811@
 1 FAMS @I833_GTG_I813@
 0 @I814@ INDI
-1 NAME /Dawami/
+1 NAME Dawami /Dawami/
 1 SEX M
 1 FAMC @I786_GTG_I811@
 1 FAMS @I814_GTG_I829@
 0 @I815@ INDI
-1 NAME /Hidayah/
+1 NAME Hidayah /Hidayah/
 1 SEX F
 1 FAMC @I786_GTG_I811@
 1 FAMS @I827_GTG_I815@
@@ -7020,10 +7071,11 @@
 1 FAMC @I786_GTG_I811@
 1 FAMS @I825_GTG_I816@
 0 @I817@ INDI
-1 NAME /Ma'shum/
+1 NAME Ma'shum /Ma'shum/
 1 SEX M
+1 FAMS @I817_GTG_UN@
 0 @I818@ INDI
-1 NAME /Hilaliyyah/
+1 NAME Hilaliyyah /Hilaliyyah/
 1 SEX F
 1 FAMC @I817_GTG_UN@
 1 FAMS @I819_GTG_I818@
@@ -7033,9 +7085,9 @@
 1 FAMC @UN_GTG_I1011@
 1 FAMS @I819_GTG_I818@
 0 @I82@ INDI
-1 NAME Khosiyah Asy'ari //
+1 NAME Khosiyah /Asy'ari/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1935
 1 FAMC @I7_GTG_I8@
 1 FAMS @I101_GTG_I82@
@@ -7056,11 +7108,11 @@
 1 SEX F
 1 FAMC @I819_GTG_I818@
 0 @I824@ INDI
-1 NAME /Ma'ruf/
+1 NAME Ma'ruf /Ma'ruf/
 1 SEX M
 1 FAMC @I819_GTG_I818@
 0 @I825@ INDI
-1 NAME /Reza/
+1 NAME Reza /Reza/
 1 SEX M
 1 FAMS @I825_GTG_I816@
 0 @I826@ INDI
@@ -7068,24 +7120,24 @@
 1 SEX M
 1 FAMC @I825_GTG_I816@
 0 @I827@ INDI
-1 NAME /Darwis/
+1 NAME Darwis /Darwis/
 1 SEX M
 1 FAMS @I827_GTG_I815@
 0 @I828@ INDI
-1 NAME /Sauqi/
+1 NAME Sauqi /Sauqi/
 1 SEX M
 1 FAMC @I827_GTG_I815@
 0 @I829@ INDI
-1 NAME /Nurkhima/
+1 NAME Nurkhima /Nurkhima/
 1 SEX F
 1 FAMS @I814_GTG_I829@
 0 @I83@ INDI
-1 NAME Khamdiyah Asy'ari //
+1 NAME Khamdiyah /Asy'ari/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 1930
 2 PLAC Kroya
-1 DEAT 
+1 DEAT
 2 DATE 2009
 2 PLAC Kroya
 1 FAMC @I7_GTG_I8@
@@ -7095,23 +7147,23 @@
 1 SEX F
 1 FAMC @I814_GTG_I829@
 0 @I831@ INDI
-1 NAME /Anamila/
+1 NAME Anamila /Anamila/
 1 SEX F
 1 FAMC @I814_GTG_I829@
 0 @I832@ INDI
-1 NAME /Balya/
+1 NAME Balya /Balya/
 1 SEX M
 1 FAMC @I814_GTG_I829@
 0 @I833@ INDI
-1 NAME /Agus/
+1 NAME Agus /Agus/
 1 SEX M
 1 FAMS @I833_GTG_I813@
 0 @I834@ INDI
-1 NAME /Rosyid/
+1 NAME Rosyid /Rosyid/
 1 SEX M
 1 FAMC @I833_GTG_I813@
 0 @I835@ INDI
-1 NAME /Fida/
+1 NAME Fida /Fida/
 1 SEX F
 1 FAMC @I833_GTG_I813@
 0 @I836@ INDI
@@ -7119,11 +7171,11 @@
 1 SEX F
 1 FAMS @I812_GTG_I836@
 0 @I837@ INDI
-1 NAME /Ajeng/
+1 NAME Ajeng /Ajeng/
 1 SEX F
 1 FAMC @I812_GTG_I836@
 0 @I838@ INDI
-1 NAME /Zidki/
+1 NAME Zidki /Zidki/
 1 SEX M
 1 FAMC @I812_GTG_I836@
 0 @I839@ INDI
@@ -7131,9 +7183,9 @@
 1 SEX M
 1 FAMS @I839_GTG_I840@
 0 @I84@ INDI
-1 NAME Wahib Asy'ari
+1 NAME Wahib /Asy'ari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1938
 1 FAMC @I7_GTG_I8@
 1 FAMS @I84_GTG_I447@
@@ -7142,26 +7194,26 @@
 1 SEX F
 1 FAMS @I839_GTG_I840@
 0 @I841@ INDI
-1 NAME /Umar/
+1 NAME Umar /Umar/
 1 SEX M
 1 FAMC @I839_GTG_I840@
 1 FAMS @I841_GTG_I846@
 0 @I842@ INDI
-1 NAME /Guntur/
+1 NAME Guntur /Guntur/
 1 SEX M
 1 FAMC @I839_GTG_I840@
 1 FAMS @I842_GTG_I844@
 0 @I843@ INDI
-1 NAME /Sari/
+1 NAME Sari /Sari/
 1 SEX F
 1 FAMC @I839_GTG_I840@
 1 FAMS @I845_GTG_I843@
 0 @I844@ INDI
-1 NAME /Lulu/
+1 NAME Lulu /Lulu/
 1 SEX F
 1 FAMS @I842_GTG_I844@
 0 @I845@ INDI
-1 NAME /Gunawan/
+1 NAME Gunawan /Gunawan/
 1 SEX M
 1 FAMS @I845_GTG_I843@
 0 @I846@ INDI
@@ -7169,11 +7221,11 @@
 1 SEX F
 1 FAMS @I841_GTG_I846@
 0 @I847@ INDI
-1 NAME /Putri/
+1 NAME Putri /Putri/
 1 SEX F
 1 FAMC @I841_GTG_I846@
 0 @I848@ INDI
-1 NAME /Sekar/
+1 NAME Sekar /Sekar/
 1 SEX F
 1 FAMC @I841_GTG_I846@
 0 @I849@ INDI
@@ -7181,41 +7233,40 @@
 1 SEX F
 1 FAMC @I842_GTG_I844@
 0 @I85@ INDI
-1 NAME Maftuh Asy'ari //
+1 NAME Maftuh /Asy'ari/
 1 SEX M
-1 NOTE Alamat : Rt 02 Rw 03 Tegal Anyar Mujur Lor Kroya Cilacap 53282
-1 BIRT 
+1 BIRT
 2 DATE 1939
 1 FAMC @I7_GTG_I8@
 1 FAMS @I85_GTG_I459@
 0 @I850@ INDI
-1 NAME /Jamhari/
+1 NAME Jamhari /Jamhari/
 1 SEX M
 1 FAMC @I328_GTG_I360@
 0 @I851@ INDI
 1 NAME Yazid /Bustomi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I328_GTG_I360@
 0 @I852@ INDI
-1 NAME /Ida/
+1 NAME Ida /Ida/
 1 SEX F
 1 FAMC @UN_GTG_I330@
 0 @I853@ INDI
-1 NAME /Ikhah/
+1 NAME Ikhah /Ikhah/
 1 SEX F
 1 FAMC @UN_GTG_I330@
 0 @I854@ INDI
-1 NAME /Lum'ah/
+1 NAME Lum'ah /Lum'ah/
 1 SEX F
 1 FAMC @UN_GTG_I330@
 0 @I855@ INDI
-1 NAME /Mudhi'/
+1 NAME Mudhi' /Mudhi'/
 1 SEX F
 1 FAMC @UN_GTG_I330@
 0 @I856@ INDI
-1 NAME /Kuni/
+1 NAME Kuni /Kuni/
 1 SEX F
 1 FAMC @UN_GTG_I330@
 0 @I857@ INDI
@@ -7223,17 +7274,17 @@
 1 SEX M
 1 FAMC @UN_GTG_I330@
 0 @I858@ INDI
-1 NAME /K.Wafirudin/
+1 NAME K.Wafirudin /K.Wafirudin/
 1 SEX M
 1 FAMS @I858_GTG_I327@
 0 @I859@ INDI
-1 NAME /Kharis/
+1 NAME Kharis /Kharis/
 1 SEX M
 1 FAMC @I643_GTG_I652@
 0 @I86@ INDI
-1 NAME Muchit Asy'ari //
+1 NAME Muchit /Asy'ari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1940
 2 PLAC Kroya
 1 FAMC @I7_GTG_I8@
@@ -7241,13 +7292,13 @@
 0 @I860@ INDI
 1 NAME Mbah /Zaenab/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMS @I332_GTG_I860@
 0 @I861@ INDI
 1 NAME Mbah /Zaid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I868_GTG_UN@
 1 FAMS @I861_GTG_I862@
@@ -7257,16 +7308,16 @@
 1 FAMC @I1131_GTG_UN@
 1 FAMS @I861_GTG_I862@
 0 @I863@ INDI
-1 NAME /Nawawi/
+1 NAME Nawawi /Nawawi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I861_GTG_I862@
 1 FAMS @I863_GTG_I871@
 0 @I864@ INDI
 1 NAME Mbah /Hasyim/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I861_GTG_I862@
 1 FAMS @I864_GTG_I896@
@@ -7274,32 +7325,32 @@
 0 @I865@ INDI
 1 NAME Mbah /Aminah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I861_GTG_I862@
 1 FAMS @I910_GTG_I865@
 0 @I866@ INDI
 1 NAME Mbah /Darudi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I861_GTG_I862@
 1 FAMS @I866_GTG_I911@
 0 @I867@ INDI
 1 NAME Mbah /Darojah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
-1 DEAT 
+1 DEAT
 2 PLAC Sumatra
-1 NOTE Tinggal di Sumatra
 1 FAMC @I861_GTG_I862@
 1 FAMS @I909_GTG_I867@
 0 @I868@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
+1 FAMS @I868_GTG_UN@
 0 @I869@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMC @I868_GTG_UN@
 0 @I87@ INDI
@@ -7307,30 +7358,30 @@
 1 SEX F
 1 FAMC @I55_GTG_UN@
 0 @I870@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMC @I868_GTG_UN@
 0 @I871@ INDI
-1 NAME /Diniyah/
+1 NAME Diniyah /Diniyah/
 1 SEX F
 1 FAMS @I863_GTG_I871@
 0 @I872@ INDI
-1 NAME /Hajid/
+1 NAME Hajid /Hajid/
 1 SEX M
 1 FAMC @I863_GTG_I871@
 1 FAMS @I872_GTG_I875@
 0 @I873@ INDI
-1 NAME /Rosyid/
+1 NAME Rosyid /Rosyid/
 1 SEX M
 1 FAMC @I863_GTG_I871@
 1 FAMS @I873_GTG_I878@
 0 @I874@ INDI
-1 NAME /Mustaqimah/
+1 NAME Mustaqimah /Mustaqimah/
 1 SEX F
 1 FAMC @I863_GTG_I871@
 1 FAMS @I883_GTG_I874@
 0 @I875@ INDI
-1 NAME /Fulanah/
+1 NAME Fulanah /Fulanah/
 1 SEX F
 1 FAMS @I872_GTG_I875@
 0 @I876@ INDI
@@ -7338,11 +7389,11 @@
 1 SEX F
 1 FAMC @I872_GTG_I875@
 0 @I877@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMC @I872_GTG_I875@
 0 @I878@ INDI
-1 NAME /Hanifah/
+1 NAME Hanifah /Hanifah/
 1 SEX F
 1 FAMS @I873_GTG_I878@
 0 @I879@ INDI
@@ -7351,7 +7402,7 @@
 1 FAMC @I873_GTG_I878@
 1 FAMS @I882_GTG_I879@
 0 @I88@ INDI
-1 NAME /Ciptodiwiryo/
+1 NAME Ciptodiwiryo /Ciptodiwiryo/
 1 SEX M
 1 FAMC @I55_GTG_UN@
 0 @I880@ INDI
@@ -7359,24 +7410,24 @@
 1 SEX F
 1 FAMC @I873_GTG_I878@
 0 @I881@ INDI
-1 NAME /Muna/
+1 NAME Muna /Muna/
 1 SEX F
 1 FAMC @I873_GTG_I878@
 0 @I882@ INDI
-1 NAME /Qomarudin/
+1 NAME Qomarudin /Qomarudin/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Subang
 1 FAMS @I882_GTG_I879@
 0 @I883@ INDI
-1 NAME /Mursyid/
+1 NAME Mursyid /Mursyid/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMS @I883_GTG_I874@
 1 FAMS @I883_GTG_I887@
 0 @I884@ INDI
-1 NAME /Mu'asiroh/
+1 NAME Mu'asiroh /Mu'asiroh/
 1 SEX F
 1 FAMC @I883_GTG_I874@
 1 FAMS @I985_GTG_I884@
@@ -7387,34 +7438,34 @@
 0 @I886@ INDI
 1 NAME Rozakul /Muwasik/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I883_GTG_I874@
 0 @I887@ INDI
-1 NAME /Fulanah/
+1 NAME Fulanah /Fulanah/
 1 SEX F
 1 FAMS @I883_GTG_I887@
 0 @I888@ INDI
-1 NAME /Yunainah/
+1 NAME Yunainah /Yunainah/
 1 SEX F
 1 FAMC @I883_GTG_I887@
 1 FAMS @I890_GTG_I888@
 0 @I889@ INDI
-1 NAME /Bun-yanah/
+1 NAME Bun-yanah /Bun-yanah/
 1 SEX F
 1 FAMC @I883_GTG_I887@
 1 FAMS @I891_GTG_I889@
 0 @I89@ INDI
-1 NAME /Abudari/
+1 NAME Abudari /Abudari/
 1 SEX M
 1 FAMC @I55_GTG_UN@
 1 FAMS @I89_GTG_I90@
 0 @I890@ INDI
-1 NAME /Widodo/
+1 NAME Widodo /Widodo/
 1 SEX M
 1 FAMS @I890_GTG_I888@
 0 @I891@ INDI
-1 NAME /Suherman/
+1 NAME Suherman /Suherman/
 1 SEX M
 1 FAMS @I891_GTG_I889@
 0 @I892@ INDI
@@ -7422,43 +7473,42 @@
 1 SEX M
 1 FAMC @I891_GTG_I889@
 0 @I893@ INDI
-1 NAME /Fiki/
+1 NAME Fiki /Fiki/
 1 SEX M
 1 FAMC @I891_GTG_I889@
 0 @I894@ INDI
-1 NAME /Salwa/
+1 NAME Salwa /Salwa/
 1 SEX F
 1 FAMC @I891_GTG_I889@
 0 @I895@ INDI
-1 NAME /Imam/
+1 NAME Imam /Imam/
 1 SEX M
 1 FAMC @I890_GTG_I888@
 0 @I896@ INDI
-1 NAME /Sutimah/
+1 NAME Sutimah /Sutimah/
 1 SEX F
 1 FAMS @I864_GTG_I896@
 0 @I897@ INDI
-1 NAME /Partinah/
+1 NAME Partinah /Partinah/
 1 SEX F
 1 FAMS @I864_GTG_I897@
 0 @I898@ INDI
-1 NAME /Albani/
+1 NAME Albani /Albani/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I864_GTG_I897@
 1 FAMS @I898_GTG_I901@
 0 @I899@ INDI
-1 NAME /Jamhari/
+1 NAME Jamhari /Jamhari/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
-1 NOTE Domisili di Sumatra
 1 FAMC @I864_GTG_I897@
 0 @I9@ INDI
 1 NAME Syarif /Hudalloh/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 1965
 2 PLAC Cilacap
 1 FAMC @I2_GTG_I3@
@@ -7467,12 +7517,12 @@
 1 SEX F
 1 FAMS @I89_GTG_I90@
 0 @I900@ INDI
-1 NAME /Muhsutamir/
+1 NAME Muhsutamir /Muhsutamir/
 1 SEX M
 1 FAMC @I864_GTG_I897@
 1 FAMS @I900_GTG_I906@
 0 @I901@ INDI
-1 NAME /Sri/
+1 NAME Sri /Sri/
 1 SEX F
 1 FAMS @I898_GTG_I901@
 0 @I902@ INDI
@@ -7484,7 +7534,7 @@
 1 SEX F
 1 FAMC @I898_GTG_I901@
 0 @I904@ INDI
-1 NAME /Supriyanti/
+1 NAME Supriyanti /Supriyanti/
 1 SEX F
 1 FAMC @I898_GTG_I901@
 0 @I905@ INDI
@@ -7492,7 +7542,7 @@
 1 SEX M
 1 FAMC @I898_GTG_I901@
 0 @I906@ INDI
-1 NAME /Warsiyati/
+1 NAME Warsiyati /Warsiyati/
 1 SEX F
 1 FAMS @I900_GTG_I906@
 0 @I907@ INDI
@@ -7500,15 +7550,15 @@
 1 SEX M
 1 FAMC @I900_GTG_I906@
 0 @I908@ INDI
-1 NAME /Faza/
+1 NAME Faza /Faza/
 1 SEX M
 1 FAMC @I900_GTG_I906@
 0 @I909@ INDI
-1 NAME /Muhibbut/
+1 NAME Muhibbut /Muhibbut/
 1 SEX M
 1 FAMS @I909_GTG_I867@
 0 @I91@ INDI
-1 NAME /Hikmayati/
+1 NAME Hikmayati /Hikmayati/
 1 SEX F
 1 FAMC @I89_GTG_I90@
 0 @I910@ INDI
@@ -7516,25 +7566,25 @@
 1 SEX M
 1 FAMS @I910_GTG_I865@
 0 @I911@ INDI
-1 NAME /Bariyah/
+1 NAME Bariyah /Bariyah/
 1 SEX F
 1 FAMS @I866_GTG_I911@
 0 @I912@ INDI
 1 NAME Tutik /Khusniyah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I866_GTG_I911@
 1 FAMS @I917_GTG_I912@
 0 @I913@ INDI
-1 NAME /Murpingah/
+1 NAME Murpingah /Murpingah/
 1 SEX F
 1 FAMC @I866_GTG_I911@
 1 FAMS @I918_GTG_I913@
 0 @I914@ INDI
 1 NAME Ahmad /Musyaddad/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I866_GTG_I911@
 1 FAMS @I914_GTG_I919@
@@ -7549,7 +7599,7 @@
 1 FAMC @I866_GTG_I911@
 1 FAMS @I921_GTG_I916@
 0 @I917@ INDI
-1 NAME /Zamrodin/
+1 NAME Zamrodin /Zamrodin/
 1 SEX M
 1 FAMS @I917_GTG_I912@
 0 @I918@ INDI
@@ -7561,7 +7611,7 @@
 1 SEX F
 1 FAMS @I914_GTG_I919@
 0 @I92@ INDI
-1 NAME /Hikmadari/
+1 NAME Hikmadari /Hikmadari/
 1 SEX F
 1 FAMC @I89_GTG_I90@
 0 @I920@ INDI
@@ -7578,7 +7628,7 @@
 1 FAMC @I692_GTG_I676@
 1 FAMS @I922_GTG_I999@
 0 @I923@ INDI
-1 NAME /Naim/
+1 NAME Naim /Naim/
 1 SEX M
 1 FAMC @I692_GTG_I676@
 1 FAMS @I923_GTG_I1080@
@@ -7588,16 +7638,16 @@
 1 FAMC @I692_GTG_I676@
 1 FAMS @I924_GTG_I927@
 0 @I925@ INDI
-1 NAME /Isna/
+1 NAME Isna /Isna/
 1 SEX F
 1 FAMC @I692_GTG_I676@
 1 FAMS @I926_GTG_I925@
 0 @I926@ INDI
-1 NAME /Baedowi/
+1 NAME Baedowi /Baedowi/
 1 SEX M
 1 FAMS @I926_GTG_I925@
 0 @I927@ INDI
-1 NAME /Fina/
+1 NAME Fina /Fina/
 1 SEX F
 1 FAMC @I359_GTG_I1047@
 1 FAMS @I924_GTG_I927@
@@ -7610,23 +7660,23 @@
 1 SEX F
 1 FAMC @I681_GTG_I928@
 0 @I93@ INDI
-1 NAME /Hikmastuti/
+1 NAME Hikmastuti /Hikmastuti/
 1 SEX F
 1 FAMC @I89_GTG_I90@
 0 @I930@ INDI
 1 NAME Aniqotun /Nikmah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I681_GTG_I928@
 0 @I931@ INDI
 1 NAME Yazid /Masduki/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I681_GTG_I928@
 0 @I932@ INDI
-1 NAME /Handarotiyah/
+1 NAME Handarotiyah /Handarotiyah/
 1 SEX F
 1 FAMC @I332_GTG_I860@
 1 FAMS @I933_GTG_I932@
@@ -7635,9 +7685,9 @@
 1 SEX M
 1 FAMS @I933_GTG_I932@
 0 @I934@ INDI
-1 NAME /Jalis/
+1 NAME Jalis /Jalis/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I933_GTG_I932@
 1 FAMS @I934_GTG_I940@
@@ -7649,118 +7699,118 @@
 0 @I936@ INDI
 1 NAME Naily /Yumna/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I933_GTG_I932@
 1 FAMS @I938_GTG_I936@
 0 @I937@ INDI
 1 NAME Khoiruz /Zad/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I933_GTG_I932@
 0 @I938@ INDI
 1 NAME Mahbub /Junaidi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMS @I938_GTG_I936@
 0 @I939@ INDI
-1 NAME /Vivi/
+1 NAME Vivi /Vivi/
 1 SEX F
 1 FAMS @I935_GTG_I939@
 0 @I94@ INDI
-1 NAME /Hikmanudin/
+1 NAME Hikmanudin /Hikmanudin/
 1 SEX M
 1 FAMC @I89_GTG_I90@
 0 @I940@ INDI
-1 NAME /Nurun/
+1 NAME Nurun /Nurun/
 1 SEX F
 1 FAMS @I934_GTG_I940@
 0 @I941@ INDI
-1 NAME /Ahyadi/
+1 NAME Ahyadi /Ahyadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I910_GTG_I865@
 1 FAMS @I941_GTG_I946@
 0 @I942@ INDI
-1 NAME /Salami/
+1 NAME Salami /Salami/
 1 SEX F
 1 FAMC @I910_GTG_I865@
 1 FAMS @I950_GTG_I942@
 0 @I943@ INDI
-1 NAME /Hasanun/
+1 NAME Hasanun /Hasanun/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I910_GTG_I865@
 1 FAMS @I943_GTG_I959@
 0 @I944@ INDI
-1 NAME /Zaidah/
+1 NAME Zaidah /Zaidah/
 1 SEX F
 1 FAMC @I910_GTG_I865@
 1 FAMS @I974_GTG_I944@
 0 @I945@ INDI
-1 NAME /Syarifuddin/
+1 NAME Syarifuddin /Syarifuddin/
 1 SEX M
 1 FAMC @I910_GTG_I865@
 1 FAMS @I945_GTG_I980@
 0 @I946@ INDI
-1 NAME /Tumilah/
+1 NAME Tumilah /Tumilah/
 1 SEX F
 1 FAMS @I941_GTG_I946@
 0 @I947@ INDI
-1 NAME /Siti/
+1 NAME Siti /Siti/
 1 SEX F
 1 FAMC @I941_GTG_I946@
 0 @I948@ INDI
-1 NAME /Muhtarom/
+1 NAME Muhtarom /Muhtarom/
 1 SEX M
 1 FAMC @I941_GTG_I946@
 1 FAMS @I948_GTG_I949@
 0 @I949@ INDI
-1 NAME /Retno/
+1 NAME Retno /Retno/
 1 SEX F
 1 FAMS @I948_GTG_I949@
 0 @I95@ INDI
-1 NAME /Hikmatulloh/
+1 NAME Hikmatulloh /Hikmatulloh/
 1 SEX M
 1 FAMC @I89_GTG_I90@
 0 @I950@ INDI
-1 NAME /Asmuni/
+1 NAME Asmuni /Asmuni/
 1 SEX M
 1 FAMS @I950_GTG_I942@
 0 @I951@ INDI
-1 NAME /Sirudin/
+1 NAME Sirudin /Sirudin/
 1 SEX M
 1 FAMC @I950_GTG_I942@
 1 FAMS @I951_GTG_I955@
 0 @I952@ INDI
-1 NAME /Asiyah/
+1 NAME Asiyah /Asiyah/
 1 SEX F
 1 FAMC @I950_GTG_I942@
 1 FAMS @I956_GTG_I952@
 0 @I953@ INDI
-1 NAME /Musyarofah/
+1 NAME Musyarofah /Musyarofah/
 1 SEX F
 1 FAMC @I950_GTG_I942@
 1 FAMS @I957_GTG_I953@
 0 @I954@ INDI
-1 NAME /Ngafini/
+1 NAME Ngafini /Ngafini/
 1 SEX M
 1 FAMC @I950_GTG_I942@
 1 FAMS @I954_GTG_I958@
 0 @I955@ INDI
-1 NAME /Fatikhah/
+1 NAME Fatikhah /Fatikhah/
 1 SEX F
 1 FAMS @I951_GTG_I955@
 0 @I956@ INDI
-1 NAME /Qomaruddin/
+1 NAME Qomaruddin /Qomaruddin/
 1 SEX M
 1 FAMS @I956_GTG_I952@
 0 @I957@ INDI
-1 NAME /Jawadi/
+1 NAME Jawadi /Jawadi/
 1 SEX M
 1 FAMS @I957_GTG_I953@
 0 @I958@ INDI
@@ -7768,13 +7818,13 @@
 1 SEX F
 1 FAMS @I954_GTG_I958@
 0 @I959@ INDI
-1 NAME /Fatonah/
+1 NAME Fatonah /Fatonah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMS @I943_GTG_I959@
 0 @I96@ INDI
-1 NAME /Hikmaningrum/
+1 NAME Hikmaningrum /Hikmaningrum/
 1 SEX F
 1 FAMC @I89_GTG_I90@
 0 @I960@ INDI
@@ -7822,9 +7872,9 @@
 1 SEX F
 1 FAMC @I965_GTG_I960@
 0 @I97@ INDI
-1 NAME Meinissa Husna Salamah //
+1 NAME Meinissa Husna /Salamah/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 DATE 2007
 2 PLAC Cikarang Bekasi
 1 FAMC @I13_GTG_I29@
@@ -7858,7 +7908,7 @@
 1 SEX M
 1 FAMC @I974_GTG_I944@
 0 @I977@ INDI
-1 NAME /Zuhdi/
+1 NAME Zuhdi /Zuhdi/
 1 SEX M
 1 FAMC @I974_GTG_I944@
 0 @I978@ INDI
@@ -7866,7 +7916,7 @@
 1 SEX F
 1 FAMC @I974_GTG_I944@
 0 @I979@ INDI
-1 NAME /Yasmun/
+1 NAME Yasmun /Yasmun/
 1 SEX M
 1 FAMS @I979_GTG_I975@
 0 @I98@ INDI
@@ -7875,7 +7925,7 @@
 1 FAMC @I100_GTG_UN@
 1 FAMS @I98_GTG_I99@
 0 @I980@ INDI
-1 NAME /Khowiyah/
+1 NAME Khowiyah /Khowiyah/
 1 SEX F
 1 FAMS @I945_GTG_I980@
 0 @I981@ INDI
@@ -7883,41 +7933,41 @@
 1 SEX F
 1 FAMC @I945_GTG_I980@
 0 @I982@ INDI
-1 NAME /Mun'imah/
+1 NAME Mun'imah /Mun'imah/
 1 SEX F
 1 FAMC @I945_GTG_I980@
 0 @I983@ INDI
-1 NAME /Erna/
+1 NAME Erna /Erna/
 1 SEX F
 1 FAMC @I945_GTG_I980@
 0 @I984@ INDI
 1 NAME Zia Ilfa /Rifada/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Mlangi
 1 FAMC @I681_GTG_I928@
 0 @I985@ INDI
-1 NAME /Muhtadi/
+1 NAME Muhtadi /Muhtadi/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMS @I985_GTG_I884@
 0 @I986@ INDI
 1 NAME Alfin /Nuraida/
 1 SEX F
-1 BIRT 
+1 BIRT
 2 PLAC Jolok
 1 FAMC @I985_GTG_I884@
 0 @I987@ INDI
-1 NAME /Sita/
+1 NAME Sita /Sita/
 1 SEX F
 1 FAMC @I985_GTG_I884@
 0 @I988@ INDI
-1 NAME /Ahyadi/
+1 NAME Ahyadi /Ahyadi/
 1 SEX M
 1 FAMS @I988_GTG_I677@
 0 @I989@ INDI
-1 NAME /Jalil/
+1 NAME Jalil /Jalil/
 1 SEX M
 1 FAMC @I988_GTG_I677@
 0 @I99@ INDI
@@ -7929,7 +7979,7 @@
 1 SEX M
 1 FAMC @I988_GTG_I677@
 0 @I991@ INDI
-1 NAME /Hamron/
+1 NAME Hamron /Hamron/
 1 SEX M
 1 FAMC @I988_GTG_I677@
 0 @I992@ INDI
@@ -7937,59 +7987,59 @@
 1 SEX M
 1 FAMC @I988_GTG_I677@
 0 @I993@ INDI
-1 NAME /Syarif/
+1 NAME Syarif /Syarif/
 1 SEX M
 1 FAMC @I988_GTG_I677@
 0 @I994@ INDI
-1 NAME /Fulan/
+1 NAME Fulan /Fulan/
 1 SEX M
 1 FAMC @I988_GTG_I677@
 0 @I995@ INDI
-1 NAME /Lala/
+1 NAME Lala /Lala/
 1 SEX F
 1 FAMS @I693_GTG_I995@
 0 @I996@ INDI
-1 NAME /Acoh/
+1 NAME Acoh /Acoh/
 1 SEX F
 1 FAMC @I693_GTG_I995@
 0 @I997@ INDI
-1 NAME /Sikhah/
+1 NAME Sikhah /Sikhah/
 1 SEX F
 1 FAMC @I693_GTG_I995@
 0 @I998@ INDI
-1 NAME /Uci/
+1 NAME Uci /Uci/
 1 SEX F
 1 FAMC @I693_GTG_I995@
 0 @I999@ INDI
-1 NAME /Khamna/
+1 NAME Khamna /Khamna/
 1 SEX F
 1 FAMS @I922_GTG_I999@
 0 @GTGIID_1@ INDI
 1 NAME Muhammad Salman /Zein/
 1 SEX M
-1 BIRT 
+1 BIRT
 2 DATE 12 Nov 2020
 2 PLAC Sleman
-2 NOTE Lahir dengan sesar di RS Sakina Idaman
 1 FAMC @I1_GTG_I320@
 0 @GTGIID_2@ INDI
-1 NAME Ramadhan Nur Cahyo
+1 NAME Ramadhan Nur /Cahyo/
 1 SEX M
 1 FAMC @GTGIID_3_GTG_UN@
 1 FAMS @GTGIID_2_GTG_I656@
 0 @GTGIID_3@ INDI
-1 NAME Wahadi
+1 NAME Wahadi /Wahadi/
 1 SEX M
+1 FAMS @GTGIID_3_GTG_UN@
 0 @GTGIID_4@ INDI
-1 NAME Mahir Zayinuddin Abqor
+1 NAME Mahir Zayinuddin /Abqor/
 1 SEX M
 1 FAMC @I15_GTG_I1556@
 0 @GTGIID_5@ INDI
-1 NAME Davinatul Ulum
+1 NAME Davinatul /Ulum/
 1 SEX F
 1 FAMC @I318_GTG_I14@
 0 @GTGIID_6@ INDI
-1 NAME Quirene
+1 NAME Quirene /Quirene/
 1 SEX M
 1 FAMC @I4_GTG_I502@
 0 @I2_GTG_I3@ FAM
@@ -8008,7 +8058,7 @@
 1 CHIL @I17@
 1 CHIL @I15@
 1 CHIL @I16@
-1 MARR 
+1 MARR
 2 DATE 14 APRIL 1962
 2 PLAC KUA Kroya
 0 @I31_GTG_I33@ FAM
@@ -8226,10 +8276,9 @@
 0 @I449_GTG_I453@ FAM
 1 HUSB @I449@
 1 WIFE @I453@
-1 MARR 
+1 MARR
 2 DATE 07 JUL 2007
 2 PLAC Slawi
-2 ADDR JL Gatot Subroto No.14 RT.001 RW.007 Slawi Kulon, Slawi, Tegal, Jawa Tengah, Indonesia
 0 @I454_GTG_I450@ FAM
 1 HUSB @I454@
 1 WIFE @I450@
@@ -9939,7 +9988,7 @@
 1 WIFE @I18@
 1 CHIL @I21@
 1 CHIL @I20@
-1 MARR 
+1 MARR
 2 DATE 1989
 2 PLAC Purbalingga
 0 @I142_GTG_UN@ FAM
@@ -10021,7 +10070,7 @@
 1 WIFE @I502@
 1 CHIL @I532@
 1 CHIL @GTGIID_6@
-1 MARR 
+1 MARR
 2 DATE 12 DESEMBER 2012
 2 PLAC Kebumen
 0 @I749_GTG_I1528@ FAM
@@ -10060,7 +10109,7 @@
 1 HUSB @I1538@
 1 WIFE @I21@
 1 CHIL @I1539@
-1 MARR 
+1 MARR
 2 DATE 14 APR 2014
 2 PLAC Baturraden
 0 @I1540_GTG_I1541@ FAM
@@ -10215,7 +10264,7 @@
 1 CHIL @I25@
 1 CHIL @I26@
 1 CHIL @I480@
-1 MARR 
+1 MARR
 2 DATE 1999
 2 PLAC Kalisabuk
 0 @I222_GTG_I205@ FAM
@@ -10278,7 +10327,7 @@
 1 CHIL @I317@
 1 CHIL @I1522@
 1 CHIL @I1583@
-1 MARR 
+1 MARR
 2 DATE 2005
 2 PLAC KUA Kesugihan
 0 @I257_GTG_I252@ FAM
@@ -10336,7 +10385,7 @@
 1 WIFE @I28@
 1 CHIL @I1523@
 1 CHIL @I30@
-1 MARR 
+1 MARR
 2 DATE 2004
 2 PLAC Kuripan
 0 @I295_GTG_I293@ FAM
@@ -10386,12 +10435,6 @@
 1 CHIL @I1524@
 1 CHIL @I97@
 1 CHIL @I239@
-1 MARR 
-2 NOTE Menikah Di Bekasi pada Tanggal 03 - 03 - 2003 .
-3 CONT pas satu syuro
-1 MARR 
-2 DATE 03 03 2003
-2 PLAC Bekasi
 0 @I119_GTG_I314@ FAM
 1 HUSB @I119@
 1 WIFE @I314@
@@ -10405,7 +10448,7 @@
 1 CHIL @I1525@
 1 CHIL @I319@
 1 CHIL @GTGIID_5@
-1 MARR 
+1 MARR
 2 DATE 4 SYAWAL 2008
 2 PLAC Kalisabuk Kesugihan Cilacap
 0 @I1_GTG_I320@ FAM
@@ -10413,7 +10456,7 @@
 1 WIFE @I320@
 1 CHIL @I1574@
 1 CHIL @GTGIID_1@
-1 MARR 
+1 MARR
 2 DATE 14 AGUSTUS 2009
 2 PLAC Mlangi Nogotirto Gamping Sleman Yogyakarta
 0 @I321_GTG_I322@ FAM
