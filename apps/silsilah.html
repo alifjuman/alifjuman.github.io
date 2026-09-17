@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SILSILAH KELUARGA</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700&family=Archivo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{--bg:#0e2016;--panel:#162e21;--panel2:#1e3e2c;--line:#2b4f3a;--ink:#f0e9d2;--dim:#9fb8a5;--brass:#c9a64d;--brass2:#e8cf86;--paper:#fdf8eb;--paper2:#f5ecd1;--inkp:#2b281e;--org-line:#3a5f48;--org-accent:#b8933a;--danger:#7a2a2a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Archivo',sans-serif}
+header{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:10px;padding:10px 14px;background:#0f2d1ef2;border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.brand-mark{width:34px;height:34px;border:1px solid var(--brass);border-radius:50%;display:grid;place-items:center;color:var(--brass2);font-family:'Fraunces';font-weight:800}
+#actions{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:7px 11px;border-radius:999px;font-size:11.5px;cursor:pointer;transition:.18s;pointer-events:auto}
+.btn:hover{border-color:var(--brass);color:var(--brass2)}
+.btn.primary{background:linear-gradient(180deg,var(--brass),#b8933a);color:#1f1a06;font-weight:700}
+.btn.small{padding:5px 10px;font-size:11px}
+.btn.ghost{background:transparent}
+.btn.admin{background:#1a3a2a;border-color:var(--brass);color:var(--brass2)}
+#layout{display:grid;grid-template-columns:320px 1fr 380px;height:calc(100vh - 58px)}
+#sideL,#sideR{overflow-y:auto;background:#0e271c}
+#sideL{border-right:1px solid var(--line);display:flex;flex-direction:column}
+#sideR{border-left:1px solid var(--line)}
+#center{overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(180deg,#102a1e,#0a1d13)}
+#stats{display:flex;gap:0;padding:7px 14px;background:#0c2318;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.stat{padding:2px 14px 2px 0;margin-right:14px;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat b{display:block;font-family:'Fraunces';font-size:18px;color:var(--brass2)}
+.stat span{font-size:9px;letter-spacing:.16em;color:#6e8f7d;font-weight:700;text-transform:uppercase}
+#drop{margin:10px;border:1.5px dashed var(--line);border-radius:12px;padding:14px;text-align:center;cursor:pointer}
+#search{width:calc(100% - 20px);margin:8px 10px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:12px;position:sticky;top:0;z-index:2}
+#personList{flex:1;overflow:auto}
+.person{padding:9px 12px;border-bottom:1px solid #1e3d2d;display:flex;gap:8px;cursor:pointer}
+.person:hover{background:#163a2c}
+.person.active{background:#1d4a37;border-left:3px solid var(--brass)}
+.person.dim{opacity:.35}
+.person .av{width:28px;height:28px;border-radius:50%;background:var(--panel2);display:grid;place-items:center;font-family:'Fraunces';font-weight:700;color:var(--brass2);font-size:11px;flex:0 0 28px}
+.person .nm{font-weight:600;font-size:12px}
+.person .meta{font-size:10px;color:var(--dim)}
+#toolbar{display:flex;gap:8px;padding:8px 12px;border-bottom:1px solid var(--line);background:#102a1e;align-items:center;flex-wrap:wrap}
+.viewSwitch{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.viewSwitch button{padding:5px 11px;border:0;background:transparent;color:var(--dim);font-size:11px;cursor:pointer}
+.viewSwitch button.on{background:var(--panel2);color:var(--brass2);font-weight:700}
+#zoomBar{display:flex;gap:6px;align-items:center;margin-left:auto;background:#0e271c;border:1px solid var(--line);border-radius:999px;padding:3px 8px}
+#zoomBar button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;font-weight:700}
+#zoomBar span{font-family:'IBM Plex Mono';font-size:11px;color:var(--brass2);min-width:42px;text-align:center}
+#chartStage{flex:1;overflow:auto;position:relative;background:radial-gradient(800px 400px at 20% 0%,#183a27 0%,transparent 70%),linear-gradient(180deg,#102a1e 0%,#0a1d13 100%);cursor:grab}
+#chartStage.dragging{cursor:grabbing}
+#orgWrap{padding:32px 24px 120px;min-width:max-content;min-height:100%;transform-origin:top left}
+.org-tree{display:flex;flex-direction:column;align-items:center}
+.org-card{min-width:200px;max-width:250px;background:linear-gradient(180deg,#fffdf4,#f7f1de);border:1.5px solid #cbbf9a;border-radius:14px;padding:10px 12px;box-shadow:0 6px 18px #0004, inset 0 1px 0 #fff;position:relative;cursor:pointer;transition:.15s}
+.org-card:hover{transform:translateY(-2px);border-color:var(--org-accent)}
+.org-card.focus{border-color:var(--org-accent);box-shadow:0 0 0 3px #c9a64d55, 0 8px 22px #0005}
+.org-card .top{display:flex;gap:9px;align-items:center}
+.org-card .av{width:36px;height:36px;border-radius:50%;background:#2b281e;color:#f7f1de;display:grid;place-items:center;font-family:'Fraunces';font-weight:800;font-size:13px;flex:0 0 36px}
+.org-card .nm{font-weight:800;font-size:12px;color:#2b281e}
+.org-card .meta{font-size:10px;color:#7a6e57;margin-top:2px}
+.org-card .spouse-tag{margin-top:7px;padding:6px 8px;border-radius:8px;background:#fdf6e3;border:1px dashed #d9c99e;font-size:10px;color:#5a4d33}
+.org-card .badge{position:absolute;top:-8px;right:10px;font-size:8px;padding:3px 7px;border-radius:999px;background:var(--org-accent);color:#1f1a06;font-weight:800}
+.org-connector{width:2px;height:28px;background:var(--org-line);margin:0 auto;opacity:.7}
+.org-children{position:relative;display:flex;gap:28px;justify-content:center;padding-top:28px}
+.org-children::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:2px;height:28px;background:var(--org-line);opacity:.7}
+.org-children::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--org-line);opacity:.6}
+.org-children.single::after{display:none}
+.org-node-wrap{position:relative;display:flex;flex-direction:column;align-items:center}
+.org-node-wrap::before{content:"";position:absolute;top:-28px;left:50%;width:2px;height:28px;background:var(--org-line);opacity:.7}
+#detail{padding:14px;border-bottom:1px solid var(--line)}
+#detail h3{font-family:'Fraunces';font-size:19px}
+.editBox{border:1px solid var(--line);background:#132e21;border-radius:12px;padding:12px;margin:12px}
+.editBox h4{font-family:'Fraunces';font-size:13px;margin-bottom:8px;color:var(--brass2)}
+.editBox input, .editBox select{width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:12px;margin:4px 0}
+.editRow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.editBtns{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+#exportModal,#adminModal,#githubModal{position:fixed;inset:0;z-index:200;background:#0008;display:none;place-items:center;padding:16px}
+#exportModal.open,#adminModal.open,#githubModal.open{display:grid}
+#exportBox,#adminBox,#githubBox{width:min(640px,100%);background:var(--paper);color:var(--inkp);border-radius:16px;padding:20px;box-shadow:0 24px 60px #0008}
+.opt{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #e7dcc0}
+.check{display:flex;gap:8px;align-items:center;font-size:12px;padding:6px 0}
+#bookOv{position:fixed;inset:0;z-index:150;background:var(--paper);color:var(--inkp);overflow:auto;display:none}
+#bookOv.open{display:block}
+#bookToolbar{position:sticky;top:0;z-index:10;display:flex;gap:8px;padding:10px 14px;background:var(--paper2);border-bottom:1px solid #d8c9a0;align-items:center}
+.book-page{max-width:860px;margin:0 auto;padding:36px 44px;font-family:'Source Serif 4',serif;line-height:1.75;color:var(--inkp);background:var(--paper)}
+.cover{text-align:center;padding:72px 32px;border:8px double #2b281e;margin:12px auto;max-width:760px;background:#fffef6}
+.cover h1{font-family:'Fraunces';font-size:44px;line-height:1.05}
+.cover .sub{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#7a725a;margin-top:14px;font-weight:700}
+.book-page h2{font-family:'Fraunces';font-size:22px;margin:36px 0 14px;border-bottom:2px solid #2b281e;padding-bottom:6px}
+.book-page h3{font-family:'Fraunces';font-size:16px;margin:22px 0 10px;color:#3b2f1a}
+.tree-box{border:1.5px solid #cbbf9a;background:#fffdf4;border-radius:12px;padding:16px 18px;margin:18px 0;overflow:auto}
+.tree-box pre{font-family:'IBM Plex Mono',monospace;font-size:11.2px;line-height:1.65;white-space:pre;margin:0;color:#2b281e}
+.toc-list{border:1px solid #e0d4b3;background:#fffef6;border-radius:12px;padding:18px;margin:18px 0}
+.num-item{border:1px solid #e0d4b3;background:#fffef6;border-radius:12px;padding:16px;margin:14px 0}
+.num-item h4{font-family:'Fraunces';font-size:14px;margin-bottom:6px}
+.num-item h4 .no{font-family:'IBM Plex Mono';font-size:11px;background:#2b281e;color:#fdf6e3;padding:3px 8px;border-radius:999px;margin-right:8px}
+.spouse-line{margin-top:6px;padding:6px 10px;background:#fdf6e3;border:1px dashed #d9c99e;border-radius:8px;font-size:12px}
+.index-grid{columns:2;column-gap:24px}
+.index-item{font-size:11px;padding:4px 0;border-bottom:1px dotted #e0d4b3;break-inside:avoid}
+.statusBadge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:11px;border:1px solid var(--line);background:#0e271c;color:var(--dim)}
+.statusBadge.ok{border-color:#3a7a4a;color:#9ed4a0;background:#102a1e}
+.statusBadge.warn{border-color:#7a5a2a;color:#e8cf86;background:#2a2410}
+.statusBadge.err{border-color:var(--danger);color:#ffb4a0;background:#2a1212}
+@media print{header,#layout,#exportModal,#adminModal,#githubModal,#bookToolbar{display:none!important}#bookOv{display:block!important;position:static}.book-page{padding:0;max-width:none}}
+@media(max-width:1080px){#layout{grid-template-columns:1fr}#sideL{max-height:35vh}#sideR{max-height:40vh}}
+</style>
+</head>
+<body>
+<header>
+<div style="display:flex;align-items:center;gap:10px"><div class="brand-mark">S</div><div><b style="font-family:'Fraunces'">SILSILAH KELUARGA</b><div style="font-size:9px;letter-spacing:.28em;color:var(--dim);font-weight:700">AUTO LOAD GITHUB + ADMIN SYNC</div></div></div>
+<div id="fileChip" style="margin-left:10px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:#123023;font-size:11px;color:var(--dim)"><span id="fileName">Loading…</span> <b id="fileCount" style="color:var(--brass2)"></b> <span id="adminBadge" hidden style="margin-left:6px;padding:2px 6px;border-radius:999px;background:var(--brass);color:#1a1606;font-weight:800;font-size:9px">ADMIN</span></div>
+<div id="statusBadge" class="statusBadge warn" style="margin-left:8px"><span id="statusDot">●</span> <span id="statusText">Memuat GEDCOM GitHub…</span></div>
+<div id="actions">
+<button class="btn small" id="btnReload" type="button">↻ Reload GitHub</button>
+<button class="btn small" id="btnAdminLogin" type="button">🔐 Admin Login</button>
+<button class="btn small ghost" id="btnAdminLogout" type="button" hidden>Logout</button>
+<button class="btn small ghost" id="btnSaveLocal" type="button">💾 Simpan Lokal</button>
+<button class="btn small admin" id="btnSyncGithub" type="button" hidden>☁️ Sync ke GitHub</button>
+<button class="btn primary small" id="btnBook" type="button">📖 Buku</button>
+</div>
+</header>
+<div id="stats"><div class="stat"><b id="stInd">0</b><span>Total</span></div><div class="stat"><b id="stRel">0</b><span>Ditampilkan</span></div><div class="stat"><b id="stFam">0</b><span>Keluarga</span></div><div class="stat"><b id="stGen">0</b><span>Generasi</span></div></div>
+<div id="layout">
+<aside id="sideL"><div id="drop"><b style="font-family:'Fraunces'">GEDCOM Auto dari GitHub</b><div style="font-size:10px;color:var(--dim);margin-top:4px">https://raw.githubusercontent.com/alifjuman/alifjuman.github.io/main/data/silsilah2023.ged<br>Atau seret file lokal ke sini</div></div><input id="search" placeholder="Cari nama…"><div id="personList"></div></aside>
+<main id="center"><div id="toolbar"><div class="viewSwitch"><button id="swAnc" type="button">⬆ Leluhur</button><button id="swDsc" class="on" type="button">⬇ Keturunan</button></div><div id="zoomBar"><button id="zOut" type="button">−</button><span id="zLabel">100%</span><button id="zIn" type="button">+</button><button id="zFit" type="button" class="small" style="width:auto;padding:0 10px;border-radius:999px">⤢ Fit</button><button id="zReset" type="button" class="small" style="width:auto;padding:0 10px;border-radius:999px">⟲</button></div><div style="margin-left:auto;display:flex;gap:6px"><button class="btn small" id="btnToggle" type="button">🎯 Hanya Terhubung</button></div></div><div id="chartStage"><div id="orgWrap"></div></div></main>
+<aside id="sideR">
+<div id="detail"><p style="color:var(--dim);font-size:12px;padding:12px">Memuat data dari GitHub…</p></div>
+<div class="editBox" id="editBox">
+<h4>✏️ Edit / Tambah Keluarga</h4>
+<div class="editRow"><div><label style="font-size:10px;color:var(--dim)">Nama Lengkap</label><input id="edName" placeholder="Nama lengkap"></div><div><label style="font-size:10px;color:var(--dim)">Jenis Kelamin</label><select id="edSex"><option value="M">Laki-laki</option><option value="F">Perempuan</option></select></div></div>
+<div class="editRow"><div><label style="font-size:10px;color:var(--dim)">Tanggal Lahir</label><input id="edBDate" placeholder="12 MAR 1990"></div><div><label style="font-size:10px;color:var(--dim)">Tempat Lahir</label><input id="edBPlac" placeholder="Bandung"></div></div>
+<div class="editBtns">
+<button class="btn small primary" id="btnAddChild" type="button">+ Anak</button>
+<button class="btn small" id="btnAddParent" type="button">+ Orang Tua</button>
+<button class="btn small" id="btnAddSpouse" type="button">+ Pasangan</button>
+<button class="btn small" id="btnUpdate" type="button">💾 Update</button>
+<button class="btn small" id="btnDelete" type="button" style="border-color:#7a2a2a;color:#ffb4a0">🗑 Hapus</button>
+</div>
+<div style="font-size:10px;color:var(--dim);margin-top:8px;line-height:1.4">Hanya admin yang bisa Sync ke GitHub. Non-admin tetap bisa simpan lokal.</div>
+</div>
+<div style="padding:0 12px 12px">
+<div style="border:1px solid var(--line);border-radius:10px;padding:10px;background:#0f2a1c;font-size:11px;color:var(--dim)">
+<b style="color:var(--brass2)">Info Admin:</b> Login dengan username <code>admin2026</code> password <code>Admin2026#</code>. Setelah login, tombol <b>☁️ Sync ke GitHub</b> muncul. Klik, masukkan GitHub Personal Access Token (classic) dengan scope <code>repo</code>, lalu simpan. Token tidak disimpan permanen kecuali kamu centang.
+</div>
+</div>
+</aside>
+</div>
+
+<!-- Admin Login Modal -->
+<div id="adminModal"><div id="adminBox">
+<h2 style="font-family:'Fraunces';font-size:20px">🔐 Admin Login</h2>
+<p style="font-size:12px;color:#5a5546;margin:8px 0">Username: <b>admin2026</b> • Password: <b>Admin2026#</b></p>
+<div style="margin-top:12px"><label style="font-size:11px;font-weight:600">Username</label><input id="admUser" placeholder="admin2026" style="width:100%;padding:9px 11px;border-radius:8px;border:1px solid #d8c9a0;margin-top:4px"></div>
+<div style="margin-top:8px"><label style="font-size:11px;font-weight:600">Password</label><input id="admPass" type="password" placeholder="Admin2026#" style="width:100%;padding:9px 11px;border-radius:8px;border:1px solid #d8c9a0;margin-top:4px"></div>
+<div id="adminMsg" style="font-size:11px;color:#7a2a2a;margin-top:8px" hidden></div>
+<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn" id="btnAdminCancel" type="button">Batal</button><button class="btn primary" id="btnAdminDo" type="button">Login</button></div>
+</div></div>
+
+<!-- GitHub Sync Modal -->
+<div id="githubModal"><div id="githubBox">
+<h2 style="font-family:'Fraunces';font-size:20px">☁️ Sync Backup ke GitHub</h2>
+<p style="font-size:12px;color:#5a5546;margin:8px 0">File target: <code>alifjuman/alifjuman.github.io/data/silsilah2023.ged</code> (branch <b>main</b>)</p>
+<div style="margin-top:12px"><label style="font-size:11px;font-weight:600">GitHub Personal Access Token (API Key)</label><input id="ghToken" type="password" placeholder="ghp_xxxx atau github_pat_xxxx" style="width:100%;padding:9px 11px;border-radius:8px;border:1px solid #d8c9a0;margin-top:4px"><div style="font-size:10px;color:#7a725a;margin-top:4px">Token butuh scope <b>repo</b> (Read & Write). Buat di GitHub Settings → Developer Settings → Personal Access Tokens.</div></div>
+<div style="margin-top:8px"><label style="font-size:11px;font-weight:600">Commit message</label><input id="ghMsg" value="Backup silsilah - update via admin" style="width:100%;padding:9px 11px;border-radius:8px;border:1px solid #d8c9a0;margin-top:4px"></div>
+<div style="margin-top:8px;display:flex;gap:8px;align-items:center"><input type="checkbox" id="ghRemember"><label for="ghRemember" style="font-size:11px">Ingat token di browser ini (localStorage)</label></div>
+<div id="githubStatus" style="font-size:11px;color:#5a5546;margin-top:10px;background:#fff8dc;border:1px solid #e0d4b3;border-radius:8px;padding:8px">Siap sync. Token tidak dikirim kemana pun selain api.github.com.</div>
+<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn" id="btnGithubCancel" type="button">Batal</button><button class="btn primary" id="btnGithubDo" type="button">☁️ Sync Sekarang</button></div>
+</div></div>
+
+<div id="exportModal"><div id="exportBox">
+<h2 style="font-family:'Fraunces';font-size:21px">Susun Buku</h2>
+<ol style="font-size:12px;color:#5a5546;margin:8px 0 12px 18px;line-height:1.7">
+<li><b>Prakata Informasi Keluarga</b></li>
+<li><b>Daftar Isi</b></li>
+<li><b>Bagan Teks Hierarki Menyamping (Seluruh Keturunan)</b></li>
+<li><b>Informasi Generasi 1 Beserta Keturunannya Secara Hierarki</b></li>
+<li><b>Indeks Nama</b></li>
+</ol>
+<div class="opt"><label style="font-size:12px;font-weight:600">Keturunan</label><div><input type="range" id="rgDsc" min="1" max="12" value="7"><span id="rvDsc">7 gen</span></div></div>
+<div class="opt"><label style="font-size:12px;font-weight:600">Leluhur</label><div><input type="range" id="rgAnc" min="0" max="6" value="2"><span id="rvAnc">2 gen</span></div></div>
+<div class="check"><input type="checkbox" id="ckPas" checked><label>Sertakan pasangan hidup</label></div>
+<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn" id="btnExpCancel" type="button">Batal</button><button class="btn primary" id="btnExpGo" type="button">📖 Susun Buku</button></div>
+</div></div>
+
+<div id="bookOv"><div id="bookToolbar"><b style="font-family:'Fraunces'">Buku Silsilah — v11</b><span id="bookInfo" style="font-size:11px;color:#6a634f;margin-left:8px"></span><div style="margin-left:auto;display:flex;gap:6px"><button class="btn" id="btnOvClose" type="button">Tutup</button><button class="btn" id="btnSavePDF" type="button">💾 Save PDF</button><button class="btn primary" id="btnPrint" type="button">🖨 Cetak</button></div></div><div id="bookContent" class="book-page"></div></div>
+
+<script>
+const GEDCOM_URL='https://raw.githubusercontent.com/alifjuman/alifjuman.github.io/refs/heads/main/data/silsilah2023.ged';
+const GITHUB_API_URL='https://api.github.com/repos/alifjuman/alifjuman.github.io/contents/data/silsilah2023.ged';
+const ADMIN_USER='admin2026';
+const ADMIN_PASS='Admin2026#';
+
+// ---------- DATA ----------
+let DB={indi:new Map(),fam:new Map(),root:null};
+let state={root:null,mode:'dsc',gen:6,filter:'', filterOn:true, relevantSet:new Set(), relevantFamSet:new Set(), genMap:new Map(), zoom:1, isDragging:false, startX:0, startY:0, scrollL:0, scrollT:0, isAdmin:false, ghToken:''};
+
+function parseGED(text){
+  const lines=text.split(/\r?\n/); const stack=[]; const top={level:-1,children:[]}; const re=/^\s*(\d+)\s+(@[^@]+@)?\s*([A-Z0-9_]+)\s*(@[^@]+@|\S.*)?$/;
+  for(let raw of lines){ if(!raw.trim()) continue; const m=raw.match(re); if(!m) continue; const level=+m[1]; let ptr=m[2]?.trim(); let tag=m[3]?.trim(); let val=m[4]?.trim()||''; if(ptr && !/^[A-Z]/.test(tag)){ val=tag+' '+(val||''); tag=ptr.replace(/@/g,''); ptr=null; } let id=null; if(m[2]&&m[2].startsWith('@')) id=m[2]; const node={level,id,tag,val,children:[]}; while(stack.length&&stack[stack.length-1].level>=level) stack.pop(); const parent=stack.length?stack[stack.length-1]:top; parent.children.push(node); stack.push(node); }
+  DB.indi.clear(); DB.fam.clear();
+  for(let c of top.children){ if(c.tag==='INDI'){ const ind=parseIndi(c,c.id); DB.indi.set(ind.id,ind);} else if(c.tag==='FAM'){ const fam=parseFam(c,c.id); DB.fam.set(fam.id,fam);} }
+  for(let fam of DB.fam.values()){ fam.husbObj=fam.husb?DB.indi.get(fam.husb):null; fam.wifeObj=fam.wife?DB.indi.get(fam.wife):null; fam.childObjs=fam.chils.map(id=>DB.indi.get(id)).filter(Boolean); if(fam.husbObj) fam.husbObj.fams.push(fam); if(fam.wifeObj) fam.wifeObj.fams.push(fam); for(let ch of fam.childObjs) ch.famc=fam; }
+  for(let ind of DB.indi.values()){ ind.spouses=[...new Set(ind.fams.map(f=> f.husb===ind.id? f.wife : f.husb).filter(Boolean))].map(id=>DB.indi.get(id)).filter(Boolean); }
+  const cand=[...DB.indi.values()].sort((a,b)=>(b.fams.length+b.spouses.length)-(a.fams.length+a.spouses.length)); DB.root=cand[0]?.id||[...DB.indi.keys()][0]; state.root=DB.root; computeRelevantAndGen();
+}
+function getVal(n,t){ const ch=n.children.find(c=>c.tag===t); return ch?ch.val:''; } function getChild(n,t){return n.children.find(c=>c.tag===t);} function getChildren(n,t){return n.children.filter(c=>c.tag===t);}
+function parseIndi(node,id){ const nameNode=getChild(node,'NAME'); let full=nameNode? nameNode.val.replace(/\//g,'').trim():'Tanpa Nama'; const m=nameNode?.val.match(/^(.*)\/(.*)\//); if(m) full=(m[1].trim()+' '+m[2].trim()).trim(); const sex=(getVal(node,'SEX')||'U').toUpperCase(); const bir=getChild(node,'BIRT'); const dea=getChild(node,'DEAT'); return {id,full,sex,bDate:bir?getVal(bir,'DATE'):'',bPlac:bir?getVal(bir,'PLAC'):'',dDate:dea?getVal(dea,'DATE'):'',dPlac:dea?getVal(dea,'PLAC'):'',fams:[],spouses:[],famc:null}; }
+function parseFam(node,id){ return {id,husb:getChild(node,'HUSB')?.val||null,wife:getChild(node,'WIFE')?.val||null,chils:getChildren(node,'CHIL').map(c=>c.val),mDate:(getChild(node,'MARR')?getVal(getChild(node,'MARR'),'DATE'):''),mPlac:(getChild(node,'MARR')?getVal(getChild(node,'MARR'),'PLAC'):''),husbObj:null,wifeObj:null,childObjs:[]}; }
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function initials(ind){ const p=(ind.full||'?').trim().split(/\s+/); return (p[0][0]||'?')+((p[1]||'')[0]||''); }
+function genNewId(prefix){ let max=0; const map= prefix==='I'? DB.indi: DB.fam; for(let k of map.keys()){ const num=parseInt(k.replace(/[^0-9]/g,''))||0; if(num>max) max=num; } return `@${prefix}${max+1}@`; }
+
+function computeRelevantAndGen(){
+  const root=DB.indi.get(state.root); if(!root){ state.relevantSet=new Set(); state.relevantFamSet=new Set(); state.genMap=new Map(); return; }
+  const D=new Set(); const q=[root]; const seen=new Set(); const genMap=new Map(); genMap.set(root.id,0);
+  while(q.length){ const ind=q.shift(); if(seen.has(ind.id)) continue; seen.add(ind.id); D.add(ind.id); for(let fam of ind.fams){ for(let ch of fam.childObjs){ if(!genMap.has(ch.id)) genMap.set(ch.id, (genMap.get(ind.id)||0)+1); q.push(ch); } } }
+  const R=new Set(D);
+  for(let id of D){ const ind=DB.indi.get(id); if(!ind) continue; for(let sp of ind.spouses){ R.add(sp.id); if(!genMap.has(sp.id)) genMap.set(sp.id, genMap.get(id)); } }
+  const ancestors=new Set();
+  for(let id of D){ let cur=DB.indi.get(id); let depth=0; while(cur && cur.famc && depth<12){ const fam=cur.famc; if(fam.husb){ ancestors.add(fam.husb); if(!genMap.has(fam.husb)) genMap.set(fam.husb, genMap.get(cur.id)-1); } if(fam.wife){ ancestors.add(fam.wife); if(!genMap.has(fam.wife)) genMap.set(fam.wife, genMap.get(cur.id)-1); } cur = fam.husbObj || fam.wifeObj; depth++; } }
+  for(let a of ancestors) R.add(a);
+  for(let a of ancestors){ const ind=DB.indi.get(a); if(!ind) continue; for(let fam of ind.fams){ if(fam.childObjs.some(ch=> R.has(ch.id))){ const other = fam.husb===a ? fam.wife : fam.husb; if(other){ R.add(other); if(!genMap.has(other)) genMap.set(other, genMap.get(a)); } } } }
+  state.relevantSet=R; state.genMap=genMap;
+  const relFam=new Set(); for(let fam of DB.fam.values()){ if((fam.husb && R.has(fam.husb)) || (fam.wife && R.has(fam.wife)) || fam.chils.some(c=>R.has(c))) relFam.add(fam.id); }
+  state.relevantFamSet=relFam;
+  const elR=document.getElementById('stRel'); if(elR) elR.textContent=R.size;
+  const elF=document.getElementById('stFam'); if(elF) elF.textContent=relFam.size;
+}
+function renderList(){
+  const q=(state.filter||'').toLowerCase();
+  const arr=[...DB.indi.values()].filter(ind=>!q|| (ind.full+' '+ind.bPlac+' '+ind.bDate).toLowerCase().includes(q)).sort((a,b)=>a.full.localeCompare(b.full));
+  const listEl=document.getElementById('personList');
+  if(!listEl) return;
+  listEl.innerHTML=arr.map(ind=>{
+    const relevant = state.relevantSet.has(ind.id);
+    const dim = state.filterOn && !relevant ? 'dim' : '';
+    const gen = state.genMap.get(ind.id);
+    return `<div class="person ${state.root===ind.id?'active':''} ${dim}" data-id="${ind.id}"><div class="av">${esc(initials(ind))}</div><div><div class="nm">${esc(ind.full)} <span style="font-size:9px;color:var(--brass2)">G${gen!==undefined?gen:'?'}</span></div><div class="meta">${esc(ind.bDate||'')} ${ind.spouses.length?'• ♥'+ind.spouses.length:''}</div></div></div>`;
+  }).join('');
+  listEl.querySelectorAll('.person').forEach(el=> el.addEventListener('click',()=>{ selectRoot(el.dataset.id); }));
+  const elI=document.getElementById('stInd'); if(elI) elI.textContent=DB.indi.size;
+  const elG=document.getElementById('stGen'); if(elG) elG.textContent=estimateGen();
+}
+function estimateGen(){ if(!state.root) return 0; let max=0,vis=new Set(); function dfs(id,d){ if(vis.has(id)) return; vis.add(id); max=Math.max(max,d); const ind=DB.indi.get(id); if(ind?.famc){ [ind.famc.husb,ind.famc.wife].filter(Boolean).forEach(pid=>dfs(pid,d+1)); } } dfs(state.root,1); return max; }
+function selectRoot(id){ state.root=id; computeRelevantAndGen(); renderList(); renderDetail(id); renderOrgChart(); }
+function renderDetail(id){
+  const ind=DB.indi.get(id); if(!ind) return;
+  const gen=state.genMap.get(id);
+  const edName=document.getElementById('edName'); if(edName) edName.value=ind.full;
+  const edSex=document.getElementById('edSex'); if(edSex) edSex.value=ind.sex==='F'?'F':'M';
+  const edBDate=document.getElementById('edBDate'); if(edBDate) edBDate.value=ind.bDate;
+  const edBPlac=document.getElementById('edBPlac'); if(edBPlac) edBPlac.value=ind.bPlac;
+  let html=`<h3>${esc(ind.full)} <span style="font-size:11px;background:var(--panel2);padding:2px 7px;border-radius:999px;color:var(--brass2)">G${gen!==undefined?gen:'?'}</span></h3><div style="font-size:11px;color:var(--dim);margin:4px 0 10px">${ind.sex==='M'?'Laki-laki':'Perempuan'} • ${esc(ind.bDate||'')} ${ind.bPlac? '— '+esc(ind.bPlac):''}<br>Ayah: ${esc(ind.famc?.husbObj?.full||'-')} • Ibu: ${esc(ind.famc?.wifeObj?.full||'-')}</div>`;
+  ind.fams.forEach(f=>{ html+=`<div style="border:1px solid var(--line);border-radius:10px;padding:8px;margin:8px 0;background:#132e21"><div style="font-size:11px;color:var(--brass);font-weight:700">${esc(f.husbObj?.full||'?')} ♥ ${esc(f.wifeObj?.full||'?')}</div><div style="font-size:10px;color:var(--dim);margin-top:4px">Nikah ${esc(f.mDate||'-')} • Anak: ${f.childObjs.map(c=>esc(c.full)).join(', ')||'—'}</div></div>`; });
+  const det=document.getElementById('detail'); if(det) det.innerHTML=html;
+}
+function buildOrgData(root, maxG, onlyRelevant=true){
+  function buildNode(ind, g){ if(g>maxG) return null; if(onlyRelevant && !state.relevantSet.has(ind.id)) return null; const spouses = ind.spouses.filter(s=> !onlyRelevant || state.relevantSet.has(s.id)); const primarySpouse = spouses[0] || null; const childrenFams = ind.fams.filter(f=> onlyRelevant ? state.relevantFamSet.has(f.id) : true); const allChildren = [...new Map(childrenFams.flatMap(f=>f.childObjs).map(c=>[c.id,c])).values()].filter(c=> !onlyRelevant || state.relevantSet.has(c.id)); const childNodes = allChildren.map(ch=> buildNode(ch, g+1)).filter(Boolean); return {ind, spouse:primarySpouse, fam:primarySpouse? ind.fams.find(f=> f.husb===primarySpouse.id || f.wife===primarySpouse.id):null, children:childNodes, g}; }
+  return buildNode(root,0);
+}
+function renderOrgNode(node){ if(!node) return ''; const ind=node.ind; const badge = `G${node.g}`; const spouseTag = node.spouse ? `<div class="spouse-tag">♥ <b>${esc(node.spouse.full)}</b> ${node.fam?.mDate? '• Nikah '+esc(node.fam.mDate):''}</div>` : ''; let childrenHTML=''; if(node.children.length){ childrenHTML=`<div class="org-connector"></div><div class="org-children ${node.children.length===1?'single':''}">${node.children.map(ch=> `<div class="org-node-wrap">${renderOrgNode(ch)}</div>`).join('')}</div>`; } return `<div class="org-tree"><div class="org-card ${node.g===0?'focus':''}" data-id="${ind.id}"><span class="badge">${badge}</span><div class="top"><div class="av">${esc(initials(ind))}</div><div><div class="nm">${esc(ind.full)}</div><div class="meta">${esc(ind.bDate||'')} ${ind.bPlac? '• '+esc(ind.bPlac):''}</div></div></div>${spouseTag}</div>${childrenHTML}</div>`; }
+function renderOrgChart(){
+  const root=DB.indi.get(state.root); const wrap=document.getElementById('orgWrap'); if(!root){ if(wrap) wrap.innerHTML='<p style="color:var(--dim)">Memuat…</p>'; return; }
+  const onlyRelevant = state.filterOn;
+  if(state.mode==='dsc'){ const data=buildOrgData(root, state.gen, onlyRelevant); const html = data ? renderOrgNode(data) : '<p style="color:var(--dim)">Tidak ada data.</p>'; if(wrap) wrap.innerHTML=`<div style="text-align:center;margin-bottom:20px"><span style="font-family:'Fraunces';font-size:18px">Bagan — Keturunan ${esc(root.full)}</span></div>${html}`; }
+  else { const anc=collectAncestorsFlat(root, state.gen); const filtered = onlyRelevant ? anc.filter(({ind})=> state.relevantSet.has(ind.id)) : anc; const byGen=new Map(); filtered.forEach(({ind,g})=>{ if(!byGen.has(g)) byGen.set(g,[]); byGen.get(g).push(ind); }); let html=`<div style="text-align:center;margin-bottom:20px"><span style="font-family:'Fraunces';font-size:18px">Bagan Leluhur — ${esc(root.full)}</span></div>`; const sorted=[...byGen.entries()].sort((a,b)=>b[0]-a[0]); sorted.forEach(([g, inds])=>{ html+=`<div style="display:flex;justify-content:center;gap:18px;margin:18px 0;flex-wrap:wrap">`; inds.forEach(ind=>{ html+=`<div class="org-card ${g===0?'focus':''}" data-id="${ind.id}" style="min-width:180px"><span class="badge">G${g}</span><div class="top"><div class="av">${esc(initials(ind))}</div><div><div class="nm">${esc(ind.full)}</div><div class="meta">${esc(ind.bDate||'')}</div></div></div></div>`; }); html+=`</div>`; if(g!==0) html+=`<div class="org-connector" style="height:18px"></div>`; }); if(wrap) wrap.innerHTML=html; }
+  document.querySelectorAll('.org-card').forEach(el=> el.addEventListener('click',(e)=>{ e.stopPropagation(); selectRoot(el.dataset.id); }));
+  applyZoom(state.zoom);
+}
+function collectAncestorsFlat(root,maxG){ const res=[]; const q=[{ind:root,g:0}]; const seen=new Set(); while(q.length){ const {ind,g}=q.shift(); if(seen.has(ind.id)||g>maxG) continue; seen.add(ind.id); res.push({ind,g}); if(ind.famc){ if(ind.famc.husbObj) q.push({ind:ind.famc.husbObj,g:g+1}); if(ind.famc.wifeObj) q.push({ind:ind.famc.wifeObj,g:g+1}); } } return res.sort((a,b)=>a.g-b.g); }
+function collectDescendants(root,maxG){ const res=[]; const q=[{ind:root,g:0}]; const seen=new Set(); while(q.length){ const {ind,g}=q.shift(); if(seen.has(ind.id)||g>maxG) continue; seen.add(ind.id); res.push({ind,g}); for(let fam of ind.fams){ for(let ch of fam.childObjs) q.push({ind:ch,g:g+1}); } } return res; }
+function applyZoom(z){ state.zoom=Math.max(0.25,Math.min(3,z)); const wrap=document.getElementById('orgWrap'); if(wrap) wrap.style.transform=`scale(${state.zoom})`; const label=document.getElementById('zLabel'); if(label) label.textContent=Math.round(state.zoom*100)+'%'; }
+function fitZoom(){ applyZoom(1); const stage=document.getElementById('chartStage'); if(stage) stage.scrollTo({left:0,top:0,behavior:'smooth'}); }
+
+// GEDCOM
+function generateGedcom(){
+  let out='0 HEAD\n1 SOUR SILSILAH-v11\n1 CHAR UTF-8\n';
+  for(let ind of DB.indi.values()){
+    out+=`0 ${ind.id} INDI\n`; const parts=ind.full.trim().split(/\s+/); const given=parts.slice(0,-1).join(' ')||ind.full; const surn=parts[parts.length-1]||''; out+=`1 NAME ${given} /${surn}/\n`; out+=`1 SEX ${ind.sex}\n`; if(ind.bDate||ind.bPlac){ out+=`1 BIRT\n`; if(ind.bDate) out+=`2 DATE ${ind.bDate}\n`; if(ind.bPlac) out+=`2 PLAC ${ind.bPlac}\n`; } if(ind.dDate||ind.dPlac){ out+=`1 DEAT\n`; if(ind.dDate) out+=`2 DATE ${ind.dDate}\n`; if(ind.dPlac) out+=`2 PLAC ${ind.dPlac}\n`; } if(ind.famc) out+=`1 FAMC ${ind.famc.id}\n`; for(let fam of ind.fams) out+=`1 FAMS ${fam.id}\n`;
+  }
+  for(let fam of DB.fam.values()){ out+=`0 ${fam.id} FAM\n`; if(fam.husb) out+=`1 HUSB ${fam.husb}\n`; if(fam.wife) out+=`1 WIFE ${fam.wife}\n`; for(let ch of fam.chils) out+=`1 CHIL ${ch}\n`; if(fam.mDate||fam.mPlac){ out+=`1 MARR\n`; if(fam.mDate) out+=`2 DATE ${fam.mDate}\n`; if(fam.mPlac) out+=`2 PLAC ${fam.mPlac}\n`; } }
+  out+='0 TRLR\n'; return out;
+}
+function saveLocal(){ const txt=generateGedcom(); const blob=new Blob([txt],{type:'text/plain'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=`silsilah2023-${Date.now()}.ged`; a.click(); URL.revokeObjectURL(url); }
+
+// ADMIN
+function setAdmin(isAdmin){
+  state.isAdmin=isAdmin;
+  const badge=document.getElementById('adminBadge'); if(badge) badge.hidden=!isAdmin;
+  const syncBtn=document.getElementById('btnSyncGithub'); if(syncBtn) syncBtn.hidden=!isAdmin;
+  const loginBtn=document.getElementById('btnAdminLogin'); if(loginBtn) loginBtn.hidden=isAdmin;
+  const logoutBtn=document.getElementById('btnAdminLogout'); if(logoutBtn) logoutBtn.hidden=!isAdmin;
+  if(isAdmin){ setStatus('Admin login berhasil — bisa sync ke GitHub','ok'); } else { setStatus('Mode tamu — hanya bisa simpan lokal','warn'); }
+}
+function openAdmin(){ const m=document.getElementById('adminModal'); if(m) m.classList.add('open'); }
+function closeAdmin(){ const m=document.getElementById('adminModal'); if(m) m.classList.remove('open'); }
+function doAdminLogin(){
+  const u=document.getElementById('admUser').value.trim(); const p=document.getElementById('admPass').value;
+  const msg=document.getElementById('adminMsg');
+  if(u===ADMIN_USER && p===ADMIN_PASS){ setAdmin(true); closeAdmin(); if(msg) msg.hidden=true; } else { if(msg){ msg.textContent='Username atau password salah!'; msg.hidden=false; } }
+}
+
+// GITHUB SYNC
+function openGithub(){ if(!state.isAdmin){ alert('Hanya admin bisa sync ke GitHub'); return; } const m=document.getElementById('githubModal'); if(m) m.classList.add('open'); const saved=localStorage.getItem('gh_token'); if(saved){ const tok=document.getElementById('ghToken'); if(tok) tok.value=saved; const rem=document.getElementById('ghRemember'); if(rem) rem.checked=true; } }
+function closeGithub(){ const m=document.getElementById('githubModal'); if(m) m.classList.remove('open'); }
+async function syncToGithub(){
+  const tokenEl=document.getElementById('ghToken'); const token=tokenEl? tokenEl.value.trim():''; 
+  const msgEl=document.getElementById('ghMsg'); const commitMsg=msgEl? msgEl.value.trim():'Backup silsilah - update via admin';
+  const statusEl=document.getElementById('githubStatus'); const rememberEl=document.getElementById('ghRemember');
+  if(!token){ if(statusEl) statusEl.textContent='Token wajib diisi!'; return; }
+  if(rememberEl && rememberEl.checked){ localStorage.setItem('gh_token',token); } else { localStorage.removeItem('gh_token'); }
+  try{
+    if(statusEl) statusEl.textContent='Mengambil SHA file lama dari GitHub...';
+    const getResp=await fetch(GITHUB_API_URL,{headers:{'Authorization':`Bearer ${token}`,'Accept':'application/vnd.github.v3+json'}});
+    let sha=null;
+    if(getResp.ok){ const data=await getResp.json(); sha=data.sha; if(statusEl) statusEl.textContent=`File ditemukan, SHA: ${sha.substring(0,7)}... Mengupload...`; }
+    else if(getResp.status===404){ if(statusEl) statusEl.textContent='File belum ada, akan membuat file baru...'; }
+    else { const err=await getResp.text(); throw new Error(`Gagal GET file: ${getResp.status} ${err}`); }
+    const gedContent=generateGedcom();
+    const b64= btoa(unescape(encodeURIComponent(gedContent)));
+    const payload={message:commitMsg, content:b64, branch:'main'}; if(sha) payload.sha=sha;
+    if(statusEl) statusEl.textContent='Mengupload ke GitHub...';
+    const putResp=await fetch(GITHUB_API_URL,{method:'PUT',headers:{'Authorization':`Bearer ${token}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!putResp.ok){ const err=await putResp.text(); throw new Error(`Gagal PUT: ${putResp.status} ${err}`); }
+    const result=await putResp.json();
+    if(statusEl) statusEl.textContent=`✅ Berhasil sync! Commit: ${result.commit.sha.substring(0,7)} — ${result.commit.message}`; setStatus('✅ Backup berhasil sync ke GitHub','ok'); setTimeout(()=>closeGithub(),1500);
+  } catch(e){ console.error(e); if(statusEl) statusEl.textContent=`❌ Gagal: ${e.message}`; setStatus('❌ Gagal sync GitHub','err'); }
+}
+
+function setStatus(text,type='warn'){ const badge=document.getElementById('statusBadge'); const txt=document.getElementById('statusText'); if(txt) txt.textContent=text; if(badge){ badge.className='statusBadge '+type; } }
+
+function refreshSpouses(){ for(let ind of DB.indi.values()){ ind.spouses=[...new Set(ind.fams.map(f=> f.husb===ind.id? f.wife : f.husb).filter(Boolean))].map(id=>DB.indi.get(id)).filter(Boolean); } }
+function addChild(){
+  const parent=DB.indi.get(state.root); if(!parent){ alert('Pilih orang tua dulu'); return; }
+  const inputName=document.getElementById('edName'); let name = inputName ? inputName.value.trim() : ''; if(!name){ name = prompt('Nama anak baru:'); if(!name) return; }
+  const sexEl=document.getElementById('edSex'); const sex = sexEl ? sexEl.value : 'M';
+  const bDateEl=document.getElementById('edBDate'); const bDate = bDateEl ? bDateEl.value.trim() : '';
+  const bPlacEl=document.getElementById('edBPlac'); const bPlac = bPlacEl ? bPlacEl.value.trim() : '';
+  const newIndiId=genNewId('I'); const child={id:newIndiId,full:name,sex,bDate,bPlac,dDate:'',dPlac:'',fams:[],spouses:[],famc:null}; DB.indi.set(newIndiId,child);
+  let fam=null; if(parent.fams.length){ fam=parent.fams[0]; } else { const famId=genNewId('F'); fam={id:famId,husb: parent.sex==='M'? parent.id:null, wife: parent.sex==='F'? parent.id:null, chils:[], mDate:'', mPlac:'', husbObj: parent.sex==='M'? parent:null, wifeObj: parent.sex==='F'? parent:null, childObjs:[]}; if(parent.spouses[0]){ const sp=parent.spouses[0]; if(parent.sex==='M'){ fam.wife=sp.id; fam.wifeObj=sp; } else { fam.husb=sp.id; fam.husbObj=sp; } } DB.fam.set(famId,fam); parent.fams.push(fam); if(fam.husbObj && !fam.husbObj.fams.includes(fam)) fam.husbObj.fams.push(fam); if(fam.wifeObj && !fam.wifeObj.fams.includes(fam)) fam.wifeObj.fams.push(fam); }
+  if(!fam.chils.includes(newIndiId)) fam.chils.push(newIndiId); if(!fam.childObjs.find(c=>c.id===newIndiId)) fam.childObjs.push(child); child.famc=fam; refreshSpouses(); computeRelevantAndGen(); renderList(); renderOrgChart(); renderDetail(child.id); state.root=child.id;
+}
+function addParent(){
+  const child=DB.indi.get(state.root); if(!child){ alert('Pilih anak dulu'); return; }
+  const inputName=document.getElementById('edName'); let name = inputName ? inputName.value.trim() : ''; if(!name){ name = prompt('Nama orang tua baru:'); if(!name) return; }
+  const sexEl=document.getElementById('edSex'); const sex = sexEl ? sexEl.value : 'M';
+  const bDateEl=document.getElementById('edBDate'); const bDate = bDateEl ? bDateEl.value.trim() : '';
+  const bPlacEl=document.getElementById('edBPlac'); const bPlac = bPlacEl ? bPlacEl.value.trim() : '';
+  const newParentId=genNewId('I'); const parent={id:newParentId,full:name,sex,bDate,bPlac,dDate:'',dPlac:'',fams:[],spouses:[],famc:null}; DB.indi.set(newParentId,parent);
+  let fam=null; if(child.famc){ fam=child.famc; if(sex==='M' && !fam.husb){ fam.husb=newParentId; fam.husbObj=parent; parent.fams.push(fam); } else if(sex==='F' && !fam.wife){ fam.wife=newParentId; fam.wifeObj=parent; parent.fams.push(fam); } else { const famId=genNewId('F'); const newFam={id:famId,husb: sex==='M'? newParentId : fam.husb, wife: sex==='F'? newParentId : fam.wife, chils:[child.id], mDate:'', mPlac:'', husbObj: sex==='M'? parent : fam.husbObj, wifeObj: sex==='F'? parent : fam.wifeObj, childObjs:[child]}; fam.chils=fam.chils.filter(c=>c!==child.id); fam.childObjs=fam.childObjs.filter(c=>c.id!==child.id); DB.fam.set(famId,newFam); child.famc=newFam; parent.fams.push(newFam); fam=newFam; } } else { const famId=genNewId('F'); fam={id:famId,husb: sex==='M'? newParentId : null, wife: sex==='F'? newParentId : null, chils:[child.id], mDate:'', mPlac:'', husbObj: sex==='M'? parent : null, wifeObj: sex==='F'? parent : null, childObjs:[child]}; DB.fam.set(famId,fam); child.famc=fam; parent.fams.push(fam); } refreshSpouses(); computeRelevantAndGen(); renderList(); renderOrgChart(); renderDetail(child.id);
+}
+function addSpouse(){
+  const ind=DB.indi.get(state.root); if(!ind){ alert('Pilih individu dulu'); return; }
+  const inputName=document.getElementById('edName'); let name = inputName ? inputName.value.trim() : ''; if(!name){ name = prompt('Nama pasangan:'); if(!name) return; }
+  const bDateEl=document.getElementById('edBDate'); const bDate = bDateEl ? bDateEl.value.trim() : '';
+  const bPlacEl=document.getElementById('edBPlac'); const bPlac = bPlacEl ? bPlacEl.value.trim() : '';
+  const spouseSex = ind.sex==='M'?'F':'M'; const newId=genNewId('I'); const spouse={id:newId,full:name,sex:spouseSex,bDate,bPlac,dDate:'',dPlac:'',fams:[],spouses:[],famc:null}; DB.indi.set(newId,spouse); const famId=genNewId('F'); const fam={id:famId,husb: ind.sex==='M'? ind.id : newId, wife: ind.sex==='F'? ind.id : newId, chils:[], mDate:'', mPlac:'', husbObj: ind.sex==='M'? ind:spouse, wifeObj: ind.sex==='F'? ind:spouse, childObjs:[]}; DB.fam.set(famId,fam); ind.fams.push(fam); spouse.fams.push(fam); refreshSpouses(); computeRelevantAndGen(); renderList(); renderOrgChart();
+}
+function updateData(){ const ind=DB.indi.get(state.root); if(!ind) return; const nameEl=document.getElementById('edName'); if(nameEl && nameEl.value.trim()) ind.full=nameEl.value.trim(); const sexEl=document.getElementById('edSex'); if(sexEl) ind.sex=sexEl.value; const bDateEl=document.getElementById('edBDate'); if(bDateEl) ind.bDate=bDateEl.value.trim(); const bPlacEl=document.getElementById('edBPlac'); if(bPlacEl) ind.bPlac=bPlacEl.value.trim(); renderList(); renderOrgChart(); renderDetail(ind.id); }
+function deleteData(){ const ind=DB.indi.get(state.root); if(!ind) return; if(!confirm(`Hapus ${ind.full} ?`)) return; for(let fam of [...DB.fam.values()]){ fam.chils=fam.chils.filter(c=>c!==ind.id); fam.childObjs=fam.childObjs.filter(c=>c.id!==ind.id); if(fam.husb===ind.id){ fam.husb=null; fam.husbObj=null; } if(fam.wife===ind.id){ fam.wife=null; fam.wifeObj=null; } if(!fam.husb && !fam.wife && fam.chils.length===0) DB.fam.delete(fam.id); } DB.indi.delete(ind.id); state.root=[...DB.indi.keys()][0]||null; computeRelevantAndGen(); renderList(); if(state.root){ renderDetail(state.root); renderOrgChart(); } }
+
+function loadBuffer(buf,name){ let text=''; try{ text=new TextDecoder('utf-8').decode(buf); if(text.includes('\0')) throw 0; }catch{ text=new TextDecoder('windows-1252').decode(buf); } if(text.charCodeAt(0)===0xFEFF) text=text.slice(1); parseGED(text); const chip=document.getElementById('fileChip'); if(chip) chip.hidden=false; const fn=document.getElementById('fileName'); if(fn) fn.textContent=name; const fc=document.getElementById('fileCount'); if(fc) fc.textContent=DB.indi.size+' jiwa'; renderList(); if(state.root){ renderDetail(state.root); renderOrgChart(); } const drop=document.getElementById('drop'); if(drop) drop.style.display='none'; setStatus(`Loaded ${DB.indi.size} orang dari ${name}`,'ok'); }
+
+// AUTO LOAD FROM GITHUB
+async function autoLoadGithub(){
+  setStatus('Memuat GEDCOM dari GitHub…','warn');
+  try{
+    const resp=await fetch(GEDCOM_URL,{cache:'no-store'});
+    if(!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    const buf=await resp.arrayBuffer();
+    loadBuffer(buf,'silsilah2023.ged (GitHub)');
+    setStatus(`✅ Auto-loaded dari GitHub: ${DB.indi.size} orang`,'ok');
+  } catch(e){
+    console.error(e);
+    setStatus(`❌ Gagal auto-load GitHub: ${e.message} — coba Reload atau seret file lokal`,'err');
+    // fallback to sample if needed? keep empty
+  }
+}
+
+function buildTextTreeDescendant(root, maxG, withSpouse=true, onlyRelevant=true){
+  const lines=[]; function fmt(ind){ return `${ind.full}${ind.bDate? ` (${ind.bDate})`:''}`; }
+  function recurse(ind, prefix, isLast, g){ if(g>maxG) return; if(onlyRelevant && !state.relevantSet.has(ind.id)) return; const conn = prefix ? (isLast ? '└── ' : '├── ') : ''; lines.push(prefix + conn + fmt(ind)); if(withSpouse && ind.fams.length){ ind.fams.filter(f=> !onlyRelevant || state.relevantFamSet.has(f.id)).forEach((fam, fi, famArr)=>{ const spouse = fam.husb===ind.id ? fam.wifeObj : fam.husbObj; const relevantChildren = fam.childObjs.filter(c=> !onlyRelevant || state.relevantSet.has(c.id)); if(spouse && (!onlyRelevant || state.relevantSet.has(spouse.id))){ const spPref = prefix + (isLast ? '    ' : '│   '); lines.push(spPref + (fi===famArr.length-1 && relevantChildren.length===0 ? '└── ' : '├── ') + '♥ '+ fmt(spouse) + (fam.mDate? ` — Nikah ${fam.mDate}`:'' )); relevantChildren.forEach((ch, ci)=>{ const newPref = spPref + (fi===famArr.length-1 ? '    ' : '│   '); recurse(ch, newPref, ci===relevantChildren.length-1, g+1); }); } else { relevantChildren.forEach((ch, ci)=>{ const newPref = prefix + (isLast ? '    ' : '│   '); recurse(ch, newPref, ci===relevantChildren.length-1, g+1); }); } }); } }
+  recurse(root,'',true,0); return lines.join('\n');
+}
+function buildBookV11(opts){
+  const root=DB.indi.get(opts.root); const dscG=opts.dscG; const withSpouse=opts.withSpouse; const onlyRelevant = state.filterOn; const book=document.getElementById('bookContent'); const genMap=state.genMap; const gen1 = root.fams.flatMap(f=>f.childObjs).filter(c=> !onlyRelevant || state.relevantSet.has(c.id));
+  let html=`<div class="cover"><div class="sub">BUKU SILSILAH KELUARGA</div><h1>${esc(root.full)}</h1><div style="font-size:13px;margin-top:12px;color:#5a4630">${(onlyRelevant? state.relevantSet.size:DB.indi.size)} orang • ${(onlyRelevant? state.relevantFamSet.size:DB.fam.size)} keluarga</div><div style="margin-top:14px;font-size:11px;color:#7a725a">Auto-loaded dari GitHub • Hanya terhubung darah & pernikahan dengan keturunan</div><div style="margin-top:18px;font-size:10px;color:#6a634f">${new Date().toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'})}</div></div>`;
+  html+=`<h2>1. Prakata Informasi Keluarga</h2><p>Keluarga besar <b>${esc(root.full)}</b> adalah pusat silsilah buku ini. Data dimuat otomatis dari GitHub <code>${GEDCOM_URL}</code> dan dapat disinkronkan kembali oleh admin.</p><p><b>Fokus:</b> ${esc(root.full)} — lahir ${esc(root.bDate||'-')} ${esc(root.bPlac||'')} • Ayah: ${esc(root.famc?.husbObj?.full||'-')} • Ibu: ${esc(root.famc?.wifeObj?.full||'-')} • Anak (G1): ${gen1.map(c=>esc(c.full)).join(', ')||'-'}.</p>`;
+  html+=`<h2>2. Daftar Isi</h2><div class="toc-list"><a><span>1. Prakata Informasi Keluarga</span></a><a><span>2. Daftar Isi</span></a><a><span>3. Bagan Teks Hierarki Menyamping — Seluruh Keturunan</span></a><a><span>4. Informasi Generasi 1 Beserta Keturunannya Secara Hierarki</span></a><a><span>5. Indeks Nama</span></a></div>`;
+  html+=`<h2>3. Bagan Teks Hierarki Menyamping — Seluruh Keturunan</h2><div class="tree-box"><div class="title"><span>Bagan Keturunan — ${esc(root.full)} — ${dscG} Generasi</span><span>${(onlyRelevant? state.relevantSet.size:DB.indi.size)} orang</span></div><pre>${esc(buildTextTreeDescendant(root, dscG, withSpouse, onlyRelevant))}</pre></div>`;
+  html+=`<h2>4. Informasi Generasi 1 Beserta Keturunannya Secara Hierarki</h2>`;
+  if(gen1.length===0){ html+=`<p style="font-size:12px;color:#7a725a">Tidak ada data Generasi 1.</p>`; } else {
+    gen1.forEach((g1Ind, g1Idx)=>{
+      html+=`<div class="num-item"><h4><span class="no">G1-${g1Idx+1}</span> ${esc(g1Ind.full)} — Anak ke-${g1Idx+1}</h4><div style="font-size:12px;color:#5a4630">Lahir: ${esc(g1Ind.bDate||'-')} ${esc(g1Ind.bPlac||'')}</div>`;
+      const subTree = buildTextTreeDescendant(g1Ind, dscG, withSpouse, onlyRelevant);
+      html+=`<div class="tree-box" style="margin-top:12px"><div class="title"><span>Hierarki Keturunan — ${esc(g1Ind.full)}</span></div><pre>${esc(subTree)}</pre></div></div>`;
+    });
+  }
+  html+=`<h2>5. Indeks Nama</h2><div class="index-grid">`; const allRelevant = onlyRelevant ? [...state.relevantSet].map(id=>DB.indi.get(id)).filter(Boolean) : [...DB.indi.values()]; allRelevant.sort((a,b)=>a.full.localeCompare(b.full)).forEach((ind, i)=>{ html+=`<div class="index-item"><b>${i+1}.</b> ${esc(ind.full)}</div>`; }); html+=`</div><p style="margin-top:28px;font-size:10px;text-align:center;color:#7a725a">— Akhir Buku v11 — Auto Load GitHub —</p>`;
+  book.innerHTML=html;
+}
+async function savePdfIdentik(){
+  const bookEl=document.getElementById('bookContent'); const btn=document.getElementById('btnSavePDF'); if(!bookEl||!btn){ window.print(); return; }
+  const old=btn.textContent; btn.textContent='⏳ Membuat PDF…'; btn.disabled=true;
+  try{ const {jsPDF}=window.jspdf; const pdf=new jsPDF({unit:'mm',format:'a4'}); const canvas=await html2canvas(bookEl,{scale:2,backgroundColor:'#fdf8eb'}); const imgData=canvas.toDataURL('image/png'); const w=pdf.internal.pageSize.getWidth(); const h=(canvas.height * w)/canvas.width; let left=h; let pos=0; pdf.addImage(imgData,'PNG',0,pos,w,h); left-=pdf.internal.pageSize.getHeight(); while(left>0){ pos=left-h; pdf.addPage(); pdf.addImage(imgData,'PNG',0,pos,w,h); left-=pdf.internal.pageSize.getHeight(); } pdf.save(`Buku-v11-${(DB.indi.get(state.root)?.full||'').replace(/\s+/g,'-')}.pdf`); } catch(e){ console.error(e); window.print(); } finally { btn.textContent=old; btn.disabled=false; }
+}
+function wire(){
+  const fileIn=document.getElementById('fileIn'); // hidden input not in header now, but keep for compatibility
+  const drop=document.getElementById('drop');
+  if(drop){ drop.addEventListener('click',()=>{ const fi=document.createElement('input'); fi.type='file'; fi.accept='.ged,.gedcom,.txt'; fi.onchange=e=>{ const f=e.target.files[0]; if(f){ const rd=new FileReader(); rd.onload=()=>loadBuffer(rd.result,f.name); rd.readAsArrayBuffer(f); } }; fi.click(); }); drop.addEventListener('dragover',e=>{e.preventDefault(); drop.style.borderColor='var(--brass)';}); drop.addEventListener('dragleave',()=>{ drop.style.borderColor=''; }); drop.addEventListener('drop',e=>{e.preventDefault(); drop.style.borderColor=''; const f=e.dataTransfer.files[0]; if(f){ const rd=new FileReader(); rd.onload=()=>loadBuffer(rd.result,f.name); rd.readAsArrayBuffer(f); }}); }
+  const search=document.getElementById('search'); if(search) search.addEventListener('input',e=>{ state.filter=e.target.value; renderList(); });
+  const btnToggle=document.getElementById('btnToggle'); if(btnToggle) btnToggle.addEventListener('click',()=>{ state.filterOn=!state.filterOn; btnToggle.textContent= state.filterOn? '🎯 Hanya Terhubung':'○ Semua'; computeRelevantAndGen(); renderList(); renderOrgChart(); });
+  const swAnc=document.getElementById('swAnc'); if(swAnc) swAnc.addEventListener('click',()=>{ state.mode='anc'; swAnc.classList.add('on'); const swDsc=document.getElementById('swDsc'); if(swDsc) swDsc.classList.remove('on'); renderOrgChart(); });
+  const swDsc=document.getElementById('swDsc'); if(swDsc) swDsc.addEventListener('click',()=>{ state.mode='dsc'; swDsc.classList.add('on'); const swAnc2=document.getElementById('swAnc'); if(swAnc2) swAnc2.classList.remove('on'); renderOrgChart(); });
+  const rgGen=document.getElementById('rgGen'); // not used, but keep
+  const btnFit=document.getElementById('btnFit'); // not used
+  const zIn=document.getElementById('zIn'); if(zIn) zIn.addEventListener('click',()=> applyZoom(state.zoom+0.15));
+  const zOut=document.getElementById('zOut'); if(zOut) zOut.addEventListener('click',()=> applyZoom(state.zoom-0.15));
+  const zFit=document.getElementById('zFit'); if(zFit) zFit.addEventListener('click',()=> fitZoom());
+  const zReset=document.getElementById('zReset'); if(zReset) zReset.addEventListener('click',()=> applyZoom(1));
+  const stage=document.getElementById('chartStage');
+  if(stage){
+    stage.addEventListener('mousedown',e=>{ if(e.target.closest('.org-card')) return; state.isDragging=true; state.startX=e.clientX; state.startY=e.clientY; state.scrollL=stage.scrollLeft; state.scrollT=stage.scrollTop; stage.classList.add('dragging'); });
+    window.addEventListener('mouseup',()=>{ state.isDragging=false; if(stage) stage.classList.remove('dragging'); });
+    stage.addEventListener('mousemove',e=>{ if(!state.isDragging) return; stage.scrollLeft = state.scrollL - (e.clientX - state.startX); stage.scrollTop = state.scrollT - (e.clientY - state.startY); });
+    stage.addEventListener('wheel',e=>{ if(e.ctrlKey){ e.preventDefault(); applyZoom(state.zoom + (e.deltaY<0?0.08:-0.08)); } }, {passive:false});
+  }
+  const btnAddChild=document.getElementById('btnAddChild'); if(btnAddChild) btnAddChild.addEventListener('click', addChild);
+  const btnAddParent=document.getElementById('btnAddParent'); if(btnAddParent) btnAddParent.addEventListener('click', addParent);
+  const btnAddSpouse=document.getElementById('btnAddSpouse'); if(btnAddSpouse) btnAddSpouse.addEventListener('click', addSpouse);
+  const btnUpdate=document.getElementById('btnUpdate'); if(btnUpdate) btnUpdate.addEventListener('click', updateData);
+  const btnDelete=document.getElementById('btnDelete'); if(btnDelete) btnDelete.addEventListener('click', deleteData);
+  const btnSaveLocal=document.getElementById('btnSaveLocal'); if(btnSaveLocal) btnSaveLocal.addEventListener('click', saveLocal);
+  const btnReload=document.getElementById('btnReload'); if(btnReload) btnReload.addEventListener('click', autoLoadGithub);
+  const btnAdminLogin=document.getElementById('btnAdminLogin'); if(btnAdminLogin) btnAdminLogin.addEventListener('click', openAdmin);
+  const btnAdminLogout=document.getElementById('btnAdminLogout'); if(btnAdminLogout) btnAdminLogout.addEventListener('click', ()=>{ setAdmin(false); });
+  const btnAdminCancel=document.getElementById('btnAdminCancel'); if(btnAdminCancel) btnAdminCancel.addEventListener('click', closeAdmin);
+  const btnAdminDo=document.getElementById('btnAdminDo'); if(btnAdminDo) btnAdminDo.addEventListener('click', doAdminLogin);
+  const adminModal=document.getElementById('adminModal'); if(adminModal) adminModal.addEventListener('click',e=>{ if(e.target.id==='adminModal') closeAdmin(); });
+  const btnSyncGithub=document.getElementById('btnSyncGithub'); if(btnSyncGithub) btnSyncGithub.addEventListener('click', openGithub);
+  const btnGithubCancel=document.getElementById('btnGithubCancel'); if(btnGithubCancel) btnGithubCancel.addEventListener('click', closeGithub);
+  const btnGithubDo=document.getElementById('btnGithubDo'); if(btnGithubDo) btnGithubDo.addEventListener('click', syncToGithub);
+  const githubModal=document.getElementById('githubModal'); if(githubModal) githubModal.addEventListener('click',e=>{ if(e.target.id==='githubModal') closeGithub(); });
+  const btnBook=document.getElementById('btnBook'); if(btnBook) btnBook.addEventListener('click',()=>{ if(!DB.indi.size){ alert('Data belum dimuat'); return; } computeRelevantAndGen(); const modal=document.getElementById('exportModal'); if(modal) modal.classList.add('open'); });
+  const btnExpCancel=document.getElementById('btnExpCancel'); if(btnExpCancel) btnExpCancel.addEventListener('click',()=>{ const modal=document.getElementById('exportModal'); if(modal) modal.classList.remove('open'); });
+  const exportModal=document.getElementById('exportModal'); if(exportModal) exportModal.addEventListener('click',e=>{ if(e.target.id==='exportModal') e.currentTarget.classList.remove('open'); });
+  const rgAnc=document.getElementById('rgAnc'); if(rgAnc) rgAnc.addEventListener('input',e=>{ const rv=document.getElementById('rvAnc'); if(rv) rv.textContent=e.target.value+' gen'; });
+  const rgDsc=document.getElementById('rgDsc'); if(rgDsc) rgDsc.addEventListener('input',e=>{ const rv=document.getElementById('rvDsc'); if(rv) rv.textContent=e.target.value+' gen'; });
+  const btnExpGo=document.getElementById('btnExpGo'); if(btnExpGo) btnExpGo.addEventListener('click',async e=>{ const b=e.currentTarget; b.disabled=true; const old=b.textContent; b.textContent='Menyusun…'; await new Promise(r=>setTimeout(r,30)); try{ const rgAncV=document.getElementById('rgAnc'); const rgDscV=document.getElementById('rgDsc'); const ckPas=document.getElementById('ckPas'); buildBookV11({root:state.root, ancG: rgAncV? +rgAncV.value:2, dscG: rgDscV? +rgDscV.value:7, withSpouse: ckPas? ckPas.checked:true}); const modal=document.getElementById('exportModal'); if(modal) modal.classList.remove('open'); const ov=document.getElementById('bookOv'); if(ov) ov.classList.add('open'); }catch(err){ alert(err.message); console.error(err);} b.disabled=false; b.textContent=old; });
+  const btnOvClose=document.getElementById('btnOvClose'); if(btnOvClose) btnOvClose.addEventListener('click',()=>{ const ov=document.getElementById('bookOv'); if(ov) ov.classList.remove('open'); });
+  const btnPrint=document.getElementById('btnPrint'); if(btnPrint) btnPrint.addEventListener('click',()=>window.print());
+  const btnSavePDF=document.getElementById('btnSavePDF'); if(btnSavePDF) btnSavePDF.addEventListener('click', savePdfIdentik);
+}
+wire();
+autoLoadGithub();
+</script>
+</body>
+</html>
