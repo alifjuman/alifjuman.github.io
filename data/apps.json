@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-16T12:30:45.034Z",
+  "updatedAt": "2026-09-18T03:41:06.926Z",
   "apps": [
     {
       "id": "mu42wroi",
@@ -212,14 +212,14 @@
     {
       "id": "mtx64qg5",
       "name": "Silsilah Keluarga",
-      "url": "./apps/silsilah.html",
+      "url": "./apps/silsilah/index.html",
       "description": "Membuat dan Edit Silsilah Keluarga format Gedcom",
       "category": "Produktivitas",
       "icon": "📝",
       "color": "#8b5cf6",
       "pinned": false,
       "favorite": false,
-      "clicks": 0,
+      "clicks": 1,
       "createdAt": 1789143980261
     },
     {
