@@ -1,21 +1,13 @@
 {
-  "name": "Silsilah Keluarga",
+  "name": "Silsilah Keluarga v14",
   "short_name": "Silsilah",
-  "description": "Aplikasi Silsilah Keluarga - Bagan Organisasi, Teks Hierarki, Pie Statistik, Edit & Sync GitHub",
-  "start_url": "./silsilah-reader-v13-pwa.html",
+  "description": "Silsilah Keluarga - Fixed Print All Pages & PDF Efisien",
+  "start_url": "./silsilah-reader-v14-fixed-print-pdf.html",
   "display": "standalone",
   "background_color": "#0c1f16",
   "theme_color": "#0e271c",
   "icons": [
-    {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23c9a64d'/%3E%3Ctext x='50' y='62' font-family='serif' font-size='54' font-weight='800' text-anchor='middle' fill='%230c1f16'%3ES%3C/text%3E%3C/svg%3E",
-      "sizes": "192x192",
-      "type": "image/svg+xml"
-    },
-    {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23c9a64d'/%3E%3Ctext x='50' y='62' font-family='serif' font-size='54' font-weight='800' text-anchor='middle' fill='%230c1f16'%3ES%3C/text%3E%3C/svg%3E",
-      "sizes": "512x512",
-      "type": "image/svg+xml"
-    }
+    {"src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23c9a64d'/%3E%3Ctext x='50' y='62' font-family='serif' font-size='54' font-weight='800' text-anchor='middle' fill='%230c1f16'%3ES%3C/text%3E%3C/svg%3E","sizes": "192x192","type": "image/svg+xml"},
+    {"src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23c9a64d'/%3E%3Ctext x='50' y='62' font-family='serif' font-size='54' font-weight='800' text-anchor='middle' fill='%230c1f16'%3ES%3C/text%3E%3C/svg%3E","sizes": "512x512","type": "image/svg+xml"}
   ]
 }
