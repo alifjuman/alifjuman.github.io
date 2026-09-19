@@ -1,7 +1,7 @@
 
-const CACHE='silsilah-v14-1';
+const CACHE='silsilah';
 const ASSETS=[
-  './silsilah-reader-v14-fixed-print-pdf.html',
+  './index.html',
   './manifest.json'
 ];
 self.addEventListener('install',e=>{
