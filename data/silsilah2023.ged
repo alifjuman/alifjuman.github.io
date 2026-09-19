@@ -259,7 +259,7 @@
 1 SEX M
 1 FAMC @I673_GTG_I674@
 0 @I1047@ INDI
-1 NAME Bandiyah /Bandiyah/
+1 NAME Ny. /Bandiyah/
 1 SEX F
 1 FAMS @I359_GTG_I1047@
 0 @I1048@ INDI
@@ -708,22 +708,22 @@
 2 PLAC Cilacap
 1 FAMS @I1130_GTG_I1112@
 0 @I1131@ INDI
-1 NAME K.Kromoijoyo /K.Kromoijoyo/
+1 NAME K. /Kromoijoyo/
 1 SEX M
 1 FAMC @I1132_GTG_UN@
 1 FAMS @I1131_GTG_UN@
 0 @I1132@ INDI
-1 NAME K.Setrodikromo /K.Setrodikromo/
+1 NAME K. /Setrodikromo/
 1 SEX M
 1 FAMC @I1133_GTG_UN@
 1 FAMS @I1132_GTG_UN@
 0 @I1133@ INDI
-1 NAME K.Surowijoyo /K.Surowijoyo/
+1 NAME K. /Surowijoyo/
 1 SEX M
 1 FAMC @I1134_GTG_UN@
 1 FAMS @I1133_GTG_UN@
 0 @I1134@ INDI
-1 NAME K.Wonodikromo /K.Wonodikromo/
+1 NAME K. /Wonodikromo/
 1 SEX M
 1 FAMC @I1135_GTG_UN@
 1 FAMS @I1134_GTG_UN@
@@ -3107,20 +3107,20 @@
 2 PLAC Kedungwanglu
 1 FAMC @UN_GTG_I1147@
 0 @I1501@ INDI
-1 NAME K.Bisri /K.Bisri/
+1 NAME K. /Bisri/
 1 SEX M
 1 BIRT
 2 PLAC Banjaran
 1 FAMC @UN_GTG_I1147@
 1 FAMS @I1501_GTG_UN@
 0 @I1502@ INDI
-1 NAME K.Husain /K.Husain/
+1 NAME K. /Husain/
 1 SEX M
 1 BIRT
 2 PLAC Lampung
 1 FAMC @UN_GTG_I1147@
 0 @I1503@ INDI
-1 NAME Ny.Fatimah /Ny.Fatimah/
+1 NAME Ny. /Fatimah/
 1 SEX F
 1 BIRT
 2 PLAC Lampung
@@ -3187,13 +3187,13 @@
 1 SEX M
 1 FAMC @I1501_GTG_UN@
 0 @I1515@ INDI
-1 NAME K.Samsi /K.Samsi/
+1 NAME K. /Samsi/
 1 SEX M
 1 BIRT
 2 PLAC Banjaran
 1 FAMC @I1501_GTG_UN@
 0 @I1516@ INDI
-1 NAME Ny.Badriyah /Ny.Badriyah/
+1 NAME Ny. /Badriyah/
 1 SEX F
 1 BIRT
 2 PLAC Banjaran
@@ -4449,7 +4449,7 @@
 1 FAMC @I332_GTG_I860@
 1 FAMS @I331_GTG_I329@
 0 @I332@ INDI
-1 NAME Mbah Kyai /Mashduqi/
+1 NAME Kyai /Mashduqi/
 1 SEX M
 1 BIRT
 2 PLAC Jolok Bantul
@@ -4470,7 +4470,7 @@
 1 FAMC @I331_GTG_I329@
 1 FAMS @I334_GTG_I335@
 0 @I335@ INDI
-1 NAME Lina /Markhumah/
+1 NAME Ny. Lina /Markhumah/
 1 SEX F
 1 BIRT
 2 PLAC Sleman
@@ -4489,7 +4489,7 @@
 2 PLAC Sleman
 1 FAMC @I334_GTG_I335@
 0 @I338@ INDI
-1 NAME Zar'anuddin /Zar'anuddin/
+1 NAME H. /Zar'anuddin/
 1 SEX M
 1 BIRT
 2 PLAC Sleman
@@ -4625,7 +4625,7 @@
 2 PLAC Cilacap
 1 FAMC @I348_GTG_I347@
 0 @I357@ INDI
-1 NAME Mastutik /Mastutik/
+1 NAME Ny. /Mastutik/
 1 SEX F
 1 BIRT
 2 PLAC Sleman
@@ -6251,12 +6251,12 @@
 1 SEX F
 1 FAMC @I671_GTG_I668@
 0 @I673@ INDI
-1 NAME H.Halim /H.Halim/
+1 NAME H. /Halim/
 1 SEX M
 1 FAMC @I1039_GTG_UN@
 1 FAMS @I673_GTG_I674@
 0 @I674@ INDI
-1 NAME Marli /Marli/
+1 NAME Ny. /Marli/
 1 SEX F
 1 FAMS @I673_GTG_I674@
 0 @I675@ INDI
@@ -7568,7 +7568,7 @@
 1 SEX M
 1 FAMS @I926_GTG_I925@
 0 @I927@ INDI
-1 NAME Fina /Fina/
+1 NAME Ny. Nur /Fina/
 1 SEX F
 1 FAMC @I359_GTG_I1047@
 1 FAMS @I924_GTG_I927@
@@ -8062,7 +8062,7 @@
 1 SEX F
 1 FAMC @F15781587@
 0 @I1608@ INDI
-1 NAME Qiyana /Qiyana/
+1 NAME Mb /Qiyana/
 1 SEX F
 1 BIRT
 2 PLAC Sleman
