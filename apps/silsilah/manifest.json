@@ -1,8 +1,8 @@
 {
-  "name": "Silsilah Keluarga v14",
+  "name": "Silsilah Keluarga",
   "short_name": "Silsilah",
-  "description": "Silsilah Keluarga - Fixed Print All Pages & PDF Efisien",
-  "start_url": "./silsilah-reader-v14-fixed-print-pdf.html",
+  "description": "Silsilah Keluarga - Viewer and Gedcom Editor",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0c1f16",
   "theme_color": "#0e271c",
