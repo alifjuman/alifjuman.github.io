@@ -1,8 +1,8 @@
 
 const CACHE='silsilah';
 const ASSETS=[
-  './index.html',
-  './manifest.json'
+  'https://alifjuman.github.io/apps/silsilah/index.html',
+  'https://alifjuman.github.io/apps/silsilah/manifest.json'
 ];
 self.addEventListener('install',e=>{
   e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()));
