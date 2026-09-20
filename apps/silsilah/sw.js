@@ -1,5 +1,5 @@
 // Tentukan basis jalur sesuai lokasi aplikasi Anda
-const BASE_PATH = '/apps/silsilah/';
+const BASE_PATH = './';
 const CACHE_NAME = 'silsilah-cache-v1';
 
 // Daftar file yang akan di-cache (pastikan file-file ini ada di dalam folder /apps/silsilah/)
