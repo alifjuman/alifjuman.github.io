@@ -3,7 +3,7 @@
   "short_name": "Silsilah",
   "description": "Penampil dan Editor file Gedcom Silsilah",
   "start_url": "https://alifjuman.github.io/apps/silsilah/",
-  "scope": "https://alifjuman.github.io/apps/silsilah/",
+  "scope": "/apps/silsilah/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#317EFB",
