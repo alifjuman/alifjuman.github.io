@@ -1,27 +1,57 @@
+// Tentukan basis jalur sesuai lokasi aplikasi Anda
+const BASE_PATH = '/apps/silsilah/';
+const CACHE_NAME = 'silsilah-cache-v1';
 
-const CACHE='silsilah';
-const ASSETS=[
-  'https://alifjuman.github.io/apps/silsilah/index.html',
-  'https://alifjuman.github.io/apps/silsilah/manifest.json'
+// Daftar file yang akan di-cache (pastikan file-file ini ada di dalam folder /apps/silsilah/)
+const urlsToCache = [
+  BASE_PATH,
+  BASE_PATH + 'index.html',
+  BASE_PATH + 'manifest.json',
+  // Tambahkan file CSS, JS, atau aset lain yang Anda miliki, contoh:
+  // BASE_PATH + 'style.css',
+  // BASE_PATH + 'script.js',
+  // BASE_PATH + 'data/silsilah2023.ged' // Jika ingin file Gedcom tersedia offline
 ];
-self.addEventListener('install',e=>{
-  e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()));
+
+// Event: Install - Meng-cache file
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        console.log('Membuka cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
 });
-self.addEventListener('activate',e=>{
-  e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))) .then(()=>self.clients.claim()));
+
+// Event: Fetch - Menyajikan file dari cache jika offline
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        // Jika ada di cache, kembalikan dari cache
+        if (response) {
+          return response;
+        }
+        // Jika tidak, ambil dari jaringan
+        return fetch(event.request);
+      }
+    )
+  );
 });
-self.addEventListener('fetch',e=>{
-  const url=new URL(e.request.url);
-  if(url.href.includes('raw.githubusercontent.com')){
-    e.respondWith(fetch(e.request).then(r=>{
-      const clone=r.clone();
-      caches.open(CACHE).then(c=>c.put(e.request, clone));
-      return r;
-    }).catch(()=>caches.match(e.request)));
-    return;
-  }
-  e.respondWith(caches.match(e.request).then(cached=>{
-    if(cached) return cached;
-    return fetch(e.request);
-  }));
+
+// Event: Activate - Membersihkan cache lama
+self.addEventListener('activate', event => {
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
 });
