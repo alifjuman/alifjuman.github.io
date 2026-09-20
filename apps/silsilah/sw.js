@@ -1,57 +1,16 @@
-// Tentukan basis jalur sesuai lokasi aplikasi Anda
-const BASE_PATH = './';
-const CACHE_NAME = 'silsilah-cache-v1';
-
-// Daftar file yang akan di-cache (pastikan file-file ini ada di dalam folder /apps/silsilah/)
-const urlsToCache = [
-  BASE_PATH,
-  BASE_PATH + 'index.html',
-  BASE_PATH + 'manifest.json',
-  // Tambahkan file CSS, JS, atau aset lain yang Anda miliki, contoh:
-  // BASE_PATH + 'style.css',
-  // BASE_PATH + 'script.js',
-  // BASE_PATH + 'data/silsilah2023.ged' // Jika ingin file Gedcom tersedia offline
-];
-
-// Event: Install - Meng-cache file
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Membuka cache');
-        return cache.addAll(urlsToCache);
-      })
-  );
-});
-
-// Event: Fetch - Menyajikan file dari cache jika offline
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Jika ada di cache, kembalikan dari cache
-        if (response) {
-          return response;
-        }
-        // Jika tidak, ambil dari jaringan
-        return fetch(event.request);
-      }
-    )
-  );
-});
-
-// Event: Activate - Membersihkan cache lama
-self.addEventListener('activate', event => {
-  const cacheWhitelist = [CACHE_NAME];
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+const CACHE='silsilah-pwa-v15';
+const ASSETS=['./','./index.html','./manifest.json'];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()));});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
+self.addEventListener('fetch',e=>{
+  const url=new URL(e.request.url);
+  if(url.href.includes('raw.githubusercontent.com')||url.href.includes('api.github.com')){
+    e.respondWith(fetch(e.request).then(r=>{const clone=r.clone();caches.open(CACHE).then(c=>c.put(e.request,clone));return r;}).catch(()=>caches.match(e.request)));
+    return;
+  }
+  if(url.hostname.includes('cdn.jsdelivr.net')||url.hostname.includes('cdnjs.cloudflare.com')||url.hostname.includes('fonts.googleapis.com')){
+    e.respondWith(caches.match(e.request).then(cached=>{const fp=fetch(e.request).then(net=>{caches.open(CACHE).then(c=>c.put(e.request,net.clone()));return net;}).catch(()=>cached);return cached||fp;}));
+    return;
+  }
+  e.respondWith(caches.match(e.request).then(cached=>{if(cached) return cached;return fetch(e.request).then(res=>{if(res.ok&&e.request.method==='GET'&&url.origin===self.location.origin){const clone=res.clone();caches.open(CACHE).then(c=>c.put(e.request,clone));}return res;}).catch(()=>caches.match('./index.html'));}));
 });
