@@ -71,6 +71,19 @@ header{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:10px 14px;
 </style>
 </head>
 <body>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/apps/silsilah/sw.js')
+        .then(registration => {
+          console.log('Service Worker terdaftar dengan scope:', registration.scope);
+        })
+        .catch(error => {
+          console.error('Pendaftaran Service Worker gagal:', error);
+        });
+    });
+  }
+</script>
 <header>
 <div class="brand">S</div>
 <div class="h-title"><b>SILSILAH KELUARGA</b><div>Penampil dan Editor file Gedcom Silsilah</div></div>
