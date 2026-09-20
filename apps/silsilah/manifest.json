@@ -2,7 +2,7 @@
   "name": "Silsilah Keluarga",
   "short_name": "Silsilah",
   "description": "Penampil dan Editor file Gedcom Silsilah",
-  "start_url": "https://alifjuman.github.io/apps/silsilah/",
+  "start_url": "/apps/silsilah/",
   "scope": "/apps/silsilah/",
   "display": "standalone",
   "background_color": "#ffffff",
