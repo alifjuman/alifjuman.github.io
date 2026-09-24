@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-18T03:41:06.926Z",
+  "updatedAt": "2026-09-24T08:57:51.506Z",
   "apps": [
+    {
+      "id": "mufatow9",
+      "name": "Display Masjid",
+      "url": "./apps/displaymasjid.html",
+      "description": "Display Jadwal Shalat Masjid",
+      "category": "Produktivitas",
+      "icon": "✅",
+      "color": "#8b5cf6",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1790240254281
+    },
     {
       "id": "mu42wroi",
       "name": "Ulangan Bab Atom dan Konfigurasi Elektron",
