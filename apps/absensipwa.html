@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduTrack - Sistem Absensi & Nilai</title>
+<meta name="theme-color" content="#0B1120">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+<script>
+tailwind.config={theme:{extend:{fontFamily:{poppins:['Poppins','sans-serif']},colors:{navy:{900:'#0B1120',800:'#111A2E',700:'#162036',600:'#1A2744',500:'#1E3050'},emerald:{500:'#10B981',400:'#34D399',600:'#059669'},amber:{500:'#F59E0B',400:'#FBBF24'}}}}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+:root{--sidebar-w:260px;--header-h:64px}
+body{background:#0B1120;color:#E2E8F0;min-height:100vh;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#111A2E}
+::-webkit-scrollbar-thumb{background:#1E3050;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#2A3F5F}
+
+/* Sidebar */
+#sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sidebar-w);background:linear-gradient(180deg,#0E1525 0%,#111A2E 100%);border-right:1px solid rgba(16,185,129,0.08);z-index:40;transition:transform .3s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+#sidebar.closed{transform:translateX(-100%)}
+.nav-item{display:flex;align-items:center;gap:12px;padding:11px 20px;margin:2px 10px;border-radius:10px;cursor:pointer;transition:all .2s;color:#94A3B8;font-size:.88rem;font-weight:500;position:relative}
+.nav-item:hover{background:rgba(16,185,129,0.06);color:#E2E8F0}
+.nav-item.active{background:rgba(16,185,129,0.12);color:#10B981;font-weight:600}
+.nav-item.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:60%;background:#10B981;border-radius:0 3px 3px 0}
+.nav-item i{width:20px;text-align:center;font-size:.95rem}
+
+/* Main */
+#main{margin-left:var(--sidebar-w);min-height:100vh;transition:margin .3s}
+#main.full{margin-left:0}
+
+/* Header */
+#header{height:var(--header-h);background:rgba(11,17,32,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(30,48,80,0.5);position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+
+/* Cards */
+.card{background:linear-gradient(135deg,#131C2E 0%,#162036 100%);border:1px solid rgba(30,48,80,0.5);border-radius:14px;padding:20px;transition:all .3s}
+.card:hover{border-color:rgba(16,185,129,0.15)}
+
+/* Stat Card */
+.stat-card{position:relative;overflow:hidden}
+.stat-card::after{content:'';position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;opacity:.06;transition:opacity .3s}
+.stat-card:hover::after{opacity:.12}
+.stat-card.emerald::after{background:#10B981}
+.stat-card.amber::after{background:#F59E0B}
+.stat-card.rose::after{background:#F43F5E}
+.stat-card.sky::after{background:#0EA5E9}
+
+/* Table */
+.data-table{width:100%;border-collapse:separate;border-spacing:0}
+.data-table thead th{background:#131C2E;padding:12px 16px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#64748B;text-align:left;border-bottom:1px solid rgba(30,48,80,0.5);position:sticky;top:0}
+.data-table tbody tr{transition:background .15s}
+.data-table tbody tr:hover{background:rgba(16,185,129,0.04)}
+.data-table tbody td{padding:10px 16px;font-size:.85rem;border-bottom:1px solid rgba(30,48,80,0.3);color:#CBD5E1}
+
+/* Badge */
+.badge{display:inline-flex;align-items:center;padding:2px 10px;border-radius:20px;font-size:.72rem;font-weight:600;letter-spacing:.02em}
+.badge-hadir{background:rgba(16,185,129,0.15);color:#34D399}
+.badge-sakit{background:rgba(245,158,11,0.15);color:#FBBF24}
+.badge-izin{background:rgba(14,165,233,0.15);color:#38BDF8}
+.badge-alpha{background:rgba(244,63,94,0.15);color:#FB7185}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:10px;font-size:.84rem;font-weight:600;cursor:pointer;transition:all .2s;border:none;outline:none}
+.btn-primary{background:linear-gradient(135deg,#10B981,#059669);color:#fff;box-shadow:0 2px 12px rgba(16,185,129,0.25)}
+.btn-primary:hover{box-shadow:0 4px 20px rgba(16,185,129,0.35);transform:translateY(-1px)}
+.btn-secondary{background:#1A2744;color:#CBD5E1;border:1px solid rgba(30,48,80,0.6)}
+.btn-secondary:hover{background:#1E3050;color:#E2E8F0}
+.btn-danger{background:rgba(244,63,94,0.15);color:#FB7185;border:1px solid rgba(244,63,94,0.2)}
+.btn-danger:hover{background:rgba(244,63,94,0.25)}
+.btn-amber{background:linear-gradient(135deg,#F59E0B,#D97706);color:#fff;box-shadow:0 2px 12px rgba(245,158,11,0.25)}
+.btn-amber:hover{box-shadow:0 4px 20px rgba(245,158,11,0.35);transform:translateY(-1px)}
+.btn-sm{padding:6px 12px;font-size:.78rem;border-radius:8px}
+
+/* Form */
+.form-input{width:100%;padding:10px 14px;background:#0E1525;border:1px solid rgba(30,48,80,0.6);border-radius:10px;color:#E2E8F0;font-size:.85rem;transition:border .2s;outline:none}
+.form-input:focus{border-color:#10B981;box-shadow:0 0 0 3px rgba(16,185,129,0.1)}
+.form-input::placeholder{color:#475569}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2364748B' viewBox='0 0 20 20'%3E%3Cpath d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:36px}
+.form-label{display:block;font-size:.78rem;font-weight:600;color:#94A3B8;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+
+/* Modal */
+#modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}
+#modal-overlay.show{display:flex}
+#modal-box{background:linear-gradient(135deg,#131C2E,#162036);border:1px solid rgba(30,48,80,0.6);border-radius:16px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;animation:modalIn .25s ease}
+
+/* Toast */
+#toast-wrap{position:fixed;bottom:20px;right:20px;z-index:60;display:flex;flex-direction:column;gap:8px}
+.toast{padding:12px 20px;border-radius:10px;font-size:.84rem;font-weight:500;animation:toastIn .3s ease;display:flex;align-items:center;gap:10px;min-width:280px;box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.toast-success{background:#059669;color:#fff}
+.toast-error{background:#DC2626;color:#fff}
+.toast-warning{background:#D97706;color:#fff}
+.toast-info{background:#0284C7;color:#fff}
+
+/* Absensi Radio */
+.att-radio{display:flex;gap:4px}
+.att-radio label{padding:4px 10px;border-radius:6px;font-size:.76rem;font-weight:600;cursor:pointer;transition:all .15s;border:1px solid transparent}
+.att-radio input{display:none}
+.att-radio input[value="H"]:checked+label{background:rgba(16,185,129,0.2);color:#34D399;border-color:rgba(16,185,129,0.3)}
+.att-radio input[value="S"]:checked+label{background:rgba(245,158,11,0.2);color:#FBBF24;border-color:rgba(245,158,11,0.3)}
+.att-radio input[value="I"]:checked+label{background:rgba(14,165,233,0.2);color:#38BDF8;border-color:rgba(14,165,233,0.3)}
+.att-radio input[value="A"]:checked+label{background:rgba(244,63,94,0.2);color:#FB7185;border-color:rgba(244,63,94,0.3)}
+
+/* Upload Zone */
+.upload-zone{border:2px dashed rgba(30,48,80,0.6);border-radius:14px;padding:40px 20px;text-align:center;transition:all .3s;cursor:pointer}
+.upload-zone:hover,.upload-zone.dragover{border-color:#10B981;background:rgba(16,185,129,0.04)}
+
+/* Animations */
+@keyframes modalIn{from{opacity:0;transform:scale(.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes toastIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse-ring{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.3);opacity:0}}
+.animate-in{animation:fadeIn .4s ease both}
+.animate-in-1{animation-delay:.05s}
+.animate-in-2{animation-delay:.1s}
+.animate-in-3{animation-delay:.15s}
+.animate-in-4{animation-delay:.2s}
+
+/* Glow effects */
+.glow-emerald{box-shadow:0 0 40px rgba(16,185,129,0.08)}
+
+/* Responsive */
+@media(max-width:768px){
+  #sidebar{transform:translateX(-100%)}
+  #sidebar.open{transform:translateX(0)}
+  #main{margin-left:0!important}
+  .data-table{font-size:.78rem}
+  .data-table thead th,.data-table tbody td{padding:8px 10px}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar Overlay (mobile) -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-30 hidden" onclick="toggleSidebar()"></div>
+
+<!-- Sidebar -->
+<aside id="sidebar">
+  <div class="p-5 border-b border-navy-500/50">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center">
+        <i class="fas fa-graduation-cap text-white text-sm"></i>
+      </div>
+      <div>
+        <h1 class="text-base font-bold text-white tracking-tight">EduTrack</h1>
+        <p class="text-[.65rem] text-slate-500 font-medium">Sistem Absensi & Nilai</p>
+      </div>
+    </div>
+  </div>
+  <nav class="py-4" id="nav-menu">
+    <div class="px-5 mb-2"><span class="text-[.65rem] font-bold text-slate-600 uppercase tracking-wider">Menu Utama</span></div>
+    <div class="nav-item active" data-page="dashboard" onclick="navigate('dashboard')"><i class="fas fa-gauge-high"></i>Dashboard</div>
+    <div class="nav-item" data-page="kelas" onclick="navigate('kelas')"><i class="fas fa-school"></i>Kelas</div>
+    <div class="nav-item" data-page="mapel" onclick="navigate('mapel')"><i class="fas fa-book-open"></i>Mata Pelajaran</div>
+    <div class="nav-item" data-page="siswa" onclick="navigate('siswa')"><i class="fas fa-users"></i>Siswa</div>
+    <div class="px-5 mb-2 mt-4"><span class="text-[.65rem] font-bold text-slate-600 uppercase tracking-wider">Akademik</span></div>
+    <div class="nav-item" data-page="absensi" onclick="navigate('absensi')"><i class="fas fa-clipboard-check"></i>Absensi</div>
+    <div class="nav-item" data-page="nilai" onclick="navigate('nilai')"><i class="fas fa-chart-bar"></i>Nilai</div>
+    <div class="px-5 mb-2 mt-4"><span class="text-[.65rem] font-bold text-slate-600 uppercase tracking-wider">Data</span></div>
+    <div class="nav-item" data-page="import-export" onclick="navigate('import-export')"><i class="fas fa-file-excel"></i>Import / Export</div>
+  </nav>
+  <div class="p-4 m-3 mt-2 rounded-xl bg-gradient-to-br from-emerald-500/10 to-emerald-600/5 border border-emerald-500/10">
+    <p class="text-[.72rem] text-emerald-400 font-semibold mb-1">PWA Ready</p>
+    <p class="text-[.66rem] text-slate-500">Aplikasi dapat diinstall dan digunakan offline</p>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<div id="main">
+  <!-- Header -->
+  <header id="header">
+    <div class="flex items-center gap-3">
+      <button onclick="toggleSidebar()" class="w-9 h-9 rounded-lg bg-navy-600 flex items-center justify-center hover:bg-navy-500 transition md:hidden" aria-label="Toggle menu">
+        <i class="fas fa-bars text-slate-400 text-sm"></i>
+      </button>
+      <h2 id="page-title" class="text-base font-bold text-white">Dashboard</h2>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs text-slate-500 hidden sm:block" id="current-date"></span>
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 flex items-center justify-center border border-emerald-500/20">
+        <i class="fas fa-user text-emerald-400 text-xs"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div id="page-content" class="p-4 sm:p-6"></div>
+</div>
+
+<!-- Modal -->
+<div id="modal-overlay" role="dialog" aria-modal="true">
+  <div id="modal-box"></div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-wrap" aria-live="polite"></div>
+
+<script>
+// ===== DATABASE =====
+let db = { classes: [], subjects: [], students: [], attendance: [], grades: [] };
+
+function loadDB() {
+  try {
+    const s = localStorage.getItem('edutrack_db');
+    if (s) { db = JSON.parse(s); }
+    else { initSampleData(); }
+  } catch(e) { initSampleData(); }
+}
+
+function saveDB() {
+  localStorage.setItem('edutrack_db', JSON.stringify(db));
+}
+
+function genId() {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2, 6);
+}
+
+function initSampleData() {
+  const c1 = genId(), c2 = genId(), c3 = genId();
+  db.classes = [
+    { id: c1, name: 'X-A', level: 'X' },
+    { id: c2, name: 'X-B', level: 'X' },
+    { id: c3, name: 'XI-IPA', level: 'XI' }
+  ];
+  const s1 = genId(), s2 = genId(), s3 = genId(), s4 = genId(), s5 = genId();
+  db.subjects = [
+    { id: s1, name: 'Matematika', teacher: 'Budi Santoso' },
+    { id: s2, name: 'Bahasa Indonesia', teacher: 'Siti Aminah' },
+    { id: s3, name: 'IPA', teacher: 'Agus Wijaya' },
+    { id: s4, name: 'IPS', teacher: 'Dewi Lestari' },
+    { id: s5, name: 'Bahasa Inggris', teacher: 'Rina Pertiwi' }
+  ];
+  const names1 = ['Ahmad Fauzi','Bella Putri','Candra Wijaya','Dina Safitri','Eko Prasetyo','Fitri Handayani','Galih Ramadhan','Hana Puspita'];
+  const names2 = ['Irfan Maulana','Jihan Azzahra','Kurniawan Adi','Lestari Dewi','Muhamad Rizky','Nadia Safira','Oscar Pratama'];
+  const names3 = ['Putri Ayu','Rendi Firmansyah','Sari Indah','Taufik Hidayat','Ulfa Rahma','Vina Melati','Wahyu Setiawan','Xena Permata','Yusuf Maulana'];
+  let sts = [];
+  names1.forEach((n,i) => sts.push({ id: genId(), name: n, nisn: '00'+(i+1), classId: c1 }));
+  names2.forEach((n,i) => sts.push({ id: genId(), name: n, nisn: '10'+(i+1), classId: c2 }));
+  names3.forEach((n,i) => sts.push({ id: genId(), name: n, nisn: '20'+(i+1), classId: c3 }));
+  db.students = sts;
+
+  // Sample attendance
+  const today = new Date().toISOString().split('T')[0];
+  let att = { id: genId(), date: today, classId: c1, subjectId: s1, records: {} };
+  sts.filter(s=>s.classId===c1).forEach((s,i) => { att.records[s.id] = i===3?'S':i===5?'I':'H'; });
+  db.attendance = [att];
+
+  // Sample grades
+  let gr = { id: genId(), classId: c1, subjectId: s1, type: 'UTS', records: {} };
+  sts.filter(s=>s.classId===c1).forEach((s,i) => { gr.records[s.id] = 70 + Math.floor(Math.random()*25); });
+  db.grades = [gr];
+
+  saveDB();
+}
+
+// ===== NAVIGATION =====
+let currentPage = 'dashboard';
+
+function navigate(page) {
+  currentPage = page;
+  document.querySelectorAll('.nav-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.page === page);
+  });
+  const titles = {
+    'dashboard':'Dashboard','kelas':'Kelas','mapel':'Mata Pelajaran','siswa':'Siswa',
+    'absensi':'Absensi','nilai':'Nilai','import-export':'Import / Export'
+  };
+  document.getElementById('page-title').textContent = titles[page] || page;
+  renderPage();
+  // Tutup sidebar di mobile
+  if(window.innerWidth < 768) {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebar-overlay').classList.add('hidden');
+  }
+}
+
+function toggleSidebar() {
+  const sb = document.getElementById('sidebar');
+  const ov = document.getElementById('sidebar-overlay');
+  sb.classList.toggle('open');
+  ov.classList.toggle('hidden');
+}
+
+// ===== RENDER =====
+function renderPage() {
+  const c = document.getElementById('page-content');
+  switch(currentPage) {
+    case 'dashboard': c.innerHTML = renderDashboard(); break;
+    case 'kelas': c.innerHTML = renderKelas(); break;
+    case 'mapel': c.innerHTML = renderMapel(); break;
+    case 'siswa': c.innerHTML = renderSiswa(); break;
+    case 'absensi': c.innerHTML = renderAbsensi(); break;
+    case 'nilai': c.innerHTML = renderNilai(); break;
+    case 'import-export': c.innerHTML = renderImportExport(); break;
+  }
+}
+
+// ===== HELPERS =====
+function getClassName(id) { const c = db.classes.find(x=>x.id===id); return c ? c.name : '-'; }
+function getSubjectName(id) { const s = db.subjects.find(x=>x.id===id); return s ? s.name : '-'; }
+function getStudentName(id) { const s = db.students.find(x=>x.id===id); return s ? s.name : '-'; }
+function getStudentsByClass(classId) { return db.students.filter(s=>s.classId===classId); }
+
+function toast(msg, type='success') {
+  const wrap = document.getElementById('toast-wrap');
+  const t = document.createElement('div');
+  t.className = `toast toast-${type}`;
+  const icons = {success:'fa-check-circle',error:'fa-times-circle',warning:'fa-exclamation-triangle',info:'fa-info-circle'};
+  t.innerHTML = `<i class="fas ${icons[type]||icons.info}"></i><span>${msg}</span>`;
+  wrap.appendChild(t);
+  setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(40px)'; t.style.transition='all .3s'; setTimeout(()=>t.remove(),300); },3000);
+}
+
+function showModal(title, body, footer='') {
+  const overlay = document.getElementById('modal-overlay');
+  document.getElementById('modal-box').innerHTML = `
+    <div class="p-5 border-b border-navy-500/50 flex items-center justify-between">
+      <h3 class="text-base font-bold text-white">${title}</h3>
+      <button onclick="closeModal()" class="w-8 h-8 rounded-lg bg-navy-600 flex items-center justify-center hover:bg-navy-500 transition" aria-label="Tutup"><i class="fas fa-times text-slate-400 text-xs"></i></button>
+    </div>
+    <div class="p-5">${body}</div>
+    ${footer ? `<div class="p-5 pt-0 flex justify-end gap-3">${footer}</div>` : ''}
+  `;
+  overlay.classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('show');
+}
+
+function confirmDelete(msg, cb) {
+  showModal('Konfirmasi Hapus',
+    `<p class="text-sm text-slate-400">${msg}</p>`,
+    `<button onclick="closeModal()" class="btn btn-secondary btn-sm">Batal</button>
+     <button id="btn-confirm-del" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i>Hapus</button>`
+  );
+  document.getElementById('btn-confirm-del').onclick = () => { closeModal(); cb(); };
+}
+
+// ===== DASHBOARD =====
+function renderDashboard() {
+  const totalKelas = db.classes.length;
+  const totalMapel = db.subjects.length;
+  const totalSiswa = db.students.length;
+  const today = new Date().toISOString().split('T')[0];
+  const todayAtt = db.attendance.filter(a=>a.date===today);
+  let todayHadir = 0, todayTotal = 0;
+  todayAtt.forEach(a => { Object.values(a.records).forEach(v => { todayTotal++; if(v==='H') todayHadir++; }); });
+  const pctHadir = todayTotal > 0 ? Math.round(todayHadir/todayTotal*100) : 0;
+
+  return `
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <div class="card stat-card emerald animate-in animate-in-1">
+      <div class="flex items-center justify-between mb-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/15 flex items-center justify-center"><i class="fas fa-school text-emerald-400"></i></div>
+        <span class="text-[.68rem] text-emerald-400 font-semibold">Kelas</span>
+      </div>
+      <p class="text-2xl font-extrabold text-white">${totalKelas}</p>
+      <p class="text-[.7rem] text-slate-500 mt-1">Total kelas terdaftar</p>
+    </div>
+    <div class="card stat-card amber animate-in animate-in-2">
+      <div class="flex items-center justify-between mb-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center"><i class="fas fa-book-open text-amber-400"></i></div>
+        <span class="text-[.68rem] text-amber-400 font-semibold">Mapel</span>
+      </div>
+      <p class="text-2xl font-extrabold text-white">${totalMapel}</p>
+      <p class="text-[.7rem] text-slate-500 mt-1">Mata pelajaran</p>
+    </div>
+    <div class="card stat-card sky animate-in animate-in-3">
+      <div class="flex items-center justify-between mb-3">
+        <div class="w-10 h-10 rounded-xl bg-sky-500/15 flex items-center justify-center"><i class="fas fa-users text-sky-400"></i></div>
+        <span class="text-[.68rem] text-sky-400 font-semibold">Siswa</span>
+      </div>
+      <p class="text-2xl font-extrabold text-white">${totalSiswa}</p>
+      <p class="text-[.7rem] text-slate-500 mt-1">Total siswa aktif</p>
+    </div>
+    <div class="card stat-card rose animate-in animate-in-4">
+      <div class="flex items-center justify-between mb-3">
+        <div class="w-10 h-10 rounded-xl bg-rose-500/15 flex items-center justify-center"><i class="fas fa-clipboard-check text-rose-400"></i></div>
+        <span class="text-[.68rem] text-rose-400 font-semibold">Hadir</span>
+      </div>
+      <p class="text-2xl font-extrabold text-white">${pctHadir}%</p>
+      <p class="text-[.7rem] text-slate-500 mt-1">Kehadiran hari ini</p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+    <div class="card animate-in animate-in-2">
+      <h3 class="text-sm font-bold text-white mb-4"><i class="fas fa-clock-rotate-left text-emerald-400 mr-2"></i>Absensi Terkini</h3>
+      ${db.attendance.length === 0 ? '<p class="text-sm text-slate-500">Belum ada data absensi</p>' : `
+      <div class="overflow-x-auto" style="max-height:260px;overflow-y:auto">
+        <table class="data-table">
+          <thead><tr><th>Tanggal</th><th>Kelas</th><th>Mapel</th><th>H</th><th>S</th><th>I</th><th>A</th></tr></thead>
+          <tbody>
+          ${db.attendance.slice(-10).reverse().map(a => {
+            const recs = Object.values(a.records);
+            return `<tr>
+              <td>${a.date}</td>
+              <td>${getClassName(a.classId)}</td>
+              <td>${getSubjectName(a.subjectId)}</td>
+              <td class="text-emerald-400 font-semibold">${recs.filter(v=>v==='H').length}</td>
+              <td class="text-amber-400 font-semibold">${recs.filter(v=>v==='S').length}</td>
+              <td class="text-sky-400 font-semibold">${recs.filter(v=>v==='I').length}</td>
+              <td class="text-rose-400 font-semibold">${recs.filter(v=>v==='A').length}</td>
+            </tr>`;
+          }).join('')}
+          </tbody>
+        </table>
+      </div>`}
+    </div>
+    <div class="card animate-in animate-in-3">
+      <h3 class="text-sm font-bold text-white mb-4"><i class="fas fa-chart-line text-amber-400 mr-2"></i>Nilai Terkini</h3>
+      ${db.grades.length === 0 ? '<p class="text-sm text-slate-500">Belum ada data nilai</p>' : `
+      <div class="overflow-x-auto" style="max-height:260px;overflow-y:auto">
+        <table class="data-table">
+          <thead><tr><th>Kelas</th><th>Mapel</th><th>Jenis</th><th>Rata-rata</th><th>Tertinggi</th><th>Terendah</th></tr></thead>
+          <tbody>
+          ${db.grades.slice(-10).reverse().map(g => {
+            const vals = Object.values(g.records).filter(v=>v!==null&&v!=='');
+            const avg = vals.length ? (vals.reduce((a,b)=>a+Number(b),0)/vals.length).toFixed(1) : '-';
+            const mx = vals.length ? Math.max(...vals.map(Number)) : '-';
+            const mn = vals.length ? Math.min(...vals.map(Number)) : '-';
+            return `<tr>
+              <td>${getClassName(g.classId)}</td>
+              <td>${getSubjectName(g.subjectId)}</td>
+              <td>${g.type}</td>
+              <td class="font-semibold ${Number(avg)>=75?'text-emerald-400':'text-rose-400'}">${avg}</td>
+              <td class="text-emerald-400">${mx}</td>
+              <td class="text-rose-400">${mn}</td>
+            </tr>`;
+          }).join('')}
+          </tbody>
+        </table>
+      </div>`}
+    </div>
+  </div>
+
+  <div class="card animate-in animate-in-4">
+    <h3 class="text-sm font-bold text-white mb-4"><i class="fas fa-users text-sky-400 mr-2"></i>Distribusi Siswa per Kelas</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+    ${db.classes.map(c => {
+      const cnt = getStudentsByClass(c.id).length;
+      const pct = totalSiswa > 0 ? Math.round(cnt/totalSiswa*100) : 0;
+      return `<div class="bg-navy-800/50 rounded-xl p-4 border border-navy-500/30">
+        <p class="text-sm font-bold text-white">${c.name}</p>
+        <p class="text-xs text-slate-500 mt-1">${cnt} siswa</p>
+        <div class="mt-2 h-1.5 bg-navy-900 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full" style="width:${pct}%"></div>
+        </div>
+      </div>`;
+    }).join('')}
+    </div>
+  </div>`;
+}
+
+// ===== KELAS =====
+function renderKelas() {
+  return `
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+    <p class="text-sm text-slate-400">Kelola data kelas yang tersedia</p>
+    <button onclick="modalKelas()" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Tambah Kelas</button>
+  </div>
+  <div class="card">
+    ${db.classes.length===0 ? '<p class="text-sm text-slate-500 text-center py-8">Belum ada data kelas. Klik tombol di atas untuk menambahkan.</p>' : `
+    <div class="overflow-x-auto">
+      <table class="data-table">
+        <thead><tr><th>No</th><th>Nama Kelas</th><th>Tingkat</th><th>Jumlah Siswa</th><th class="text-right">Aksi</th></tr></thead>
+        <tbody>
+        ${db.classes.map((c,i) => `<tr>
+          <td>${i+1}</td>
+          <td class="font-semibold text-white">${c.name}</td>
+          <td>${c.level}</td>
+          <td>${getStudentsByClass(c.id).length} siswa</td>
+          <td class="text-right">
+            <button onclick="modalKelas('${c.id}')" class="btn btn-secondary btn-sm mr-1" title="Edit"><i class="fas fa-pen text-xs"></i></button>
+            <button onclick="delKelas('${c.id}')" class="btn btn-danger btn-sm" title="Hapus"><i class="fas fa-trash-alt text-xs"></i></button>
+          </td>
+        </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`}
+  </div>`;
+}
+
+function modalKelas(id=null) {
+  const c = id ? db.classes.find(x=>x.id===id) : null;
+  showModal(c ? 'Edit Kelas' : 'Tambah Kelas',
+    `<div class="space-y-4">
+      <div><label class="form-label">Nama Kelas</label><input id="f-kelas-name" class="form-input" placeholder="Contoh: X-A" value="${c?c.name:''}"></div>
+      <div><label class="form-label">Tingkat</label>
+        <select id="f-kelas-level" class="form-input form-select">
+          <option value="X" ${c&&c.level==='X'?'selected':''}>X</option>
+          <option value="XI" ${c&&c.level==='XI'?'selected':''}>XI</option>
+          <option value="XII" ${c&&c.level==='XII'?'selected':''}>XII</option>
+        </select>
+      </div>
+    </div>`,
+    `<button onclick="closeModal()" class="btn btn-secondary btn-sm">Batal</button>
+     <button onclick="saveKelas('${id||''}')" class="btn btn-primary btn-sm"><i class="fas fa-save"></i>Simpan</button>`
+  );
+}
+
+function saveKelas(id) {
+  const name = document.getElementById('f-kelas-name').value.trim();
+  const level = document.getElementById('f-kelas-level').value;
+  if(!name) { toast('Nama kelas wajib diisi','error'); return; }
+  if(id) {
+    const c = db.classes.find(x=>x.id===id);
+    if(c) { c.name = name; c.level = level; }
+  } else {
+    db.classes.push({ id: genId(), name, level });
+  }
+  saveDB(); closeModal(); renderPage(); toast(id?'Kelas diperbarui':'Kelas ditambahkan');
+}
+
+function delKelas(id) {
+  const c = db.classes.find(x=>x.id===id);
+  confirmDelete(`Yakin ingin menghapus kelas <strong>${c.name}</strong>? Semua data siswa, absensi, dan nilai terkait juga akan terhapus.`, () => {
+    db.students = db.students.filter(s=>s.classId!==id);
+    db.attendance = db.attendance.filter(a=>a.classId!==id);
+    db.grades = db.grades.filter(g=>g.classId!==id);
+    db.classes = db.classes.filter(x=>x.id!==id);
+    saveDB(); renderPage(); toast('Kelas dihapus');
+  });
+}
+
+// ===== MAPEL =====
+function renderMapel() {
+  return `
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+    <p class="text-sm text-slate-400">Kelola mata pelajaran</p>
+    <button onclick="modalMapel()" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Tambah Mapel</button>
+  </div>
+  <div class="card">
+    ${db.subjects.length===0 ? '<p class="text-sm text-slate-500 text-center py-8">Belum ada data mata pelajaran.</p>' : `
+    <div class="overflow-x-auto">
+      <table class="data-table">
+        <thead><tr><th>No</th><th>Mata Pelajaran</th><th>Guru Pengampu</th><th class="text-right">Aksi</th></tr></thead>
+        <tbody>
+        ${db.subjects.map((s,i) => `<tr>
+          <td>${i+1}</td>
+          <td class="font-semibold text-white">${s.name}</td>
+          <td>${s.teacher}</td>
+          <td class="text-right">
+            <button onclick="modalMapel('${s.id}')" class="btn btn-secondary btn-sm mr-1"><i class="fas fa-pen text-xs"></i></button>
+            <button onclick="delMapel('${s.id}')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt text-xs"></i></button>
+          </td>
+        </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`}
+  </div>`;
+}
+
+function modalMapel(id=null) {
+  const s = id ? db.subjects.find(x=>x.id===id) : null;
+  showModal(s?'Edit Mata Pelajaran':'Tambah Mata Pelajaran',
+    `<div class="space-y-4">
+      <div><label class="form-label">Nama Mapel</label><input id="f-mapel-name" class="form-input" placeholder="Contoh: Matematika" value="${s?s.name:''}"></div>
+      <div><label class="form-label">Guru Pengampu</label><input id="f-mapel-teacher" class="form-input" placeholder="Nama guru" value="${s?s.teacher:''}"></div>
+    </div>`,
+    `<button onclick="closeModal()" class="btn btn-secondary btn-sm">Batal</button>
+     <button onclick="saveMapel('${id||''}')" class="btn btn-primary btn-sm"><i class="fas fa-save"></i>Simpan</button>`
+  );
+}
+
+function saveMapel(id) {
+  const name = document.getElementById('f-mapel-name').value.trim();
+  const teacher = document.getElementById('f-mapel-teacher').value.trim();
+  if(!name) { toast('Nama mapel wajib diisi','error'); return; }
+  if(id) {
+    const s = db.subjects.find(x=>x.id===id);
+    if(s) { s.name=name; s.teacher=teacher; }
+  } else {
+    db.subjects.push({ id:genId(), name, teacher });
+  }
+  saveDB(); closeModal(); renderPage(); toast(id?'Mapel diperbarui':'Mapel ditambahkan');
+}
+
+function delMapel(id) {
+  const s = db.subjects.find(x=>x.id===id);
+  confirmDelete(`Yakin ingin menghapus mapel <strong>${s.name}</strong>?`, () => {
+    db.attendance = db.attendance.filter(a=>a.subjectId!==id);
+    db.grades = db.grades.filter(g=>g.subjectId!==id);
+    db.subjects = db.subjects.filter(x=>x.id!==id);
+    saveDB(); renderPage(); toast('Mapel dihapus');
+  });
+}
+
+// ===== SISWA =====
+let siswaFilter = '';
+
+function renderSiswa() {
+  const filtered = siswaFilter ? db.students.filter(s=>s.classId===siswaFilter) : db.students;
+  return `
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-5">
+    <div class="flex items-center gap-3 flex-wrap">
+      <select id="f-siswa-filter" onchange="siswaFilter=this.value;renderPage()" class="form-input form-select text-sm" style="width:auto;min-width:160px">
+        <option value="">Semua Kelas</option>
+        ${db.classes.map(c=>`<option value="${c.id}" ${siswaFilter===c.id?'selected':''}>${c.name}</option>`).join('')}
+      </select>
+      <span class="text-xs text-slate-500">${filtered.length} siswa</span>
+    </div>
+    <button onclick="modalSiswa()" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Tambah Siswa</button>
+  </div>
+  <div class="card">
+    ${filtered.length===0 ? '<p class="text-sm text-slate-500 text-center py-8">Tidak ada data siswa.</p>' : `
+    <div class="overflow-x-auto">
+      <table class="data-table">
+        <thead><tr><th>No</th><th>NISN</th><th>Nama</th><th>Kelas</th><th class="text-right">Aksi</th></tr></thead>
+        <tbody>
+        ${filtered.map((s,i) => `<tr>
+          <td>${i+1}</td>
+          <td>${s.nisn}</td>
+          <td class="font-semibold text-white">${s.name}</td>
+          <td><span class="badge" style="background:rgba(14,165,233,0.12);color:#38BDF8">${getClassName(s.classId)}</span></td>
+          <td class="text-right">
+            <button onclick="modalSiswa('${s.id}')" class="btn btn-secondary btn-sm mr-1"><i class="fas fa-pen text-xs"></i></button>
+            <button onclick="delSiswa('${s.id}')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt text-xs"></i></button>
+          </td>
+        </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`}
+  </div>`;
+}
+
+function modalSiswa(id=null) {
+  const s = id ? db.students.find(x=>x.id===id) : null;
+  showModal(s?'Edit Siswa':'Tambah Siswa',
+    `<div class="space-y-4">
+      <div><label class="form-label">NISN</label><input id="f-siswa-nisn" class="form-input" placeholder="Nomor Induk" value="${s?s.nisn:''}"></div>
+      <div><label class="form-label">Nama Lengkap</label><input id="f-siswa-name" class="form-input" placeholder="Nama siswa" value="${s?s.name:''}"></div>
+      <div><label class="form-label">Kelas</label>
+        <select id="f-siswa-class" class="form-input form-select">
+          <option value="">-- Pilih Kelas --</option>
+          ${db.classes.map(c=>`<option value="${c.id}" ${s&&s.classId===c.id?'selected':''}>${c.name}</option>`).join('')}
+        </select>
+      </div>
+    </div>`,
+    `<button onclick="closeModal()" class="btn btn-secondary btn-sm">Batal</button>
+     <button onclick="saveSiswa('${id||''}')" class="btn btn-primary btn-sm"><i class="fas fa-save"></i>Simpan</button>`
+  );
+}
+
+function saveSiswa(id) {
+  const nisn = document.getElementById('f-siswa-nisn').value.trim();
+  const name = document.getElementById('f-siswa-name').value.trim();
+  const classId = document.getElementById('f-siswa-class').value;
+  if(!name||!classId) { toast('Nama dan kelas wajib diisi','error'); return; }
+  if(id) {
+    const s = db.students.find(x=>x.id===id);
+    if(s) { s.nisn=nisn; s.name=name; s.classId=classId; }
+  } else {
+    db.students.push({ id:genId(), nisn, name, classId });
+  }
+  saveDB(); closeModal(); renderPage(); toast(id?'Siswa diperbarui':'Siswa ditambahkan');
+}
+
+function delSiswa(id) {
+  const s = db.students.find(x=>x.id===id);
+  confirmDelete(`Yakin ingin menghapus siswa <strong>${s.name}</strong>?`, () => {
+    db.students = db.students.filter(x=>x.id!==id);
+    db.attendance.forEach(a => { delete a.records[id]; });
+    db.grades.forEach(g => { delete g.records[id]; });
+    saveDB(); renderPage(); toast('Siswa dihapus');
+  });
+}
+
+// ===== ABSENSI =====
+let attClassFilter = '', attSubjectFilter = '', attDate = new Date().toISOString().split('T')[0];
+
+function renderAbsensi() {
+  return `
+  <div class="card mb-5 animate-in">
+    <h3 class="text-sm font-bold text-white mb-4"><i class="fas fa-pen-to-square text-emerald-400 mr-2"></i>Input Absensi</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+      <div><label class="form-label">Kelas</label>
+        <select id="att-class" onchange="attClassFilter=this.value;renderAttStudents()" class="form-input form-select">
+          <option value="">-- Pilih Kelas --</option>
+          ${db.classes.map(c=>`<option value="${c.id}" ${attClassFilter===c.id?'selected':''}>${c.name}</option>`).join('')}
+        </select>
+      </div>
+      <div><label class="form-label">Mata Pelajaran</label>
+        <select id="att-subject" onchange="attSubjectFilter=this.value" class="form-input form-select">
+          <option value="">-- Pilih Mapel --</option>
+          ${db.subjects.map(s=>`<option value="${s.id}" ${attSubjectFilter===s.id?'selected':''}>${s.name}</option>`).join('')}
+        </select>
+      </div>
+      <div><label class="form-label">Tanggal</label><input type="date" id="att-date" class="form-input" value="${attDate}" onchange="attDate=this.value"></div>
+    </div>
+    <div id="att-students-list"></div>
+  </div>
+  <div class="card animate-in animate-in-2">
+    <h3 class="text-sm font-bold text-white mb-4"><i class="fas fa-clock-rotate-left text-amber-400 mr-2"></i>Riwayat Absensi</h3>
+    <div class="overflow-x-auto">
+    ${db.attendance.length===0 ? '<p class="text-sm text-slate-500 text-center py-4">Belum ada riwayat absensi</p>' : `
+      <table class="data-table">
+        <thead><tr><th>Tanggal</th><th>Kelas</th><th>Mapel</th><th>H</th><th>S</th><th>I</th><th>A</th><th class="text-right">Aksi</th></tr></thead>
+        <tbody>
+        ${db.attendance.slice().reverse().map(a => {
+          const r = Object.values(a.records);
+          return `<tr>
+            <td>${a.date}</td>
+            <td class="font-semibold text-white">${getClassName(a.classId)}</td>
+            <td>${getSubjectName(a.subjectId)}</td>
+            <td class="text-emerald-400 font-semibold">${r.filter(v=>v==='H').length}</td>
+            <td class="text-amber-400 font-semibold">${r.filter(v=>v==='S').length}</td>
+            <td class="text-sky-400 font-semibold">${r.filter(v=>v==='I').length}</td>
+            <td class="text-rose-400 font-semibold">${r.filter(v=>v==='A').length}</td>
+            <td class="text-right">
+              <button onclick="viewAttDetail('${a.id}')" class="btn btn-secondary btn-sm mr-1" title="Detail"><i class="fas fa-eye text-xs"></i></button>
+              <button onclick="delAtt('${a.id}')" class="btn btn-danger btn-sm" title="Hapus"><i class="fas fa-trash-alt text-xs"></i></button>
+            </td>
+          </tr>`;
+        }).join('')}
+        </tbody>
+      </table>`}
+    </div>
+  </div>`;
+}
+
+function renderAttStudents() {
+  const list = document.getElementById('att-students-list');
+  if(!attClassFilter) { list.innerHTML=''; return; }
+  const students = getStudentsByClass(attClassFilter);
+  if(students.length===0) { list.innerHTML='<p class="text-sm text-slate-500 text-center py-4">Tidak ada siswa di kelas ini</p>'; return; }
+
+  // Cek apakah sudah ada absensi untuk kombinasi ini
+  const existing = db.attendance.find(a => a.date===attDate && a.classId===attClassFilter && a.subjectId===(attSubjectFilter||db.subjects[0]?.id));
+
+  list.innerHTML = `
+    <div class="overflow-x-auto">
+      <table class="data-table">
+        <thead><tr><th>No</th><th>NISN</th><th>Nama</th><th>Status Kehadiran</th></tr></thead>
+        <tbody>
+        ${students.map((s,i) => {
+          const val = existing && existing.records[s.id] ? existing.records[s.id] : 'H';
+          return `<tr>
+            <td>${i+1}</td>
+            <td>${s.nisn}</td>
+            <td class="font-semibold text-white">${s.name}</td>
+            <td>
+              <div class="att-radio">
+                ${['H','S','I','A'].map(st => `
+                  <input type="radio" name="att-${s.id}" id="att-${s.id}-${st}" value="${st}" ${val===st?'checked':''}>
+                  <label for="att-${s.id}-${st}">${st}</label>
+                `).join('')}
+              </div>
+            </td>
+          </tr>`;
+        }).join('')}
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-4 flex justify-end">
+      <button onclick="saveAttendance()" class="btn btn-primary"><i class="fas fa-save"></i>Simpan Absensi</button>
+    </div>`;
+}
+
+function saveAttendance() {
+  const classId = document.getElementById('att-class').value;
+  const subjectId = document.getElementById('att-subject').value;
+  const date = document.getElementById('att-date').value;
+  if(!classId||!subjectId||!date) { toast('Pilih kelas, mapel, dan tanggal terlebih dahulu','error'); return; }
+
+  const students = getStudentsByClass(classId);
+  const records = {};
+  students.forEach(s => {
+    const checked = document.querySelector(`input[name="att-${s.id}"]:checked`);
+    records[s.id] = checked ? checked.value : 'H';
+  });
+
+  // Cek existing
+  const existIdx = db.attendance.findIndex(a => a.date===date && a.classId===classId && a.subjectId===subjectId);
+  if(existIdx >= 0) {
+    db.attendance[existIdx].records = records;
+  } else {
+    db.attendance.push({ id:genId(), date, classId, subjectId, records });
+  }
+  saveDB(); renderPage(); toast('Absensi berhasil disimpan');
+}
+
+function viewAttDetail(id) {
+  const a = db.attendance.find(x=>x.id===id);
+  if(!a) return;
+  const students = getStudentsByClass(a.classId);
+  const statusLabel = {H:'Hadir',S:'Sakit',I:'Izin',A:'Alpha'};
+  const statusClass = {H:'badge-hadir',S:'badge-sakit',I:'badge-izin',A:'badge-alpha'};
+  showModal(`Detail Absensi - ${getClassName(a.classId)}`,
+    `<p class="text-xs text-slate-500 mb-3">${a.date} | ${getSubjectName(a.subjectId)}</p>
+    <div class="space-y-2">
+    ${students.map(s => `<div class="flex items-center justify-between py-2 border-b border-navy-500/30">
+      <span class="text-sm">${s.name}</span>
+      <span class="badge ${statusClass[a.records[s.id]||'H']}">${statusLabel[a.records[s.id]||'H']}</span>
+    </div>`).join('')}
+    </div>`,
+    `<button onclick="closeModal()" class="btn btn-secondary btn-sm">Tutup</button>`
+  );
+}
+
+function delAtt(id) {
+  confirmDelete('Yakin ingin menghapus data absensi ini?', () => {
+    db.attendance = db.attendance.filter(x=>x.id!==id);
+    saveDB(); renderPage(); toast('Absensi dihapus');
+  });
+}
+
+// ===== NILAI =====
+let valClassFilter = '', valSubjectFilter = '', valType = 'UTS';
+
+function renderNilai() {
+  return `
+  <div class="card mb-5 animate-in">
+    <h3 class="text-sm font-bold text-white mb-4"><i class="fas fa-pen-to-square text-emerald-400 mr-2"></i>Input Nilai</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+      <div><label class="form-label">Kelas</label>
+        <select id="val-class" onchange="valClassFilter=this.value;renderValStudents()" class="form-input form-select">
+          <option value="">-- Pilih Kelas --</option>
+          ${db.classes.map(c=>`<option value="${c.id}" ${valClassFilter===c.id?'selected':''}>${c.name}</option>`).join('')}
+        </select>
+      </div>
+      <div><label class="form-label">Mata Pelajaran</label>
+        <select id="val-subject" onchange="valSubjectFilter=this.value;renderValStudents()" class="form-input form-select">
+          <option value="">-- Pilih Mapel --</option>
+          ${db.subjects.map(s=>`<option value="${s.id}" ${valSubjectFilter===s.id?'selected':''}>${s.name}</option>`).join('')}
+        </select>
+      </div>
+      <div><label class="form-label">Jenis Nilai</label>
+        <select id="val-type" onchange="valType=this.value;renderValStudents()" class="form-input form-select">
+          ${['Tugas 1','Tugas 2','Tugas 3','UH 1','UH 2','UTS','UAS'].map(t=>`<option value="${t}" ${valType===t?'selected':''}>${t}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    <div id="val-students-list"></div>
+  </div>
+  <div class="card animate-in animate-in-2">
+    <h3 class="text-sm font-bold text-white mb-4"><i class="fas fa-list-check text-amber-400 mr-2"></i>Rekap Nilai</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <div><label class="form-label">Filter Kelas</label>
+        <select id="val-rekap-class" onchange="renderValRekap()" class="form-input form-select">
+          <option value="">-- Semua --</option>
+          ${db.classes.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}
+        </select>
+      </div>
+      <div><label class="form-label">Filter Mapel</label>
+        <select id="val-rekap-subject" onchange="renderValRekap()" class="form-input form-select">
+          <option value="">-- Semua --</option>
+          ${db.subjects.map(s=>`<option value="${s.id}">${s.name}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    <div id="val-rekap-table"></div>
+  </div>`;
+}
+
+function renderValStudents() {
+  const list = document.getElementById('val-students-list');
+  if(!valClassFilter||!valSubjectFilter) { list.innerHTML=''; return; }
+  const students = getStudentsByClass(valClassFilter);
+  if(students.length===0) { list.innerHTML='<p class="text-sm text-slate-500 text-center py-4">Tidak ada siswa di kelas ini</p>'; return; }
+
+  const existing = db.grades.find(g => g.classId===valClassFilter && g.subjectId===valSubjectFilter && g.type===valType);
+
+  list.innerHTML = `
+    <div class="overflow-x-auto">
+      <table class="data-table">
+        <thead><tr><th>No</th><th>NISN</th><th>Nama</th><th>Nilai</th></tr></thead>
+        <tbody>
+        ${students.map((s,i) => {
+          const val = existing && existing.records[s.id]!==undefined ? existing.records[s.id] : '';
+          return `<tr>
+            <td>${i+1}</td>
+            <td>${s.nisn}</td>
+            <td class="font-semibold text-white">${s.name}</td>
+            <td><input type="number" min="0" max="100" class="form-input text-center" style="width:80px" id="val-score-${s.id}" value="${val}" placeholder="0-100"></td>
+          </tr>`;
+        }).join('')}
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-4 flex justify-end">
+      <button onclick="saveGrades()" class="btn btn-primary"><i class="fas fa-save"></i>Simpan Nilai</button>
+    </div>`;
+
+  // Auto render rekap too
+  setTimeout(renderValRekap, 50);
+}
+
+function saveGrades() {
+  const classId = document.getElementById('val-class').value;
+  const subjectId = document.getElementById('val-subject').value;
+  const type = document.getElementById('val-type').value;
+  if(!classId||!subjectId) { toast('Pilih kelas dan mapel terlebih dahulu','error'); return; }
+
+  const students = getStudentsByClass(classId);
+  const records = {};
+  students.forEach(s => {
+    const input = document.getElementById(`val-score-${s.id}`);
+    if(input && input.value !== '') records[s.id] = Number(input.value);
+  });
+
+  const existIdx = db.grades.findIndex(g => g.classId===classId && g.subjectId===subjectId && g.type===type);
+  if(existIdx >= 0) {
+    db.grades[existIdx].records = records;
+  } else {
+    db.grades.push({ id:genId(), classId, subjectId, type, records });
+  }
+  saveDB(); renderPage(); toast('Nilai berhasil disimpan');
+}
+
+function renderValRekap() {
+  const wrap = document.getElementById('val-rekap-table');
+  if(!wrap) return;
+  const fc = document.getElementById('val-rekap-class')?.value || '';
+  const fs = document.getElementById('val-rekap-subject')?.value || '';
+
+  let grades = db.grades;
+  if(fc) grades = grades.filter(g=>g.classId===fc);
+  if(fs) grades = grades.filter(g=>g.subjectId===fs);
+
+  if(grades.length===0) { wrap.innerHTML='<p class="text-sm text-slate-500 text-center py-4">Tidak ada data nilai</p>'; return; }
+
+  // Group by classId + subjectId
+  const groups = {};
+  grades.forEach(g => {
+    const key = g.classId + '|' + g.subjectId;
+    if(!groups[key]) groups[key] = { classId:g.classId, subjectId:g.subjectId, types:{} };
+    groups[key].types[g.type] = g.records;
+  });
+
+  // Get all unique types
+  const allTypes = [...new Set(grades.map(g=>g.type))];
+
+  let html = `<div class="overflow-x-auto"><table class="data-table">
+    <thead><tr><th>Kelas</th><th>Mapel</th><th>Nama Siswa</th>
+    ${allTypes.map(t=>`<th class="text-center">${t}</th>`).join('')}
+    <th class="text-center">Rata-rata</th></tr></thead><tbody>`;
+
+  Object.values(groups).forEach(grp => {
+    const students = getStudentsByClass(grp.classId);
+    students.forEach(s => {
+      let sum = 0, cnt = 0;
+      html += `<tr><td>${getClassName(grp.classId)}</td><td>${getSubjectName(grp.subjectId)}</td><td class="font-semibold text-white">${s.name}</td>`;
+      allTypes.forEach(t => {
+        const val = grp.types[t] && grp.types[t][s.id] !== undefined ? grp.types[t][s.id] : '-';
+        if(val !== '-') { sum += Number(val); cnt++; }
+        html += `<td class="text-center ${val!=='-'&&Number(val)<75?'text-rose-400':'text-emerald-400'} font-semibold">${val}</td>`;
+      });
+      const avg = cnt > 0 ? (sum/cnt).toFixed(1) : '-';
+      html += `<td class="text-center font-bold ${avg!=='-'&&Number(avg)>=75?'text-emerald-400':'text-rose-400'}">${avg}</td></tr>`;
+    });
+  });
+
+  html += '</tbody></table></div>';
+  wrap.innerHTML = html;
+}
+
+// ===== IMPORT / EXPORT =====
+function renderImportExport() {
+  return `
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+    <!-- Import -->
+    <div class="card animate-in">
+      <h3 class="text-sm font-bold text-white mb-4"><i class="fas fa-file-import text-emerald-400 mr-2"></i>Import Data dari Excel</h3>
+      <div class="space-y-4">
+        <div>
+          <label class="form-label">Jenis Data</label>
+          <select id="imp-type" class="form-input form-select">
+            <option value="siswa">Data Siswa</option>
+            <option value="absensi">Data Absensi</option>
+            <option value="nilai">Data Nilai</option>
+          </select>
+        </div>
+        <div id="imp-template-info" class="bg-navy-800/50 rounded-xl p-4 border border-navy-500/30">
+          <p class="text-xs font-semibold text-emerald-400 mb-2">Format Kolom Wajib:</p>
+          <p id="imp-cols" class="text-xs text-slate-400">NISN | Nama | Kelas</p>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="downloadTemplate()" class="btn btn-secondary btn-sm"><i class="fas fa-download"></i>Download Template</button>
+        </div>
+        <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()"
+             ondragover="event.preventDefault();this.classList.add('dragover')"
+             ondragleave="this.classList.remove('dragover')"
+             ondrop="event.preventDefault();this.classList.remove('dragover');handleFileDrop(event)">
+          <i class="fas fa-cloud-arrow-up text-3xl text-slate-600 mb-3"></i>
+          <p class="text-sm text-slate-400">Klik atau seret file .xlsx ke sini</p>
+          <p class="text-xs text-slate-600 mt-1">Mendukung format .xlsx dan .xls</p>
+        </div>
+        <input type="file" id="file-input" accept=".xlsx,.xls" class="hidden" onchange="handleFileSelect(event)">
+        <div id="imp-preview"></div>
+      </div>
+    </div>
+
+    <!-- Export -->
+    <div class="card animate-in animate-in-2">
+      <h3 class="text-sm font-bold text-white mb-4"><i class="fas fa-file-export text-amber-400 mr-2"></i>Export Data ke Excel</h3>
+      <div class="space-y-4">
+        <div>
+          <label class="form-label">Jenis Data</label>
+          <select id="exp-type" class="form-input form-select" onchange="updateExpFilters()">
+            <option value="siswa">Data Siswa</option>
+            <option value="absensi">Rekap Absensi</option>
+            <option value="nilai">Rekap Nilai</option>
+            <option value="all">Semua Data</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label">Filter Kelas</label>
+          <select id="exp-class" class="form-input form-select">
+            <option value="">Semua Kelas</option>
+            ${db.classes.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}
+          </select>
+        </div>
+        <div>
+          <label class="form-label">Filter Mapel</label>
+          <select id="exp-subject" class="form-input form-select">
+            <option value="">Semua Mapel</option>
+            ${db.subjects.map(s=>`<option value="${s.id}">${s.name}</option>`).join('')}
+          </select>
+        </div>
+        <button onclick="exportData()" class="btn btn-amber w-full justify-center"><i class="fas fa-file-excel"></i>Export ke Excel</button>
+
+        <div class="border-t border-navy-500/30 pt-4 mt-4">
+          <h4 class="text-xs font-semibold text-slate-400 mb-3">Export Cepat</h4>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="quickExport('siswa')" class="btn btn-secondary btn-sm text-xs justify-center"><i class="fas fa-users"></i>Data Siswa</button>
+            <button onclick="quickExport('absensi')" class="btn btn-secondary btn-sm text-xs justify-center"><i class="fas fa-clipboard-check"></i>Rekap Absensi</button>
+            <button onclick="quickExport('nilai')" class="btn btn-secondary btn-sm text-xs justify-center"><i class="fas fa-chart-bar"></i>Rekap Nilai</button>
+            <button onclick="quickExport('all')" class="btn btn-secondary btn-sm text-xs justify-center"><i class="fas fa-database"></i>Semua Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+// Update kolom info saat ganti jenis import
+document.addEventListener('change', e => {
+  if(e.target.id === 'imp-type') {
+    const cols = document.getElementById('imp-cols');
+    const v = e.target.value;
+    if(v==='siswa') cols.textContent = 'NISN | Nama | Kelas';
+    else if(v==='absensi') cols.textContent = 'Tanggal | Kelas | Mapel | NISN | Nama | Status (H/S/I/A)';
+    else if(v==='nilai') cols.textContent = 'Kelas | Mapel | Jenis | NISN | Nama | Nilai';
+  }
+});
+
+// ===== IMPORT LOGIC =====
+let importedData = null;
+
+function downloadTemplate() {
+  const type = document.getElementById('imp-type')?.value || 'siswa';
+  let headers, rows;
+  if(type==='siswa') {
+    headers = ['NISN','Nama','Kelas'];
+    rows = [['001','Ahmad Fauzi','X-A'],['002','Bella Putri','X-A']];
+  } else if(type==='absensi') {
+    headers = ['Tanggal','Kelas','Mapel','NISN','Nama','Status'];
+    rows = [['2024-01-15','X-A','Matematika','001','Ahmad Fauzi','H'],['2024-01-15','X-A','Matematika','002','Bella Putri','S']];
+  } else {
+    headers = ['Kelas','Mapel','Jenis','NISN','Nama','Nilai'];
+    rows = [['X-A','Matematika','UTS','001','Ahmad Fauzi',85],['X-A','Matematika','UTS','002','Bella Putri',90]];
+  }
+  const ws = XLSX.utils.aoa_to_sheet([headers, ...rows]);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Template');
+  XLSX.writeFile(wb, `template_${type}.xlsx`);
+  toast('Template berhasil didownload');
+}
+
+function handleFileDrop(e) {
+  const file = e.dataTransfer.files[0];
+  if(file) processFile(file);
+}
+
+function handleFileSelect(e) {
+  const file = e.target.files[0];
+  if(file) processFile(file);
+}
+
+function processFile(file) {
+  if(!file.name.match(/\.xlsx?$/i)) { toast('File harus berformat .xlsx atau .xls','error'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const wb = XLSX.read(e.target.result, { type:'array' });
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      const data = XLSX.utils.sheet_to_json(ws);
+      if(data.length===0) { toast('File kosong','error'); return; }
+      importedData = data;
+      showImportPreview(data);
+    } catch(err) {
+      toast('Gagal membaca file: '+err.message,'error');
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function showImportPreview(data) {
+  const type = document.getElementById('imp-type')?.value || 'siswa';
+  const preview = document.getElementById('imp-preview');
+  const maxShow = Math.min(data.length, 5);
+  const cols = Object.keys(data[0]);
+
+  preview.innerHTML = `
+    <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3 mb-3">
+      <p class="text-xs text-emerald-400 font-semibold"><i class="fas fa-check-circle mr-1"></i>${data.length} baris data ditemukan</p>
+    </div>
+    <div class="overflow-x-auto mb-3" style="max-height:200px;overflow-y:auto">
+      <table class="data-table">
+        <thead><tr>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead>
+        <tbody>${data.slice(0,maxShow).map(row => `<tr>${cols.map(c=>`<td>${row[c]??''}</td>`).join('')}</tr>`).join('')}</tbody>
+      </table>
+    </div>
+    ${data.length>5?`<p class="text-xs text-slate-500 mb-3">... dan ${data.length-5} baris lainnya</p>`:''}
+    <button onclick="doImport('${type}')" class="btn btn-primary w-full justify-center"><i class="fas fa-file-import"></i>Import ${data.length} Data</button>`;
+}
+
+function doImport(type) {
+  if(!importedData) return;
+  let count = 0, errors = 0;
+
+  if(type==='siswa') {
+    importedData.forEach(row => {
+      const nisn = String(row['NISN']||row['nisn']||'').trim();
+      const name = String(row['Nama']||row['nama']||row['NAMA']||'').trim();
+      const kelas = String(row['Kelas']||row['kelas']||row['KELAS']||'').trim();
+      if(!name) { errors++; return; }
+      let classId = db.classes.find(c=>c.name===kelas)?.id;
+      if(!classId && kelas) {
+        // Auto buat kelas baru
+        classId = genId();
+        db.classes.push({ id:classId, name:kelas, level:kelas.replace(/[^XVI]/g,'')||'X' });
+      }
+      if(classId) {
+        db.students.push({ id:genId(), nisn, name, classId });
+        count++;
+      } else { errors++; }
+    });
+  } else if(type==='absensi') {
+    // Group by date+class+subject
+    const groups = {};
+    importedData.forEach(row => {
+      const date = String(row['Tanggal']||row['tanggal']||new Date().toISOString().split('T')[0]).trim();
+      const kelas = String(row['Kelas']||row['kelas']||'').trim();
+      const mapel = String(row['Mapel']||row['mapel']||'').trim();
+      const nisn = String(row['NISN']||row['nisn']||'').trim();
+      const nama = String(row['Nama']||row['nama']||'').trim();
+      const status = String(row['Status']||row['status']||'H').trim().toUpperCase();
+      const key = `${date}|${kelas}|${mapel}`;
+      if(!groups[key]) groups[key] = { date, kelas, mapel, records:[] };
+      groups[key].records.push({ nisn, nama, status: ['H','S','I','A'].includes(status)?status:'H' });
+    });
+    Object.values(groups).forEach(grp => {
+      let classId = db.classes.find(c=>c.name===grp.kelas)?.id;
+      if(!classId && grp.kelas) { classId=genId(); db.classes.push({id:classId,name:grp.kelas,level:grp.kelas.replace(/[^XVI]/g,'')||'X'}); }
+      let subjectId = db.subjects.find(s=>s.name===grp.mapel)?.id;
+      if(!subjectId && grp.mapel) { subjectId=genId(); db.subjects.push({id:subjectId,name:grp.mapel,teacher:'-'}); }
+      if(!classId||!subjectId) { errors++; return; }
+      const records = {};
+      grp.records.forEach(r => {
+        const st = db.students.find(s=>s.nisn===r.nisn||s.name===r.nama);
+        if(st) records[st.id] = r.status;
+        else {
+          // Auto buat siswa
+          const sid = genId();
+          db.students.push({id:sid,nisn:r.nisn,name:r.nama,classId});
+          records[sid] = r.status;
+        }
+      });
+      db.attendance.push({id:genId(),date:grp.date,classId,subjectId,records});
+      count++;
+    });
+  } else if(type==='nilai') {
+    const groups = {};
+    importedData.forEach(row => {
+      const kelas = String(row['Kelas']||row['kelas']||'').trim();
+      const mapel = String(row['Mapel']||row['mapel']||'').trim();
+      const jenis = String(row['Jenis']||row['jenis']||row['Type']||'UTS').trim();
+      const nisn = String(row['NISN']||row['nisn']||'').trim();
+      const nama = String(row['Nama']||row['nama']||'').trim();
+      const nilai = Number(row['Nilai']||row['nilai']||row['Score']||0);
+      const key = `${kelas}|${mapel}|${jenis}`;
+      if(!groups[key]) groups[key] = { kelas, mapel, jenis, records:[] };
+      groups[key].records.push({ nisn, nama, nilai });
+    });
+    Object.values(groups).forEach(grp => {
+      let classId = db.classes.find(c=>c.name===grp.kelas)?.id;
+      if(!classId && grp.kelas) { classId=genId(); db.classes.push({id:classId,name:grp.kelas,level:grp.kelas.replace(/[^XVI]/g,'')||'X'}); }
+      let subjectId = db.subjects.find(s=>s.name===grp.mapel)?.id;
+      if(!subjectId && grp.mapel) { subjectId=genId(); db.subjects.push({id:subjectId,name:grp.mapel,teacher:'-'}); }
+      if(!classId||!subjectId) { errors++; return; }
+      const records = {};
+      grp.records.forEach(r => {
+        const st = db.students.find(s=>s.nisn===r.nisn||s.name===r.nama);
+        if(st) records[st.id] = r.nilai;
+        else {
+          const sid = genId();
+          db.students.push({id:sid,nisn:r.nisn,name:r.nama,classId});
+          records[sid] = r.nilai;
+        }
+      });
+      db.grades.push({id:genId(),classId,subjectId,type:grp.jenis,records});
+      count++;
+    });
+  }
+
+  saveDB();
+  importedData = null;
+  renderPage();
+  toast(`Import berhasil: ${count} data diproses${errors>0?`, ${errors} error`:''}`);
+}
+
+// ===== EXPORT LOGIC =====
+function exportData() {
+  const type = document.getElementById('exp-type')?.value || 'siswa';
+  const fc = document.getElementById('exp-class')?.value || '';
+  const fs = document.getElementById('exp-subject')?.value || '';
+  doExport(type, fc, fs);
+}
+
+function quickExport(type) {
+  doExport(type, '', '');
+}
+
+function doExport(type, filterClass, filterSubject) {
+  const wb = XLSX.utils.book_new();
+
+  if(type==='siswa' || type==='all') {
+    let students = db.students;
+    if(filterClass) students = students.filter(s=>s.classId===filterClass);
+    const rows = students.map(s => ({
+      NISN: s.nisn,
+      Nama: s.name,
+      Kelas: getClassName(s.classId)
+    }));
+    const ws = XLSX.utils.json_to_sheet(rows.length?rows:[{NISN:'',Nama:'',Kelas:''}]);
+    ws['!cols'] = [{wch:12},{wch:25},{wch:12}];
+    XLSX.utils.book_append_sheet(wb, ws, 'Data Siswa');
+  }
+
+  if(type==='absensi' || type==='all') {
+    let atts = db.attendance;
+    if(filterClass) atts = atts.filter(a=>a.classId===filterClass);
+    if(filterSubject) atts = atts.filter(a=>a.subjectId===filterSubject);
+    const rows = [];
+    atts.forEach(a => {
+      const students = getStudentsByClass(a.classId);
+      students.forEach(s => {
+        rows.push({
+          Tanggal: a.date,
+          Kelas: getClassName(a.classId),
+          Mapel: getSubjectName(a.subjectId),
+          NISN: s.nisn,
+          Nama: s.name,
+          Status: a.records[s.id] || '-'
+        });
+      });
+    });
+    const ws = XLSX.utils.json_to_sheet(rows.length?rows:[{Tanggal:'',Kelas:'',Mapel:'',NISN:'',Nama:'',Status:''}]);
+    ws['!cols'] = [{wch:12},{wch:10},{wch:18},{wch:12},{wch:25},{wch:8}];
+    XLSX.utils.book_append_sheet(wb, ws, 'Rekap Absensi');
+  }
+
+  if(type==='nilai' || type==='all') {
+    let grades = db.grades;
+    if(filterClass) grades = grades.filter(g=>g.classId===filterClass);
+    if(filterSubject) grades = grades.filter(g=>g.subjectId===filterSubject);
+    const rows = [];
+    grades.forEach(g => {
+      const students = getStudentsByClass(g.classId);
+      students.forEach(s => {
+        rows.push({
+          Kelas: getClassName(g.classId),
+          Mapel: getSubjectName(g.subjectId),
+          Jenis: g.type,
+          NISN: s.nisn,
+          Nama: s.name,
+          Nilai: g.records[s.id] !== undefined ? g.records[s.id] : '-'
+        });
+      });
+    });
+    const ws = XLSX.utils.json_to_sheet(rows.length?rows:[{Kelas:'',Mapel:'',Jenis:'',NISN:'',Nama:'',Nilai:''}]);
+    ws['!cols'] = [{wch:10},{wch:18},{wch:10},{wch:12},{wch:25},{wch:8}];
+    XLSX.utils.book_append_sheet(wb, ws, 'Rekap Nilai');
+  }
+
+  if(type==='all') {
+    // Kelas
+    const cws = XLSX.utils.json_to_sheet(db.classes.map(c=>({Nama_Kelas:c.name,Tingkat:c.level,Jumlah_Siswa:getStudentsByClass(c.id).length})));
+    XLSX.utils.book_append_sheet(wb, cws, 'Data Kelas');
+    // Mapel
+    const mws = XLSX.utils.json_to_sheet(db.subjects.map(s=>({Mata_Pelajaran:s.name,Guru:s.teacher})));
+    XLSX.utils.book_append_sheet(wb, mws, 'Data Mapel');
+  }
+
+  const fname = type==='all' ? 'edutrack_semua_data' : `edutrack_${type}`;
+  XLSX.writeFile(wb, `${fname}_${new Date().toISOString().split('T')[0]}.xlsx`);
+  toast('File Excel berhasil di-export');
+}
+
+function updateExpFilters() {
+  // sudah dihandle oleh exportData
+}
+
+// ===== PWA SETUP =====
+function setupPWA() {
+  // Buat manifest
+  const iconCanvas = document.createElement('canvas');
+  iconCanvas.width = 192; iconCanvas.height = 192;
+  const ictx = iconCanvas.getContext('2d');
+  // Latar
+  ictx.fillStyle = '#10B981';
+  ictx.fillRect(0,0,192,192);
+  // Ikon
+  ictx.fillStyle = '#fff';
+  ictx.font = 'bold 80px Poppins, sans-serif';
+  ictx.textAlign = 'center';
+  ictx.textBaseline = 'middle';
+  ictx.fillText('E', 96, 96);
+
+  const iconUrl = iconCanvas.toDataURL('image/png');
+
+  const manifest = {
+    name: 'EduTrack - Sistem Absensi & Nilai',
+    short_name: 'EduTrack',
+    description: 'Aplikasi PWA untuk sistem absensi dan nilai siswa per mapel dan kelas',
+    start_url: '.',
+    display: 'standalone',
+    background_color: '#0B1120',
+    theme_color: '#10B981',
+    icons: [
+      { src: iconUrl, sizes: '192x192', type: 'image/png' },
+      { src: iconUrl, sizes: '512x512', type: 'image/png' }
+    ]
+  };
+
+  const manifestBlob = new Blob([JSON.stringify(manifest)], {type:'application/json'});
+  const manifestUrl = URL.createObjectURL(manifestBlob);
+  const link = document.createElement('link');
+  link.rel = 'manifest';
+  link.href = manifestUrl;
+  document.head.appendChild(link);
+
+  // Apple touch icon
+  const appleIcon = document.createElement('link');
+  appleIcon.rel = 'apple-touch-icon';
+  appleIcon.href = iconUrl;
+  document.head.appendChild(appleIcon);
+
+  // Service Worker
+  if('serviceWorker' in navigator) {
+    const swCode = `
+      const CACHE_NAME = 'edutrack-v1';
+      const ASSETS = [self.location.href.replace('/sw.js','')];
+
+      self.addEventListener('install', event => {
+        self.skipWaiting();
+      });
+
+      self.addEventListener('activate', event => {
+        event.waitUntil(clients.claim());
+      });
+
+      self.addEventListener('fetch', event => {
+        event.respondWith(
+          caches.match(event.request).then(cached => {
+            return cached || fetch(event.request).then(response => {
+              if(response.ok && event.request.method === 'GET') {
+                const clone = response.clone();
+                caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+              }
+              return response;
+            }).catch(() => cached);
+          })
+        );
+      });
+    `;
+    const swBlob = new Blob([swCode], {type:'application/javascript'});
+    const swUrl = URL.createObjectURL(swBlob);
+    navigator.serviceWorker.register(swUrl).catch(()=>{});
+  }
+}
+
+// ===== INIT =====
+function init() {
+  loadDB();
+  setupPWA();
+  // Set tanggal
+  const now = new Date();
+  const opts = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+  document.getElementById('current-date').textContent = now.toLocaleDateString('id-ID', opts);
+  renderPage();
+}
+
+// Close modal on overlay click
+document.getElementById('modal-overlay').addEventListener('click', e => {
+  if(e.target === document.getElementById('modal-overlay')) closeModal();
+});
+
+// Keyboard support
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closeModal();
+});
+
+init();
+</script>
+</body>
+</html>
