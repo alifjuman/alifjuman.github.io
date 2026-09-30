@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-24T08:57:51.506Z",
+  "updatedAt": "2026-09-30T12:32:44.439Z",
   "apps": [
+    {
+      "id": "muo3507w",
+      "name": "EduTrack : Absensi dan Nilai Siswa",
+      "url": "apps/absensipwa.html",
+      "description": "Aplikasi absensi dan nilai siswa, mendukung eksport import data excel",
+      "category": "Produktivitas",
+      "icon": "🔗",
+      "color": "#8b5cf6",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1790771540828
+    },
     {
       "id": "mufatow9",
       "name": "Display Masjid",
