@@ -1,6 +1,19 @@
 {
-  "updatedAt": "2026-09-30T12:32:44.439Z",
+  "updatedAt": "2026-10-03T05:49:42.391Z",
   "apps": [
+    {
+      "id": "murz2hmx",
+      "name": "Scan OCR PDF",
+      "url": "./apps/ocrpdf.html",
+      "description": "Scan OCR PDF membuat pdf searchable",
+      "category": "Produktivitas",
+      "icon": "✅",
+      "color": "#8b5cf6",
+      "pinned": false,
+      "favorite": false,
+      "clicks": 0,
+      "createdAt": 1791006569673
+    },
     {
       "id": "muo3507w",
       "name": "EduTrack : Absensi dan Nilai Siswa",
